@@ -54,18 +54,6 @@ swiper {
   font-size: 13px;
   color: #737373;
 }
-.singal_item {
-  text-align: center;
-  background-color: #FFF;
-  margin-bottom: 10px;
-}
-.singal_item_title {
-  padding: 12px;
-  font-size: 16px;
-}
-.singal_item_image {
-  line-height: 0;
-}
 .commen_title {
   padding: 10px;
   background-color: #fff;

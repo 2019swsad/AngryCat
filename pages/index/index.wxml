@@ -27,7 +27,7 @@
   </view>
   <view class="single_goods">
     <view class="single_image_wrap">
-      <image src="../../image/zhutu.jpg" class="single_goods_image"></image>
+      <image src="../../image/test.jpg" class="single_goods_image"></image>
     </view>
     <view class="single_goods_infor">
       <navigator url="../spdetail/spdetail">
