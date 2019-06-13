@@ -1,1 +1,38 @@
 /* pages/account/account.wxss */
+.personal_info {
+	padding: 10px 0;
+	background-color: #FFF;
+}
+.photo_wrap {
+	text-align: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.nickname {
+	text-align: center;
+	color: #696969;
+}
+.wode_item_wrap {
+	background-color: #FFF;
+	font-size: 14px;
+	margin-top: 10px;
+	border-top: 1px solid #E5E5E5;
+}
+.wode_item {
+    height: 45px;
+	border-bottom: 1px solid #E5E5E5;
+	padding: 0 10px;
+	line-height: 45px;
+	position: relative;
+}
+.arrow_wrap {
+    position: absolute;
+    width: 50px;
+    height: 45px;
+    right: 0;
+    top: 0;
+}

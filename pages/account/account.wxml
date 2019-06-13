@@ -1,2 +1,15 @@
 <!--pages/account/account.wxml-->
-<text>pages/account/account.wxml</text>
+<view class="personal_info">
+	<view class="photo_wrap">
+		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+	</view>
+	<view class="nickname">
+		{{userInfo.nickName}}
+	</view>
+</view>
+<navigator class="wode_item_wrap" url="">
+	<view class="wode_item" wx:for="{{mode}}">
+		{{item}}
+		<span class="arrow_wrap"></span>
+	</view>
+</navigator>
