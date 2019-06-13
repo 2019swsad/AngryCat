@@ -4,11 +4,56 @@ const app = getApp()
 
 Page({
   data: {
+    imgUrls: [
+      '../../image/ad1.jpg',
+      '../../image/ad2.jpg',
+      '../../image/ad3.jpg'
+    ],
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    interval: 3000,
+    duration: 1200,
+    iconArray: [
+      {
+        "iconUrl": '../../image/icon-qiandao.png',
+        "iconText": '签到'
+      },
+      {
+        "iconUrl": '../../image/icon-fujin.png',
+        "iconText": '附近'
+      },
+      {
+        "iconUrl": '../../image/icon-zhanhui.png',
+        "iconText": '游展'
+      },
+      {
+        "iconUrl": '../../image/icon-fuli.png',
+        "iconText": '福利'
+      },
+      {
+        "iconUrl": '../../image/icon-muma.png',
+        "iconText": '玩乐'
+      },
+      {
+        "iconUrl": '../../image/icon-xingxing.png',
+        "iconText": '周边'
+      },
+      {
+        "iconUrl": '../../image/icon-tiyu.png',
+        "iconText": '体育'
+      },
+      {
+        "iconUrl": '../../image/icon-qinzi.png',
+        "iconText": '亲子'
+      }
+    ],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
