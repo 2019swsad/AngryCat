@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/task/task",
+    "pages/account/account"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,13 +21,13 @@
         "selectedIconPath": "./image/12.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/task/task",
         "text": "任务",
         "iconPath": "./image/21.png",
         "selectedIconPath": "./image/22.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/account/account",
         "text": "我的",
         "iconPath": "./image/31.png",
         "selectedIconPath": "./image/32.png"
