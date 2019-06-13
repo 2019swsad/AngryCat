@@ -13,8 +13,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-	"appid": "wx772b184a7f391d51",
-	"projectname": "AngryCat",
+	"appid": "wx805ae9f7ae961737",
+	"projectname": "TaskCat",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

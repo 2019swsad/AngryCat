@@ -9,5 +9,27 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./image/11.png",
+        "selectedIconPath": "./image/12.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "任务",
+        "iconPath": "./image/21.png",
+        "selectedIconPath": "./image/22.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "我的",
+        "iconPath": "./image/31.png",
+        "selectedIconPath": "./image/32.png"
+      }
+    ]
+  }
 }
