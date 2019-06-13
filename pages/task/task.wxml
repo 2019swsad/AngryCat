@@ -7,10 +7,50 @@
   </view>
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
     <swiper-item>
-      <view>报名的任务</view>
+      <view class="single_goods">
+        <view class="single_image_wrap">
+          <image src="../../image/test.jpg" class="single_goods_image"></image>
+        </view>
+        <view class="single_goods_infor">
+          <navigator url="../spdetail/spdetail">
+            <view class="single_goods_name">
+             <text>帮忙手冲</text>
+            </view>
+            <view class="single_goods_address">
+              <text>报名状况：1/1人</text>
+            </view>
+            <view class="single_goods_price">
+              <text>¥20.00</text>
+              <view class="carImgWrap">
+                <image src="../../image/car.png" class="carImg"></image>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
     </swiper-item>
     <swiper-item>
-      <view>发布的任务</view>
+      <view class="single_goods">
+        <view class="single_image_wrap">
+          <image src="../../image/test.jpg" class="single_goods_image"></image>
+        </view>
+        <view class="single_goods_infor">
+          <navigator url="../spdetail/spdetail">
+            <view class="single_goods_name">
+             <text>填问卷</text>
+            </view>
+            <view class="single_goods_address">
+              <text>报名状况：50/100人</text>
+            </view>
+            <view class="single_goods_price">
+              <text>¥5.00</text>
+              <view class="carImgWrap">
+                <image src="../../image/car.png" class="carImg"></image>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
     </swiper-item>
 
   </swiper>
