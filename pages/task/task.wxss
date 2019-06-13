@@ -22,11 +22,8 @@
 }
  
 swiper {
-    text-align: center;
     background-color: #fff
 }
-
-
 
 .single_goods_image {
   width: 80px;
