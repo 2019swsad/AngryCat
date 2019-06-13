@@ -7,9 +7,8 @@
 		{{userInfo.nickName}}
 	</view>
 </view>
-<navigator class="wode_item_wrap" url="">
-	<view class="wode_item" wx:for="{{mode}}">
+<view class="wode_item_wrap">
+	<navigator class="wode_item" wx:for="{{mode}}" url="">
 		{{item}}
-		<span class="arrow_wrap"></span>
-	</view>
-</navigator>
+	</navigator>
+</view>
