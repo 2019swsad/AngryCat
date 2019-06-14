@@ -1,5 +1,4 @@
 /* pages/taskdetail/taskdetail.wxss */
-
 .textinfo {
   margin-left: 20px;
   font-size: 16px;
@@ -15,6 +14,7 @@
   flex-direction: row;
   align-items: center;
   margin-bottom: 10px;
+  margin-top: 150px;
   
 }
 
@@ -26,4 +26,10 @@
   flex-direction: column;
   width: 50%;
   border-radius: 5px;
+}
+.finishcontain{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
 }
