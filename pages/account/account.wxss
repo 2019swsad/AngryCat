@@ -3,7 +3,7 @@
   background-color: rgb(245, 245, 245);
 }
 .personalInfo {
-	padding: 10px 0;
+	padding: 4% 0%;
 	background-color: #FFF;
   border-bottom: 1px solid rgb(235, 235, 235);
 }
@@ -23,35 +23,45 @@
 }
 
 .personOptionContainer {
+  width: 100%;
   background-color: #FFF;
 	font-size: 14px;
-	margin-top: 10px;
+	margin-top: 3%;
   border-top: 1px solid rgb(235, 235, 235);
   border-bottom: 1px solid rgb(235, 235, 235);
 }
 
 .systemOptionContainer {
+  width: 100%;
   background-color: #FFF;
 	font-size: 14px;
-	margin-top: 10px;
+	margin-top: 3%;
   border-top: 1px solid rgb(235, 235, 235);
   border-bottom: 1px solid rgb(235, 235, 235);
 }
 .option {
   background-color: #FFF;
   height: 45px;
-	padding: 0 10px;
+  width: 100%;
+	padding: 0% 5%;
 	line-height: 45px;
   align-items: center;
   display: flex;
   flex-direction: row;
 }
 .optionTitle {
-  padding-left: 20px;
+  width: 20%;
+  padding-left: 2%;
 }
 .optionLogo {
   width: 25px;
   height: 25px;
+}
+.arrowIcon {
+  width: 15px;
+  height: 20px;
+  padding-left: 60%;
+  padding-right: 0%;
 }
 .line {
   border-bottom: 1px solid rgb(245, 245, 245);
