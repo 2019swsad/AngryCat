@@ -34,7 +34,7 @@
  <text class="finish">完成码</text>
 </view>
 
-<view class="weui-btn" >
+<view class="buttonview" >
  <button>查看报名情况</button>
   <button>查看报名情况</button>
 </view>
