@@ -40,7 +40,7 @@ Page({
         // console.log(typeof(res.cookies[0]))
         // console.log(typeof(res.cookies))
         // console.log(util.handleCookieFromSetCookie(res.cookies))
-        wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')))
+        wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
       }
     })
   },

@@ -1,4 +1,5 @@
 //app.js
+var util = require('/utils/util.js')
 App({
   onLaunch: function() {
     // 展示本地存储能力
@@ -14,15 +15,17 @@ App({
     })
 
     wx.request({
-      url: 'http://211.159.187.254:8081/users/login',
+      url: 'https://www.volley99.com/users/login',
       data: { "username": "yztest", "password": "123" },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         'content-type': 'application/json'
       }, // 设置请求的 header
       success: function(res) {
+        
         if (res.statusCode == 200) {
-
+          wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
+          console.log(util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
           console.log(res.data);
         } else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);

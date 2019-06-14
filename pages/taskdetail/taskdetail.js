@@ -1,12 +1,12 @@
 // pages/taskdetail/taskdetail.js
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
   data: {
     "_id": "5cfe0688d7f67f119cbd4967",
-    "title": "Carl's task",
+    "title": "Cark",
     "type": "Questionaire",
     "salary": 20,
     "description": "Hello World",
@@ -23,13 +23,54 @@ Page({
     "isOrganizer": false,
     "userinfo": {}
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.request({
+      url:"https://www.volley99.com/task/get/17eeefdb-96db-4da4-9d52-2be8c04131b4",
+      method: 'GET',
+      
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
 
+        
+
+        if (res.statusCode === 200 || res.statusCode === 201) {
+          
+          console.log(res.data);
+          
+        
+         
+         
+  
+          
+
+        } else {
+          console.log('提交任务失败, 错误代码' + res.statusCode)
+          wx.showToast({
+            title: '失败:' + res.data.message,
+            duration: 2000,
+            icon: 'none'
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: 'fail',
+          icon: 'none'
+        })
+      },
+      complete: function () {
+        console.log("完成HTTP请求")
+      }
+    })
   },
+
+ 
 
   /**
    * 生命周期函数--监听页面初次渲染完成
