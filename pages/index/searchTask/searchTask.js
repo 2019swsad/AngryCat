@@ -1,31 +1,18 @@
-// pages/account/account.js
-// pages/account/account.js
+// pages/index/searchTask/searchTask.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
-    mode: ['我的关注', '在线客服', '意见反馈', '设置', '关于我们']
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.login({
-      success: function () {
-        wx.getUserInfo({
-          success: function (res) {
-            that.setData({
-              userInfo: res.userInfo
-            })
-          }
-        })
-      }
-    });
+
   },
 
   /**
