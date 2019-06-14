@@ -1,2 +1,10 @@
 <!--login/login.wxml-->
-<text>login/login.wxml</text>
+<view>
+ 
+ <text>账号</text>
+   <input  placeholder="这是一个可以自动聚焦的input" bindinput ="userNameInput"/>
+    <text>密码</text>
+   <input  placeholder="这是一个可以自动聚焦的input" bindinput="passWdInput"/>
+    <button bindtap='login'>登陆</button>
+</view>
+

@@ -41,7 +41,8 @@ Page({
       },
       {
         "iconUrl": '../../image/icon-tiyu.png',
-        "iconText": '体育'
+        "iconText": '登陆',
+        "navigateUrl": '../../login/login'
       },
       {
         "iconUrl": '../../image/icon-qinzi.png',
