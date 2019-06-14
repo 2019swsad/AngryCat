@@ -1,1 +1,58 @@
-/* pages/index/createTask/createTask.wxss */
+@import "../lib/weui.wxss";
+
+.picker {
+  padding: 13rpx;
+  background-color: #fff;
+  border: 1rpx solid #ccc;
+}
+
+input.input[type=text], input.input[type=number]{
+  margin: 4rpx 0;
+  width: 100%;
+  display: inline-block;
+  border: 1rpx solid #ccc;
+  border-radius: 4rpx;
+  box-sizing: content-box;
+  padding: 13rpx;
+}
+
+.section {
+  padding: 6rpx 4rpx;
+}
+
+/* .intro {
+  margin: 30rpx;
+  text-align: center;
+}
+
+.section {
+  flex-direction: row;
+  text-align: left;
+  align-content: center;
+}
+
+.section_time{
+  display: inline-block;
+
+}
+
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14rpx 20rpx;
+  margin: 8rpx 0;
+  border: none;
+  border-radius: 4rpx;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+input.input::-webkit-input-placeholder {
+  font-size: 1rpx;
+  color: orange;
+} */
