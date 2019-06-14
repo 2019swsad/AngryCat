@@ -12,62 +12,60 @@
  
 .swiper-tab-item {
     width: 30%;
-    color: #434343;
+    color: #5dd5c8;
     font-size: 28rpx;
 }
  
 .active {
-    color: #f65959;
-    border-bottom: 4rpx solid #f65959;
+    color: #5dd5c8;
+    border-bottom: 4rpx solid #5dd5c8;
 }
  
 swiper {
     background-color: #fff
 }
 
-.single_goods_image {
-  width: 80px;
-  height: 80px;
-}
-.single_goods {
+.single_task {
   position: relative;
   height: 100px;
   background-color: #FFF;
-  padding-left: 100px;
   border-bottom: 1px solid #E7E7EB;
 }
-.single_image_wrap {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-.single_goods_infor {
+
+.task_infor {
   padding: 10px 0;
   position: relative;
   height: 80px;
 }
-.single_goods_name {
-  font-size: 14px;
+.task_name {
+  font-size: 17px;
+  margin-left:4%;
+  margin-bottom: 2%;
 }
-.single_goods_price {
+.task_price {
   font-size: 14px;
-  color: #FF1493;
+  color: #5dd5c8;
   position: absolute;
-  left: 0;
-  bottom: 10px;
-  width: 100%;
+  top: 12%;
+  right: 10%;
   height: 22px;
   line-height: 22px;
 }
-.single_goods_address {
+.task_state {
+  font-size: 17px;
+  position: absolute;
+  bottom: 22%;
+  right: 11%;
+}
+.task_time {
   color: #929292;
   font-size: 12px;
+  margin-left:4%;
 }
-.carImgWrap {
-  float: right;
-  margin-right: 15px;
+
+.people_number {
+  color: #929292;
+  font-size: 12px;
+  margin-left: 4%;
 }
-.carImg {
-  width: 20px;
-  height: 20px;
-}
+
