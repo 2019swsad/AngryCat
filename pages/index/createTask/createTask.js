@@ -81,7 +81,7 @@ Page({
 
         console.log(JSON.stringify(res))
 
-        if (res.statusCode === 201) {
+        if (res.statusCode === 200 || res.statusCode === 201) {
           wx.showToast({
             title: '成功创建任务',
             duration: 2000,
