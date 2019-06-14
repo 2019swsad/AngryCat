@@ -35,6 +35,7 @@ Page({
       success: function(res) {
 
         if (res.statusCode == 200) {
+          
           wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
 
          

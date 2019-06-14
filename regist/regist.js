@@ -46,9 +46,13 @@ Page({
         'content-type': 'application/json'
       }, // 设置请求的 header
       success: function (res) {
+        wx.navigateTo({
+          url: '../pages/index/index'　　// 页面 B
+        })
 
         if (res.statusCode == 200) {
         
+         
 
 
         } else if (res.statusCode == 400) {
