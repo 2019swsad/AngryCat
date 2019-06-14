@@ -7,7 +7,7 @@
   </view>
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
     <swiper-item>
-      <navigator url="../spdetail/spdetail">
+      <navigator url="../taskdetail/taskdetail">
         <view class="single_task">
           <view class="task_infor">
           
@@ -37,7 +37,7 @@
       </navigator>
     </swiper-item>
     <swiper-item>
-      <navigator url="../spdetail/spdetail">
+      <navigator url="../taskdetail/taskdetail">
         <view class="single_task">
           <view class="task_infor">
           
