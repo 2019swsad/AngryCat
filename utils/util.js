@@ -20,6 +20,17 @@ const convertDateFormatToMDY = dateStringInYMD => {
   return month + '-' + day + '-' + year
 }
 
+const handleCookieFromSetCookie = cookieArray => {
+  
+  function regrexForFirstSemicolon(setCookieString){
+    // regrex = /.+?(?<=;)/
+    var regrex = /(.+?);/
+    return regrex.exec(setCookieString)[0]
+  }
+
+  return cookieArray.map(regrexForFirstSemicolon).reduce((x,y)=>{return x+y})
+}
+
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -27,5 +38,6 @@ const formatNumber = n => {
 
 module.exports = {
   formatTime: formatTime,
-  convertDateFormatToMDY: convertDateFormatToMDY
+  convertDateFormatToMDY: convertDateFormatToMDY,
+  handleCookieFromSetCookie: handleCookieFromSetCookie
 }
