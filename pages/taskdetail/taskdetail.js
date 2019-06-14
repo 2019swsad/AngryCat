@@ -44,11 +44,8 @@ Page({
           console.log(res.data);
           
         
-         
-         
-  
-          
 
+        
         } else {
           console.log('提交任务失败, 错误代码' + res.statusCode)
           wx.showToast({

@@ -37,8 +37,21 @@ Page({
         if (res.statusCode == 200) {
           wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
 
-          console.log(res.data);
-        } else {
+         
+           if(res.data.status=='success'){
+             console.log(res.data);
+
+           }
+
+
+        } else if (res.statusCode == 400){
+          wx.showToast({
+            title: '用户密码错误',
+            duration: 2000,
+            icon: 'fail'
+          })
+        }
+        else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
         }
       },

@@ -37,7 +37,8 @@ Page({
       },
       {
         "iconUrl": '../../image/icon-xingxing.png',
-        "iconText": '周边'
+        "iconText": '周边',
+        "navigateUrl": '../../regist/regist'
       },
       {
         "iconUrl": '../../image/icon-tiyu.png',
