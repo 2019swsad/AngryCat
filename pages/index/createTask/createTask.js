@@ -3,7 +3,7 @@
 var util = require('../../../utils/util.js')
 
 // const DOMAIN = 'https://volley.nyamori.moe'
-const DOMAIN = 'http://211.159.187.254:8081'
+const DOMAIN = 'https://www.volley99.com'
 
 Page({
 
@@ -39,8 +39,8 @@ Page({
 
         // console.log(typeof(res.cookies[0]))
         // console.log(typeof(res.cookies))
-        console.log(util.handleCookieFromSetCookie(res.cookies))
-        wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.cookies))
+        // console.log(util.handleCookieFromSetCookie(res.cookies))
+        wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')))
       }
     })
   },
