@@ -1,16 +1,29 @@
 /* pages/taskdetail/taskdetail.wxss */
+
 .textinfo {
-    margin-left: 20px;
-    font-size: 16px;
+  margin-left: 20px;
+  font-size: 16px;
 }
-.singletext{
+
+.singletext {
   margin-top: 8px;
 }
-.buttonview{
-   flex-flow: row;
+
+.buttonview {
+  flex-flow: row;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  
 }
-.finish{
-  border:1px solid;
-   font-size: 25px;
-   margin:auto;
+
+.finish {
+  border: 1px solid;
+  font-size: 25px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border-radius: 5px;
 }
