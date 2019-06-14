@@ -1,10 +1,15 @@
 /* pages/account/account.wxss */
-.personal_info {
-	padding: 10px 0;
-	background-color: #FFF;
+.userPage {
+  background-color: rgb(245, 245, 245);
 }
-.photo_wrap {
+.personalInfo {
+	padding: 4% 0%;
+	background-color: #FFF;
+  border-bottom: 1px solid rgb(235, 235, 235);
+}
+.photoContainer {
 	text-align: center;
+  justify-content: center;
 }
 .userinfo-avatar {
   width: 128rpx;
@@ -16,25 +21,51 @@
 	text-align: center;
 	color: #696969;
 }
-.wode_item_wrap {
-	background-color: #FFF;
+
+.personOptionContainer {
+  width: 100%;
+  background-color: #FFF;
 	font-size: 14px;
-	margin-top: 10px;
-	border-top: 1px solid #E5E5E5;
+	margin-top: 3%;
+  border-top: 1px solid rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(235, 235, 235);
 }
-.wode_item {
-    height: 45px;
-	border-bottom: 1px solid #E5E5E5;
-	padding: 0 10px;
+
+.systemOptionContainer {
+  width: 100%;
+  background-color: #FFF;
+	font-size: 14px;
+	margin-top: 3%;
+  border-top: 1px solid rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(235, 235, 235);
+}
+.option {
+  background-color: #FFF;
+  height: 45px;
+  width: 100%;
+	padding: 0% 5%;
 	line-height: 45px;
-	position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 }
-.arrow_wrap {
-    position: absolute;
-    width: 50px;
-    height: 45px;
-    right: 0;
-    top: 0;
+.optionTitle {
+  width: 20%;
+  padding-left: 2%;
+}
+.optionLogo {
+  width: 25px;
+  height: 25px;
+}
+.arrowIcon {
+  width: 15px;
+  height: 20px;
+  padding-left: 60%;
+  padding-right: 0%;
+}
+.line {
+  border-bottom: 1px solid rgb(245, 245, 245);
+  margin-left: 50px;
 }
 
 
