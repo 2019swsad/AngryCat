@@ -1,44 +1,55 @@
 <!--pages/account/account.wxml-->
+<!--个人信息页面-->
 <view class="userPage">
-  <view class="personalInfo">
-    <view class="photoContainer">
+  <!--顶部信息栏-->
+  <view class="personalInfoContainer">
+    <view class="avatarContainer">
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
     </view>
-    <view class="nickname">
+
+    <view class="nicknameContainer">
       {{userInfo.nickName}}
     </view>
   </view>
 
+  <!--个人信息相关选项-->
   <view class="personOptionContainer">
-    <navigator class="option" url="">
+    <navigator class="optionNavitator" url="">
       <image class="optionLogo" src="../../image/icon-wallet.png"></image>
-      <text class="optionTitle">我的钱包</text>
+      <text class="optionText">我的钱包</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
+
     <view class="line"></view>
-    <navigator class="option" url="">
+
+    <navigator class="optionNavitator" url="">
       <image class="optionLogo" src="../../image/icon-review.png"></image>
-      <text class="optionTitle">我的评价</text>
+      <text class="optionText">我的评价</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
+
     <view class="line"></view>
-    <navigator class="option" url="">
+
+    <navigator class="optionNavitator" url="">
       <image class="optionLogo" src="../../image/icon-favor.png" ></image>
-      <text class="optionTitle">我的关注</text>
+      <text class="optionText">我的关注</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
   </view>
 
+  <!--系统相关选项-->
   <view class="systemOptionContainer">
-    <navigator class="option" url="">
+    <navigator class="optionNavitator" url="">
       <image class="optionLogo" src="../../image/icon-service.png" ></image>
-      <text class="optionTitle">在线客服</text>
+      <text class="optionText">在线客服</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
+    
     <view class="line"></view>
-    <navigator class="option" url="">
+    
+    <navigator class="optionNavitator" url="">
       <image class="optionLogo" src="../../image/icon-setting.png" ></image>
-      <text class="optionTitle">设置</text>
+      <text class="optionText">设置</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
   </view>
