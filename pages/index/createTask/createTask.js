@@ -2,7 +2,8 @@
 
 var util = require('../../../utils/util.js')
 
-const DOMAIN = 'https://volley.nyamori.moe'
+// const DOMAIN = 'https://volley.nyamori.moe'
+const DOMAIN = 'http://211.159.187.254:8081'
 
 Page({
 
@@ -17,14 +18,32 @@ Page({
 
   bindBeginTimeChange: function(e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
-    // wx.showToast({
-    //   title: 'hi',
-    // })
     this.setData({
       beginTime: e.detail.value
     })
   },
 
+  tempLogin: function() {
+    wx.request({
+      url: DOMAIN + '/users/login',
+      method: 'POST',
+      data: {
+        username: 'test',
+        password: '1234'
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      success: function(res) {
+        // console.log(JSON.stringify(res))
+
+        // console.log(typeof(res.cookies[0]))
+        // console.log(typeof(res.cookies))
+        console.log(util.handleCookieFromSetCookie(res.cookies))
+        wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.cookies))
+      }
+    })
+  },
 
   bindExpireTimeChange: function(e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -44,44 +63,54 @@ Page({
     var submitObj = JSON.parse(JSON.stringify(e.detail.value))
     submitObj.beginTime = util.convertDateFormatToMDY(this.data.beginTime)
     submitObj.expireTime = util.convertDateFormatToMDY(this.data.expireTime)
-    console.log("提交的对象为", submitObj)
+    submitObj.type = "Questionaire"
+
+    console.log("提交的对象为", JSON.stringify(submitObj))
 
     wx.request({
-      url: DOMAIN + '/users/login',
+      url: DOMAIN + '/task/create',
       method: 'POST',
       data: {
-        "username": "gyak",
-        "password": "test"
+        ...submitObj
       },
       header: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
       },
-      sucess: function(res){
-        
-        wx.showToast({
-          title: JSON.stringify(res.data),
-        })
-        console.log(res.data)
+      success: function(res) {
 
+        console.log(JSON.stringify(res))
 
-        if(res.data.resultcode==200){
-          console.log(JSON.stringfy(res))
+        if (res.statusCode === 201) {
           wx.showToast({
-            title: '登录成功',
+            title: '成功创建任务',
+            duration: 2000,
+            icon: 'success'
           })
-        }else{
-          console.log(JSON.stringfy(res))
+          console.log(res.data)
+          // 导航回主页
+          setTimeout(wx.navigateBack, 1500, {
+            delta: 1
+          })
+
+        } else {
+          console.log('提交任务失败, 错误代码' + res.statusCode)
+          wx.showToast({
+            title: '失败:' + res.data.message,
+            duration: 2000,
+            icon: 'none'
+          })
         }
       },
-      fail: function(){
-
-      },
-      complete: function(){
+      fail: function() {
         wx.showToast({
-          title: '完成HTTP请求',
+          title: 'fail',
+          icon: 'none'
         })
+      },
+      complete: function() {
+        console.log("完成HTTP请求")
       }
-
     })
   },
 

@@ -1,7 +1,7 @@
 <!--pages/index/createTask/createTask.wxml-->
 <view>
+  <button bindtap="tempLogin">LOGIN</button>
   <form bindsubmit="formSubmit" bindreset="formReset">
-
     <view class="section">
       <view class="section__title">标题</view>
       <view>
@@ -41,14 +41,14 @@
       </view>
     </view>
 
-        <view class="section">
-      <view class="section__title">酬劳</view>
+    <view class="section">
+      <view class="section__title">酬劳(元)</view>
       <view>
         <input type="number" class="input" name="salary" placeholder="酬劳(元)" />
       </view>
     </view>
 
-        <view class="section">
+    <view class="section">
       <view class="section__title">标签</view>
       <view>
         <input type="text" class="input" name="tags" placeholder="任务描述" />
@@ -56,8 +56,8 @@
     </view>
 
     <view class="btn-area">
-      <button formType="submit">Submit</button>
-      <button formType="reset">Reset</button>
+      <button formType="submit">创建</button>
+      <button formType="reset">清空</button>
     </view>
   </form>
 </view>
