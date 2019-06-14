@@ -52,5 +52,8 @@
       <text class="optionText">设置</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
+
+    <view class="line"></view>
   </view>
 </view>
+

@@ -26,7 +26,7 @@
   <view class="commen_title">
     <text>任务推荐</text>
   </view>
-  <navigator url="../spdetail/spdetail">
+  <navigator url="../taskdetail/taskdetail">
     <view class="single_task">
       <view class="task_infor">
       
