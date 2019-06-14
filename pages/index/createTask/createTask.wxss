@@ -1,4 +1,4 @@
-@import "../lib/weui.wxss";
+@import "../../../lib/weui.wxss";
 
 .picker {
   padding: 13rpx;
