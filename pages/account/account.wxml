@@ -1,14 +1,59 @@
 <!--pages/account/account.wxml-->
-<view class="personal_info">
-	<view class="photo_wrap">
-		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
-	</view>
-	<view class="nickname">
-		{{userInfo.nickName}}
-	</view>
+<!--个人信息页面-->
+<view class="userPage">
+  <!--顶部信息栏-->
+  <view class="personalInfoContainer">
+    <view class="avatarContainer">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+    </view>
+
+    <view class="nicknameContainer">
+      {{userInfo.nickName}}
+    </view>
+  </view>
+
+  <!--个人信息相关选项-->
+  <view class="personOptionContainer">
+    <navigator class="optionNavitator" url="">
+      <image class="optionLogo" src="../../image/icon-wallet.png"></image>
+      <text class="optionText">我的钱包</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
+    </navigator>
+
+    <view class="line"></view>
+
+    <navigator class="optionNavitator" url="">
+      <image class="optionLogo" src="../../image/icon-review.png"></image>
+      <text class="optionText">我的评价</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
+    </navigator>
+
+    <view class="line"></view>
+
+    <navigator class="optionNavitator" url="">
+      <image class="optionLogo" src="../../image/icon-favor.png" ></image>
+      <text class="optionText">我的关注</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
+    </navigator>
+  </view>
+
+  <!--系统相关选项-->
+  <view class="systemOptionContainer">
+    <navigator class="optionNavitator" url="">
+      <image class="optionLogo" src="../../image/icon-service.png" ></image>
+      <text class="optionText">在线客服</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
+    </navigator>
+    
+    <view class="line"></view>
+    
+    <navigator class="optionNavitator" url="">
+      <image class="optionLogo" src="../../image/icon-setting.png" ></image>
+      <text class="optionText">设置</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
+    </navigator>
+
+    <view class="line"></view>
+  </view>
 </view>
-<view class="wode_item_wrap">
-	<navigator class="wode_item" wx:for="{{mode}}" url="">
-		{{item}}
-	</navigator>
-</view>
+
