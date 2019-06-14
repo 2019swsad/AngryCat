@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/task/task",
-    "pages/account/account"
+    "pages/account/account",
+    "pages/taskdetail/taskdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

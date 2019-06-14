@@ -1,0 +1,40 @@
+<!--pages/taskdetail/taskdetail.wxml-->
+<view class='textinfo'>
+  <view class= "singletext">
+    <text>标题：</text>
+  </view>
+  <view class= "singletext">
+    <text>类型：</text>
+  </view>
+  <view class= "singletext">
+    <text>描述：</text>
+  </view>
+  <view class= "singletext">
+    <text>时间：</text>
+  </view>
+  <view class= "singletext">
+    <text>地点：</text>
+  </view>
+  <view class= "singletext">
+    <text>酬劳：</text>
+  </view>
+  <view class= "singletext">
+    <text>报名情况：</text>
+  </view>
+  <view class= "singletext">
+    <text>任务状态：</text>
+  </view>
+   <view class= "singletext">
+    <text>标签：</text>
+  </view>
+
+</view>
+
+<view >
+ <text class="finish">完成码</text>
+</view>
+
+<view class="weui-btn" >
+ <button>查看报名情况</button>
+  <button>查看报名情况</button>
+</view>

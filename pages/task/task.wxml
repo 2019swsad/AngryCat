@@ -13,7 +13,7 @@
             <image src="../../image/test.jpg" class="single_goods_image"></image>
           </view>
           <view class="single_goods_infor">
-            <navigator url="../spdetail/spdetail">
+            <navigator url="../taskdetail/taskdetail">
               <view class="single_goods_name">
                 <text>帮忙手冲</text>
               </view>
