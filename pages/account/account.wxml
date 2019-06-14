@@ -1,14 +1,29 @@
 <!--pages/account/account.wxml-->
-<view class="personal_info">
-	<view class="photo_wrap">
-		<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
-	</view>
-	<view class="nickname">
-		{{userInfo.nickName}}
-	</view>
-</view>
-<view class="wode_item_wrap">
-	<navigator class="wode_item" wx:for="{{mode}}" url="">
-		{{item}}
-	</navigator>
+<view class="userPage">
+  <view class="personalInfo">
+    <view class="photoContainer">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+    </view>
+    <view class="nickname">
+      {{userInfo.nickName}}
+    </view>
+  </view>
+
+  <view class="optionContainer">
+    <navigator class="option" url="">
+      <text class="optionTitle">我的关注</text>
+    </navigator>
+    <view class="line"></view>
+    <navigator class="option" url="">
+      <text class="optionTitle">在线客服</text>
+    </navigator>
+    <view class="line"></view>
+    <navigator class="option" url="">
+      <text class="optionTitle">意见反馈</text>
+    </navigator>
+    <view class="line"></view>
+    <navigator class="option" url="">
+      <text class="optionTitle">设置</text>
+    </navigator>
+  </view>
 </view>
