@@ -7,55 +7,64 @@
   </view>
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
     <swiper-item>
-      <view>
-        <view class="single_goods">
-          <view class="single_image_wrap">
-            <image src="../../image/test.jpg" class="single_goods_image"></image>
-          </view>
-          <view class="single_goods_infor">
-            <navigator url="../taskdetail/taskdetail">
-              <view class="single_goods_name">
+      <navigator url="../spdetail/spdetail">
+        <view class="single_task">
+          <view class="task_infor">
+          
+              <view class="task_name">
                 <text>帮忙手冲</text>
               </view>
-              <view class="single_goods_address">
+
+              <view class="task_price">
+                <text>¥1690.00</text>
+              </view>
+
+              <view class="task_state">
+                <text>进行中</text>
+              </view>
+
+              <view class="people_number">
                 <text>报名状况：3/4人</text>
               </view>
-              <view class="single_goods_price">
-                <text>¥1690.00</text>
-                <view class="carImgWrap">
-                  <image src="../../image/car.png" class="carImg"></image>
-                </view>
+              <view class="task_time">
+                <text>2019-05-23 11:46</text>
+                <text>  ~  </text>
+                <text>2019-06-22 13:46</text>
               </view>
-            </navigator>
+              
           </view>
         </view>
-      </view>
-
-
-
+      </navigator>
     </swiper-item>
     <swiper-item>
-      <view class="single_goods">
-        <view class="single_image_wrap">
-          <image src="../../image/test.jpg" class="single_goods_image"></image>
-        </view>
-        <view class="single_goods_infor">
-          <navigator url="../spdetail/spdetail">
-            <view class="single_goods_name">
-             <text>填问卷</text>
-            </view>
-            <view class="single_goods_address">
-              <text>报名状况：50/100人</text>
-            </view>
-            <view class="single_goods_price">
-              <text>¥5.00</text>
-              <view class="carImgWrap">
-                <image src="../../image/car.png" class="carImg"></image>
+      <navigator url="../spdetail/spdetail">
+        <view class="single_task">
+          <view class="task_infor">
+          
+              <view class="task_name">
+                <text>养猫</text>
               </view>
-            </view>
-          </navigator>
+
+              <view class="task_price">
+                <text>¥1690.00</text>
+              </view>
+
+              <view class="task_state">
+                <text>进行中</text>
+              </view>
+
+              <view class="people_number">
+                <text>报名状况：3/4人</text>
+              </view>
+              <view class="task_time">
+                <text>2019-05-23 11:46</text>
+                <text> ~ </text>
+                <text>2019-06-22 13:46</text>
+              </view>
+      
+          </view>
         </view>
-      </view>
+      </navigator>
     </swiper-item>
 
   </swiper>
