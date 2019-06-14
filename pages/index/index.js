@@ -45,7 +45,8 @@ Page({
       },
       {
         "iconUrl": '../../image/icon-qinzi.png',
-        "iconText": '亲子'
+        "iconText": '任务发布',
+        "navigateUrl": './createTask/createTask'
       }
     ],
     motto: 'Hello World',
