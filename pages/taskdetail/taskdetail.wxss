@@ -1,0 +1,16 @@
+/* pages/taskdetail/taskdetail.wxss */
+.textinfo {
+    margin-left: 20px;
+    font-size: 16px;
+}
+.singletext{
+  margin-top: 8px;
+}
+.buttonview{
+   flex-flow: row;
+}
+.finish{
+  border:1px solid;
+   font-size: 25px;
+   margin:auto;
+}
