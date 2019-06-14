@@ -1,40 +1,40 @@
 <!--pages/taskdetail/taskdetail.wxml-->
 <view class='textinfo'>
   <view class= "singletext">
-    <text>标题：</text>
+    <text>标题：{{title}}</text>
   </view>
   <view class= "singletext">
-    <text>类型：</text>
+    <text>类型：{{type}}</text>
   </view>
   <view class= "singletext">
-    <text>描述：</text>
+    <text>描述：{{description}}</text>
   </view>
   <view class= "singletext">
-    <text>时间：</text>
+    <text>时间：{{beginTime}}</text>
   </view>
   <view class= "singletext">
-    <text>地点：</text>
+    <text>地点：{{title}}</text>
   </view>
   <view class= "singletext">
-    <text>酬劳：</text>
+    <text>酬劳：{{participantNum}}</text>
   </view>
   <view class= "singletext">
-    <text>报名情况：</text>
+    <text>报名情况：{{title}}</text>
   </view>
   <view class= "singletext">
-    <text>任务状态：</text>
+    <text>任务状态：{{status}}</text>
   </view>
    <view class= "singletext">
-    <text>标签：</text>
+    <text>标签：{{tags}}</text>
   </view>
 
 </view>
 
-<view >
+<view class='finishcontain'>
  <text class="finish">完成码</text>
 </view>
 
-<view class="buttonview" >
+<view class="buttonview weui-form-preview__btn" >
  <button>查看报名情况</button>
   <button>查看报名情况</button>
 </view>

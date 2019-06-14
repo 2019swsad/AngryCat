@@ -23,7 +23,6 @@ App({
       success: function(res) {
         if (res.statusCode == 200) {
 
-
           console.log(res.data);
         } else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
