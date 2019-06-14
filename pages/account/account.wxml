@@ -13,16 +13,19 @@
     <navigator class="option" url="">
       <image class="optionLogo" src="../../image/icon-wallet.png"></image>
       <text class="optionTitle">我的钱包</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
     <view class="line"></view>
     <navigator class="option" url="">
       <image class="optionLogo" src="../../image/icon-review.png"></image>
       <text class="optionTitle">我的评价</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
     <view class="line"></view>
     <navigator class="option" url="">
       <image class="optionLogo" src="../../image/icon-favor.png" ></image>
       <text class="optionTitle">我的关注</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
   </view>
 
@@ -30,11 +33,13 @@
     <navigator class="option" url="">
       <image class="optionLogo" src="../../image/icon-service.png" ></image>
       <text class="optionTitle">在线客服</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
     <view class="line"></view>
     <navigator class="option" url="">
       <image class="optionLogo" src="../../image/icon-setting.png" ></image>
       <text class="optionTitle">设置</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
   </view>
 </view>
