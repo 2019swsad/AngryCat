@@ -16,10 +16,10 @@
     <text>地点：{{title}}</text>
   </view>
   <view class= "singletext">
-    <text>酬劳：{{participantNum}}</text>
+    <text>酬劳：{{salary}}</text>
   </view>
   <view class= "singletext">
-    <text>报名情况：{{title}}</text>
+    <text>报名情况：{{participantNum}}</text>
   </view>
   <view class= "singletext">
     <text>任务状态：{{status}}</text>
