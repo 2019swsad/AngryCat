@@ -1,1 +1,3 @@
 /* pages/index/searchTask/searchTask.wxss */
+@import "../../../lib/styles/singleTask.wxss"
+
