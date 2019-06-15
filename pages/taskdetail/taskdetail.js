@@ -22,7 +22,6 @@ Page({
       "createTime": "2019-06-10 15:28:08",
       "currentParticipator": 0,
       "isOrganizer": true,
-      "userinfo": {},
       "finishNumber":""
     },
     button1: '查看',
@@ -36,6 +35,9 @@ Page({
    */
   onLoad: function(options) {
     var self = this;
+
+
+     this.data.tid=option.query;
 
 
 
