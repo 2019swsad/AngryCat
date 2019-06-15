@@ -39,11 +39,7 @@ Page({
         if (res.statusCode == 200) {
 
 
-          getApp.globalData.username=self.data.username;
-
-        
-          
-
+      
 
           if (res.data.status == 'success') {
             wx.showToast({
