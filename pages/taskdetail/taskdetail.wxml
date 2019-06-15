@@ -1,40 +1,48 @@
 <!--pages/taskdetail/taskdetail.wxml-->
-<view class='textinfo'>
-  <view class= "singletext">
-    <text>标题：{{title}}</text>
-  </view>
-  <view class= "singletext">
-    <text>类型：{{type}}</text>
-  </view>
-  <view class= "singletext">
-    <text>描述：{{description}}</text>
-  </view>
-  <view class= "singletext">
-    <text>时间：{{beginTime}}</text>
-  </view>
-  <view class= "singletext">
-    <text>地点：{{title}}</text>
-  </view>
-  <view class= "singletext">
-    <text>酬劳：{{salary}}</text>
-  </view>
-  <view class= "singletext">
-    <text>报名情况：{{participantNum}}</text>
-  </view>
-  <view class= "singletext">
-    <text>任务状态：{{status}}</text>
-  </view>
-   <view class= "singletext">
-    <text>标签：{{tags}}</text>
+<view class="whole_page">
+  <view class="base_info">
+    <view class="title">
+      <text>{{title}}</text>
+    </view>
+    <view class="salary">
+      <text>¥ {{salary}}</text>
+    </view>
+    <view class="place">
+      <image class="location_icon" src="../../image/location.png"></image>
+      <text style="padding-top:50px"> {{place}}</text>
+    </view>
   </view>
 
-</view>
+  <view class="organizer">
+    <image class="portrait" src="../../image/test.jpg"></image>
+    <text class="username">孙笑川</text>
+  </view>
 
-<view class='finishcontain'>
- <text class="finish">完成码</text>
-</view>
 
-<view class="buttonview weui-form-preview__btn" >
- <button>查看报名情况</button>
-  <button>查看报名情况</button>
+  <view class="detail">
+    <text class="detail_title">任务详情</text>
+    <text class="description">{{description}}</text>
+
+  </view>
+
+
+  <view class="duration">
+    <text class="time_title">时间</text>
+    <text class="time">{{beginTime}} ~ {{expireTime}}</text>
+  </view>
+
+   <view class="people">
+    <text class="people_title">报名人数</text>
+    <text class="people_num">3/4</text>
+  </view>
+
+  <view class="apply_btn_area" >
+
+
+    <button class="apply_btn"type="primary">查看</button>
+
+    <button class="apply_btn"type="primary">报名</button>
+
+  </view>
+  
 </view>
