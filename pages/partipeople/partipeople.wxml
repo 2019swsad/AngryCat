@@ -1,0 +1,9 @@
+<!--pages/partipeople/partipeople.wxml-->
+<text>参与者：3/3</text>
+
+<view wx:for="{{personlist}}">
+  <text>{{item.name}}</text> 
+  <text>{{item.credit}}</text>
+</view>
+ 
+ <text>候选：1人</text>
