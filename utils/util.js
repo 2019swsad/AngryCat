@@ -21,6 +21,11 @@ const formatTimeWithoutHMS = date => {
   return [year, month, day].map(formatNumber).join('/')
 }
 
+const formatDate=s=>{
+  s = s.replace("T", " "); 
+  console.log(s);
+}
+
 const convertDateFormatToMDY = dateStringInYMD => {
 
   var dateArray = dateStringInYMD.split("-")
