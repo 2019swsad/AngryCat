@@ -2,11 +2,11 @@
 <view class="main">
   <text class="sign">登录</text>
   <form class="form1">
-    <input class="register_input" type="text" align="center" placeholder="用户名"/>
+    <input class="register_input" type="text" align="center" placeholder="用户名" bindinput="userNameInput"/>
     
-    <input class="register_input" type="password" align="center" placeholder="密码"/>
+    <input class="register_input" type="password" align="center" placeholder="密码" bindinput="passWdInput"/>
 
-    <button class="submit_btn" type="primary" form-type="submit">提交</button>
+    <button class="submit_btn" type="primary" form-type="submit" bindtap='login'>提交</button>
 
   </form>            
 </view>    
