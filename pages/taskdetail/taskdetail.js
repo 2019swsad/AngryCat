@@ -1,4 +1,5 @@
 // pages/taskdetail/taskdetail.js
+var util = require('../../utils/util.js')
 Page({
 
   /**
@@ -6,27 +7,30 @@ Page({
    */
   data: {
     taskinfo: {
-      "_id": "5cfe0688d7f67f119cbd4967",
-      "title": "Cark",
-      "type": "Questionaire",
-      "salary": 20,
-      "description": "Hello World",
-      "beginTime": "2019-08-19T16:00:00.000Z",
-      "expireTime": "2019-08-21T16:00:00.000Z",
-      "participantNum": 1,
-      "tags": "Testing",
-      "uid": "d06146e7-aaff-47a8-831b-99bcf73e1f55",
-      "tid": "17eeefdb-96db-4da4-9d52-2be8c04131b4",
-      "status": "start",
-      "totalCost": 20,
-      "createTime": "2019-06-10 15:28:08",
-      "currentParticipator": 0,
-      "isOrganizer": true,
-      "finishNumber": ""
+      // "_id": "5cfe0688d7f67f119cbd4967",
+      // "title": "Cark",
+      // "type": "Questionaire",
+      // "salary": 20,
+      // "description": "Hello World",
+      // "beginTime": "2019-08-19T16:00:00.000Z",
+      // "expireTime": "2019-08-21T16:00:00.000Z",
+      // "participantNum": 1,
+      // "tags": "Testing",
+      // "uid": "d06146e7-aaff-47a8-831b-99bcf73e1f55",
+      // "tid": "17eeefdb-96db-4da4-9d52-2be8c04131b4",
+      // "status": "start",
+      // "totalCost": 20,
+      // "createTime": "2019-06-10 15:28:08",
+      // "currentParticipator": 0,
+      // "isOrganizer": true,
+      // "finishNumber": ""
     },
     button1: '查看',
     button2: '完成任务',
-    tid: '6cb82ea1-9479-4b7d-872d-bb2ce6daf49a'
+    tid: 'b050dde1-5563-4f89-a62c-48ccafbb88e4',
+    beginTime:'',
+    endTime:''
+
 
 
   },
@@ -37,9 +41,12 @@ Page({
     var self = this;
 
 
+
+
     //  this.data.tid=option.query;
 
-    this.data.tid = options.tid;
+    // this.data.tid = options.tid;
+
 
 
 
@@ -60,9 +67,6 @@ Page({
       },
       success: function(res) {
 
-        console.log(wx.getStorageSync("sessionId"));
-
-
 
         if (res.statusCode === 200 || res.statusCode === 201) {
 
@@ -70,14 +74,25 @@ Page({
           self.setData({
             taskinfo: res.data
           })
+          var start = util.formatTimeWithoutHMS(new Date(res.data.beginTime));
+          var end = util.formatTimeWithoutHMS(new Date(res.data.expireTime));
+          self.setData({
+            beginTime: start
+          })
 
-         
+          self.setData({
+            endTime: end
+          })
+        
+
+
+
           if (self.data.taskinfo.status == 'start') {
-              self.setData({
-                button1: "退出任务",
-                button2: "完成任务"
-              })
-            
+            self.setData({
+              button1: "退出任务",
+              button2: "完成任务"
+            })
+
           } else {
             if (self.data.taskinfo.status == 'end') {
               self.setData({
@@ -89,7 +104,7 @@ Page({
 
 
 
-        } 
+        }
       },
       fail: function() {
         wx.showToast({
@@ -106,20 +121,20 @@ Page({
 
   onPress1: function(e) {
 
-    
-    if(this.data.button1=="退出任务"){
-    
-  
-    }else if(this.data.button1=="查看"){
-       wx.navigateTo({
-         url: '../partipeople/partipeople',
-       })
-    }else if(this.data.button1=="评价"){
+
+    if (this.data.button1 == "退出任务") {
+
+
+    } else if (this.data.button1 == "查看") {
+      wx.navigateTo({
+        url: '../partipeople/partipeople',
+      })
+    } else if (this.data.button1 == "评价") {
       wx.navigateTo({
         url: '',
       })
     }
-   
+
   },
   onPress2: function(e) {
     var self = this;

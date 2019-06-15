@@ -33,7 +33,7 @@
 
   <view class="duration">
     <text class="time_title">时间</text>
-    <text class="time">{{taskinfo.beginTime}} ~ {{taskinfo.expireTime}}</text>
+    <text class="time">{{beginTime}} ~ {{endTime}}</text>
   </view>
 
   <view class="people">
