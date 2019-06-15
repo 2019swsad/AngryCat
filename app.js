@@ -17,6 +17,7 @@ App({
       }
     })
 
+
     wx.request({
       url: 'https://www.volley99.com/users/login',
       data: { "username": "yztest", "password": "123" },

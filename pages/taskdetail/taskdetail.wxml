@@ -10,7 +10,7 @@
     </view>
     <view class="place">
       <image class="location_icon" src="../../image/location.png"></image>
-      <text style="padding-top:50px"> {{taskinfo.place}}</text>
+      <text style="padding-top:50px"> {{taskinfo.position}}</text>
     </view>
   </view>
 

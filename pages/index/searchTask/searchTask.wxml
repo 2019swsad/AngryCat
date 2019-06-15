@@ -4,7 +4,7 @@
 
 <view>
   <view class='search_box'>
-    <input class="search_input"  type="text" placeholder="SEARCH"></input>
+    <input class="search_input"  bindblur="updateKeyword" type="text" placeholder="SEARCH"></input>
     <button class="search_btn" type="primary" bindtap='execSearch'>搜索</button>
   </view>
 
