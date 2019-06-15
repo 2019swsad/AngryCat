@@ -22,35 +22,22 @@ Page({
       "createTime": "2019-06-10 15:28:08",
       "currentParticipator": 0,
       "isOrganizer": true,
-      "userinfo": {}
+      "userinfo": {},
+      "finishNumber":""
     },
     button1: '查看',
-    button2: '完成任务'
+    button2: '完成任务',
+    tid:'6cb82ea1-9479-4b7d-872d-bb2ce6daf49a'
 
-    // "_id": "5cfe0688d7f67f119cbd4967",
-    // "title": "C++开发工程师",
-    // "type": "Questionaire",
-    // "salary": "20k",
-    // "description": "无线网络基站装备委托开发，有独立承担模块设计能力，2年以上软件开发经历，精通java、C。计算机相关专业本科以上学历无线网络基站装备委托开发，有独立承担模块设计能力，2年以上软件开发经历，精通java、C。计算机相关专业本科以上学历",
-    // "beginTime": "2019-08-19",
-    // "expireTime": "2019-08-21",
-    // "participantNum": 1,
-    // "tags": "Testing",
-    // "uid": "d06146e7-aaff-47a8-831b-99bcf73e1f55",
-    // "tid": "17eeefdb-96db-4da4-9d52-2be8c04131b4",
-    // "place": "广州",
-    // "status": "start",
-    // "totalCost": 20,
-    // "createTime": "2019-06-10 15:28:08",
-    // "currentParticipator": 0,
-    // "isOrganizer": false,
-    // "userinfo": {}
+  
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     var self = this;
+
+
 
     this.requestTaskInfo();
 
@@ -60,7 +47,7 @@ Page({
   requestTaskInfo:function(){
     var self = this;
     wx.request({
-      url: "https://www.volley99.com/task/get/17eeefdb-96db-4da4-9d52-2be8c04131b4",
+      url: "https://www.volley99.com/task/get/" + self.data.tid,
       method: 'GET',
 
       header: {
