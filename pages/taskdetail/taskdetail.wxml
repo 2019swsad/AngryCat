@@ -10,13 +10,17 @@
     </view>
     <view class="place">
       <image class="location_icon" src="../../image/location.png"></image>
-      <text style="padding-top:50px"> {{taskinfo.place}}</text>
+      <text style="padding-top:50px"> {{taskinfo.position}}</text>
     </view>
   </view>
 
   <view class="organizer">
     <image class="portrait" src="../../image/test.jpg"></image>
-    <text class="username">孙笑川</text>
+    <view class="user_info">
+      <text class="username">孙笑川</text>
+      <text class="credit">信誉值：89</text>
+    </view>
+    
   </view>
 
 
