@@ -43,15 +43,15 @@
     </swiper-item>
     <swiper-item>
       <navigator url="../taskdetail/taskdetail">
-        <view class="single_task">
+        <view class="single_task" wx:for="{{tasks}}">
           <view class="task_infor">
           
               <view class="task_name">
-                <text>养猫</text>
+                <text>{{item.title}}</text>
               </view>
 
               <view class="task_price">
-                <text>¥1690.00</text>
+                <text>¥{{item.salary}}</text>
               </view>
 
               <view class="task_state">
