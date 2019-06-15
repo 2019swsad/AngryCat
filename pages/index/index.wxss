@@ -82,7 +82,7 @@ swiper {
   color: #2eada7;
   position: absolute;
   top: 12%;
-  right: 10%;
+  right: 8%;
   height: 22px;
   line-height: 22px;
 }
