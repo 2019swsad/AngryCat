@@ -14,32 +14,6 @@ App({
       }
     })
 
-    wx.request({
-      url: 'https://www.volley99.com/users/login',
-      data: { "username": "yztest", "password": "123" },
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: {
-        'content-type': 'application/json'
-      }, // 设置请求的 header
-      success: function(res) {
-        
-        if (res.statusCode == 200) {
-          wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
-          console.log(util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
-          console.log(res.data);
-        } else {
-          console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
-        }
-      },
-      fail: function() {
-        console.log("index.js wx.request CheckCallUser fail");
-      },
-      complete: function() {
-        // complete
-      }
-    })
-
-
     // 获取用户信息
     wx.getSetting({
       success: res => {
