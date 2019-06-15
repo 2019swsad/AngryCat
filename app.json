@@ -9,7 +9,8 @@
     "pages/index/createTask/createTask",
     "regist/regist",
     "pages/taskdetail/taskdetail",
-    "pages/account/wallet/wallet"
+    "pages/account/wallet/wallet",
+    "pages/account/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",
