@@ -22,13 +22,13 @@ Page({
       "createTime": "2019-06-10 15:28:08",
       "currentParticipator": 0,
       "isOrganizer": true,
-      "finishNumber":""
+      "finishNumber": ""
     },
     button1: '查看',
     button2: '完成任务',
-    tid:'6cb82ea1-9479-4b7d-872d-bb2ce6daf49a'
+    tid: '6cb82ea1-9479-4b7d-872d-bb2ce6daf49a'
 
-  
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -39,14 +39,16 @@ Page({
 
     //  this.data.tid=option.query;
 
+    this.data.tid = options.tid;
+
 
 
     this.requestTaskInfo();
 
-    
+
   },
 
-  requestTaskInfo:function(){
+  requestTaskInfo: function() {
     var self = this;
     wx.request({
       url: "https://www.volley99.com/task/get/" + self.data.tid,
@@ -56,7 +58,7 @@ Page({
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      success: function (res) {
+      success: function(res) {
 
         console.log(wx.getStorageSync("sessionId"));
 
@@ -89,13 +91,13 @@ Page({
 
         } 
       },
-      fail: function () {
+      fail: function() {
         wx.showToast({
           title: 'fail',
           icon: 'none'
         })
       },
-      complete: function () {
+      complete: function() {
         console.log("完成HTTP请求")
       }
     })
@@ -117,36 +119,34 @@ Page({
         url: '',
       })
     }
+   
   },
-  onPress2:function(e){
+  onPress2: function(e) {
     var self = this;
     if (this.data.button2 == "完成任务") {
 
       wx.showModal({
         title: '提示',
         content: '请输入完成妈',
-        success: function (res) {
+        success: function(res) {
           console.log(res)
           if (res.confirm) {
-           self.requestTaskInfo();
+            self.requestTaskInfo();
 
           } else {
-        
+
           }
         }
       })
 
-    }
-
-
-    else if (this.data.button2 =="结束任务"){
+    } else if (this.data.button2 == "结束任务") {
       wx.showModal({
         title: '提示',
         content: '确定提前结束任务吗？',
-        success: function (res) {
+        success: function(res) {
           console.log(res)
           if (res.confirm) {
-              
+
 
           } else {
 
