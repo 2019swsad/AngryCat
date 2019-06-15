@@ -14,8 +14,7 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1200,
-    iconArray: [
-      {
+    iconArray: [{
         "iconUrl": '../../image/icon-qiandao.png',
         "iconText": '签到'
       },
@@ -33,7 +32,8 @@ Page({
       },
       {
         "iconUrl": '../../image/icon-muma.png',
-        "iconText": '玩乐'
+        "iconText": '搜索任务',
+        "navigateUrl": './searchTask/searchTask'
       },
       {
         "iconUrl": '../../image/icon-xingxing.png',
@@ -63,13 +63,13 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function() {
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {

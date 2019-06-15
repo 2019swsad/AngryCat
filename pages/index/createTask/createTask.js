@@ -1,6 +1,6 @@
 // pages/index/createTask/createTask.js
 
-var util = require('../../../utils/util.js')
+const util = require('../../../utils/util.js')
 
 // const DOMAIN = 'https://volley.nyamori.moe'
 const DOMAIN = 'https://www.volley99.com'

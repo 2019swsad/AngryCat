@@ -1,40 +1,55 @@
 <!--pages/taskdetail/taskdetail.wxml-->
-<view class='textinfo'>
-  <view class= "singletext">
-    <text>标题：{{taskinfo.title}}</text>
-  </view>
-  <view class= "singletext">
-    <text>类型：{{taskinfo.type}}</text>
-  </view>
-  <view class= "singletext">
-    <text>描述：{{taskinfo.description}}</text>
-  </view>
-  <view class= "singletext">
-    <text>时间：{{taskinfo.beginTime}}</text>
-  </view>
-  <view class= "singletext">
-    <text>地点：{{taskinfo.title}}</text>
-  </view>
-  <view class= "singletext">
-    <text>酬劳：{{taskinfo.salary}}</text>
-  </view>
-  <view class= "singletext">
-    <text>报名情况：{{taskinfo.participantNum}}</text>
-  </view>
-  <view class= "singletext">
-    <text>任务状态：{{taskinfo.status}}</text>
-  </view>
-   <view class= "singletext">
-    <text>标签：{{taskinfo.tags}}</text>
+
+<view class="whole_page">
+  <view class="base_info">
+    <view class="title">
+      <text>{{taskinfo.title}}</text>
+    </view>
+    <view class="salary">
+      <text>¥ {{taskinfo.salary}}</text>
+    </view>
+    <view class="place">
+      <image class="location_icon" src="../../image/location.png"></image>
+      <text style="padding-top:50px"> {{taskinfo.place}}</text>
+    </view>
   </view>
 
-</view>
+  <view class="organizer">
+    <image class="portrait" src="../../image/test.jpg"></image>
+    <text class="username">孙笑川</text>
+  </view>
 
-<view class='finishcontain'>
- <text class="finish">完成码</text>
-</view>
 
-<view class="buttonview weui-form-preview__btn" >
+  <view class="detail">
+    <text class="detail_title">任务详情</text>
+    <text class="description">{{taskinfo.description}}</text>
+
+  </view>
+
+
+  <view class="duration">
+    <text class="time_title">时间</text>
+    <text class="time">{{taskinfo.beginTime}} ~ {{taskinfo.expireTime}}</text>
+  </view>
+
+   <view class="people">
+    <text class="people_title">报名人数</text>
+    <text class="people_num">3/4</text>
+  </view>
+
+  <view class="apply_btn_area" >
+
+
+<!-- <view class="buttonview weui-form-preview__btn" >
  <button bindtap='onPress1'>{{button1}}</button>
   <button bindtap='onPress2'>{{button2}}</button>
+</view> -->
+
+    <button class="apply_btn"type="primary" bindtap='onPress1'>查看</button>
+
+    <button class="apply_btn"type="primary" bindtap='onPress2'>报名</button>
+
+  </view>
+  
 </view>
+
