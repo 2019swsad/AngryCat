@@ -4,17 +4,17 @@
   <!--顶部信息栏-->
   <view class="personalInfoContainer">
     <view class="avatarContainer">
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+      <image class="userinfo-avatar" src="../../image/avatar.jpg" ></image>
     </view>
 
     <view class="nicknameContainer">
-      {{userInfo.nickName}}
+      {UserName}
     </view>
   </view>
 
   <!--个人信息相关选项-->
   <view class="personOptionContainer">
-    <navigator class="optionNavitator" url="">
+    <navigator class="optionNavitator" url="wallet/wallet">
       <image class="optionLogo" src="../../image/icon-wallet.png"></image>
       <text class="optionText">我的钱包</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
