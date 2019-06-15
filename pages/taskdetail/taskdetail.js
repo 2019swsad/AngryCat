@@ -37,7 +37,7 @@ Page({
     var self = this;
 
 
-     this.data.tid=option.query;
+     this.data.tid=options.tid;
 
 
 
