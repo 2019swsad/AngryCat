@@ -16,7 +16,7 @@
               </view>
 
               <view class="task_price">
-                <text>¥1690.00</text>
+                <text>¥ 1690.00</text>
               </view>
 
               <view class="task_state">
@@ -51,7 +51,7 @@
               </view>
 
               <view class="task_price">
-                <text>¥{{item.salary}}</text>
+                <text>¥ {{item.salary}}</text>
               </view>
 
               <view class="task_state">
