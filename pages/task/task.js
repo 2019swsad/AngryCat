@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    currentTab: 0
+    currentTab: 0,
+    selfAllTasks:''
+
   },
 
   /**
