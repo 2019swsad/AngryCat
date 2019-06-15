@@ -46,7 +46,7 @@
     <view class="section">
       <view class="section__title">地点</view>
       <view>
-        <input type="text" class="input" name="location" placeholder="地点" />
+        <input type="text" class="input" name="position" placeholder="地点" />
       </view>
     </view>
 
