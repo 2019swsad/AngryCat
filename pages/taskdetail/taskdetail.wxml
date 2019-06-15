@@ -32,24 +32,17 @@
     <text class="time">{{taskinfo.beginTime}} ~ {{taskinfo.expireTime}}</text>
   </view>
 
-   <view class="people">
+  <view class="people">
     <text class="people_title">报名人数</text>
     <text class="people_num">3/4</text>
   </view>
 
-  <view class="apply_btn_area" >
+  <view class="apply_btn_area">
 
+    <button class="apply_btn" type="primary" bindtap='onPress1'>查看</button>
 
-<!-- <view class="buttonview weui-form-preview__btn" >
- <button bindtap='onPress1'>{{button1}}</button>
-  <button bindtap='onPress2'>{{button2}}</button>
-</view> -->
-
-    <button class="apply_btn"type="primary" bindtap='onPress1'>查看</button>
-
-    <button class="apply_btn"type="primary" bindtap='onPress2'>报名</button>
+    <button class="apply_btn" type="primary" bindtap='onPress2'>报名</button>
 
   </view>
-  
-</view>
 
+</view>
