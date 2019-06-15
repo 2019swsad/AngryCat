@@ -1,31 +1,31 @@
 <!--pages/taskdetail/taskdetail.wxml-->
 <view class='textinfo'>
   <view class= "singletext">
-    <text>标题：{{title}}</text>
+    <text>标题：{{taskinfo.title}}</text>
   </view>
   <view class= "singletext">
-    <text>类型：{{type}}</text>
+    <text>类型：{{taskinfo.type}}</text>
   </view>
   <view class= "singletext">
-    <text>描述：{{description}}</text>
+    <text>描述：{{taskinfo.description}}</text>
   </view>
   <view class= "singletext">
-    <text>时间：{{beginTime}}</text>
+    <text>时间：{{taskinfo.beginTime}}</text>
   </view>
   <view class= "singletext">
-    <text>地点：{{title}}</text>
+    <text>地点：{{taskinfo.title}}</text>
   </view>
   <view class= "singletext">
-    <text>酬劳：{{salary}}</text>
+    <text>酬劳：{{taskinfo.salary}}</text>
   </view>
   <view class= "singletext">
-    <text>报名情况：{{participantNum}}</text>
+    <text>报名情况：{{taskinfo.participantNum}}</text>
   </view>
   <view class= "singletext">
-    <text>任务状态：{{status}}</text>
+    <text>任务状态：{{taskinfo.status}}</text>
   </view>
    <view class= "singletext">
-    <text>标签：{{tags}}</text>
+    <text>标签：{{taskinfo.tags}}</text>
   </view>
 
 </view>
@@ -35,6 +35,6 @@
 </view>
 
 <view class="buttonview weui-form-preview__btn" >
- <button>查看报名情况</button>
-  <button>查看报名情况</button>
+ <button>{{button1}}</button>
+  <button>{{button2}}</button>
 </view>

@@ -37,7 +37,7 @@ Page({
       },
       {
         "iconUrl": '../../image/icon-xingxing.png',
-        "iconText": '周边',
+        "iconText": '注册',
         "navigateUrl": '../../regist/regist'
       },
       {
