@@ -12,7 +12,9 @@ Page({
    */
   data: {
     beginTime: '2019-06-16',
-    expireTime: '2019-07-01'
+    expireTime: '2019-07-01',
+    taskType: "问卷调查",
+    optionalType: ["问卷调查","跑腿","技术","其他"],
   },
 
 
@@ -45,6 +47,13 @@ Page({
     })
   },
 
+  bindTaskTypeChange:function(e){
+    console.log(JSON.stringify(e))
+    this.setData({
+      taskType: this.data.optionalType[parseInt(e.detail.value)]
+    })
+  },
+
   bindExpireTimeChange: function(e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
     // wx.showToast({
@@ -63,7 +72,9 @@ Page({
     var submitObj = JSON.parse(JSON.stringify(e.detail.value))
     submitObj.beginTime = util.convertDateFormatToMDY(this.data.beginTime)
     submitObj.expireTime = util.convertDateFormatToMDY(this.data.expireTime)
-    submitObj.type = "Questionaire"
+    submitObj.type = this.data.taskType
+    // location 能用后删除下面折行
+    // delete submitObj.location
 
     console.log("提交的对象为", JSON.stringify(submitObj))
 
