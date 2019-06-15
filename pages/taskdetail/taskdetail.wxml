@@ -35,6 +35,6 @@
 </view>
 
 <view class="buttonview weui-form-preview__btn" >
- <button>{{button1}}</button>
-  <button>{{button2}}</button>
+ <button bindtap='onPress1'>{{button1}}</button>
+  <button bindtap='onPress2'>{{button2}}</button>
 </view>

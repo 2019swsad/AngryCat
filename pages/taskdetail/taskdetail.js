@@ -1,11 +1,11 @@
 // pages/taskdetail/taskdetail.js
 Page({
- 
+
   /**
    * 页面的初始数据
    */
   data: {
-    taskinfo:{
+    taskinfo: {
       "_id": "5cfe0688d7f67f119cbd4967",
       "title": "Cark",
       "type": "Questionaire",
@@ -21,23 +21,30 @@ Page({
       "totalCost": 20,
       "createTime": "2019-06-10 15:28:08",
       "currentParticipator": 0,
-      "isOrganizer": false,
+      "isOrganizer": true,
       "userinfo": {}
     },
-    button1:'查看',
-    button2:'完成'
-  
+    button1: '查看',
+    button2: '完成任务'
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var self = this;
 
+    this.requestTaskInfo();
+
+    
+  },
+
+  requestTaskInfo:function(){
+    var self = this;
     wx.request({
-      url:"https://www.volley99.com/task/get/17eeefdb-96db-4da4-9d52-2be8c04131b4",
+      url: "https://www.volley99.com/task/get/17eeefdb-96db-4da4-9d52-2be8c04131b4",
       method: 'GET',
-      
+
       header: {
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
@@ -46,17 +53,33 @@ Page({
 
         console.log(wx.getStorageSync("sessionId"));
 
-        
+
 
         if (res.statusCode === 200 || res.statusCode === 201) {
-          
+
           console.log(res.data);
           self.setData({
             taskinfo: res.data
           })
-        
 
-        
+          if (self.data.taskinfo.isOrganizer == false) {
+            if (self.data.taskinfo.status == 'start') {
+              self.setData({
+                button1: "退出任务",
+                button2: "完成任务"
+              })
+            }
+          } else {
+            if (self.data.taskinfo.status == 'start') {
+              self.setData({
+                button1: "查看完成状态",
+                button2: "结束任务"
+              })
+            }
+          }
+
+
+
         } else {
           console.log('提交任务失败, 错误代码' + res.statusCode)
           wx.showToast({
@@ -76,56 +99,101 @@ Page({
         console.log("完成HTTP请求")
       }
     })
+
   },
 
- 
+  onPress1: function(e) {
+
+    
+    if(this.data.button1=="退出任务"){
+    
+  
+    }
+  },
+  onPress2:function(e){
+    var self = this;
+    if (this.data.button2 == "完成任务") {
+
+      wx.showModal({
+        title: '提示',
+        content: '请输入完成妈',
+        success: function (res) {
+          console.log(res)
+          if (res.confirm) {
+           self.requestTaskInfo();
+
+          } else {
+        
+          }
+        }
+      })
+
+    }
+
+
+    else if (this.data.button2 =="结束任务"){
+      wx.showModal({
+        title: '提示',
+        content: '确定提前结束任务吗？',
+        success: function (res) {
+          console.log(res)
+          if (res.confirm) {
+              
+
+          } else {
+
+          }
+        }
+      })
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
