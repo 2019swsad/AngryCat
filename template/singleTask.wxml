@@ -1,5 +1,5 @@
 <template name="singleTask">
-  <view class="single_task">
+  <view class="single_task" bindtap="goToDetail" mark:tid="{{tid}}">
     <view class="task_infor">
 
       <view class="task_name">
@@ -7,7 +7,7 @@
       </view>
 
       <view class="task_price">
-        <text>{{salary}}</text>
+        <text>￥{{salary}}</text>
       </view>
 
       <view class="task_state">

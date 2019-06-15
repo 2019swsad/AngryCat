@@ -8,9 +8,8 @@ Page({
     username: '',
     password: '',
     email:'',
-    phone:''
-
- 
+    phone:'',
+    nickname:''
   },
   userNameInput: function (e) {
     this.setData({
@@ -32,14 +31,20 @@ Page({
       phone: e.detail.value
     })
   },
+  nickNameInput:function (e) {
+    this.setData({
+      nickname: e.detail.value
+    })
+  },
   regist: function(e){
     wx.request({
       url: 'https://www.volley99.com/users/reg',
       data: {
         "username": this.data.username,
         "password": this.data.password,
-         "phone":this.data.phone,
-        "email": this.data.email
+        "phone":this.data.phone,
+        "email": this.data.email,
+        "nickname": this.data.nickname,
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {

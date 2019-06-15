@@ -16,7 +16,11 @@
 
   <view class="organizer">
     <image class="portrait" src="../../image/test.jpg"></image>
-    <text class="username">孙笑川</text>
+    <view class="user_info">
+      <text class="username">孙笑川</text>
+      <text class="credit">信誉值：89</text>
+    </view>
+    
   </view>
 
 
@@ -35,6 +39,18 @@
   <view class="people">
     <text class="people_title">报名人数</text>
     <text class="people_num">3/4</text>
+  </view>
+
+  <view class="tag_area">
+    <text class="tag_title">标签</text>
+    <text class="tag">
+      <text class="single_tag">{{taskinfo.tags}}</text>
+    </text>
+  </view>
+
+  <view class="code_area">
+    <text>完成码: </text>
+    <text>123456 </text>
   </view>
 
   <view class="apply_btn_area">
