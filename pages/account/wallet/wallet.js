@@ -1,20 +1,69 @@
 // pages/account/wallet/wallet.js
+
+const util = require('../../../utils/util.js')
+const DOMAIN = 'https://www.volley99.com'
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    nickName:"",
+    balance:0,
+    credit:100,
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.getSelfInfo();
   },
-
+  /**
+   * 获取用户信息函数
+   */
+  getSelfInfo:function() {
+    var that = this;
+    wx.request({
+      url: DOMAIN + '/users/self',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          nickName: res.data.nickname,
+          balance: res.data.balance,
+          credit:res.data.credit
+        })
+      }
+    })
+  },
+  /**
+   * 发送充值请求
+   */
+  topUp: function() {
+    var that = this;
+    wx.request({
+      url: DOMAIN + '/wallet/deposit/100',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+        console.log(res.data);
+        wx.showToast({
+          title: '您已成功充值',
+          success: res => {
+            that.onLoad()
+          }
+        })
+      }
+    })
+  },
   /**
    * Lifecycle function--Called when page is initially rendered
    */

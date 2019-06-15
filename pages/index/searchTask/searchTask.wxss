@@ -9,7 +9,7 @@ page{
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid rgb(235, 235, 235);
-  padding-bottom:10px; 
+  padding-bottom:13px; 
 }
 
 .search_input {
@@ -34,7 +34,7 @@ page{
 
 
 .search_btn {
-  margin-top: 3px;
+  margin-top: 2.5px;
   width: 65px;
   height: 35px;
   line-height:2.15555556;

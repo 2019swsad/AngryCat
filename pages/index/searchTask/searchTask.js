@@ -39,10 +39,10 @@ Page({
   execSearch: function() {
     let me = this
     wx.request({
-      // url: DOMAIN + '/task/all',
-      // method: 'GET'
-      url: DOMAIN + '/task/query',
-      method: 'POST',
+      url: DOMAIN + '/task/all',
+      method: 'GET',
+      // url: DOMAIN + '/task/query',
+      // method: 'POST',
       data: {
         title: me.data.keyword,
         // type: "Questionaire"
@@ -58,9 +58,9 @@ Page({
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
         })
 
-        // arrToRender = arrToRender.filter((item) => {
-        //   return item.title.indexOf(me.data.keyword) >= 0
-        // })
+        arrToRender = arrToRender.filter((item) => {
+          return item.title.indexOf(me.data.keyword) >= 0
+        })
 
 
         me.setData({
