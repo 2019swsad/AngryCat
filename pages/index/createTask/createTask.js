@@ -73,8 +73,6 @@ Page({
     submitObj.beginTime = util.convertDateFormatToMDY(this.data.beginTime)
     submitObj.expireTime = util.convertDateFormatToMDY(this.data.expireTime)
     submitObj.type = this.data.taskType
-    // location 能用后删除下面折行
-    // delete submitObj.location
 
     console.log("提交的对象为", JSON.stringify(submitObj))
 
