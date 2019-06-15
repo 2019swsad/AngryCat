@@ -79,7 +79,7 @@ swiper {
 }
 .task_price {
   font-size: 14px;
-  color: #5dd5c8;
+  color: #2eada7;
   position: absolute;
   top: 12%;
   right: 10%;

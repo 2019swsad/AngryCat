@@ -12,12 +12,12 @@
  
 .swiper-tab-item {
     width: 30%;
-    color: #5dd5c8;
+    color: #2eada7;
     font-size: 28rpx;
 }
  
 .active {
-    color: #5dd5c8;
+    color: #2eada7;
     border-bottom: 4rpx solid #5dd5c8;
 }
  
@@ -44,7 +44,7 @@ swiper {
 }
 .task_price {
   font-size: 14px;
-  color: #5dd5c8;
+  color: #2eada7;
   position: absolute;
   top: 12%;
   right: 10%;
