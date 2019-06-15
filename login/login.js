@@ -21,6 +21,7 @@ Page({
     })
   },
   login: function(param) {
+    var self=this;
     //console.log(this.data.username);
     wx.request({
       url: 'https://www.volley99.com/users/login',
@@ -37,6 +38,8 @@ Page({
         if (res.statusCode == 200) {
           
           wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
+
+          getApp.globalData.username=self.data.username;
 
          
            if(res.data.status=='success'){

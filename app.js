@@ -1,6 +1,9 @@
 //app.js
 var util = require('/utils/util.js')
 App({
+  globalData :{
+     username:""
+  },
   onLaunch: function() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -26,6 +29,8 @@ App({
         if (res.statusCode == 200) {
           wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
           console.log(util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
+
+          
           console.log(res.data);
         } else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);

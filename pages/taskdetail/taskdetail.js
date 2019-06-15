@@ -37,7 +37,7 @@ Page({
     var self = this;
 
 
-     this.data.tid=option.query;
+    //  this.data.tid=option.query;
 
 
 
@@ -69,15 +69,15 @@ Page({
             taskinfo: res.data
           })
 
-          if (self.data.taskinfo.isOrganizer == false) {
-            if (self.data.taskinfo.status == 'start') {
+         
+          if (self.data.taskinfo.status == 'start') {
               self.setData({
                 button1: "退出任务",
                 button2: "完成任务"
               })
-            }
+            
           } else {
-            if (self.data.taskinfo.status == 'start') {
+            if (self.data.taskinfo.status == 'end') {
               self.setData({
                 button1: "查看完成状态",
                 button2: "结束任务"
@@ -87,14 +87,7 @@ Page({
 
 
 
-        } else {
-          console.log('提交任务失败, 错误代码' + res.statusCode)
-          wx.showToast({
-            title: '失败:' + res.data.message,
-            duration: 2000,
-            icon: 'none'
-          })
-        }
+        } 
       },
       fail: function () {
         wx.showToast({
@@ -115,6 +108,14 @@ Page({
     if(this.data.button1=="退出任务"){
     
   
+    }else if(this.data.button1=="查看"){
+       wx.navigateTo({
+         url: '../partipeople/partipeople',
+       })
+    }else if(this.data.button1=="评价"){
+      wx.navigateTo({
+        url: '',
+      })
     }
   },
   onPress2:function(e){
