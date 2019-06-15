@@ -2,7 +2,8 @@
 var util = require('/utils/util.js')
 App({
   globalData :{
-     username:""
+     username:"",
+    userInfo:""
   },
   onLaunch: function() {
     // 展示本地存储能力
