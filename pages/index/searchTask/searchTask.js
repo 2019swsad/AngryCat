@@ -39,13 +39,17 @@ Page({
   execSearch: function() {
     let me = this
     wx.request({
-      // /task/query 仍不可用
-      url: DOMAIN + '/task/all',
-      method: 'GET',
+      // url: DOMAIN + '/task/all',
+      // method: 'GET'
+      url: DOMAIN + '/task/query',
+      method: 'POST',
       data: {
-        title: me.data.keyword
+        title: me.data.keyword,
+        // type: "Questionaire"
       },
       success: function(res) {
+
+        // console.log(JSON.stringify(res))
 
         var arrToRender = JSON.parse(JSON.stringify(res.data))
 
@@ -54,16 +58,22 @@ Page({
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
         })
 
-        arrToRender = arrToRender.filter((item) => {
-          return item.title.indexOf(me.data.keyword) >= 0
-        })
+        // arrToRender = arrToRender.filter((item) => {
+        //   return item.title.indexOf(me.data.keyword) >= 0
+        // })
+
 
         me.setData({
           resultTasks: arrToRender,
         })
-        // console.log(JSON.stringify(res))
-        // console.log(typeof(res.data))
       }
+    })
+  },
+
+  goToDetail: function(e) {
+    console.log(JSON.stringify(e))
+    wx.navigateTo({
+      url: '../../taskdetail/taskdetail?tid=' + e.mark.tid,
     })
   },
 
