@@ -6,9 +6,9 @@
    <input  placeholder="这是一个可以自动聚焦的input" bindinput ="userNameInput"/>
     <text>密码</text>
    <input  placeholder="这是一个可以自动聚焦的input" bindinput="passWdInput"/>
-    <text>电话</text>
-   <input  placeholder="这是一个可以自动聚焦的input" bindinput="emaildInput"/>
     <text>邮箱</text>
+   <input  placeholder="这是一个可以自动聚焦的input" bindinput="emaildInput"/>
+    <text>电话</text>
    <input  placeholder="这是一个可以自动聚焦的input" bindinput="phoneWdInput"/>
     <button bindtap='regist'>登陆</button>
 </view>

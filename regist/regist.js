@@ -58,7 +58,7 @@ Page({
         } else if (res.statusCode == 400) {
           console.log(res.data);
           wx.showToast({
-            title: res.data.message,
+            title: res.data.details[0].message,
             duration: 2000,
             icon: "none"
           })
