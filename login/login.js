@@ -35,24 +35,30 @@ Page({
       success: function(res) {
 
         if (res.statusCode == 200) {
-          
+
           wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
 
-         
-           if(res.data.status=='success'){
-             console.log(res.data);
 
-           }
+          if (res.data.status == 'success') {
+            wx.showToast({
+              title: '成功登录',
+              duration: 2000,
+              icon: 'success'
+            })
+            // 导航回主页
+            setTimeout(wx.navigateBack, 1500, {
+              delta: 1
+            })
 
+          }
 
-        } else if (res.statusCode == 400){
+        } else if (res.statusCode == 400) {
           wx.showToast({
             title: '用户密码错误',
             duration: 2000,
-            icon: 'fail'
+            icon: 'none'
           })
-        }
-        else {
+        } else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
         }
       },
