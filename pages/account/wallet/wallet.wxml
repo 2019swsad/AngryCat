@@ -24,4 +24,10 @@
       <view>信誉</view>
     </view>
   </view>
+
+  <!--按钮区-->
+  <view class="buttonContainer">
+    <button class="topUpButton">充值</button>
+    <button class="withdrawButton">提现</button>
+  </view>
 </view>
