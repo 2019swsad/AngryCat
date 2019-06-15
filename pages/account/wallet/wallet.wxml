@@ -1,0 +1,27 @@
+<!--pages/account/wallet/wallet.wxml-->
+<!--个人钱包页面-->
+<view class="walletPage">
+  <!--顶部信息栏-->
+  <view class="personalInfoContainer">
+    <view class="avatarContainer">
+      <image class="userinfo-avatar" src="../../../image/avatar.jpg" ></image>
+    </view>
+
+    <view class="nicknameContainer">
+      {UserName}
+    </view>
+  </view>
+
+  <!--钱包信息栏-->
+  <view class="walletInfoContainer">
+    <view class="balanceContainer">
+      <view class="walletText">{balance}</view>
+      <view>余额</view>
+    </view>
+    <view class="line"></view>
+    <view class="creditContainer">
+      <view class="walletText">{credit}</view>
+      <view>信誉</view>
+    </view>
+  </view>
+</view>

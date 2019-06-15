@@ -1,0 +1,53 @@
+/* pages/account/wallet/wallet.wxss */
+/* 个人信息页面 */
+page {
+  height: 100%;
+}
+.walletPage {
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+}
+
+/* 顶部信息栏 */
+.personalInfoContainer {
+	padding: 4% 0%;
+	background-color: #FFF;
+}
+.avatarContainer {
+	text-align: center;
+  justify-content: center;
+}
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.nicknameContainer {
+	text-align: center;
+	color: #696969;
+}
+
+/* 钱包信息栏*/
+.walletInfoContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: #FFF;
+}
+.balanceContainer {
+  flex:1;
+  height: 20%;
+  text-align: center;
+}
+.creditContainer {
+  flex:1;
+  height: 20%;
+  text-align: center;
+}
+.walletText {
+  color: #696969;
+  font-size: 30rpx;
+}
+.line {
+  border-left: 1px solid rgb(235, 235, 235);
+}
