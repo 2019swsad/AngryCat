@@ -51,7 +51,7 @@
     <view class="section">
       <view class="section__title">标签</view>
       <view>
-        <input type="text" class="input" name="tags" placeholder="任务描述" />
+        <input type="text" class="input" name="tags" placeholder="标签" />
       </view>
     </view>
 
