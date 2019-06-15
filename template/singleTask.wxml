@@ -1,0 +1,29 @@
+<template name="single_task">
+  <view class="single_task">
+    <view class="task_infor">
+
+      <view class="task_name">
+        <text>{{taskName}}</text>
+      </view>
+
+      <view class="task_price">
+        <text>{{taskPrice}}</text>
+      </view>
+
+      <view class="task_state">
+        <text>{{taskState}}</text>
+      </view>
+
+      <view class="people_number">
+        <text>{{peopleNumber}}</text>
+      </view>
+
+      <view class="task_time">
+        <text>{{startTime}}</text>
+        <text>  ~  </text>
+        <text>{{expireTime}}</text>
+      </view>
+
+    </view>
+  </view>
+</template>

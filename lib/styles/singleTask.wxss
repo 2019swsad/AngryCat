@@ -1,0 +1,45 @@
+/* singleTask.wxss from pages/task/task.wxss by jerry */
+
+.single_task {
+  position: relative;
+  height: 100px;
+  background-color: #FFF;
+  border-bottom: 1px solid #E7E7EB;
+}
+
+.task_infor {
+  padding: 10px 0;
+  position: relative;
+  height: 80px;
+}
+.task_name {
+  font-size: 17px;
+  margin-left:4%;
+  margin-bottom: 2%;
+}
+.task_price {
+  font-size: 14px;
+  color: #5dd5c8;
+  position: absolute;
+  top: 12%;
+  right: 10%;
+  height: 22px;
+  line-height: 22px;
+}
+.task_state {
+  font-size: 17px;
+  position: absolute;
+  bottom: 22%;
+  right: 11%;
+}
+.task_time {
+  color: #929292;
+  font-size: 12px;
+  margin-left:4%;
+}
+
+.people_number {
+  color: #929292;
+  font-size: 12px;
+  margin-left: 4%;
+}
