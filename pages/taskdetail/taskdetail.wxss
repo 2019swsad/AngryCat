@@ -80,8 +80,8 @@ page{
 .location_icon {
   margin-right: 5px;
   margin-left: 3px;
-  height: 12px;
-  width: 12px;
+  height: 14px;
+  width: 10px;
 }
 
 .organizer {
@@ -144,7 +144,6 @@ page{
 .people {
   display:flex; 
   flex-direction: column;
-  border-bottom: 1px solid rgb(235, 235, 235);
   overflow: visible;
 }
 
@@ -160,6 +159,41 @@ page{
   margin-top: 12px;
 }
 
+.tag_area {
+  display:flex; 
+  flex-direction: column;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  overflow: visible;
+}
+
+.tag_title {
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 15px;
+}
+
+.tag {
+  margin-top: 9px;
+  padding-bottom: 9px;
+  display:flex; 
+  flex-direction: row;
+  justify-content:flex-start;
+}
+
+.single_tag {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+
+  font-size: 15px;
+  color: rgb(43, 43, 43);
+  border: 2px solid rgb(184, 184, 184);
+  border-radius: 5px;
+
+
+}
+
 .apply_btn_area {
   display:flex; 
   flex-direction: row;
@@ -168,7 +202,6 @@ page{
 }
 
 .apply_btn {
-
   margin-top:10px; 
   line-height:2.45555556;
   text-align:center;
@@ -176,6 +209,13 @@ page{
   font-size: 16px;
   width: 120px;
   height: 40px;
+  visibility:visible;
+}
 
-
+.code_area {
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 15px;
+  color: #2eada7;
+  display:none;
 }

@@ -37,6 +37,18 @@
     <text class="people_num">3/4</text>
   </view>
 
+  <view class="tag_area">
+    <text class="tag_title">标签</text>
+    <text class="tag">
+      <text class="single_tag">{{taskinfo.tags}}</text>
+    </text>
+  </view>
+
+  <view class="code_area">
+    <text>完成码: </text>
+    <text>123456 </text>
+  </view>
+
   <view class="apply_btn_area">
 
     <button class="apply_btn" type="primary" bindtap='onPress1'>查看</button>
