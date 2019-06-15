@@ -57,8 +57,6 @@ Page({
 
         if (res.statusCode == 200) {
         
-         
-
 
         } else if (res.statusCode == 400) {
           console.log(res.data);

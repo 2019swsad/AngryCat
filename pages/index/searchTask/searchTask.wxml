@@ -4,9 +4,8 @@
 
 <view>
   <view class='search_box'>
-    <text>请输入关键字</text>
-    <input placeholder='关键字' bindblur="updateKeyword"></input>
-    <button bindtap='execSearch'>搜索</button>
+    <input class="search_input"  bindblur="updateKeyword" type="text" placeholder="SEARCH"></input>
+    <button class="search_btn" type="primary" bindtap='execSearch'>搜索</button>
   </view>
 
   <view class='result_tasks'>
