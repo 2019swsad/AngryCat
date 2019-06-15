@@ -27,7 +27,7 @@ swiper {
 
 .single_task {
   position: relative;
-  height: 100px;
+  height: 110px;
   background-color: #FFF;
   border-bottom: 1px solid #E7E7EB;
 }
@@ -35,12 +35,12 @@ swiper {
 .task_infor {
   padding: 10px 0;
   position: relative;
-  height: 80px;
+  height: 90px;
 }
 .task_name {
   font-size: 17px;
   margin-left:4%;
-  margin-bottom: 2%;
+  margin-bottom:1.5%;
 }
 .task_price {
   font-size: 14px;
@@ -61,11 +61,32 @@ swiper {
   color: #929292;
   font-size: 12px;
   margin-left:4%;
+  margin-bottom: 1%;
 }
 
 .people_number {
   color: #929292;
   font-size: 12px;
   margin-left: 4%;
+}
+
+.organizer {
+  display:flex; 
+  flex-direction: row;
+}
+
+.portrait {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 4%;
+  margin-left: 4%;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 12px;
+  margin-left: 10px;
+  margin-top: 2px;
+  color: #929292;
 }
 
