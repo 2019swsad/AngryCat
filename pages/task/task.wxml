@@ -5,7 +5,7 @@
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">发布的任务</view>
 
   </view>
-  <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+  <swiper current="{{currentTab}}" duration="500" bindchange="swiperTab">
     <swiper-item>
       <navigator url="../taskdetail/taskdetail">
         <view class="single_task">
