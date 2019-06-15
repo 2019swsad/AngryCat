@@ -42,10 +42,7 @@ Page({
           getApp.globalData.username=self.data.username;
 
         
-           if(res.data.status=='success'){
-             console.log(res.data);
-
-          wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
+          
 
 
           if (res.data.status == 'success') {
