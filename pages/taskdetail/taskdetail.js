@@ -84,6 +84,8 @@ Page({
             endTime: end
           })
 
+          console.log(self.data.taskinfo.status)
+
 
 
           if (self.data.taskinfo.status == 'start') {
@@ -99,7 +101,7 @@ Page({
             })
           } else if (self.data.taskinfo.status == 'end') {
             self.setData({
-              button1: "完成状态",
+              button1: "评价",
               button2: "结束任务"
             })
 
@@ -156,12 +158,13 @@ Page({
         success: function(res) {
           console.log(res)
           if (res.confirm) {
-
-            self.setData({
-              button1: "查看完成状态",
-              button2: "结束任务"
+            wx.request({
+              url: '',
             })
 
+
+            
+            self.requestTaskInfo();
 
 
           } else {
