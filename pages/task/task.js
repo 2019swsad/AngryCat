@@ -89,7 +89,10 @@ Page({
           createdTasks: arrToRender,
           listHeight :Object.keys(arrToRender).length * 90 + 100 + "px"
         })
-      }
+      },
+      fail: function () {
+        console.log("HTTP请求失败")
+      },
     })
 
 
