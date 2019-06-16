@@ -1,4 +1,6 @@
 // pages/task/task.js
+const DOMAIN = 'https://www.volley99.com'
+const util = require('../../utils/util.js')
 Page({
 
   /**
@@ -6,9 +8,8 @@ Page({
    */
   data: {
     currentTab: 0,
-    selfAllTasks:'',
-    tasks: [
-      {
+    selfAllTasks: '',
+    tasks: [{
         "_id": "5d04f6dfbd79c825a928c106",
         "title": "testByGyakkun",
         "description": "testByGyakkun",
@@ -46,11 +47,13 @@ Page({
         "currentParticipator": 0,
         "finishNumber": "BAgBBg=="
       }
-      ]
+    ],
+    createdTasks: [],
+    joinedTasks: [],
 
   },
 
-  goToDetail: function (e) {
+  goToDetail: function(e) {
     console.log(JSON.stringify(e.mark.tid))
     wx.navigateTo({
       url: '../taskdetail/taskdetail?tid=' + e.mark.tid,
@@ -61,68 +64,116 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
+    let me = this
+
+    wx.request({
+      url: DOMAIN + '/task/getCreate',
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      method: 'GET',
+      success: function(res) {
+        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        arrToRender.forEach((item, index, input) => {
+          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+        })
+
+        me.setData({
+          createdTasks: arrToRender,
+        })
+      }
+    })
+
+    wx.request({
+      url: DOMAIN + '/task/getJoin',
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      method: 'GET',
+      success: function(res) {
+        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        arrToRender.forEach((item, index, input) => {
+          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+        })
+
+        me.setData({
+          joinedTasks: arrToRender,
+        })
+      },
+      fail: function() {
+        console.log("HTTP请求失败")
+      },
+      complete: function() {
+        console.log("HTTP请求完成")
+
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
   //滑动切换
-  swiperTab: function (e) {
+  swiperTab: function(e) {
     this.setData({
       currentTab: e.detail.current
     });
   },
 
   //点击切换
-  clickTab: function (e) {
+  clickTab: function(e) {
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
