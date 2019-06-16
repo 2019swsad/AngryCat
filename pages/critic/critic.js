@@ -23,21 +23,21 @@ Page({
     evaluations: [
       {
         id: 0,
-        name: "医院环境",
-        image: "https://s1.ax1x.com/2018/08/05/PDMaCV.png",
+        name: "实际收益",
+        image: "../../image/leaf.png",
         star: 0,
         note: ""
       },
       {
         id: 1,
-        name: "医生专业技术",
-        image: "https://s1.ax1x.com/2018/08/05/PDMd3T.png",
+        name: "任务内容准确性",
+        image: "../../image/tie.png",
         star: 0,
         note: ""
       },
       {
         id: 2,
-        name: "医生态度",
+        name: "发布者态度",
         image: "../../image/smile.png",
         star: 0,
         note: ""
