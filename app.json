@@ -1,8 +1,9 @@
 {
-  "pages": [               
+  "pages": [    
+
+    "pages/task/task",        
     "pages/index/index",
     "login/login",
-    "pages/task/task",
     "pages/logs/logs",
     "pages/account/account",
     "regist/regist",
