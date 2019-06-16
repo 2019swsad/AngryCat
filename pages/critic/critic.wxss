@@ -1,5 +1,12 @@
 /* pages/critic/critic.wxss */
 
+.container {
+
+  padding-top:50px;
+  padding-bottom: 50px;
+
+}
+
 .card .card-item{
   margin-bottom: 25rpx;
   border: 5rpx solid #888;
@@ -63,4 +70,9 @@
 .card-item .content-body .note{
   line-height: 70rpx;
   font-size: 30rpx;
+}
+
+.submit {
+  font-weight: bold;
+  margin-top: 30px;
 }
