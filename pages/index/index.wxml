@@ -1,3 +1,5 @@
+<import src="../../template/singleTask.wxml" />
+
 <view>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">
@@ -26,7 +28,14 @@
   <view class="commen_title">
     <text>任务推荐</text>
   </view>
-  <navigator url="../taskdetail/taskdetail">
+
+  <view class='recommend_tasks'>
+    <block wx:for="{{recommendTasks}}" wx:for-item="task">
+      <template is="singleTask" data="{{...task}}"></template>
+    </block>
+  </view>
+
+  <!-- <navigator url="../taskdetail/taskdetail">
     <view class="single_task">
       <view class="task_infor">
       
@@ -54,5 +63,5 @@
           
       </view>
     </view>
-  </navigator>
+  </navigator> -->
 </view>

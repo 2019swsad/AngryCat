@@ -11,17 +11,22 @@
       </view>
 
       <view class="task_state">
-        <text>{{status}}</text>
+        <text>状态: {{status}}</text>
       </view>
 
       <view class="people_number">
-        <text>{{participantNum}}</text>
+        <text>报名状况: {{currentParticipator}}/{{participantNum}}人</text>
       </view>
 
       <view class="task_time">
         <text>{{beginTime}}</text>
         <text>  ~  </text>
         <text>{{expireTime}}</text>
+      </view>
+
+      <view class="organizer">
+        <!-- <image class="portrait" ></image> -->
+        <text class="username">{{organizer}}</text>
       </view>
 
     </view>
