@@ -86,7 +86,7 @@ Page({
 
         me.setData({
           createdTasks: arrToRender,
-          listHeight :Object.keys(arrToRender).length*90+100+"px"
+          listHeight :Object.keys(arrToRender).length * 90 + 100 + "px"
         })
       }
     })
@@ -107,6 +107,8 @@ Page({
 
         me.setData({
           joinedTasks: arrToRender,
+          listHeight: Object.keys(arrToRender).length * 90 + 100 + "px"
+
         })
       },
       fail: function() {

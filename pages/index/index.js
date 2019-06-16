@@ -45,7 +45,7 @@ Page({
       },
       {
         "iconUrl": '../../image/icon-tiyu.png',
-        "iconText": '登陆',
+        "iconText": '登录',
         "navigateUrl": '../../login/login'
       },
       {
