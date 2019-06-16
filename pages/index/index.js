@@ -1,6 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const DOMAIN = 'https://www.volley99.com'
+const util = require('../../utils/util.js')
+
 
 Page({
   data: {
@@ -51,6 +54,7 @@ Page({
         "navigateUrl": './createTask/createTask'
       }
     ],
+    recommendTasks: [],
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -63,7 +67,11 @@ Page({
       url: '../logs/logs'
     })
   },
+
   onLoad: function() {
+
+    let me = this
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -90,7 +98,34 @@ Page({
         }
       })
     }
+
+    wx.request({
+      url: DOMAIN + '/task/all',
+      method: 'GET',
+      success: function(res) {
+        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        arrToRender.forEach((item, index, input) => {
+          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+        })
+
+        arrToRender = arrToRender.splice(Math.floor(Math.random() * arrToRender.length), 3)
+
+        me.setData({
+          recommendTasks: arrToRender,
+        })
+      }
+    })
+
   },
+
+  goToDetail: function(e) {
+    console.log(JSON.stringify(e))
+    wx.navigateTo({
+      url: '../taskdetail/taskdetail?tid=' + e.mark.tid,
+    })
+  },
+
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
