@@ -105,12 +105,52 @@ Page({
   },
 
   onPress1:function(e) {
+    var self=this;
     wx.showModal({
       title: '提示',
       content: '确定要报名吗？',
       success: function (res) {
         console.log(res)
         if (res.confirm) {
+
+          wx.request({
+            url: 'https://www.volley99.com/order/create',
+            data: {
+              "tid": self.data.tid,
+              "status": "success"
+            },
+            method: 'POST', 
+            header: {
+              'content-type': 'application/json',
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            success: function (res) {
+              console.log(res.data)
+              if(res.data.status=="success"){
+                wx.showToast({
+                  title: '成功报名',
+                  duration: 2000,
+                  icon: 'success'
+                })
+                console.log(res.data)
+                // 导航回主页
+                setTimeout(wx.navigateBack, 1500, {
+                  delta: 1
+                })
+              }else{
+                wx.showToast({
+                  title: '报名失败!',
+                  duration: 2000,
+                  icon: 'none'
+                })
+              }
+
+
+            },
+            fail: function () {
+              console.log("index.js wx.request CheckCallUser fail");
+            },
+          })
 
 
 

@@ -1,1 +1,4 @@
 /* pages/partipeople/partipeople.wxss */
+.name{
+  width: 10px
+}
