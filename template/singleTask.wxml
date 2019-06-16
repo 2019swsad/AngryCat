@@ -7,11 +7,11 @@
       </view>
 
       <view class="task_price">
-        <text>￥{{salary}}</text>
+        <text>￥ {{salary}}</text>
       </view>
 
       <view class="task_state">
-        <text>状态: {{status}}</text>
+        <text>{{status}}</text>
       </view>
 
       <view class="people_number">
