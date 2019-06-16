@@ -1,4 +1,9 @@
 /* pages/task/task.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+
 .swiper-tab {
     width: 100%;
     border-bottom: 2rpx solid #ccc;
@@ -25,9 +30,11 @@ swiper {
     background-color: #fff
 }
 
+.swiper_content {
+  height: 1000px;
+}
+
 .single_task {
-  position: relative;
-  height: 110px;
   background-color: #FFF;
   border-bottom: 1px solid #E7E7EB;
 }
