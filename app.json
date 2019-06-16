@@ -1,18 +1,19 @@
 {
 
   "pages": [
+
+    "pages/index/index",    
+    "pages/index/createTask/createTask",
     "pages/task/task",
-    "pages/index/index",       
-    "login/login",
     "pages/logs/logs",
     "pages/account/account",
-    "regist/regist",
+    "login/login",
+    "regist/regist",            
     "pages/index/searchTask/searchTask",
     "pages/taskdetail/taskdetail",
     "pages/partipeople/partipeople",
     "pages/critic/critic",
     "pages/account/wallet/wallet",
-    "pages/index/createTask/createTask",
     "pages/account/message/message",
     "pages/searchTaskDetail/searchTaskDetail"
   ],

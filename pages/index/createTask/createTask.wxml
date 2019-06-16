@@ -1,6 +1,9 @@
 <!--pages/index/createTask/createTask.wxml-->
 <view class="main">
   <!-- <button bindtap="tempLogin">LOGIN</button> -->
+  <view class="main_title">发布任务</view>
+
+
   <form class="from_style" bindsubmit="formSubmit" bindreset="formReset">
     <view class="section">
       <view class="section_title">标题</view>
