@@ -78,6 +78,7 @@ Page({
       },
       method: 'GET',
       success: function(res) {
+        console.log(res.data)
         var arrToRender = JSON.parse(JSON.stringify(res.data))
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
@@ -92,32 +93,33 @@ Page({
     })
 
 
-    // wx.request({
-    //   url: DOMAIN + '/task/getJoin',
-    //   header: {
-    //     'Content-Type': 'application/json',
-    //     'cookie': wx.getStorageSync("sessionId")
-    //   },
-    //   method: 'GET',
-    //   success: function(res) {
-    //     var arrToRender = JSON.parse(JSON.stringify(res.data))
-    //     arrToRender.forEach((item, index, input) => {
-    //       item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
-    //       item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-    //     })
+    wx.request({
+      url: DOMAIN + '/order/all',
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      method: 'GET',
+      success: function(res) {
+        console.log(res.data)
+        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        arrToRender.forEach((item, index, input) => {
+          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+        })
 
-    //     me.setData({
-    //       joinedTasks: arrToRender,
-    //     })
-    //   },
-    //   fail: function() {
-    //     console.log("HTTP请求失败")
-    //   },
-    //   complete: function() {
-    //     console.log("HTTP请求完成")
+        me.setData({
+          joinedTasks: arrToRender,
+        })
+      },
+      fail: function() {
+        console.log("HTTP请求失败")
+      },
+      complete: function() {
+        console.log("HTTP请求完成")
 
-    //   }
-    // })
+      }
+    })
 
  
 

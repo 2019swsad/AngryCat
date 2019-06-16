@@ -111,6 +111,9 @@ Page({
       success: function (res) {
         console.log(res)
         if (res.confirm) {
+          wx.request({
+            url: 'https://www.volley99.com/order/create',
+          })
 
 
 
