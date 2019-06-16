@@ -30,7 +30,7 @@ Page({
     tid: '',
     beginTime: '',
     endTime: '',
-    isShow:true
+    isShow: true
 
 
 
@@ -89,23 +89,23 @@ Page({
 
 
 
-          if (self.data.taskinfo.status == 'start') {
+          if (self.data.taskinfo.status == '未开始') {
             self.setData({
               button1: "报名详情",
               button2: "停止报名"
             })
 
-          } else if (self.data.taskinfo.status == 'doing') {
+          } else if (self.data.taskinfo.status == '进行中') {
             self.setData({
               button1: "完成情况",
               button2: "结束任务"
             })
-          } else if (self.data.taskinfo.status == 'end') {
+          } else if (self.data.taskinfo.status == '已结束') {
             self.setData({
               button1: "评价",
-              button2: "结束任务"
+              isShow: false
             })
-            isShow=false;
+
 
           }
 
@@ -163,11 +163,38 @@ Page({
         success: function(res) {
           console.log(res)
           if (res.confirm) {
-           
-           
 
 
-            
+            wx.request({
+              url: "https://www.volley99.com/task/ongoing/" + self.data.tid,
+              method: 'GET',
+
+              header: {
+                'Content-Type': 'application/json',
+                'cookie': wx.getStorageSync("sessionId")
+              },
+              success: function(res) {
+
+                console.log(res.data)
+                self.requestTaskInfo();
+
+
+              },
+              fail: function() {
+                wx.showToast({
+                  title: 'fail',
+                  icon: 'none'
+                })
+              },
+
+
+            })
+
+
+
+
+
+
             self.requestTaskInfo();
 
 
@@ -186,10 +213,33 @@ Page({
           console.log(res)
           if (res.confirm) {
 
+            wx.request({
+              url: "https://www.volley99.com/task/finish/" + self.data.tid,
+              method: 'GET',
 
-            self.setData({
-              isShow: false
+              header: {
+                'Content-Type': 'application/json',
+                'cookie': wx.getStorageSync("sessionId")
+              },
+              success: function (res) {
+
+                console.log(res.data)
+                self.requestTaskInfo();
+
+
+              },
+              fail: function () {
+                wx.showToast({
+                  title: 'fail',
+                  icon: 'none'
+                })
+              },
+
+
             })
+
+
+
 
           } else {
 
