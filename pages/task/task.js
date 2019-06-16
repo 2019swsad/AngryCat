@@ -91,34 +91,36 @@ Page({
       }
     })
 
-    wx.request({
-      url: DOMAIN + '/task/getJoin',
-      header: {
-        'Content-Type': 'application/json',
-        'cookie': wx.getStorageSync("sessionId")
-      },
-      method: 'GET',
-      success: function(res) {
-        var arrToRender = JSON.parse(JSON.stringify(res.data))
-        arrToRender.forEach((item, index, input) => {
-          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
-          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-        })
 
-        me.setData({
-          joinedTasks: arrToRender,
-          listHeight: Object.keys(arrToRender).length * 90 + 100 + "px"
+    // wx.request({
+    //   url: DOMAIN + '/task/getJoin',
+    //   header: {
+    //     'Content-Type': 'application/json',
+    //     'cookie': wx.getStorageSync("sessionId")
+    //   },
+    //   method: 'GET',
+    //   success: function(res) {
+    //     var arrToRender = JSON.parse(JSON.stringify(res.data))
+    //     arrToRender.forEach((item, index, input) => {
+    //       item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+    //       item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+    //     })
 
-        })
-      },
-      fail: function() {
-        console.log("HTTP请求失败")
-      },
-      complete: function() {
-        console.log("HTTP请求完成")
+    //     me.setData({
+    //       joinedTasks: arrToRender,
+    //     })
+    //   },
+    //   fail: function() {
+    //     console.log("HTTP请求失败")
+    //   },
+    //   complete: function() {
+    //     console.log("HTTP请求完成")
 
-      }
-    })
+    //   }
+    // })
+
+ 
+
   },
 
   /**
