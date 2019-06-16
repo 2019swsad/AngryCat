@@ -32,9 +32,9 @@ page {
 .register_input {
   width: 270px;
   color: rgb(38, 50, 56);
-  height: 40px;
+  height: 55px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: 1px;
   background: rgba(136, 126, 126, 0.04);
   border: none;
@@ -56,7 +56,8 @@ form.form1 {
 
 
 .submit_btn {
-  width: 220px;
+  width: 190px;
   font-weight: 700;
+  margin-top: 100px;
 }
     
