@@ -56,9 +56,8 @@
 
   <view class="apply_btn_area">
 
-    <button class="apply_btn" type="primary" bindtap='onPress1'>{{button1}}</button>
+    <button class="apply_btn" type="primary" bindtap='onPress1'>报名</button>
 
-    <button class="apply_btn" type="primary" bindtap='onPress2'>{{button2}}</button>
 
   </view>
 

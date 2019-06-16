@@ -28,8 +28,8 @@ Page({
     button1: '查看',
     button2: '完成任务',
     tid: '',
-    beginTime:'',
-    endTime:''
+    beginTime: '',
+    endTime: ''
 
 
 
@@ -42,7 +42,7 @@ Page({
 
 
 
- console.log(options.tid);
+    console.log(options.tid);
     //  this.data.tid=option.query;
 
     this.data.tid = options.tid;
@@ -85,7 +85,7 @@ Page({
           })
 
 
-        
+
           if (self.data.taskinfo.status == 'start') {
             self.setData({
               button1: "报名详情",
@@ -97,8 +97,7 @@ Page({
               button1: "完成情况",
               button2: "结束任务"
             })
-          }
-          else if (self.data.taskinfo.status == 'end') {
+          } else if (self.data.taskinfo.status == 'end') {
             self.setData({
               button1: "完成状态",
               button2: "结束任务"
@@ -107,7 +106,7 @@ Page({
           }
 
 
-         
+
 
 
 
@@ -127,8 +126,8 @@ Page({
     this.updateButton();
 
   },
-  updateButton:function(){
-   
+  updateButton: function() {
+
   },
 
   onPress1: function(e) {
@@ -154,7 +153,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '确定停止报名吗？',
-        success: function (res) {
+        success: function(res) {
           console.log(res)
           if (res.confirm) {
 
@@ -170,7 +169,7 @@ Page({
           }
         }
       })
-      
+
 
     } else if (this.data.button2 == "结束任务") {
       wx.showModal({
