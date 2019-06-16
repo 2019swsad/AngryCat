@@ -29,7 +29,8 @@ Page({
     button2: '完成任务',
     tid: '',
     beginTime: '',
-    endTime: ''
+    endTime: '',
+    isShow:true
 
 
 
@@ -104,6 +105,7 @@ Page({
               button1: "评价",
               button2: "结束任务"
             })
+            isShow=false;
 
           }
 
@@ -161,9 +163,8 @@ Page({
         success: function(res) {
           console.log(res)
           if (res.confirm) {
-            wx.request({
-              url: '',
-            })
+           
+           
 
 
             
@@ -185,6 +186,10 @@ Page({
           console.log(res)
           if (res.confirm) {
 
+
+            self.setData({
+              isShow: false
+            })
 
           } else {
 
