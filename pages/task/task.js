@@ -86,10 +86,11 @@ Page({
 
         me.setData({
           createdTasks: arrToRender,
-          listHeight :Object.keys(arrToRender).length*90+100+"px"
+          listHeight :Object.keys(arrToRender).length * 90 + 100 + "px"
         })
       }
     })
+
 
     // wx.request({
     //   url: DOMAIN + '/task/getJoin',
@@ -117,6 +118,9 @@ Page({
 
     //   }
     // })
+
+ 
+
   },
 
   /**
