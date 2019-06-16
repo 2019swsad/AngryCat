@@ -1,7 +1,6 @@
 {
-  "pages": [    
-
-    "pages/task/task",        
+  "pages": [
+    "pages/task/task",
     "pages/index/index",
     "login/login",
     "pages/logs/logs",
@@ -11,9 +10,10 @@
     "pages/taskdetail/taskdetail",
     "pages/partipeople/partipeople",
     "pages/critic/critic",
-    "pages/account/wallet/wallet",        
-    "pages/index/createTask/createTask",    
-    "pages/account/message/message"
+    "pages/account/wallet/wallet",
+    "pages/index/createTask/createTask",
+    "pages/account/message/message",
+    "pages/searchTaskDetail/searchTaskDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
