@@ -10,7 +10,7 @@ Page({
    */
   data: {
     keyword: "",
-    resultTasks: [ ],
+    resultTasks: [],
   },
 
   updateKeyword: function(e) {
@@ -42,9 +42,9 @@ Page({
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
         })
 
-        arrToRender = arrToRender.filter((item) => {
-          return item.title.indexOf(me.data.keyword) >= 0
-        })
+        // arrToRender = arrToRender.filter((item) => {
+        //   return item.title.indexOf(me.data.keyword) >= 0
+        // })
 
 
         me.setData({
@@ -65,7 +65,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let me = this
+    wx.request({
+      url: DOMAIN + '/task/all',
+      method: 'GET',
+      success: function(res) {
 
+        // console.log(JSON.stringify(res))
+
+        var arrToRender = JSON.parse(JSON.stringify(res.data))
+
+        arrToRender.forEach((item, index, input) => {
+          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+        })
+
+        arrToRender = arrToRender.filter((item) => {
+          return item.status.indexOf("start") >= 0
+        })
+
+
+        me.setData({
+          resultTasks: arrToRender,
+        })
+      }
+    })
   },
 
   /**
