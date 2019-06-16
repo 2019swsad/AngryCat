@@ -9,58 +9,54 @@ Page({
     selfAllTasks:'',
     tasks: [
       {
-        "_id": "5cfb769b2a1fa23a478025ba",
-        "title": "test task",
-        "type": "Questionaire",
-        "salary": 20,
-        "description": "task for test",
-        "beginTime": "2019-08-19T16:00:00.000Z",
-        "expireTime": "2019-08-21T16:00:00.000Z",
+        "_id": "5d04f6dfbd79c825a928c106",
+        "title": "testByGyakkun",
+        "description": "testByGyakkun",
+        "position": "testByGyakkun",
         "participantNum": 1,
-        "tags": "Testing",
-        "uid": "796885d0-c912-4559-ad8b-2acddcc066e3",
-        "tid": "f4cecc81-ccff-41c9-bedc-3acd3da2dce1",
+        "salary": 233,
+        "tags": "testByGyakkun",
+        "beginTime": "2019-06-15T16:00:00.000Z",
+        "expireTime": "2019-06-30T16:00:00.000Z",
+        "type": "其他",
+        "uid": "e57722bf-1ba1-415d-9b1e-255ddd30737b",
+        "tid": "b050dde1-5563-4f89-a62c-48ccafbb88e4",
         "status": "start",
-        "totalCost": 20,
-        "createTime": "2019-06-08 16:49:31",
-        "currentParticipator": 0
+        "totalCost": 233,
+        "createTime": "2019-06-15 21:47:11",
+        "currentParticipator": 0,
+        "finishNumber": "BwkFBA=="
       },
       {
-        "_id": "5cfbd4cf2a1fa23a478025bc",
-        "title": "买避孕套",
-        "type": "问卷",
-        "salary": 20,
-        "description": "这是一个任务描述",
-        "beginTime": "2019-08-19T16:00:00.000Z",
-        "expireTime": "2019-08-21T16:00:00.000Z",
+        "_id": "5d0517ab67377b2bca473ea3",
+        "title": "test1",
+        "description": "test1",
+        "position": "test1",
         "participantNum": 1,
-        "tags": "Testing",
-        "uid": "796885d0-c912-4559-ad8b-2acddcc066e3",
-        "tid": "565a870a-3b6a-4d7e-80ce-a3fa4caaa531",
+        "salary": 23,
+        "tags": "test1",
+        "beginTime": "2019-06-19T16:00:00.000Z",
+        "expireTime": "2019-06-30T16:00:00.000Z",
+        "type": "问卷调查",
+        "uid": "e57722bf-1ba1-415d-9b1e-255ddd30737b",
+        "tid": "129a0135-d131-4c72-9770-37a93e807bfe",
         "status": "start",
-        "totalCost": 20,
-        "createTime": "2019-06-08 23:31:27",
-        "currentParticipator": 0
-      },
-      {
-        "_id": "5cfdfa23d406a67d78568d2a",
-        "title": "for test 2",
-        "type": "normal",
-        "salary": 1,
-        "description": "hihihi",
-        "beginTime": "2019-06-13T14:14:41.000Z",
-        "expireTime": "2020-05-31T05:55:47.000Z",
-        "participantNum": 5,
-        "tags": "new test",
-        "uid": "d06146e7-aaff-47a8-831b-99bcf73e1f55",
-        "tid": "4e6c5138-9bed-4c77-9746-47d482be9d98",
-        "status": "start",
-        "totalCost": 5,
-        "createTime": "2019-06-10 14:35:15",
-        "currentParticipator": 0
-      }]
+        "totalCost": 23,
+        "createTime": "2019-06-16 00:07:07",
+        "currentParticipator": 0,
+        "finishNumber": "BAgBBg=="
+      }
+      ]
 
   },
+
+  goToDetail: function (e) {
+    console.log(JSON.stringify(e.mark.tid))
+    wx.navigateTo({
+      url: '../taskdetail/taskdetail?tid=' + e.mark.tid,
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

@@ -44,7 +44,7 @@
     <swiper-item>
       <navigator url="../taskdetail/taskdetail">
         <view class="single_task" wx:for="{{tasks}}">
-          <view class="task_infor">
+          <view class="task_infor" bindtap="goToDetail" mark:tid="{{item.tid}}">
           
               <view class="task_name">
                 <text>{{item.title}}</text>

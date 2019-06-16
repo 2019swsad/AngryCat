@@ -27,7 +27,7 @@ Page({
     },
     button1: '查看',
     button2: '完成任务',
-    tid: 'b050dde1-5563-4f89-a62c-48ccafbb88e4',
+    tid: '',
     beginTime:'',
     endTime:''
 
@@ -42,10 +42,10 @@ Page({
 
 
 
-
+ console.log(options.tid);
     //  this.data.tid=option.query;
 
-    // this.data.tid = options.tid;
+    this.data.tid = options.tid;
 
 
 
@@ -83,24 +83,31 @@ Page({
           self.setData({
             endTime: end
           })
+
+
         
-
-
-
           if (self.data.taskinfo.status == 'start') {
             self.setData({
-              button1: "退出任务",
-              button2: "完成任务"
+              button1: "查看报名情况",
+              button2: "停止报名"
             })
 
-          } else {
-            if (self.data.taskinfo.status == 'end') {
-              self.setData({
-                button1: "查看完成状态",
-                button2: "结束任务"
-              })
-            }
+          } else if (self.data.taskinfo.status == 'doing') {
+            self.setData({
+              button1: "查看完成情况",
+              button2: "结束任务"
+            })
           }
+          else if (self.data.taskinfo.status == 'end') {
+            self.setData({
+              button1: "查看完成状态",
+              button2: "结束任务"
+            })
+
+          }
+
+
+         
 
 
 
@@ -117,6 +124,11 @@ Page({
       }
     })
 
+    this.updateButton();
+
+  },
+  updateButton:function(){
+   
   },
 
   onPress1: function(e) {
@@ -138,21 +150,27 @@ Page({
   },
   onPress2: function(e) {
     var self = this;
-    if (this.data.button2 == "完成任务") {
-
+    if (this.data.button2 == "停止报名") {
       wx.showModal({
         title: '提示',
-        content: '请输入完成妈',
-        success: function(res) {
+        content: '确定停止报名吗？',
+        success: function (res) {
           console.log(res)
           if (res.confirm) {
-            self.requestTaskInfo();
+
+            self.setData({
+              button1: "查看完成状态",
+              button2: "结束任务"
+            })
+
+
 
           } else {
 
           }
         }
       })
+      
 
     } else if (this.data.button2 == "结束任务") {
       wx.showModal({
