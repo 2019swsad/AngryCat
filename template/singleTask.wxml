@@ -15,7 +15,7 @@
       </view>
 
       <view class="people_number">
-        <text>报名状况: {{currentParticipator}}/{{participantNum}}人</text>
+        <text>报名状况：{{currentParticipator}}/{{participantNum}}人</text>
       </view>
 
       <view class="task_time">
