@@ -88,19 +88,19 @@ Page({
         
           if (self.data.taskinfo.status == 'start') {
             self.setData({
-              button1: "查看报名情况",
+              button1: "报名详情",
               button2: "停止报名"
             })
 
           } else if (self.data.taskinfo.status == 'doing') {
             self.setData({
-              button1: "查看完成情况",
+              button1: "完成情况",
               button2: "结束任务"
             })
           }
           else if (self.data.taskinfo.status == 'end') {
             self.setData({
-              button1: "查看完成状态",
+              button1: "完成状态",
               button2: "结束任务"
             })
 

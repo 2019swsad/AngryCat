@@ -27,7 +27,7 @@
 
   <!--按钮区-->
   <view class="buttonContainer">
-    <button class="topUpButton" bindtap="topUp">充值</button>
+    <button class="topUpButton"bindtap="topUp">充值</button>
     <button class="withdrawButton">提现</button>
   </view>
 </view>

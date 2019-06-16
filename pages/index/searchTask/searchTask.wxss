@@ -34,7 +34,7 @@ page{
 
 
 .search_btn {
-  margin-top: 2.5px;
+  margin-top: 2px;
   width: 65px;
   height: 35px;
   line-height:2.15555556;

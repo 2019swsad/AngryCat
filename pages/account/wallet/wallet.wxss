@@ -61,13 +61,17 @@ page {
 .topUpButton {
   width: 50%;
   color:#FFF;
-  background-color: rgb(5, 193, 95);
-  border: hidden;
+  font-weight: bold;
+  background-color: rgb(80, 169, 56);
 }
 .withdrawButton {
   margin-top: 5%;
   width: 50%;
-  color:rgb(5, 193, 95);
-  background-color: rgb(237, 237, 237);
-  border: hidden;
+  color:rgb(80, 169, 55);
+  font-weight: bold;
+  background-color: rgb(244, 245, 246);
+}
+
+.topUpButton::after,.withdrawButton::after{
+  border: none;
 }

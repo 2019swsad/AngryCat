@@ -1,5 +1,5 @@
 {
-  "pages": [                
+  "pages": [               
     "pages/index/index",
     "login/login",
     "pages/task/task",
@@ -8,10 +8,10 @@
     "regist/regist",
     "pages/index/searchTask/searchTask",
     "pages/taskdetail/taskdetail",
-    "pages/index/createTask/createTask",
     "pages/partipeople/partipeople",
     "pages/critic/critic",
-    "pages/account/wallet/wallet",
+    "pages/account/wallet/wallet",        
+    "pages/index/createTask/createTask",    
     "pages/account/message/message"
   ],
   "window": {
