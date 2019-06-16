@@ -105,7 +105,7 @@ Page({
 
         me.setData({
           createdTasks: arrToRender,
-          listHeight: Object.keys(arrToRender).length * 90 + 100 + "px"
+          listHeight: Object.keys(arrToRender).length * 110 + 50 + "px"
         })
       },
       fail: function() {
