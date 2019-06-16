@@ -9,9 +9,9 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
 		"checkInvalidKey": true,
-		"coverView": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
 		"babelSetting": {
@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-	"appid": "wxe475f0461eea8d84",
+	"appid": "wx88e45510d9ff3ce2",
 	"projectname": "AngryCat",
 	"debugOptions": {
 		"hidedInDevtools": []

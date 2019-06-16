@@ -10,23 +10,7 @@ Page({
    */
   data: {
     keyword: "",
-    resultTasks: [{
-      "_id": "5d03a7ed31965a3365b6ab26",
-      "title": "sampleTask",
-      "description": "sampleDiscription",
-      "participantNum": 3,
-      "salary": 12,
-      "tags": "sample",
-      "beginTime": "2019/06/15",
-      "expireTime": "2019/06/30",
-      "type": "Questionaire",
-      "uid": "d06146e7-aaff-47a8-831b-99bcf73e1f55",
-      "tid": "6cb1238a-f264-4209-82c1-e2fec1ec463c",
-      "status": "start",
-      "totalCost": 36,
-      "createTime": "2019-06-14 21:58:05",
-      "currentParticipator": 0
-    }, ],
+    resultTasks: [ ],
   },
 
   updateKeyword: function(e) {
