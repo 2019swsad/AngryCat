@@ -4,7 +4,7 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-	"appid": "wx106f44499a081118",
+	"appid": "wxe475f0461eea8d84",
 	"projectname": "AngryCat",
 	"debugOptions": {
 		"hidedInDevtools": []
