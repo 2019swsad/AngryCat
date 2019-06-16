@@ -66,8 +66,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
 
+
+
+
+
+
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
     let me = this
 
     wx.request({
@@ -87,10 +105,10 @@ Page({
 
         me.setData({
           createdTasks: arrToRender,
-          listHeight :Object.keys(arrToRender).length * 90 + 100 + "px"
+          listHeight: Object.keys(arrToRender).length * 90 + 100 + "px"
         })
       },
-      fail: function () {
+      fail: function() {
         console.log("HTTP请求失败")
       },
     })
@@ -123,22 +141,6 @@ Page({
 
       }
     })
-
- 
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
 
   },
 
