@@ -1,7 +1,7 @@
 <!--pages/index/createTask/createTask.wxml-->
 <view class="main">
   <!-- <button bindtap="tempLogin">LOGIN</button> -->
-  <form bindsubmit="formSubmit" bindreset="formReset">
+  <form class="from_style" bindsubmit="formSubmit" bindreset="formReset">
     <view class="section">
       <view class="section_title">标题</view>
       <input type="text" class="input" name="title" placeholder="标题" />
@@ -11,8 +11,8 @@
     <view class="section">
       <view class="section_title">类型</view>
       <picker class="picker" mode="selector" range="{{optionalType}}" value="{{taskType}}" bindchange="bindTaskTypeChange">
-        <view class="taskType">
-          {{taskType}}
+        <view class="taskType">{{taskType}}   
+          <image class="picker_icon" src="../../../image/picker-icon.png"></image>
         </view>
       </picker>
     </view>
@@ -20,24 +20,26 @@
     <view class="section">
       <view class="section_title">描述</view>
       <view>
-        <input type="text" class="input" name="description" placeholder="任务描述" />
+        <textarea type="text" class="input description" name="description" placeholder="任务描述" />
       </view>
     </view>
 
     <view class="section">
       <view class="section_title">开始时间</view>
-      <picker class="picker" mode="date" value="{{beginTime}}" start="2019-06-01" end="2020-07-01" bindchange="bindBeginTimeChange">
+      <picker class="picker" mode="date" value="{{beginTime}}" start="2019-06-01" bindchange="bindBeginTimeChange">
         <view class="beginTime">
           {{beginTime}}
+          <image class="picker_icon" src="../../../image/picker-icon.png"></image>
         </view>
       </picker>
     </view>
 
     <view class="section">
       <view class="section_title">结束时间</view>
-      <picker class="picker" mode="date" value="{{expireTime}}" start="2019-06-01" end="2020-07-01" bindchange="bindExpireTimeChange">
+      <picker class="picker" mode="date" value="{{expireTime}}" start="2019-06-01" bindchange="bindExpireTimeChange">
         <view class="expireTime">
           {{expireTime}}
+          <image class="picker_icon" src="../../../image/picker-icon.png"></image>
         </view>
       </picker>
     </view>
@@ -57,7 +59,7 @@
     </view>
 
     <view class="section">
-      <view class="section__title">酬劳(元)</view>
+      <view class="section_title">酬劳</view>
       <view>
         <input type="number" class="input" name="salary" placeholder="酬劳(元)" />
       </view>
@@ -75,8 +77,8 @@
     
     
     <view class="apply_btn_area">
-      <button formType="submit" class="apply_btn" type="primary">创建</button>
       <button formType="reset" class="apply_btn" type="primary">清空</button>
+      <button formType="submit" class="apply_btn" type="primary">创建</button>
     </view>
 
 
