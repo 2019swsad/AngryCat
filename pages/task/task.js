@@ -66,12 +66,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var length = this.data.tasks.length * 90 + 30
-    this.setData({
-      listHeight: length
-    })
-
- 
+    
 
     let me = this
 
@@ -91,6 +86,7 @@ Page({
 
         me.setData({
           createdTasks: arrToRender,
+          listHeight :Object.keys(arrToRender).length*90+100+"px"
         })
       }
     })
