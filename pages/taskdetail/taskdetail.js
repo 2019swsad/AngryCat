@@ -29,7 +29,8 @@ Page({
     button2: '完成任务',
     tid: '',
     beginTime: '',
-    endTime: ''
+    endTime: '',
+    isShow:true
 
 
 
@@ -104,6 +105,7 @@ Page({
               button1: "评价",
               button2: "结束任务"
             })
+            isShow=false;
 
           }
 
@@ -135,16 +137,19 @@ Page({
   onPress1: function(e) {
 
 
-    if (this.data.button1 == "退出任务") {
-
-
-    } else if (this.data.button1 == "查看") {
+    if (this.data.button1 == "报名详情") {
       wx.navigateTo({
         url: '../partipeople/partipeople',
       })
+
+
+    } else if (this.data.button1 == "报名详情") {
+      wx.navigateTo({
+        url: '../critic/critic',
+      })
     } else if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '',
+        url: '../critic/critic',
       })
     }
 
@@ -158,9 +163,8 @@ Page({
         success: function(res) {
           console.log(res)
           if (res.confirm) {
-            wx.request({
-              url: '',
-            })
+           
+           
 
 
             
@@ -182,6 +186,10 @@ Page({
           console.log(res)
           if (res.confirm) {
 
+
+            self.setData({
+              isShow: false
+            })
 
           } else {
 
