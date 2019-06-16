@@ -1,7 +1,8 @@
 {
 
-  "pages": [        
+  "pages": [           
     "pages/index/index",    
+    "pages/critic/critic",        
     "pages/index/createTask/createTask",
     "pages/task/task",
     "pages/logs/logs",
@@ -11,7 +12,6 @@
     "pages/index/searchTask/searchTask",
     "pages/taskdetail/taskdetail",
     "pages/partipeople/partipeople",
-    "pages/critic/critic",
     "pages/account/wallet/wallet",
     "pages/account/message/message",
     "pages/searchTaskDetail/searchTaskDetail"

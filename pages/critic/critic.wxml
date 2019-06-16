@@ -1,2 +1,42 @@
 <!--pages/critic/critic.wxml-->
-<text>pages/critic/critic.wxml</text>
+<!--pages/more/feedback.wxml-->
+<view class='container'>
+ 
+  <view class='card'>
+ 
+    <!-- 为方便数据定位，自定义了wx:for-item为i -->
+    <block wx:for='{{evaluations}}' wx:for-item='i' wx:key=''>
+      <!-- 单个卡片项 -->
+      <view class='card-item'>
+        <!-- 卡片上方标题 -->
+        <view class='item-title'>
+          <view class='image-container title-image'>
+            <image src='{{i.image}}'></image>
+          </view>
+          <view class='title-text'>{{i.name}}</view>
+        </view>
+        <!-- 卡片下方评价区 -->
+        <view class='item-content'>
+          <view class='image-container content-image'>
+            <image src='{{evaluationImgUrl}}'></image>
+          </view>
+          <view class='contet-text content-body'>
+            <!-- 为方便数据定位，自定义了wx:for-item为j -->
+            <block wx:for='{{starMap}}' wx:for-item='j' wx:key=''>
+              <view class='image-container' data-index='{{i.id}}' bindtap='chooseStar'>
+                <image wx:if='{{i.star >= index + 1}}' data-star='{{index + 1}}' src='{{starCheckedImgUrl}}' bin></image>
+                <image wx:if='{{i.star < index + 1}}' data-star='{{index + 1}}' src='{{starUnCheckedImgUrl}}'></image>
+              </view>
+            </block>
+            <text class='note'>{{i.note}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+ 
+  </view>
+ 
+  <button class='submit' type="primary" bindtap='submit'>提交反馈</button>
+
+ 
+</view>

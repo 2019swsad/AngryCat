@@ -16,7 +16,6 @@
         </block>
       </view>
 
-      
     </swiper-item>
     <swiper-item class="task_list">
       <view class='created_tasks'>
