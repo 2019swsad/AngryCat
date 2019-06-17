@@ -1,1 +1,78 @@
 /* pages/critic/critic.wxss */
+
+.container {
+
+  padding-top:50px;
+  padding-bottom: 50px;
+
+}
+
+.card .card-item{
+  margin-bottom: 25rpx;
+  border: 5rpx solid #888;
+  border-radius: 20rpx;
+  padding: 25rpx;
+  background-color: white;
+}
+ 
+.card-item .item-title,
+.card-item .item-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+ 
+.card-item .item-title{
+  border-bottom: 1rpx solid #eee;
+  padding-bottom: 25rpx;
+  align-items: center;
+  line-height: 70rpx;
+  font-weight: 700;
+}
+ 
+.card-item .item-content{
+  padding-top: 25rpx;
+  line-height: 70rpx;
+}
+ 
+.card-item .image-container{
+  margin-right: 25rpx;
+  width: 40rpx;
+  display: flex;
+  align-items: center;
+}
+ 
+.card-item .title-image{
+  height: 40rpx;
+}
+ 
+.card-item .content-image{
+  height: 70rpx;
+}
+ 
+.card-item .image-container image{
+  width: 40rpx;
+  height: 40rpx;
+}
+ 
+.card-item .title-text,
+.card-item .content-text{
+  width: 575rpx;
+}
+ 
+/* feedback.wxss */
+.card-item .content-body{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+ 
+.card-item .content-body .note{
+  line-height: 70rpx;
+  font-size: 30rpx;
+}
+
+.submit {
+  font-weight: bold;
+  margin-top: 30px;
+}
