@@ -4,8 +4,24 @@
 
 <view>
   <view class='search_box'>
-    <input class="search_input"  bindblur="updateKeyword" type="text" placeholder="SEARCH"></input>
+    <input class="search_input" bindblur="updateKeyword" type="text" placeholder="SEARCH"></input>
     <button class="search_btn" type="primary" bindtap='execSearch'>搜索</button>
+  </view>
+
+  <view class='picker'>
+    <picker mode="selector" range="{{optionalSortType}}" value="{{sortType}}" bindchange="bindSortTypeChange">
+      <view class="sortType">{{optionalSortType[sortType]}}
+        <image class="picker_icon" src="../../../image/picker-icon.png"></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class='picker'>
+    <picker mode="selector" range="{{optionalTaskType}}" value="{{taskType}}" bindchange="bindTaskTypeChange">
+      <view class="taskType">{{optionalTaskType[taskType]}}
+        <image class="picker_icon" src="../../../image/picker-icon.png"></image>
+      </view>
+    </picker>
   </view>
 
   <view class='result_tasks'>
