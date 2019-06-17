@@ -1,2 +1,10 @@
 <!--pages/account/message/message.wxml-->
-<text>pages/account/message/message.wxml</text>
+<!--消息中心页-->
+
+<view class='messagePage'>
+  <block wx:for="{{messageList}}" wx:for-item="message">
+    <view class='messageContainer'>
+      {{message.title}}
+    </view>
+  </block>
+</view>

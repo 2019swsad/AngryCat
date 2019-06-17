@@ -1,6 +1,7 @@
 <import src="../../template/singleTask.wxml" />
 <!--主页面-->
 <view>
+  <!--顶部展示窗-->
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">
       <swiper-item>
@@ -9,6 +10,7 @@
     </block>
   </swiper>
 </view>
+<!--顶部分类栏-->
 <view class="category">
   <view class="category_item" wx:for="{{iconArray}}">
     <view class="category_item_wrap">
@@ -24,6 +26,7 @@
   </view>
 </view>
 
+<!--底部任务推荐栏-->
 <view>
   <view class="commen_title">
     <text>任务推荐</text>
