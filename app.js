@@ -48,6 +48,8 @@ App({
 
     var self=this;
 
+    //获取用户详情
+
     wx.request({
       url: 'https://www.volley99.com/users/self',
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
@@ -58,6 +60,8 @@ App({
       success: function (res) {
 
         if (res.statusCode == 200) {
+
+          //设置全局变量
 
           self.globalData.username=res.data.username;
          
