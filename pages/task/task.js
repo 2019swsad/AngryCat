@@ -7,7 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    listHeight: "1000px",
+    listHeight: "100px",
+    listHeight1: "1000px",
+    listHeight2: "1000px",
+
     currentTab: 0,
     selfAllTasks: '',
     tasks: [{
@@ -108,7 +111,7 @@ Page({
 
         me.setData({
           createdTasks: arrToRender,
-          listHeight: Object.keys(arrToRender).length * 110 + 50 + "px"
+          listHeight1: Object.keys(arrToRender).length * 110 + 50 + "px"
         })
       },
       fail: function() {
@@ -134,6 +137,8 @@ Page({
 
         me.setData({
           joinedTasks: arrToRender,
+          listHeight2: Object.keys(arrToRender).length * 110 + 50 + "px",
+          listHeight: Object.keys(arrToRender).length * 110 + 50 + "px"
         })
       },
       fail: function() {
@@ -187,6 +192,16 @@ Page({
     this.setData({
       currentTab: e.detail.current
     });
+
+    if (this.data.currentTab == 0) {
+      this.setData({
+        listHeight : this.data.listHeight2
+      })
+    } else {
+      this.setData({
+        listHeight: this.data.listHeight1
+      });
+    }
   },
 
   //点击切换
@@ -197,6 +212,7 @@ Page({
       this.setData({
         currentTab: e.target.dataset.current
       })
+
     }
   }
 })
