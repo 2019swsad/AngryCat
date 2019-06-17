@@ -11,7 +11,7 @@ Page({
   data: {
     keyword: "",
     resultTasks: [],
-    optionalTaskType: ["所有", "问卷调查", "跑腿", "技术", "其他"],
+    optionalTaskType: ["所有类型", "问卷调查", "跑腿", "技术", "其他"],
     optionalSortType: ["薪酬从高到低", "薪酬从低到高", "最近发布", "最少人报名", "发布者信誉最高"],
     taskType: 0,
     sortType: 0,

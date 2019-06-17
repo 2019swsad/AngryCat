@@ -1,5 +1,5 @@
 <import src="../../template/singleTask.wxml" />
-
+<!--主页面-->
 <view>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{imgUrls}}">

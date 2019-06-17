@@ -1,29 +1,37 @@
 <!--pages/index/searchTask/searchTask.wxml-->
+<!--寻找任务页面-->
 
 <import src="../../../template/singleTask.wxml" />
 
 <view>
+  <!--搜索栏-->
   <view class='search_box'>
     <input class="search_input" bindblur="updateKeyword" type="text" placeholder="SEARCH"></input>
     <button class="search_btn" type="primary" bindtap='execSearch'>搜索</button>
   </view>
 
-  <view class='picker'>
-    <picker mode="selector" range="{{optionalSortType}}" value="{{sortType}}" bindchange="bindSortTypeChange">
-      <view class="sortType">{{optionalSortType[sortType]}}
-        <image class="picker_icon" src="../../../image/picker-icon.png"></image>
-      </view>
-    </picker>
+  <!--过滤器栏-->
+  <view class='filterContainer'>
+    <!--排序栏-->
+    <view class='picker'>
+      <picker mode="selector" range="{{optionalSortType}}" value="{{sortType}}" bindchange="bindSortTypeChange">
+        <view class="sortType">{{optionalSortType[sortType]}}
+          <image class="picker_icon" src="../../../image/picker-icon.png"></image>
+        </view>
+      </picker>
+    </view>
+
+    <!--任务类型过滤栏-->
+    <view class='picker'>
+      <picker mode="selector" range="{{optionalTaskType}}" value="{{taskType}}" bindchange="bindTaskTypeChange">
+        <view class="taskType">{{optionalTaskType[taskType]}}
+          <image class="picker_icon" src="../../../image/picker-icon.png"></image>
+        </view>
+      </picker>
+    </view>
   </view>
 
-  <view class='picker'>
-    <picker mode="selector" range="{{optionalTaskType}}" value="{{taskType}}" bindchange="bindTaskTypeChange">
-      <view class="taskType">{{optionalTaskType[taskType]}}
-        <image class="picker_icon" src="../../../image/picker-icon.png"></image>
-      </view>
-    </picker>
-  </view>
-
+  <!--任务列表栏-->
   <view class='result_tasks'>
 
     <block wx:for="{{resultTasks}}" wx:for-item="task">
