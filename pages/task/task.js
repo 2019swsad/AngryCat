@@ -89,12 +89,15 @@ Page({
     let me = this
 
     wx.request({
-      url: DOMAIN + '/task/getCreate',
+      url: DOMAIN + '/task/query',
       header: {
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      method: 'GET',
+      method: 'POST',
+      data:{
+        uid:"f71417ee-6584-465b-a75d-60252b79a85c"
+      },
       success: function(res) {
         console.log(res.data)
         var arrToRender = JSON.parse(JSON.stringify(res.data))

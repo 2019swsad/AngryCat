@@ -85,7 +85,7 @@ Page({
             endTime: end
           })
 
-          console.log(self.data.taskinfo.status)
+          console.log(self.data)
 
 
 
