@@ -1,1 +1,235 @@
 /* pages/orderdetail/orderdetail.wxss */
+
+page{
+  width: 100%;
+  height: 100%;
+}
+
+.textinfo {
+  margin-left: 20px;
+  font-size: 16px;
+  position: absolute;
+  top:1000px;
+}
+
+.singletext {
+  margin-top: 8px;
+}
+
+.buttonview {
+  position: absolute;
+  top:1000px;
+  flex-flow: row;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 150px;
+}
+
+.finish {
+  border: 1px solid;
+  font-size: 25px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border-radius: 5px;
+}
+.finishcontain{
+  position: absolute;
+  top:1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.base_info {
+  position: relative;
+  height: 80px;
+  border-bottom: 1px solid rgb(235, 235, 235);
+
+}
+
+.title {
+  font-size: 23px;
+  font-weight:bold;
+
+}
+
+.salary {
+  position: absolute;
+  color: #2eada7;
+  font-size: 20px;
+  right: 1%;
+  top:10%;
+
+}
+
+.place {
+  margin-top: 5px;
+  font-size:14px;
+  color: rgb(72,72,72);
+}
+
+.whole_page {
+  margin-left:5%;
+  margin-right: 5%;
+}
+
+.location_icon {
+  margin-right: 5px;
+  margin-left: 3px;
+  height: 14px;
+  width: 10px;
+}
+
+.organizer {
+  border-bottom: 1px solid rgb(235, 235, 235);
+  display:flex; 
+  flex-direction: row;
+}
+
+.portrait {
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 14px;
+  margin-left: 18px;
+  margin-top: 10px;
+}
+
+.credit {
+  font-size: 11px;
+  margin-left: 18px;
+  margin-top: 10px;
+  color: #3b413b;
+}
+
+.detail {
+  display:flex; 
+  flex-direction: column;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  overflow: visible;
+}
+
+.detail_title {
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 15px;
+}
+
+.description {
+  font-size: 15px;
+  color: rgb(72,72,72);
+  margin-top: 15px;
+}
+
+.duration {
+  display:flex; 
+  flex-direction: column;
+  overflow: visible;
+}
+
+.time_title {
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 15px;
+}
+
+.time {
+  font-size: 15px;
+  color: rgb(72,72,72);
+  margin-top: 12px;
+}
+
+.people {
+  display:flex; 
+  flex-direction: column;
+  overflow: visible;
+}
+
+.people_title {
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 15px;
+}
+
+.people_num {
+  font-size: 18px;
+  color: rgb(72,72,72);
+  margin-top: 12px;
+}
+
+.tag_area {
+  display:flex; 
+  flex-direction: column;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  overflow: visible;
+}
+
+.tag_title {
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 15px;
+}
+
+.tag {
+  margin-top: 9px;
+  padding-bottom: 9px;
+  display:flex; 
+  flex-direction: row;
+  justify-content:flex-start;
+}
+
+.single_tag {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+
+  font-size: 15px;
+  color: rgb(43, 43, 43);
+  border: 2px solid rgb(184, 184, 184);
+  border-radius: 5px;
+
+
+}
+
+.apply_btn_area {
+  display:flex; 
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.apply_btn {
+  margin-top:10px; 
+  line-height:2.45555556;
+  text-align:center;
+  border-radius:5px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 120px;
+  height: 40px;
+  visibility:visible;
+}
+
+.code_area {
+  font-weight: bold;
+  font-size: 17px;
+  padding-top: 15px;
+  color: #2eada7;
+  display:none;
+}
