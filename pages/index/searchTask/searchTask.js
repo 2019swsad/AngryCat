@@ -136,6 +136,22 @@ Page({
     this.setData({
       taskType: e.detail.value
     })
+    var arrToRender = this.data.resultTasks
+    var taskFilter = null
+    switch (e.detail.value) {
+      case "0": //所有
+        taskFilter = (item)=>{
+          return true
+        }
+        break
+      default:
+        taskFilter = (item)=>{
+          return item.type == this.data.optionalTaskType[this.data.taskType]
+        }
+    }
+    this.setData({
+      resultTasks: arrToRender.filter(taskFilter)
+    })
   },
 
   /**
@@ -158,7 +174,7 @@ Page({
         })
 
         arrToRender = arrToRender.filter((item) => {
-          return item.status.indexOf("start") >= 0
+          return item.status.indexOf("start") >= 0 || item.status.indexOf("未开始") >= 0 || item.status.indexOf("进行中") >= 0
         })
 
 
