@@ -4,11 +4,11 @@
   <!--顶部信息栏-->
   <view class="personalInfoContainer">
     <view class="avatarContainer">
-      <image class="userinfo-avatar" src="../../image/avatar.jpg" ></image>
+      <image class="userinfo-avatar" src="../../image/avatar.jpg"></image>
     </view>
 
     <view class="nicknameContainer">
-      {UserName}
+      <text>  {{username}}</text>
     </view>
   </view>
 
@@ -39,7 +39,7 @@
     <view class="line"></view>
 
     <navigator class="optionNavitator" url="">
-      <image class="optionLogo" src="../../image/icon-favor.png" ></image>
+      <image class="optionLogo" src="../../image/icon-favor.png"></image>
       <text class="optionText">我的关注</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
@@ -48,15 +48,15 @@
   <!--系统相关选项-->
   <view class="systemOptionContainer">
     <navigator class="optionNavitator" url="">
-      <image class="optionLogo" src="../../image/icon-service.png" ></image>
+      <image class="optionLogo" src="../../image/icon-service.png"></image>
       <text class="optionText">在线客服</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
-    
+
     <view class="line"></view>
-    
+
     <navigator class="optionNavitator" url="">
-      <image class="optionLogo" src="../../image/icon-setting.png" ></image>
+      <image class="optionLogo" src="../../image/icon-setting.png"></image>
       <text class="optionText">设置</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
@@ -64,4 +64,3 @@
     <view class="line"></view>
   </view>
 </view>
-

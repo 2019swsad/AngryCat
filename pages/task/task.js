@@ -63,7 +63,7 @@ Page({
   goToOrderDetail:function(e){
 
     wx.navigateTo({
-      url: '../orderdetail/orderetail?tid=' + e.mark.tid,
+      url: '../orderdetail/orderdetail?tid=' + e.mark.tid,
     })
   },
 
@@ -92,6 +92,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+  
     let me = this
 
     wx.request({
