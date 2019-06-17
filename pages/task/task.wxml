@@ -1,5 +1,6 @@
 <!--pages/task/task.wxml-->
 <import src="../../template/singleTask.wxml" />
+<import src="../../template/singleOrder.wxml" />
 
 <view>
   <view class="swiper-tab">
@@ -12,7 +13,7 @@
 
       <view class='joined_tasks'>
         <block wx:for="{{joinedTasks}}" wx:for-item="task">
-          <template is="singleTask" data="{{...task}}"></template>
+          <template is="singleOrder" data="{{...task}}"></template>
         </block>
       </view>
 

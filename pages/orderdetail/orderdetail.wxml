@@ -1,4 +1,5 @@
-<!--pages/taskdetail/taskdetail.wxml-->
+<!--pages/orderdetail/orderdetail.wxml-->
+
 
 <view class="whole_page">
   <view class="base_info">
@@ -17,7 +18,7 @@
   <view class="organizer">
     <image class="portrait" src="../../image/test.jpg"></image>
     <view class="user_info">
-      <text class="username">{{taskinfo.userinfo[0].username}}</text>
+      <text class="username">{{taskinfo.userinfor[0].username}}</text>
       <text class="credit">信誉值：89</text>
     </view>
     
@@ -55,10 +56,10 @@
 
   <view class="apply_btn_area">
 
-    <button class="apply_btn" type="primary" bindtap='onPress1'>{{button1}}</button>
+    <button class="apply_btn" type="primary" bindtap='onPress1'>报名</button>
 
-    <button class="apply_btn" type="primary" bindtap='onPress2' wx-if='{{isShow}}'>{{button2}}</button>
 
   </view>
 
 </view>
+

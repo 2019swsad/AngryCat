@@ -60,6 +60,12 @@ Page({
       url: '../taskdetail/taskdetail?tid=' + e.mark.tid,
     })
   },
+  goToOrderDetail:function(e){
+
+    wx.navigateTo({
+      url: '../orderdetail/orderetail?tid=' + e.mark.tid,
+    })
+  },
 
 
   /**
