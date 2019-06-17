@@ -11,6 +11,10 @@ Page({
   data: {
     keyword: "",
     resultTasks: [],
+    optionalTaskType: ["所有类型", "问卷调查", "跑腿", "技术", "其他"],
+    optionalSortType: ["薪酬从高到低", "薪酬从低到高", "最近发布", "最少人报名", "发布者信誉最高"],
+    taskType: 0,
+    sortType: 0,
   },
 
   updateKeyword: function(e) {
@@ -42,9 +46,9 @@ Page({
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
         })
 
-        // arrToRender = arrToRender.filter((item) => {
-        //   return item.title.indexOf(me.data.keyword) >= 0
-        // })
+        arrToRender = arrToRender.filter((item) => {
+          return item.title.indexOf(me.data.keyword) >= 0
+        })
 
 
         me.setData({
@@ -58,6 +62,95 @@ Page({
     console.log(JSON.stringify(e))
     wx.navigateTo({
       url: '../../searchTaskDetail/searchTaskDetail?tid=' + e.mark.tid,
+    })
+  },
+
+
+  /**
+   * Function to sort alphabetically an array of objects by some specific key.
+   * 
+   * @param {String} property Key of the object to sort.
+   */
+  dynamicSort: function(prop) {
+    var result = 0
+    var sortOrder = 1
+    if (prop[0] === "-") {
+      sortOrder = -1
+      prop = prop.substr(1)
+    }
+    return function(obj1, obj2) {
+      var val1 = obj1[prop]
+      var val2 = obj2[prop]
+      if (!isNaN(Number(val1)) && !isNaN(Number(val2))) {
+        val1 = Number(val1)
+        val2 = Number(val2)
+      }
+      if (val1 < val2) {
+        result = -1
+      } else if (val1 > val2) {
+        result = 1
+      } else {
+        result = 0
+      }
+      return result * sortOrder
+    }
+  },
+
+
+  // optionalTaskType: ["所有", "问卷调查", "跑腿", "技术", "其他"],
+  // optionalSortType: ["薪酬从高到低", "薪酬从高到低", "最近发布", "最少人报名", "发布者信誉最高"],
+  bindSortTypeChange: function(e) {
+    // console.log("bindSortTypeChange")
+    // console.log("index of sortType", e.detail.value)
+
+    this.setData({
+      sortType: e.detail.value
+    })
+
+    var sortBy = null
+
+    switch (e.detail.value) {
+      case "0":
+        sortBy = this.dynamicSort("-salary")
+        break
+      case "1":
+        sortBy = this.dynamicSort("salary")
+        break
+      case "2":
+        sortBy = this.dynamicSort("beginTime")
+        break
+      case "3":
+        sortBy = this.dynamicSort("currentParticipator")
+        break
+      default:
+        sortBy = this.dynamicSort("title")
+    }
+    var arrToRender = this.data.resultTasks.sort(sortBy)
+    // console.log(JSON.stringify(arrToRender))
+    this.setData({
+      resultTasks: arrToRender
+    })
+  },
+
+  bindTaskTypeChange: function(e) {
+    this.setData({
+      taskType: e.detail.value
+    })
+    var arrToRender = this.data.resultTasks
+    var taskFilter = null
+    switch (e.detail.value) {
+      case "0": //所有
+        taskFilter = (item)=>{
+          return true
+        }
+        break
+      default:
+        taskFilter = (item)=>{
+          return item.type == this.data.optionalTaskType[this.data.taskType]
+        }
+    }
+    this.setData({
+      resultTasks: arrToRender.filter(taskFilter)
     })
   },
 
@@ -81,7 +174,7 @@ Page({
         })
 
         arrToRender = arrToRender.filter((item) => {
-          return item.status.indexOf("start") >= 0
+          return item.status.indexOf("start") >= 0 || item.status.indexOf("未开始") >= 0 || item.status.indexOf("进行中") >= 0
         })
 
 
