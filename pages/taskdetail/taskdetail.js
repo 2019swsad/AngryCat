@@ -85,7 +85,6 @@ Page({
             endTime: end
           })
 
-          console.log(self.data)
 
 
 
