@@ -30,10 +30,6 @@ swiper {
     background-color: #fff
 }
 
-.swiper_content {
-  height: 1000px;
-}
-
 .single_task {
   background-color: #FFF;
   border-bottom: 1px solid #E7E7EB;
