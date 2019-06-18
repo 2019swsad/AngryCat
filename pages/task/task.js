@@ -64,6 +64,9 @@ Page({
     })
   },
   goToOrderDetail:function(e){
+   
+    console.log(e.mark.tid)
+    
 
     wx.navigateTo({
       url: '../orderdetail/orderdetail?tid=' + e.mark.tid,
@@ -106,7 +109,7 @@ Page({
       },
       method: 'POST',
       data:{
-        uid:"f71417ee-6584-465b-a75d-60252b79a85c"
+        uid: getApp().globalData.uid
       },
       success: function(res) {
         console.log(res.data)

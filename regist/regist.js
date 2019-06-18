@@ -56,7 +56,11 @@ Page({
         })
 
         if (res.statusCode == 200) {
-        
+          wx.showToast({
+            title: "注册成功！",
+            duration: 2000,
+            icon: "success"
+          })
 
         } else if (res.statusCode == 400) {
           console.log(res.data);
