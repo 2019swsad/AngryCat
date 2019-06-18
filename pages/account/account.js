@@ -7,18 +7,13 @@ Page({
    */
   data: {
     userInfo: {},
-    username:"",
+    nickname:"",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(getApp().globalData.username)
-    this.setData({
-      username: getApp().globalData.username
-    })
-    
     
   },
 
@@ -26,7 +21,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    console.log(getApp().globalData.nickname)
+    this.setData({
+      nickname: getApp().globalData.nickname
+    })
   },
 
   /**
