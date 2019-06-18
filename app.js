@@ -2,8 +2,8 @@
 var util = require('/utils/util.js')
 App({
   globalData :{
-    username:"",
-    userInfo:"",
+    nickname:"",
+    userInfo:""，
     uid:""
   },
   onLaunch: function() {
@@ -22,18 +22,18 @@ App({
 
     wx.request({
       url: 'https://www.volley99.com/users/login',
-      data: { "username": "yztest", "password": "123" },
+      data: { "username": "Carl2", "password": "123" },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         'content-type': 'application/json'
       }, // 设置请求的 header
       success: function(res) {
-        
+
         if (res.statusCode == 200) {
           wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
           console.log(util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
 
-          
+
           console.log(res.data);
         } else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
@@ -64,7 +64,7 @@ App({
 
           //设置全局变量
 
-          self.globalData.username=res.data.username;
+          self.globalData.nickname=res.data.nickname;
           self.globalData.uid = res.data.uid;
 
 
