@@ -21,7 +21,7 @@ App({
 
     wx.request({
       url: 'https://www.volley99.com/users/login',
-      data: { "username": "Carl3", "password": "123" },
+      data: { "username": "Carl4", "password": "123" },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         'content-type': 'application/json'
