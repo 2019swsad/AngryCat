@@ -42,9 +42,9 @@
   </view>
 
   <view class="tag_area">
-    <text class="tag_title">标签</text>
+    <text class="tag_title">任务类型</text>
     <text class="tag">
-      <text class="single_tag">{{taskinfo.tags}}</text>
+      <text class="single_tag">{{taskinfo.type}}</text>
     </text>
   </view>
 
