@@ -87,26 +87,24 @@ Page({
 
 
 
-
           if (self.data.taskinfo.status == '未开始') {
             self.setData({
-              button1: "退出任务",
-              button2: "完成任务"
+              button1: "报名详情",
+              button2: "停止报名"
             })
 
           } else if (self.data.taskinfo.status == '进行中') {
             self.setData({
-              button1: "退出任务",
-              button2: "完成任务"
+              button1: "完成情况",
+              button2: "结束任务"
             })
           } else if (self.data.taskinfo.status == '已结束') {
             self.setData({
               button1: "评价",
               isShow: false
             })
-
-
           }
+
 
 
 
