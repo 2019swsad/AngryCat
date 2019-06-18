@@ -3,12 +3,13 @@
 <view class="userPage">
   <!--顶部信息栏-->
   <view class="personalInfoContainer">
+    <!--头像-->
     <view class="avatarContainer">
       <image class="userinfo-avatar" src="../../image/avatar.jpg"></image>
     </view>
-
+    <!--昵称-->
     <view class="nicknameContainer">
-      <text>  {{username}}</text>
+      <text>{{nickname}}</text>
     </view>
   </view>
 
