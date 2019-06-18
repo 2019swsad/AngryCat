@@ -3,7 +3,8 @@ var util = require('/utils/util.js')
 App({
   globalData :{
     username:"",
-    userInfo:""
+    userInfo:"",
+    uid:""
   },
   onLaunch: function() {
     // 展示本地存储能力
@@ -64,7 +65,7 @@ App({
           //设置全局变量
 
           self.globalData.username=res.data.username;
-         
+          self.globalData.uid = res.data.uid;
 
 
           console.log(res.data);

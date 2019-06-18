@@ -116,8 +116,7 @@ Page({
           wx.request({
             url: 'https://www.volley99.com/order/create',
             data: {
-              "tid": self.data.tid,
-              "status": "success"
+              "tid": self.data.tid
             },
             method: 'POST', 
             header: {
