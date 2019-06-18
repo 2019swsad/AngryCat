@@ -2,7 +2,7 @@
 var util = require('/utils/util.js')
 App({
   globalData :{
-    username:"",
+    nickname:"",
     userInfo:""
   },
   onLaunch: function() {
@@ -21,7 +21,7 @@ App({
 
     wx.request({
       url: 'https://www.volley99.com/users/login',
-      data: { "username": "Carl4", "password": "123" },
+      data: { "username": "Carl2", "password": "123" },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         'content-type': 'application/json'
@@ -63,7 +63,7 @@ App({
 
           //设置全局变量
 
-          self.globalData.username=res.data.username;
+          self.globalData.nickname=res.data.nickname;
          
 
 
