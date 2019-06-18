@@ -1,5 +1,6 @@
 <!--pages/orderdetail/orderdetail.wxml-->
-
+<import src="../../template/addtell.wxml" />
+<template is="addtell" data="{{...addtell}}" />
 
 <view class="whole_page">
   <view class="base_info">
