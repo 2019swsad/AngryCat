@@ -64,6 +64,7 @@ Page({
     })
   },
 
+  // 提交注册信息
   formSubmit: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     // console.log(util.convertDateFormatToMDY(this.data.beginTime),

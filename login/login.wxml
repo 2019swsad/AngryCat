@@ -8,6 +8,9 @@
 
     <button class="submit_btn" type="primary" form-type="submit" bindtap='login'>提交</button>
 
-  </form>            
+  </form> 
+  <navigator class="registerNav" url="../regist/regist">
+  <text class="registerNavText">注册</text>
+  </navigator>           
 </view>    
 
