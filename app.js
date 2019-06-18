@@ -3,7 +3,7 @@ var util = require('/utils/util.js')
 App({
   globalData :{
     nickname:"",
-    userInfo:""，
+    userInfo:"",
     uid:""
   },
   onLaunch: function() {
