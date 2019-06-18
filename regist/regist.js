@@ -55,6 +55,8 @@ Page({
           url: '../pages/index/index'　　// 页面 B
         })
 
+       
+
         if (res.statusCode == 200 || res.statusCode === 201) {
           wx.showToast({
             title: '注册成功',
