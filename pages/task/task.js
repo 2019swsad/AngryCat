@@ -13,47 +13,10 @@ Page({
 
     currentTab: 0,
     selfAllTasks: '',
-    tasks: [{
-        "_id": "5d04f6dfbd79c825a928c106",
-        "title": "testByGyakkun",
-        "description": "testByGyakkun",
-        "position": "testByGyakkun",
-        "participantNum": 1,
-        "salary": 233,
-        "tags": "testByGyakkun",
-        "beginTime": "2019-06-15T16:00:00.000Z",
-        "expireTime": "2019-06-30T16:00:00.000Z",
-        "type": "其他",
-        "uid": "e57722bf-1ba1-415d-9b1e-255ddd30737b",
-        "tid": "b050dde1-5563-4f89-a62c-48ccafbb88e4",
-        "status": "start",
-        "totalCost": 233,
-        "createTime": "2019-06-15 21:47:11",
-        "currentParticipator": 0,
-        "finishNumber": "BwkFBA=="
-      },
-      {
-        "_id": "5d0517ab67377b2bca473ea3",
-        "title": "test1",
-        "description": "test1",
-        "position": "test1",
-        "participantNum": 1,
-        "salary": 23,
-        "tags": "test1",
-        "beginTime": "2019-06-19T16:00:00.000Z",
-        "expireTime": "2019-06-30T16:00:00.000Z",
-        "type": "问卷调查",
-        "uid": "e57722bf-1ba1-415d-9b1e-255ddd30737b",
-        "tid": "129a0135-d131-4c72-9770-37a93e807bfe",
-        "status": "start",
-        "totalCost": 23,
-        "createTime": "2019-06-16 00:07:07",
-        "currentParticipator": 0,
-        "finishNumber": "BAgBBg=="
-      }
-    ],
+    tasks: [],
     createdTasks: [],
     joinedTasks: [],
+    taskInfo: []
 
   },
 
@@ -63,10 +26,10 @@ Page({
       url: '../taskdetail/taskdetail?tid=' + e.mark.tid,
     })
   },
-  goToOrderDetail:function(e){
-   
+  goToOrderDetail: function(e) {
+
     console.log(e.mark.tid)
-    
+
 
     wx.navigateTo({
       url: '../orderdetail/orderdetail?tid=' + e.mark.tid,
@@ -98,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-  
+
     let me = this
 
     wx.request({
@@ -108,11 +71,11 @@ Page({
         'cookie': wx.getStorageSync("sessionId")
       },
       method: 'POST',
-      data:{
+      data: {
         uid: getApp().globalData.uid
       },
       success: function(res) {
-        console.log(res.data)
+        // console.log(res.data)
         var arrToRender = JSON.parse(JSON.stringify(res.data))
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
@@ -138,11 +101,39 @@ Page({
       },
       method: 'GET',
       success: function(res) {
-        console.log(res.data)
+        // console.log(res.data)
         var arrToRender = JSON.parse(JSON.stringify(res.data))
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+
+          wx.request({
+            url: DOMAIN + '/task/get/'+item.tid,
+            header: {
+              'Content-Type': 'application/json',
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            method: 'GET',
+            success: function(res) {
+              console.log(index)
+
+              res.data.beginTime = util.formatTimeWithoutHMS(new Date(res.data.beginTime))
+              res.data.expireTime = util.formatTimeWithoutHMS(new Date(res.data.expireTime))
+              let task=me.data.taskInfo;
+
+              task.push(res.data)
+              me.setData({
+                taskInfo: task
+              })
+
+              console.log(me.data.taskInfo)
+             
+            }
+          
+          })
+
+
+
         })
 
         me.setData({
@@ -156,6 +147,7 @@ Page({
       },
       complete: function() {
         console.log("HTTP请求完成")
+
 
       }
     })
@@ -205,7 +197,7 @@ Page({
 
     if (this.data.currentTab == 0) {
       this.setData({
-        listHeight : this.data.listHeight2
+        listHeight: this.data.listHeight2
       })
     } else {
       this.setData({
