@@ -55,11 +55,18 @@ Page({
           url: '../pages/index/index'　　// 页面 B
         })
 
-        if (res.statusCode == 200) {
+       
+
+        if (res.statusCode == 200 || res.statusCode === 201) {
           wx.showToast({
-            title: "注册成功！",
+            title: '注册成功',
             duration: 2000,
-            icon: "success"
+            icon: 'success'
+          })
+          console.log(res.data)
+          // 导航回主页
+          setTimeout(wx.navigateBack, 1500, {
+            delta: 1
           })
 
         } else if (res.statusCode == 400) {

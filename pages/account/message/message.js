@@ -5,14 +5,34 @@ Page({
    * Page initial data
    */
   data: {
-
+    messageList: [],
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    this.getMessageList();
+  },
 
+  /* 获取消息列表*/
+  getMessageList: function() {
+    var that = this;
+    wx.request({
+      url: 'https://raw.githubusercontent.com/CarlSome/JavaScript-Learning/master/JsonTest_MessageCenter.json',
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function(res) {
+        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        console.log(res.data);
+        that.setData({
+          messageList: res.data,
+        })
+      }
+    })
   },
 
   /**

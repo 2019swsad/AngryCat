@@ -136,7 +136,27 @@ Page({
                 setTimeout(wx.navigateBack, 1500, {
                   delta: 1
                 })
-              }else{
+              }
+              else if (res.data.status == "pending") {
+                wx.showToast({
+                  title: '成为候补',
+                  duration: 2000,
+                  icon: 'success'
+                })
+                console.log(res.data)
+                // 导航回主页
+                setTimeout(wx.navigateBack, 1500, {
+                  delta: 1
+                })
+              }
+              else if (res.data.status == "same uid in create order") {
+                wx.showToast({
+                  title: '不能报名参与自己发布的任务!',
+                  duration: 2000,
+                  icon: 'none'
+                })
+              }
+              else {
                 wx.showToast({
                   title: '报名失败!',
                   duration: 2000,
