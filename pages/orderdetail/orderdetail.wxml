@@ -43,9 +43,9 @@
   </view>
 
   <view class="tag_area">
-    <text class="tag_title">标签</text>
+    <text class="tag_title">任务类型</text>
     <text class="tag">
-      <text class="single_tag">{{taskinfo.tags}}</text>
+      <text class="single_tag">{{taskinfo.type}}</text>
     </text>
   </view>
 
@@ -56,7 +56,8 @@
 
   <view class="apply_btn_area">
 
-    <button class="apply_btn" type="primary" bindtap='onPress1'>报名</button>
+    <button class="apply_btn" type="primary" bindtap='onPress1'>{{button1}}</button>
+     <button class="apply_btn" type="primary" bindtap='onPress2'>{{button2}}</button>
 
 
   </view>
