@@ -6,28 +6,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    taskinfo:{
+    taskinfo: {
 
     },
-    button1:"",
-    button2:"",
+    button1: "",
+    button2: "",
     tid: '',
     beginTime: '',
     endTime: '',
-    isShow: true
+    isShow: true,
+    addtell: {
+      addtellHidden: true, //弹出框显示/隐藏
+    },
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.data.tid = options.tid;
-    console.log(this.data.tid )
+    console.log(this.data.tid)
     this.requestTaskInfo();
 
   },
-  requestTaskInfo: function () {
+  requestTaskInfo: function() {
     var self = this;
     wx.request({
       url: "https://www.volley99.com/task/get/" + self.data.tid,
@@ -37,7 +40,7 @@ Page({
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      success: function (res) {
+      success: function(res) {
 
 
         if (res.statusCode === 200 || res.statusCode === 201) {
@@ -60,22 +63,25 @@ Page({
           console.log(self.data.taskinfo.status)
 
 
+
           if (self.data.taskinfo.status == '未开始') {
             self.setData({
-              button1: "报名详情",
-              button2: "停止报名"
+              button1: "退出任务",
+              button2: "完成任务"
             })
 
           } else if (self.data.taskinfo.status == '进行中') {
             self.setData({
-              button1: "完成情况",
-              button2: "结束任务"
+              button1: "退出任务",
+              button2: "完成任务"
             })
           } else if (self.data.taskinfo.status == '已结束') {
             self.setData({
               button1: "评价",
               isShow: false
             })
+
+
           }
 
 
@@ -84,22 +90,21 @@ Page({
 
 
 
-
         }
       },
-      fail: function () {
+      fail: function() {
         wx.showToast({
           title: 'fail',
           icon: 'none'
         })
       },
-      complete: function () {
+      complete: function() {
         console.log("完成HTTP请求")
       }
     })
 
   },
-  onPress1: function (e) {
+  onPress1: function(e) {
 
 
     if (this.data.button1 == "评价") {
@@ -108,107 +113,89 @@ Page({
       })
 
 
-    } else  {
+    } else {
       wx.navigateTo({
         url: '../critic/critic',
       })
-    } 
+    }
 
   },
-  onPress2: function (e) {
+  onPress2: function(e) {
 
-    wx.showModal({
-      title: '提示',
-      content: '请输入完成码',
-      success: function (res) {
-        console.log(res)
-        if (res.confirm) {
-
-          wx.request({
-            url: "",
-            method: 'GET',
-
-            header: {
-              'Content-Type': 'application/json',
-              'cookie': wx.getStorageSync("sessionId")
-            },
-            success: function (res) {
-
-              console.log(res.data)
-              self.requestTaskInfo();
-
-
-            },
-            fail: function () {
-              wx.showToast({
-                title: 'fail',
-                icon: 'none'
-              })
-            },
-
-
-          })
-
-
-
-
-        } else {
-
-        }
+    this.setData({
+      addtell: {
+        addtellHidden: false,
+        
       }
     })
 
 
-    
 
+
+  },
+  modalConfirm: function() {
+    //弹出框确认操作
+    this.setData({
+      addtell: {
+        addtellHidden: true,
+      }
+    })
+  },
+  modalCancel: function() {
+    //弹出框取消操作
+    this.setData({
+      addtell: {
+        addtellHidden: true,
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

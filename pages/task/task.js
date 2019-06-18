@@ -115,7 +115,7 @@ Page({
             },
             method: 'GET',
             success: function(res) {
-              console.log(index)
+              
 
               res.data.beginTime = util.formatTimeWithoutHMS(new Date(res.data.beginTime))
               res.data.expireTime = util.formatTimeWithoutHMS(new Date(res.data.expireTime))
@@ -126,7 +126,7 @@ Page({
                 taskInfo: task
               })
 
-              console.log(me.data.taskInfo)
+              
              
             }
           

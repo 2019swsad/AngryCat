@@ -1,0 +1,12 @@
+<template name="addtell">
+  <view>
+    <modal title="请输入完成码" confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="modalConfirm" bindcancel="modalCancel">
+      <label>
+        <view class="tellsection">
+          <input class="tellinput" bindinput="saveUsertell" placeholder="完成码" value="{{addtell.contract_info}}" />
+         
+        </view>
+      </label>
+    </modal>
+  </view>
+</template>
