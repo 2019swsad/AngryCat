@@ -3,7 +3,8 @@ var util = require('/utils/util.js')
 App({
   globalData :{
     nickname:"",
-    userInfo:""
+    userInfo:""，
+    uid:""
   },
   onLaunch: function() {
     // 展示本地存储能力
@@ -27,12 +28,12 @@ App({
         'content-type': 'application/json'
       }, // 设置请求的 header
       success: function(res) {
-        
+
         if (res.statusCode == 200) {
           wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
           console.log(util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
 
-          
+
           console.log(res.data);
         } else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
@@ -64,7 +65,7 @@ App({
           //设置全局变量
 
           self.globalData.nickname=res.data.nickname;
-         
+          self.globalData.uid = res.data.uid;
 
 
           console.log(res.data);
