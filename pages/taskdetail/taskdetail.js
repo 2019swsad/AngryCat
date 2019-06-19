@@ -146,7 +146,7 @@ Page({
       })
     } else if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '../critic/critic',
+        url: '../partipeople/partipeople?show=1',
       })
     }
 

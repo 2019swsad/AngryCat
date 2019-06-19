@@ -15,7 +15,8 @@ Page({
       status:"va"
     }
 
-    ]
+    ],
+    hidden:false
 
   },
 
@@ -24,6 +25,19 @@ Page({
    */
   onLoad: function (options) {
 
+    var show=options.show;
+    console.log(show)
+    if(show==1){
+      this.setData({
+        hidden:true
+      })
+    }
+   
+  },
+  goToCritic:function(e){
+    wx.navigateTo({
+      url: '../critic/critic',
+    })
   },
 
   /**
