@@ -6,7 +6,7 @@
     <text class="name">{{item.name}}</text>
     <text>信誉值：{{item.credit}}</text>
     <text>状态：{{item.status}}</text>
-    <button class ="button">评价</button>
+    <button class ="button" wx-if="{{hidden}}" bindtap='goToCritic'>评价</button>
 
 
 </view>
