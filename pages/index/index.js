@@ -109,6 +109,10 @@ Page({
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
         })
 
+        arrToRender = arrToRender.filter((item) => {
+          return item.status.indexOf("未开始") >= 0
+        })
+
         arrToRender = arrToRender.splice(Math.floor(Math.random() * arrToRender.length), 3)
 
         me.setData({

@@ -29,7 +29,7 @@
   line-height: 22px;
 }
 
-.task_state {
+.task_type {
   font-size: 17px;
   position: absolute;
   bottom: 22%;

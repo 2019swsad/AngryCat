@@ -10,8 +10,8 @@
         <text>￥ {{salary}}</text>
       </view>
 
-      <view class="task_state">
-        <text>{{status}}</text>
+      <view class="task_type">
+        <text>{{type}}</text>
       </view>
 
       <view class="people_number">
