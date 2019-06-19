@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    listHeight: "100px",
+    listHeight: "2000px",
     listHeight1: "1000px",
     listHeight2: "1000px",
 
@@ -84,7 +84,7 @@ Page({
 
         me.setData({
           createdTasks: arrToRender,
-          listHeight1: Object.keys(arrToRender).length * 110 + 50 + "px"
+          listHeight1: Object.keys(arrToRender).length * 110 + 110 + "px"
         })
       },
       fail: function() {
@@ -138,8 +138,7 @@ Page({
 
         me.setData({
           joinedTasks: arrToRender,
-          listHeight2: Object.keys(arrToRender).length * 110 + 50 + "px",
-          listHeight: Object.keys(arrToRender).length * 110 + 50 + "px"
+          listHeight2: Object.keys(arrToRender).length * 110 + 110 + "px",
         })
       },
       fail: function() {
@@ -151,6 +150,16 @@ Page({
 
       }
     })
+
+    if (this.data.currentTab == 0) {
+      this.setData({
+        listHeight: this.data.listHeight2
+      })
+    } else {
+      this.setData({
+        listHeight: this.data.listHeight1
+      });
+    }
 
   },
 

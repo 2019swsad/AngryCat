@@ -10,7 +10,7 @@
 
   </form> 
   <navigator class="registerNav" url="../regist/regist">
-  <text class="registerNavText">注册</text>
+    <text class="registerNavText">注册</text>
   </navigator>           
 </view>    
 

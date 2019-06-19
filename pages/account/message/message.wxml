@@ -2,18 +2,26 @@
 
 <!--消息中心页-->
 <view class='messagePage'>
-  <block wx:for="{{messageList}}" wx:for-item="message" wx:key="tid">
+  <block wx:for="{{messageList}}" wx:for-item="message">
     <!--消息主体-->
     <view class='messageContainer'>
-      <!--消息时间-->
-      <view class="messageDateContainer">
-        <text class="messageDate">{{message.date}}</text>
-      </view>
-
       <!--消息内容-->
-      <view class="messageBodyContainer">
-        <view class="messageTitle">{{message.title}}</view>
-        <view class="messageContent">{{message.msg}}</view>
+      <view>
+        <view class="messageText">{{message.title}}</view>
+
+        <view class="messageDateContainer">{{message.date}}</view>
+
+        <view>
+          <view class="messageContent">
+            <view class="messageSubTitleText">任务类型</view>
+            <view class="messageText">{{message.type}}</view>
+          </view>
+          <view class="messageContent">
+            <view class="messageSubTitleText">消息详情</view>
+            <view class="messageText">{{message.msg}}</view>
+          </view>
+        </view>
+        
       </view>
     </view>
   </block>
