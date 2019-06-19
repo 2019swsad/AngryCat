@@ -50,7 +50,7 @@
 
   <view class="code_area">
     <text>完成码: </text>
-    <text>123456 </text>
+    <text>{{taskinfo.finishNumber}}</text>
   </view>
 
   <view class="apply_btn_area">
