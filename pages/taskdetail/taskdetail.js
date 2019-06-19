@@ -140,9 +140,9 @@ Page({
       })
 
 
-    } else if (this.data.button1 == "报名详情") {
+    } else if (this.data.button1 == "完成情况") {
       wx.navigateTo({
-        url: '../critic/critic',
+        url: '../partipeople/partipeople',
       })
     } else if (this.data.button1 == "评价") {
       wx.navigateTo({
