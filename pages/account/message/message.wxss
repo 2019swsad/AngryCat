@@ -8,27 +8,45 @@ page{
 
 .messagePage {
   background-color: rgb(245, 245, 245);
-  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 消息主体*/
 .messageContainer {
-  width: 80%;
+  width: 90%;
   background-color: white;
   border-radius: 5px;
   margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10%;
+  margin-left: 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid rgb(235, 235, 235);
+}
+
+.messageContent {
+  display: flex;
+  flex-direction: row;
+}
+
+.messageText {
+  width: 80%;
+  font-size: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.messageSubTitleText {
+  width: 20%;
+  font-size: 15px;
+  color: rgb(136, 136, 136);
+  padding-left: 10px;
 }
 
 /* 消息时间*/
 .messageDateContainer {
-  display: flex;
-  flex-direction: row; 
-  justify-content: center;
-}
-
-.messageDate {
   font-size: 10px;
-  back
+  color: rgb(136, 136, 136);
+  padding-left: 10px;
 }

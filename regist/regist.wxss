@@ -72,7 +72,7 @@ form.form1 {
 }
 
 .submit_btn {
-  width: 190px;
+  width: 160px;
   margin-top: 30px;
   font-weight: 700;
 }
