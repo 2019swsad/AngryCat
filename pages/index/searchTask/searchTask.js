@@ -48,7 +48,7 @@ Page({
         })
 
         arrToRender = arrToRender.filter((item) => {
-          return item.title.indexOf(me.data.keyword) >= 0
+          return item.title.indexOf(me.data.keyword) >= 0 && item.status.indexOf("未开始") >=0
         })
 
 
