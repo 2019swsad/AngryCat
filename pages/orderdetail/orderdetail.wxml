@@ -40,7 +40,7 @@
 
   <view class="people">
     <text class="people_title">报名人数</text>
-    <text class="people_num">3/4</text>
+    <text class="people_num">{{taskinfo.currentParticipator}}/{{taskinfo.participantNum}}</text>
   </view>
 
   <view class="tag_area">
