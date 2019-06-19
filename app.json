@@ -1,5 +1,5 @@
 {
-  "pages": [
+  "pages": [        
     "pages/index/index",
     "pages/critic/critic",
     "pages/index/createTask/createTask",
@@ -7,7 +7,7 @@
     "pages/logs/logs",
     "pages/account/account",
     "regist/regist",
-    "login/login",
+    "login/login",        
     "pages/index/searchTask/searchTask",
     "pages/taskdetail/taskdetail",
     "pages/partipeople/partipeople",
