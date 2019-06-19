@@ -11,6 +11,7 @@ Page({
   data: {
     keyword: "",
     resultTasks: [],
+    displayTasks: [],
     optionalTaskType: ["所有类型", "问卷调查", "跑腿", "技术", "其他"],
     optionalSortType: ["薪酬从高到低", "薪酬从低到高", "最近发布", "最少人报名", "发布者信誉最高"],
     taskType: 0,
@@ -53,6 +54,7 @@ Page({
 
         me.setData({
           resultTasks: arrToRender,
+          displayTasks: arrToRender,
         })
       }
     })
@@ -125,10 +127,10 @@ Page({
       default:
         sortBy = this.dynamicSort("title")
     }
-    var arrToRender = this.data.resultTasks.sort(sortBy)
+    var arrToRender = this.data.displayTasks.sort(sortBy)
     // console.log(JSON.stringify(arrToRender))
     this.setData({
-      resultTasks: arrToRender
+      displayTasks: arrToRender
     })
   },
 
@@ -140,17 +142,17 @@ Page({
     var taskFilter = null
     switch (e.detail.value) {
       case "0": //所有
-        taskFilter = (item)=>{
+        taskFilter = (item) => {
           return true
         }
         break
       default:
-        taskFilter = (item)=>{
+        taskFilter = (item) => {
           return item.type == this.data.optionalTaskType[this.data.taskType]
         }
     }
     this.setData({
-      resultTasks: arrToRender.filter(taskFilter)
+      displayTasks: arrToRender.filter(taskFilter)
     })
   },
 
