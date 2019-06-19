@@ -1,9 +1,14 @@
 <!--pages/partipeople/partipeople.wxml-->
 <text>参与者：3/3</text>
 
-<view wx:for="{{personlist}}">
-  <text class="name">{{item.name}}</text> 
-  <text>{{item.credit}}</text>
+
+  <view class="single" wx:for="{{personlist}}">
+    <text class="name">{{item.name}}</text>
+    <text>信誉值：{{item.credit}}</text>
+    <text>状态：{{item.status}}</text>
+    <button class ="button">评价</button>
+
+
 </view>
- 
- <text>候选：1人</text>
+
+<text>候选：1人</text>

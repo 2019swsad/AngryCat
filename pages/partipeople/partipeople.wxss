@@ -2,3 +2,9 @@
 .name{
   width: 10px
 }
+.single{
+  width: 100%
+}
+.button{
+  
+}
