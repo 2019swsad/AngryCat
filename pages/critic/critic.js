@@ -20,8 +20,7 @@ Page({
       '非常好',
     ],
 
-    evaluations: [
-      {
+    evaluations: [{
         id: 0,
         name: "实际收益",
         image: "../../image/leaf.png",
@@ -42,16 +41,17 @@ Page({
         star: 0,
         note: ""
       }
-  ]
+    ],
+    uid: "608fa7ba-3197-4a30-b968-6fc9157a86c3"
 
 
-    
+
   },
 
   /**
    * 评分
    */
-  chooseStar: function (e) {
+  chooseStar: function(e) {
     const index = e.currentTarget.dataset.index;
     const star = e.target.dataset.star;
     let evaluations = this.data.evaluations;
@@ -63,60 +63,92 @@ Page({
       evaluations: evaluations
     })
   },
+  submit: function(e) {
+    var rate = (this.data.evaluations[0].star + this.data.evaluations[1].star + this.data.evaluations[2].star) / 3 * 20
+    var irate = Math.round(rate)
+
+    console.log(rate)
+
+    wx.request({
+      url: "https://www.volley99.com/users/rating",
+      method: 'POST',
+      data: {
+        uid: this.data.uid,
+        rate: irate
+      },
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function(res) {
+
+
+
+        wx.showToast({
+          title: '评价成功',
+          duration: 2000,
+          icon: 'success'
+        })
+
+      }
+
+    })
+
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
