@@ -230,5 +230,11 @@ page{
   font-weight: bold;
   font-size: 17px;
   color: #2eada7;
-   visibility:visible;
+  visibility:visible;
+  text-align: center;
+}
+
+.finishCodeText {
+  font-size: 13px;
+  color: rgb(136, 136, 136);
 }

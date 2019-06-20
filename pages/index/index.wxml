@@ -33,7 +33,7 @@
   </view>
 
   <view class='recommend_tasks'>
-    <block wx:for="{{recommendTasks}}" wx:for-item="task">
+    <block wx:for="{{recommendTasks}}" wx:for-item="task" wx:key="tid">
       <template is="singleTask" data="{{...task}}"></template>
     </block>
   </view>

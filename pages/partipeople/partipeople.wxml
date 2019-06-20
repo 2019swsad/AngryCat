@@ -1,13 +1,33 @@
 <!--pages/partipeople/partipeople.wxml-->
-<text>参与者：3/3</text>
-
-
+<!--参与者详情页面-->
+<view>
+  <view class="subtitleText">参与者</view>
+  <view class="numberText">{x}/{y}</view>
   <view class="single" wx:for="{{personlist}}">
-    <text class="name">{{item.name}}</text>
-    <text>信誉值：{{item.credit}}</text>
-    <text>状态：{{item.status}}</text>
-    <button class ="button" wx-if="{{hidden}}" bindtap='goToCritic'>评价</button>
+    <image class="avatar" src="{{item.avatar}}"></image>
+    <view class="personalInfoContainer">
+      <view class="name">{{item.name}}</view>
+      <view class="credit">信誉值:{{item.credit}}</view>
+    </view>
+    <view class="status">{{item.status}}</view>
+    <button class ="button" wx:if="{{hidden}}" bindtap='goToCritic'>评价</button>
+  </view>
 
+  <!--仅在任务未结束报名时显示候补信息-->
+  <view class="candidateContainer" wx:if="{{!taskIsBegining}}">
+    <view class="subtitleText">候补</view>
+    <view class="numberText">{z}人</view>
+    <view class="single" wx:for="{{candidateList}}">
+      <image class="avatar" src="{{item.avatar}}"></image>
+      <view class="personalInfoContainer">
+        <view class="name">{{item.name}}</view>
+        <view class="credit">信誉值:{{item.credit}}</view>
+      </view>
+    </view>
+  </view>
 
 </view>
+
+
+
 
