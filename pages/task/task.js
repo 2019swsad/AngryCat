@@ -21,18 +21,18 @@ Page({
   },
 
   goToDetail: function(e) {
-    console.log(JSON.stringify(e.mark.tid))
+    console.log(JSON.stringify(e.currentTarget.dataset.tid))
     wx.navigateTo({
-      url: '../taskdetail/taskdetail?tid=' + e.mark.tid,
+      url: '../taskdetail/taskdetail?tid=' + e.currentTarget.dataset.tid,
     })
   },
   goToOrderDetail: function(e) {
 
-    console.log(e.mark.tid)
+    console.log(e.currentTarget.dataset.tid)
 
 
     wx.navigateTo({
-      url: '../orderdetail/orderdetail?tid=' + e.mark.tid,
+      url: '../orderdetail/orderdetail?tid=' + e.currentTarget.dataset.tid,
     })
   },
 
@@ -76,7 +76,8 @@ Page({
       },
       success: function(res) {
         // console.log(res.data)
-        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        var jsonData = JSON.parse(JSON.stringify(res.data))
+        var arrToRender = jsonData.reverse()
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
@@ -102,7 +103,8 @@ Page({
       method: 'GET',
       success: function(res) {
         // console.log(res.data)
-        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        var jsonData = JSON.parse(JSON.stringify(res.data))
+        var arrToRender = jsonData.reverse()
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))

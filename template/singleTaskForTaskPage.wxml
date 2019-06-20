@@ -1,6 +1,5 @@
-<template name="singleTask">
-
-  <view class="single_task" bindtap="goToDetail" mark:tid="{{tid}}" hover-class="hover">
+<template name="singleTaskForTaskPage">
+  <view class="single_task" bindtap="goToDetail" data-tid="{{tid}}">
     <view class="task_infor">
 
       <view class="task_name">
@@ -11,8 +10,8 @@
         <text>￥ {{salary}}</text>
       </view>
 
-      <view class="task_type">
-        <text>{{type}}</text>
+      <view class="task_status">
+        <text>{{status}}</text>
       </view>
 
       <view class="people_number">

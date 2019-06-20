@@ -7,6 +7,42 @@
   <text>信誉值：{{item.credit}}</text>
   <text>状态：{{item.status}}</text>
   <button class="button" wx-if="{{hidden}}" bindtap='goToCritic'>评价</button>
+  =======
+  <!--参与者详情页面-->
+  <view>
+    <!--参与者信息栏-->
+    <view class="subtitleText">参与者</view>
+    <view class="numberText">{x}/{y}</view>
+    <!--参与者信息列表-->
+    <view class="single" wx:for="{{personlist}}">
+      <image class="avatar" src="{{item.avatar}}"></image>
+      <view class="personalInfoContainer">
+        <view class="name">{{item.name}}</view>
+        <view class="credit">信誉值:{{item.credit}}</view>
+      </view>
+      <view class="status">{{item.status}}</view>
+      <!--评价按钮：仅在参与者状态为"已完成"时显示-->
+      <button class="button" wx:if="{{item.status==finishStatus}}" bindtap='goToCritic'>评价</button>
+      <!--取消资格按钮：仅在任务状态为"报名中"且参与者状态为"进行中"时显示-->
+      <button class="button" wx:if="{{!taskIsBegining && item.status!=finishStatus}}" bindtap='disqualify'>取消</button>
+    </view>
 
 
+    <!--候补人员信息栏：仅在任务状态为"报名中"时显示-->
+    <view class="candidateContainer" wx:if="{{!taskIsBegining}}">
+      <view class="subtitleText">候补</view>
+      <view class="numberText">{z}人</view>
+      <!--候补人员信息列表-->
+      <view class="single" wx:for="{{candidateList}}">
+        <image class="avatar" src="{{item.avatar}}"></image>
+        <view class="personalInfoContainer">
+          <view class="name">{{item.name}}</view>
+          <view class="credit">信誉值:{{item.credit}}</view>
+        </view>
+        <view class="status"></view>
+        <button class="button" bindtap='qualify'>转正</button>
+      </view>
+    </view>
+
+  </view>
 </view>

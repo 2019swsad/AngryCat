@@ -88,6 +88,7 @@ page{
   border-bottom: 1px solid rgb(235, 235, 235);
   display:flex; 
   flex-direction: row;
+  align-items: center;
 }
 
 .portrait {
@@ -103,7 +104,7 @@ page{
   flex-direction: column;
 }
 
-.username {
+.nickname {
   font-size: 14px;
   margin-left: 18px;
   margin-top: 10px;
@@ -112,7 +113,6 @@ page{
 .credit {
   font-size: 11px;
   margin-left: 18px;
-  margin-top: 10px;
   color: #3b413b;
 }
 
@@ -215,6 +215,7 @@ page{
 
 .apply_btn {
   margin-top:10px; 
+  margin-bottom: 5px;
   line-height:2.45555556;
   text-align:center;
   border-radius:5px;
@@ -230,5 +231,11 @@ page{
   font-weight: bold;
   font-size: 17px;
   color: #2eada7;
-   visibility:visible;
+  visibility:visible;
+  text-align: center;
+}
+
+.finishCodeText {
+  font-size: 13px;
+  color: rgb(136, 136, 136);
 }

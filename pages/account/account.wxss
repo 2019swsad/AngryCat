@@ -43,7 +43,6 @@ page {
   background-color: #FFF;
   height: 45px;
   width: 100%;
-	padding: 0% 5%;
 	line-height: 45px;
   align-items: center;
   display: flex;
@@ -56,6 +55,7 @@ page {
 .optionLogo {
   width: 25px;
   height: 25px;
+  margin-left: 5%;
 }
 .arrowIcon {
   width: 15px;
