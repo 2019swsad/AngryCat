@@ -15,7 +15,7 @@ page{
   font-size: 23px;
   font-weight: bold;
   color: rgb(75,161,244);
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: row;
@@ -94,7 +94,7 @@ input.input11111[type=text], input.input11111[type=number]{
   display:flex; 
   flex-direction: row;
   margin-top: 35px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .apply_btn {
@@ -109,40 +109,3 @@ input.input11111[type=text], input.input11111[type=number]{
   height: 40px;
   visibility:visible;
 }
-
-/* .intro {
-  margin: 30rpx;
-  text-align: center;
-}
-
-.section {
-  flex-direction: row;
-  text-align: left;
-  align-content: center;
-}
-
-.section_time{
-  display: inline-block;
-
-}
-
-
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14rpx 20rpx;
-  margin: 8rpx 0;
-  border: none;
-  border-radius: 4rpx;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-input.input::-webkit-input-placeholder {
-  font-size: 1rpx;
-  color: orange;
-} */

@@ -65,8 +65,8 @@ form.form1 {
 
 
 .submit_btn {
-  font-size: 20px;
-  width: 160px;
+  font-size: 17px;
+  width: 150px;
   height: 45px;
   font-weight: 700;
   margin-top: 50px;
@@ -76,7 +76,7 @@ form.form1 {
 }
 
 .registerNav {
-  width: 160px;
+  width: 150px;
   height: 45px;
   border-radius: 5px;
   background-color: rgb(235, 235, 235);
@@ -89,7 +89,7 @@ form.form1 {
 .registerNavText {
   width: 100%;
   text-align: center;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
   color:rgb(80, 169, 55);
 
