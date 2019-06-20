@@ -28,7 +28,7 @@ Page({
   },
   goToOrderDetail: function(e) {
 
-    console.log(e.dataset.tid)
+    console.log(e.currentTarget.dataset.tid)
 
 
     wx.navigateTo({
