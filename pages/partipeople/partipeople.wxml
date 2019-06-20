@@ -2,12 +2,11 @@
 <text>参与者：3/3</text>
 
 
-  <view class="single" wx:for="{{personlist}}">
-    <text class="name">{{item.name}}</text>
-    <text>信誉值：{{item.credit}}</text>
-    <text>状态：{{item.status}}</text>
-    <button class ="button" wx-if="{{hidden}}" bindtap='goToCritic'>评价</button>
+<view class="single" wx:for="{{personlist}}">
+  <text class="name">{{item.name}}</text>
+  <text>信誉值：{{item.credit}}</text>
+  <text>状态：{{item.status}}</text>
+  <button class="button" wx-if="{{hidden}}" bindtap='goToCritic'>评价</button>
 
 
 </view>
-
