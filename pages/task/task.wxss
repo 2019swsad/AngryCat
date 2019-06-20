@@ -14,6 +14,8 @@ page {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
+  position: fixed;
+  top: 0;
 }
 
 .swiper-tab-item {
@@ -29,6 +31,12 @@ page {
 
 swiper {
   background-color: #fff;
+}
+
+.swiper-area{
+  position: fixed;
+  width: 100%;
+  top:45px;
 }
 
 .single_task {
