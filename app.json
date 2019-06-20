@@ -1,13 +1,13 @@
 {
-  "pages": [        
+  "pages": [               
     "pages/index/index",
     "pages/critic/critic",
     "pages/index/createTask/createTask",
     "pages/task/task",
     "pages/logs/logs",
-    "pages/account/account",
     "regist/regist",
-    "login/login",        
+    "login/login",   
+    "pages/account/account",        
     "pages/index/searchTask/searchTask",
     "pages/taskdetail/taskdetail",
     "pages/partipeople/partipeople",
