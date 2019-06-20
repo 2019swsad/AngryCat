@@ -76,7 +76,8 @@ Page({
       },
       success: function(res) {
         // console.log(res.data)
-        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        var jsonData = JSON.parse(JSON.stringify(res.data))
+        var arrToRender = jsonData.reverse()
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
@@ -102,7 +103,8 @@ Page({
       method: 'GET',
       success: function(res) {
         // console.log(res.data)
-        var arrToRender = JSON.parse(JSON.stringify(res.data))
+        var jsonData = JSON.parse(JSON.stringify(res.data))
+        var arrToRender = jsonData.reverse()
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
