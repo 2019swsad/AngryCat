@@ -21,18 +21,18 @@ Page({
   },
 
   goToDetail: function(e) {
-    console.log(JSON.stringify(e.mark.tid))
+    console.log(JSON.stringify(e.currentTarget.dataset.tid))
     wx.navigateTo({
-      url: '../taskdetail/taskdetail?tid=' + e.mark.tid,
+      url: '../taskdetail/taskdetail?tid=' + e.currentTarget.dataset.tid,
     })
   },
   goToOrderDetail: function(e) {
 
-    console.log(e.mark.tid)
+    console.log(e.dataset.tid)
 
 
     wx.navigateTo({
-      url: '../orderdetail/orderdetail?tid=' + e.mark.tid,
+      url: '../orderdetail/orderdetail?tid=' + e.currentTarget.dataset.tid,
     })
   },
 

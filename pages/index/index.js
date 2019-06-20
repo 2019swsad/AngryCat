@@ -126,7 +126,7 @@ Page({
   goToDetail: function(e) {
     console.log(JSON.stringify(e))
     wx.navigateTo({
-      url: '../searchTaskDetail/searchTaskDetail?tid=' + e.mark.tid,
+      url: '../searchTaskDetail/searchTaskDetail?tid=' + e.currentTarget.dataset.tid,
     })
   },
 

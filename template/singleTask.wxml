@@ -1,5 +1,5 @@
 <template name="singleTask">
-  <view class="single_task" bindtap="goToDetail" mark:tid="{{tid}}">
+  <view class="single_task" bindtap="goToDetail" data-tid="{{tid}}">
     <view class="task_infor">
 
       <view class="task_name">
