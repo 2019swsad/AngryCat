@@ -6,6 +6,7 @@ Page({
    */
   data: {
     messageList: [],
+    ignoreSig: "-",
   },
 
   /**
@@ -19,7 +20,7 @@ Page({
   getMessageList: function() {
     var that = this;
     wx.request({
-      url: 'https://raw.githubusercontent.com/CarlSome/JavaScript-Learning/master/JsonTest_MessageCenter.json',
+      url: 'https://www.volley99.com/msg/list',
       method: 'GET',
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -28,8 +29,9 @@ Page({
       success: function(res) {
         var arrToRender = JSON.parse(JSON.stringify(res.data))
         console.log(res.data);
+        var reverseData = (res.data).reverse();
         that.setData({
-          messageList: res.data,
+          messageList: reverseData,
         })
       }
     })

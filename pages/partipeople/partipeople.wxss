@@ -1,10 +1,75 @@
 /* pages/partipeople/partipeople.wxss */
-.name{
-  width: 10px
+/* 参与者详情页*/
+
+page{
+  height: 100%;
+  width: 100%;
+  background-color: white;
 }
+
+.subtitleText {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+.numberText {
+  text-align: center;
+  color: gray;
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+}
+
 .single{
-  width: 100%
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  align-items: center;
+  border-top: 1px solid rgb(245, 245, 245);
+  border-bottom: 1px solid rgb(245, 245, 245);
 }
+
+.personalInfoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  width: 100px;
+  font-size: 14px;
+}
+
+.credit{
+  width: 70px;
+  font-size: 11px;
+}
+
+.status{
+  width: 50px;
+  margin-left: 5px;
+}
+
+.avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin: 10px;
+}
+
 .button{
-  
+  width: 60px;
+  height: 25px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin-left: 80px;
+}
+
+.candidateContainer {
+  margin-top: 20px;
 }
