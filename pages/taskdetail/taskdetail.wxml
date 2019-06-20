@@ -49,8 +49,8 @@
   </view>
 
   <view class="code_area">
-    <text>完成码: </text>
     <text>{{taskinfo.finishNumber}}</text>
+    <view class="finishCodeText">完成码</view>
   </view>
 
   <view class="apply_btn_area">
