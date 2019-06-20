@@ -182,6 +182,7 @@ Page({
 
         me.setData({
           resultTasks: arrToRender,
+          displayTasks: arrToRender,
         })
       }
     })
