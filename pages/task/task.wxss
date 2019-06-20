@@ -93,3 +93,7 @@ swiper {
   color: #929292;
 }
 
+.hover{
+   background-color: #DCDCDC
+}
+

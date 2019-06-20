@@ -85,11 +85,6 @@ Page({
           }
 
 
-
-
-
-
-
         }
       },
       fail: function() {
@@ -125,7 +120,7 @@ Page({
     this.setData({
       addtell: {
         addtellHidden: false,
-        
+
       }
     })
 
