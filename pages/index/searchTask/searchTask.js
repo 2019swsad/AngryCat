@@ -41,34 +41,21 @@ Page({
         // console.log(JSON.stringify(res))
 
         var arrToRender = JSON.parse(JSON.stringify(res.data))
-        var arrToRenderInsider = []
-        
-        arrToRender = arrToRender.filter((item) => {
-          return item.title.indexOf(me.data.keyword) >= 0 && item.status.indexOf("未开始") >= 0
-        })
 
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-          wx.request({
-            url: DOMAIN + '/users/info/' + item.uid,
-            method: 'GET',
-            success: function (res) {
-              item.organizer = res.data[0].username
-              arrToRenderInsider.push(item)
-              console.log("now push and render", arrToRenderInsider)
-              me.setData({
-                displayTasks: arrToRenderInsider,
-                resultTasks: arrToRenderInsider
-              })
-            }
-          })
         })
 
-        // me.setData({
-        //   resultTasks: arrToRender,
-        //   displayTasks: arrToRender,
-        // })
+        arrToRender = arrToRender.filter((item) => {
+          return item.title.indexOf(me.data.keyword) >= 0 && item.status.indexOf("未开始") >=0
+        })
+
+
+        me.setData({
+          resultTasks: arrToRender,
+          displayTasks: arrToRender,
+        })
       }
     })
   },
@@ -182,32 +169,20 @@ Page({
         // console.log(JSON.stringify(res))
 
         var arrToRender = JSON.parse(JSON.stringify(res.data))
-        var arrToRenderInsider = []
+
+        arrToRender.forEach((item, index, input) => {
+          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+        })
 
         arrToRender = arrToRender.filter((item) => {
           return item.status.indexOf("start") >= 0 || item.status.indexOf("未开始") >= 0 || item.status.indexOf("进行中") >= 0
         })
-        arrToRender.forEach((item, index, input) => {
-          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
-          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
 
-          wx.request({
-            url: DOMAIN + '/users/info/' + item.uid,
-            method: 'GET',
-            success: function(res) {
-              item.organizer = res.data[0].username
-              arrToRenderInsider.push(item)
-              console.log("now push and render",arrToRenderInsider)
-              me.setData({
-                displayTasks: arrToRenderInsider
-              })
-            }
-          })
+
+        me.setData({
+          resultTasks: arrToRender,
         })
-
-        // me.setData({
-        //   resultTasks: arrToRenderInsider,
-        // })
       }
     })
   },
