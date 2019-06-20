@@ -12,7 +12,7 @@
     <swiper-item>
 
       <view class='joined_tasks'>
-        <block wx:for="{{taskInfo}}" wx:for-item="task" wx:key="tid">
+        <block wx:for="{{taskInfo}}" wx:for-item="task" wx:key="task.tid">
           <template is="singleOrder" data="{{...task}}"></template>
         </block>
       </view>
@@ -20,7 +20,7 @@
     </swiper-item>
     <swiper-item class="task_list">
       <view class='created_tasks'>
-        <block wx:for="{{createdTasks}}" wx:for-item="task" wx:key="tid">
+        <block wx:for="{{createdTasks}}" wx:for-item="task" wx:key="task.tid">
           <template is="singleTaskForTaskPage" data="{{...task}}"></template>
         </block>
       </view>

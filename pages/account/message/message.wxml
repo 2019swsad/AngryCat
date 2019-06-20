@@ -2,7 +2,7 @@
 
 <!--消息中心页-->
 <view class='messagePage'>
-  <block wx:for="{{messageList}}" wx:for-item="message">
+  <block wx:for="{{messageList}}" wx:for-item="message" wx:key="message._id">
     <!--消息主体-->
     <view class='messageContainer'>
       <!--消息内容-->
