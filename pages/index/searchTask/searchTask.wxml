@@ -34,7 +34,7 @@
   <!--任务列表栏-->
   <view class='result_tasks'>
 
-    <block wx:for="{{displayTasks}}" wx:for-item="task">
+    <block wx:for="{{displayTasks}}" wx:for-item="task" wx:key="task.tid">
       <template is="singleTask" data="{{...task}}"></template>
       <!-- <text class="log-item">{{index + 1}}. {{log}}</text> -->
     </block>
