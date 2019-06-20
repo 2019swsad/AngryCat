@@ -18,7 +18,7 @@ Page({
     addtell: {
       addtellHidden: true, //弹出框显示/隐藏
     },
-
+    questionair: "问卷调查",
   },
 
   /**
