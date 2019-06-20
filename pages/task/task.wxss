@@ -1,38 +1,39 @@
 /* pages/task/task.wxss */
-page{
+
+page {
   width: 100%;
   height: 100%;
 }
 
 .swiper-tab {
-    width: 100%;
-    border-bottom: 2rpx solid #ccc;
-    text-align: center;
-    height: 88rpx;
-    line-height: 88rpx;
-    display: flex;
-    flex-flow: row;
-    justify-content: space-around;
+  width: 100%;
+  border-bottom: 2rpx solid #ccc;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
 }
- 
+
 .swiper-tab-item {
-    width: 30%;
-    color: #2eada7;
-    font-size: 28rpx;
+  width: 30%;
+  color: #2eada7;
+  font-size: 28rpx;
 }
- 
+
 .active {
-    color: #2eada7;
-    border-bottom: 4rpx solid #2eada7;
+  color: #2eada7;
+  border-bottom: 4rpx solid #2eada7;
 }
- 
+
 swiper {
-    background-color: #fff
+  background-color: #fff;
 }
 
 .single_task {
-  background-color: #FFF;
-  border-bottom: 1px solid #E7E7EB;
+  background-color: #fff;
+  border-bottom: 1px solid #e7e7eb;
 }
 
 .task_infor {
@@ -40,11 +41,13 @@ swiper {
   position: relative;
   height: 90px;
 }
+
 .task_name {
   font-size: 17px;
-  margin-left:4%;
-  margin-bottom:1.5%;
+  margin-left: 4%;
+  margin-bottom: 1.5%;
 }
+
 .task_price {
   font-size: 14px;
   color: #2eada7;
@@ -54,16 +57,18 @@ swiper {
   height: 22px;
   line-height: 22px;
 }
-.task_state {
+
+.task_type, .task_status {
   font-size: 17px;
   position: absolute;
   bottom: 22%;
   right: 10%;
 }
+
 .task_time {
   color: #929292;
   font-size: 12px;
-  margin-left:4%;
+  margin-left: 4%;
   margin-bottom: 1%;
 }
 
@@ -74,7 +79,7 @@ swiper {
 }
 
 .organizer {
-  display:flex; 
+  display: flex;
   flex-direction: row;
 }
 
@@ -96,4 +101,5 @@ swiper {
 .hover{
    background-color: #DCDCDC
 }
+
 

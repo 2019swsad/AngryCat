@@ -3,7 +3,7 @@
 <view>
   <!--顶部展示窗-->
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
+    <block wx:for="{{imgUrls}}" wx:key="item">
       <swiper-item>
         <image src="{{item}}" class="slide-image" />
       </swiper-item>
@@ -12,7 +12,7 @@
 </view>
 <!--顶部分类栏-->
 <view class="category">
-  <view class="category_item" wx:for="{{iconArray}}">
+  <view class="category_item" wx:for="{{iconArray}}" wx:key="item.iconUrl">
     <view class="category_item_wrap">
       <navigator url="{{item.navigateUrl||null}}">
         <view class="icon_wrap">
@@ -33,7 +33,7 @@
   </view>
 
   <view class='recommend_tasks'>
-    <block wx:for="{{recommendTasks}}" wx:for-item="task">
+    <block wx:for="{{recommendTasks}}" wx:for-item="task" wx:key="tid">
       <template is="singleTask" data="{{...task}}"></template>
     </block>
   </view>

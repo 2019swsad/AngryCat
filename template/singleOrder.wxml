@@ -1,5 +1,6 @@
 <template name="singleOrder">
   <view class="single_task" bindtap="goToOrderDetail" mark:tid="{{tid}}" hover-class="hover">
+
     <view class="task_infor">
 
       <view class="task_name">
@@ -10,7 +11,7 @@
         <text>￥ {{salary}}</text>
       </view>
 
-      <view class="task_state">
+      <view class="task_status">
         <text>{{status}}</text>
       </view>
 

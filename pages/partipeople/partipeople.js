@@ -6,17 +6,31 @@ Page({
    */
   data: {
     personlist:[{
+      avatar: "../../image/avatar.jpg",
       name:"xiaohong",
       credit:55,
-      status:"ss"
+      status:"进行中"
     },{
-      name:"huanv",
+      avatar: "../../image/avatar.jpg",
+      name:"ZhangMaLiang",
       credit:53,
-      status:"va"
+      status:"已完成"
     }
-
     ],
-    hidden:false
+    candidateList: [
+      {
+        avatar: "../../image/avatar.jpg",
+        name: "Carlsu1",
+        credit: 55,
+      },
+      {
+        avatar: "../../image/avatar.jpg",
+        name: "Carlsu2",
+        credit: 55,
+      }
+    ],
+    finishStatus: "已完成",
+    taskIsBegining: false,
 
   },
 

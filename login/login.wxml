@@ -6,7 +6,7 @@
     
     <input class="register_input password" type="password" align="center" placeholder="密码" bindinput="passWdInput"/>
 
-    <button class="submit_btn" type="primary" form-type="submit" bindtap='login'>提交</button>
+    <button class="submit_btn" type="primary" form-type="submit" bindtap='login'>登录</button>
 
   </form> 
   <navigator class="registerNav" url="../regist/regist">
