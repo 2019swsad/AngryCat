@@ -29,7 +29,7 @@ Page({
         credit: 55,
       }
     ],
-    hidden:true,
+    finishStatus: "已完成",
     taskIsBegining: false,
 
   },
