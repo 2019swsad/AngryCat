@@ -7,10 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    listHeight: "2000px",
-    listHeight1: "500px",
-    listHeight2: "500px",
-
+    listHeight: "",
     currentTab: 0,
     selfAllTasks: '',
     tasks: [],
@@ -42,13 +39,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-
-
-
-
-
-
+    const res = wx.getSystemInfoSync()
+    this.setData({
+      listHeight: res.windowHeight - 45 + "px"
+    })
   },
 
   /**
@@ -154,7 +148,7 @@ Page({
 
       }
     })
-
+/*
     if (this.data.currentTab == 0) {
       this.setData({
         listHeight: this.data.listHeight2
@@ -164,7 +158,7 @@ Page({
         listHeight: this.data.listHeight1
       });
     }
-
+*/
   },
 
   /**
@@ -207,16 +201,6 @@ Page({
     this.setData({
       currentTab: e.detail.current
     });
-
-    if (this.data.currentTab == 0) {
-      this.setData({
-        listHeight: this.data.listHeight2
-      })
-    } else {
-      this.setData({
-        listHeight: this.data.listHeight1
-      });
-    }
   },
 
   //点击切换

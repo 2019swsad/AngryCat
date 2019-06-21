@@ -3,6 +3,7 @@
 page {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .swiper-tab {
@@ -16,6 +17,9 @@ page {
   justify-content: space-around;
   position: fixed;
   top: 0;
+  left: 0;
+  z-index: 9999999;
+
 }
 
 .swiper-tab-item {
@@ -34,9 +38,15 @@ swiper {
 }
 
 .swiper-area{
-  position: fixed;
   width: 100%;
+  height: 100%; 
+  position: fixed;
   top:45px;
+  display: block; 
+}
+.joined_tasks, .created_tasks{
+  height: 100%;
+  width: 100%;
 }
 
 .single_task {
@@ -107,7 +117,6 @@ swiper {
 }
 
 .hover{
-   background-color: #DCDCDC
+  background-color: #DCDCDC
 }
-
 
