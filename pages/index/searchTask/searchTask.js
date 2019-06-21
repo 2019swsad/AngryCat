@@ -61,7 +61,7 @@ Page({
   },
 
   goToDetail: function(e) {
-    console.log(JSON.stringify(e))
+    console.log(e.currentTarget.dataset.tid)
     wx.navigateTo({
       url: '../../searchTaskDetail/searchTaskDetail?tid=' + e.currentTarget.dataset.tid,
     })
@@ -184,6 +184,7 @@ Page({
           resultTasks: arrToRender,
           displayTasks: arrToRender,
         })
+        console.log(me.data.displayTasks[1].tid)
       }
     })
   },
