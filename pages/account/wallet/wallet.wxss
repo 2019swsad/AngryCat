@@ -62,12 +62,11 @@ page {
   width: 50%;
   color:#FFF;
   font-weight: bold;
-  background-color: rgb(80, 169, 56);
 }
 .withdrawButton {
   margin-top: 5%;
   width: 50%;
-  color:rgb(80, 169, 55);
+  color:rgb(23, 173, 25);
   font-weight: bold;
   background-color: rgb(244, 245, 246);
 }

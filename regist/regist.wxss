@@ -14,9 +14,9 @@ page {
 
 .sign {
   padding-top: 25px;
-  color: rgb(75,161,244);
+  color: rgb(53, 139, 219);
   font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
+  font-weight: bolder;
   font-size: 23px;
 }
 
