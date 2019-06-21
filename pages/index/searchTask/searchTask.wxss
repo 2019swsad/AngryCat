@@ -30,11 +30,9 @@ page {
   font-size: 14px;
   line-height: 18px;
   color: #575756;
-  background-color: transparent;
   background-position: 95% center;
   border-radius: 50px;
   border: 1px solid #575756;
-  transition: all 250ms ease-in-out;
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }
@@ -55,7 +53,7 @@ page {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border-bottom: 1px solid rgb(235, 235, 235);
+  border-bottom: 1rpx solid rgb(216, 217, 218);
 }
 
 .picker {

@@ -8,7 +8,7 @@ page {
 
 .swiper-tab {
   width: 100%;
-  border-bottom: 2rpx solid #ccc;
+  border-bottom: 1rpx solid rgb(216, 217, 218);
   text-align: center;
   height: 88rpx;
   line-height: 88rpx;
@@ -51,7 +51,7 @@ swiper {
 
 .single_task {
   background-color: #fff;
-  border-bottom: 1px solid #e7e7eb;
+  border-bottom: 1rpx solid rgb(216, 217, 218);
 }
 
 .task_infor {
