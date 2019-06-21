@@ -29,6 +29,7 @@ page{
 
 .section{
   margin-bottom: 13px;
+  padding: 6rpx 4rpx;
 }
 
 .section_title {
@@ -84,10 +85,6 @@ input.input11111[type=text], input.input11111[type=number]{
   border-radius: 4rpx;
   box-sizing: content-box;
   padding: 13rpx;
-}
-
-.section {
-  padding: 6rpx 4rpx;
 }
 
 .apply_btn_area {
