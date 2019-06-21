@@ -2,19 +2,10 @@
 page {
   width: 100%;
   height: 100%;
-  background-color: rgb(244,244,244);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: white;
+
 }
 .main {
-  background-color: #FFFFFF;
-  
-  width: 90%;
-  height: 550px;
-  border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   display: flex;
   flex-direction: column;
   justify-content:flex-start;
@@ -23,7 +14,7 @@ page {
 
 .sign {
   padding-top: 40px;
-  color: #8C55AA;
+  color: #2eada7;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 23px;
@@ -33,16 +24,14 @@ page {
   width: 270px;
   color: rgb(38, 50, 56);
   height: 50px;
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 500;
+  font-size: 18px;
   letter-spacing: 1px;
-  background: rgba(136, 126, 126, 0.04);
   border: none;
-  border-radius: 20px;
   outline: none;
   box-sizing: border-box;
-  border: 2px solid rgba(0, 0, 0, 0.02);
-  text-align: center;
+  border-bottom: 1px solid rgb(235, 235, 235);
+  text-align: left;
   margin-bottom: 20px;
   font-family: 'Ubuntu', sans-serif;
 }
@@ -55,25 +44,14 @@ form.form1 {
   justify-content: center;
 }
 
-.submit {
-  cursor: pointer;
-  border-radius: 5em;
-  color: #fff;
-  background: linear-gradient(to right, #9C27B0, #E040FB);
-  border: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  font-family: 'Ubuntu', sans-serif;
-  margin-left: 35%;
-  font-size: 13px;
-  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+
+.input_style {
+  color: rgb(195,197,198);
 }
 
 .submit_btn {
   width: 150px;
-  margin-top: 30px;
+  margin-top: 50px;
   font-weight: 700;
 }
     
