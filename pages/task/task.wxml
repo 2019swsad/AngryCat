@@ -12,25 +12,24 @@
     <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">发布的任务</view>
   </view>
   
-  <swiper style="height:{{listHeight}}" current="{{currentTab}}" duration="500" bindchange="swiperTab">
-    <!--报名的任务-->
-    <swiper-item>
-
-      <view class='joined_tasks'>
+  <swiper class="swiper-area" style="height:{{listHeight}}" current="{{currentTab}}" duration="500" bindchange="swiperTab">
+    <swiper-item style="height:100%">
+      <scroll-view class='joined_tasks' style="height:100%" scroll-y scroll-top="0px">
         <block wx:for="{{taskInfo}}" wx:for-item="task" wx:key="task.tid">
           <template is="singleOrder" data="{{...task}}"></template>
         </block>
-      </view>
+      </scroll-view>
 
     </swiper-item>
 
     <!--发布的任务-->
     <swiper-item class="task_list">
-      <view class='created_tasks'>
+      <scroll-view class='created_tasks' style="height:100%" scroll-y scroll-top="0px">
+
         <block wx:for="{{createdTasks}}" wx:for-item="task" wx:key="task.tid">
           <template is="singleTaskForTaskPage" data="{{...task}}"></template>
         </block>
-      </view>
+      </scroll-view>
       
     </swiper-item>
 
