@@ -15,8 +15,9 @@ Page({
     indicatorDots: true,
     vertical: false,
     autoplay: true,
-    interval: 3000,
-    duration: 1200,
+    circular: true,
+    interval: 5000,
+    duration: 1500,
     iconArray: [{
         "iconUrl": '../../image/icon-qiandao.png',
         "iconText": '签到'
