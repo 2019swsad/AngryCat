@@ -83,13 +83,6 @@ Page({
             endTime: end
           })
 
-
-
-
-
-
-
-
         }
       },
       fail: function() {
@@ -164,15 +157,11 @@ Page({
                   icon: 'none'
                 })
               }
-
-
             },
             fail: function () {
               console.log("index.js wx.request CheckCallUser fail");
             },
           })
-
-
 
         } else {
 
@@ -180,8 +169,6 @@ Page({
       }
     })
   },
-
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
