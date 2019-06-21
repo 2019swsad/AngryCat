@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    listHeight:"",
     keyword: "",
     resultTasks: [],
     displayTasks: [],
@@ -186,6 +187,11 @@ Page({
         })
         console.log(me.data.displayTasks[1].tid)
       }
+    })
+
+    const res = wx.getSystemInfoSync()
+    this.setData({
+      listHeight: res.windowHeight - 102 + "px"
     })
   },
 

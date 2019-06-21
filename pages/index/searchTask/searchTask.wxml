@@ -3,7 +3,7 @@
 
 <import src="../../../template/singleTask.wxml" />
 
-<view>
+<view class="top_area">
   <!--搜索栏-->
   <view class='search_box'>
     <input class="search_input" bindblur="updateKeyword" type="text" placeholder="SEARCH"></input>
@@ -30,17 +30,15 @@
       </picker>
     </view>
   </view>
-
-  <!--任务列表栏-->
-  <view class='result_tasks'>
-
-    <block wx:for="{{displayTasks}}" wx:for-item="task" wx:key="task.tid">
-      <template is="singleTask" data="{{...task}}"></template>
-      <!-- <text class="log-item">{{index + 1}}. {{log}}</text> -->
-    </block>
-
-    <!-- <text>{{stringifyRes}}</text> -->
-
-  </view>
-
 </view>
+
+<!--任务列表栏-->
+<scroll-view class='result_tasks' style="height:{{listHeight}}" overflow="auto" scroll-y="true" scroll-top="0px" scroll-with-animation="true">
+
+  <block wx:for="{{displayTasks}}" wx:for-item="task" wx:key="task.tid">
+    <template is="singleTask" data="{{...task}}"></template>
+    <!-- <text class="log-item">{{index + 1}}. {{log}}</text> -->
+  </block>
+  <!-- <text>{{stringifyRes}}</text> -->
+
+</scroll-view>
