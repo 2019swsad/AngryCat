@@ -8,8 +8,8 @@ Page({
    */
   data: {
     listHeight: "2000px",
-    listHeight1: "1000px",
-    listHeight2: "1000px",
+    listHeight1: "500px",
+    listHeight2: "500px",
 
     currentTab: 0,
     selfAllTasks: '',
@@ -144,7 +144,7 @@ Page({
 
         me.setData({
           joinedTasks: arrToRender,
-          listHeight2: Object.keys(arrToRender).length * 110 + 1100 + "px",
+          listHeight2: Object.keys(arrToRender).length * 110 - 110 + "px",
         })
       },
       fail: function() {
