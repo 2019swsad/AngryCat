@@ -14,7 +14,7 @@
   
   <swiper class="swiper-area" style="height:{{listHeight}}" current="{{currentTab}}" duration="500" bindchange="swiperTab">
     <swiper-item style="height:100%">
-      <scroll-view class='joined_tasks' style="height:100%" scroll-y scroll-top="0px">
+      <scroll-view class='joined_tasks' overflow="auto" scroll-y="true" scroll-top="0px" scroll-with-animation="true">
         <block wx:for="{{taskInfo}}" wx:for-item="task" wx:key="task.tid">
           <template is="singleOrder" data="{{...task}}"></template>
         </block>
@@ -23,8 +23,8 @@
     </swiper-item>
 
     <!--发布的任务-->
-    <swiper-item class="task_list">
-      <scroll-view class='created_tasks' style="height:100%" scroll-y scroll-top="0px">
+    <swiper-item style="height:100%">
+      <scroll-view class='created_tasks' scroll-y="ture" scroll-top="0px" scroll-with-animation="true">
 
         <block wx:for="{{createdTasks}}" wx:for-item="task" wx:key="task.tid">
           <template is="singleTaskForTaskPage" data="{{...task}}"></template>
