@@ -1,12 +1,12 @@
 {
   "pages": [    
-    "pages/index/index",    
+    "pages/index/index",  
+    "regist/regist",
+    "login/login",  
     "pages/index/searchTask/searchTask",    
     "pages/critic/critic",
     "pages/index/createTask/createTask",
     "pages/logs/logs",
-    "regist/regist",
-    "login/login",   
     "pages/task/task",
     "pages/account/account",        
     "pages/taskdetail/taskdetail",

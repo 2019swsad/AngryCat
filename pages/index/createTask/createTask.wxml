@@ -67,17 +67,6 @@
         <input type="number" class="input" name="salary" placeholder="酬劳(元)" />
       </view>
     </view>
-
-    <view class="section">
-      <view class="section_title">标签</view>
-      <view>
-        <input type="text" class="input" name="tags" value="无" placeholder="标签" />
-      </view>
-    </view>
-
-
-    
-    
     
     <view class="apply_btn_area">
       <button formType="reset" class="apply_btn" type="primary">清空</button>

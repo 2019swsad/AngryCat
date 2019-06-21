@@ -2,9 +2,9 @@
 <view class="main">
   <text class="sign">登录</text>
   <form class="form1">
-    <input class="register_input username" type="text" align="center" placeholder="用户名" bindinput="userNameInput"/>
+    <input class="register_input username" placeholder-class="input_style" type="text" align="center" placeholder="用户名" bindinput="userNameInput"/>
     
-    <input class="register_input password" type="password" align="center" placeholder="密码" bindinput="passWdInput"/>
+    <input class="register_input password" placeholder-class="input_style" type="password" align="center" placeholder="密码" bindinput="passWdInput"/>
 
     <button class="submit_btn" type="primary" form-type="submit" bindtap='login'>登录</button>
 
