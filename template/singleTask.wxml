@@ -1,6 +1,6 @@
 <template name="singleTask">
 
-  <view class="single_task" bindtap="goToDetail" mark:tid="{{tid}}" hover-class="hover">
+  <view class="single_task" bindtap="goToDetail" mark:tid="{{tid}}" data-tid="{{tid}}" hover-class="hover">
     <view class="task_infor">
 
       <view class="task_name">
