@@ -21,7 +21,8 @@ Page({
   },
 
   goToDetail: function(e) {
-    console.log(JSON.stringify(e.currentTarget.dataset.tid))
+
+    console.log(e.currentTarget.dataset.tid)
     wx.navigateTo({
       url: '../taskdetail/taskdetail?tid=' + e.currentTarget.dataset.tid,
     })

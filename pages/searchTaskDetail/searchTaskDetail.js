@@ -47,6 +47,7 @@ Page({
     //  this.data.tid=option.query;
 
     this.data.tid = options.tid;
+    console.log(options.tid)
 
 
     this.requestTaskInfo();
