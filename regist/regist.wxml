@@ -4,15 +4,15 @@
 <view class="main">
   <text class="sign">注册</text>
   <form class="form1">
-    <input class="register_input" type="text" align="center" placeholder="用户名"  bindinput="userNameInput"/>
+    <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="用户名"  bindinput="userNameInput"/>
 
-    <input class="register_input" type="password" align="center" placeholder="密码"  bindinput="passWdInput"/>
+    <input class="register_input" placeholder-class="input_style" type="password" align="center" placeholder="密码"  bindinput="passWdInput"/>
 
-    <input class="register_input" type="text" align="center" placeholder="邮箱" bindinput="emailInput"/>
+    <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="邮箱" bindinput="emailInput"/>
 
-    <input class="register_input" type="text" align="center" placeholder="手机号"  bindinput="phoneInput"/>
+    <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="手机号"  bindinput="phoneInput"/>
 
-    <input class="register_input" type="text" align="center" placeholder="昵称"  bindinput="nickNameInput"/>
+    <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="昵称"  bindinput="nickNameInput"/>
 
     <button class="submit_btn" type="primary" form-type="submit" bindtap='regist'>提交</button>
 
