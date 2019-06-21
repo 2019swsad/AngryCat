@@ -22,7 +22,7 @@ Page({
   },
   login: function(param) {
     console.log(this.data.username)
-    var self=this;
+    var self = this;
     //console.log(this.data.username);
     wx.request({
       url: 'https://www.volley99.com/users/login',
@@ -39,10 +39,41 @@ Page({
         if (res.statusCode == 200) {
 
 
-      
+
 
           if (res.data.status == 'success') {
             wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
+
+            wx.request({
+              url: 'https://www.volley99.com/users/self',
+              method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+              header: {
+                'content-type': 'application/json',
+                'cookie': wx.getStorageSync("sessionId")
+              }, // 设置请求的 header
+              success: function(res) {
+
+                if (res.statusCode == 200) {
+
+                  //设置全局变量
+
+                  getApp().globalData.nickname = res.data.nickname;
+                  getApp().globalData.uid = res.data.uid;
+
+
+                  console.log(res.data);
+                } else {
+                  console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
+                }
+              },
+              fail: function() {
+                console.log("index.js wx.request CheckCallUser fail");
+              },
+              complete: function() {
+                // complete
+              }
+            })
+
             wx.showToast({
               title: '成功登录',
               duration: 2000,
