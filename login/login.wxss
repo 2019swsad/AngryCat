@@ -12,7 +12,7 @@ page {
 }
 
 .sign {
-  padding-top: 40px;
+  padding-top: 30px;
   color: #2eada7;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
@@ -61,7 +61,7 @@ form.form1 {
   width: 150px;
   height: 45px;
   font-weight: 700;
-  margin-top: 70px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,5 +86,4 @@ form.form1 {
   font-size: 17px;
   font-weight: 700;
   color:rgb(80, 169, 55);
-
 }
