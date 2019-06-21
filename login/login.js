@@ -42,6 +42,7 @@ Page({
       
 
           if (res.data.status == 'success') {
+            wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
             wx.showToast({
               title: '成功登录',
               duration: 2000,
