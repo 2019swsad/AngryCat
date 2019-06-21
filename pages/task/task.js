@@ -86,7 +86,6 @@ Page({
 
         me.setData({
           createdTasks: arrToRender,
-          listHeight1: Object.keys(arrToRender).length * 110 + 110 + "px"
         })
       },
       fail: function() {
@@ -143,8 +142,7 @@ Page({
         })
 
         me.setData({
-          joinedTasks: arrToRender,
-          listHeight2: Object.keys(arrToRender).length * 110 - 110 + "px",
+          joinedTasks: arrToRender
         })
       },
       fail: function() {
