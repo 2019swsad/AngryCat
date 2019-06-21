@@ -13,7 +13,7 @@ page {
 }
 
 .sign {
-  padding-top: 40px;
+  padding-top: 25px;
   color: #2eada7;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
@@ -32,7 +32,7 @@ page {
   box-sizing: border-box;
   border-bottom: 1px solid rgb(235, 235, 235);
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 23px;
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -51,7 +51,12 @@ form.form1 {
 
 .submit_btn {
   width: 150px;
-  margin-top: 50px;
+  height: 45px;
+  margin-top: 60px;
   font-weight: 700;
+  font-size: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
     
