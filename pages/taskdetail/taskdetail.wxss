@@ -47,12 +47,12 @@ page{
 .base_info {
   position: relative;
   height: 80px;
-  border-bottom: 1px solid rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(216, 217, 218);
 
 }
 
 .title {
-  font-size: 23px;
+  font-size: 24px;
   font-weight:bold;
 
 }
@@ -68,7 +68,7 @@ page{
 
 .place {
   margin-top: 5px;
-  font-size:14px;
+  font-size:15px;
   color: rgb(72,72,72);
 }
 
@@ -85,7 +85,7 @@ page{
 }
 
 .organizer {
-  border-bottom: 1px solid rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(216, 217, 218);
   display:flex; 
   flex-direction: row;
   align-items: center;
@@ -106,8 +106,9 @@ page{
 
 .nickname {
   font-size: 14px;
+  font-weight: 400;
   margin-left: 18px;
-  margin-top: 10px;
+  margin-bottom: 7px;
 }
 
 .credit {
@@ -119,19 +120,19 @@ page{
 .detail {
   display:flex; 
   flex-direction: column;
-  border-bottom: 1px solid rgb(235, 235, 235);
-  padding-bottom: 3px;
+  border-bottom: 1px solid rgb(216, 217, 218);
+  padding-bottom: 4px;
   overflow: visible;
 }
 
 .detail_title {
   font-weight: bold;
-  font-size: 17px;
+  font-size: 18px;
   padding-top: 15px;
 }
 
 .description {
-  font-size: 15px;
+  font-size: 16px;
   color: rgb(72,72,72);
   margin-top: 15px;
 }
@@ -144,12 +145,12 @@ page{
 
 .time_title {
   font-weight: bold;
-  font-size: 17px;
+  font-size: 18px;
   padding-top: 15px;
 }
 
 .time {
-  font-size: 15px;
+  font-size: 16px;
   color: rgb(72,72,72);
   margin-top: 12px;
 }
@@ -162,12 +163,12 @@ page{
 
 .people_title {
   font-weight: bold;
-  font-size: 17px;
+  font-size: 18px;
   padding-top: 15px;
 }
 
 .people_num {
-  font-size: 18px;
+  font-size: 16px;
   color: rgb(72,72,72);
   margin-top: 12px;
 }
@@ -175,13 +176,13 @@ page{
 .tag_area {
   display:flex; 
   flex-direction: column;
-  border-bottom: 1px solid rgb(235, 235, 235);
+  border-bottom: 1px solid rgb(216, 217, 218);
   overflow: visible;
 }
 
 .tag_title {
   font-weight: bold;
-  font-size: 17px;
+  font-size: 18px;
   padding-top: 15px;
 }
 
@@ -195,8 +196,8 @@ page{
 
 .single_tag {
   padding-top: 3px;
-  font-size: 15px;
-  color: rgb(43, 43, 43);
+  font-size: 16px;
+  color: rgb(72, 72, 72);
 }
 
 .apply_btn_area {

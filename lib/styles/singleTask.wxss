@@ -4,7 +4,7 @@
   position: relative;
   height: 110px;
   background-color: #fff;
-  border-bottom: 1px solid #e7e7eb;
+  border-bottom: 1rpx solid rgb(216, 217, 218);
 }
 
 .task_infor {

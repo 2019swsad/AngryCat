@@ -58,13 +58,13 @@ swiper {
   padding: 10px;
   background-color: #fff;
   font-size: 16px;
-  border-bottom: 1px solid #E9E9E9;
+  border-bottom: 1rpx solid rgb(216, 217, 218);
 }
 .single_task {
   position: relative;
   height: 110px;
   background-color: #FFF;
-  border-bottom: 1px solid #E7E7EB;
+  border-bottom: 1rpx solid rgb(216, 217, 218);
 }
 
 .task_infor {
