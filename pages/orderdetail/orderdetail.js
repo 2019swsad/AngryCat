@@ -110,7 +110,7 @@ Page({
 
     } else {
       wx.navigateTo({
-        url: '../critic/critic',
+        url: '../critic/critic?uid='+this.data.taskinfo.uid,
       })
     }
 
