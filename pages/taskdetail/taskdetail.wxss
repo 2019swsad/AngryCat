@@ -120,6 +120,7 @@ page{
   display:flex; 
   flex-direction: column;
   border-bottom: 1px solid rgb(235, 235, 235);
+  padding-bottom: 3px;
   overflow: visible;
 }
 
@@ -194,16 +195,8 @@ page{
 
 .single_tag {
   padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 7px;
-  padding-right: 7px;
-
   font-size: 15px;
   color: rgb(43, 43, 43);
-  border: 2px solid rgb(184, 184, 184);
-  border-radius: 5px;
-
-
 }
 
 .apply_btn_area {
