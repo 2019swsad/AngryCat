@@ -24,7 +24,7 @@
 
     <!--发布的任务-->
     <swiper-item style="height:100%">
-      <scroll-view class='created_tasks' scroll-y="ture" scroll-top="0px" scroll-with-animation="true">
+      <scroll-view class='created_tasks' overflow="auto" scroll-y="ture" scroll-top="0px" scroll-with-animation="true">
 
         <block wx:for="{{createdTasks}}" wx:for-item="task" wx:key="task.tid">
           <template is="singleTaskForTaskPage" data="{{...task}}"></template>
