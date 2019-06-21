@@ -208,7 +208,7 @@ page{
 
 .apply_btn {
   margin-top:10px; 
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   line-height:2.45555556;
   text-align:center;
   border-radius:5px;
