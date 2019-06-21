@@ -11,7 +11,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    beginTime: '2019-06-16',
+    beginTime: '2019-06-26',
     expireTime: '2019-07-01',
     taskType: "问卷调查",
     optionalType: ["问卷调查","跑腿","技术","其他"],

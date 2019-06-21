@@ -103,6 +103,9 @@ Page({
       },
       method: 'GET',
       success: function(res) {
+        me.setData({
+          taskInfo: []
+        })
         // console.log(res.data)
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
@@ -141,7 +144,7 @@ Page({
 
         me.setData({
           joinedTasks: arrToRender,
-          listHeight2: Object.keys(arrToRender).length * 110 + 110 + "px",
+          listHeight2: Object.keys(arrToRender).length * 110 + 1100 + "px",
         })
       },
       fail: function() {
