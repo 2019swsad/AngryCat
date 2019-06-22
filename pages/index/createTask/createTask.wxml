@@ -7,7 +7,7 @@
   <form class="from_style" bindsubmit="formSubmit" bindreset="formReset">
     <view class="section">
       <view class="section_title">标题</view>
-      <input type="text" class="input" name="title" placeholder="标题" />
+      <input type="text" class="input" maxlength="11" name="title" placeholder="标题" />
       
     </view>
 
@@ -23,7 +23,7 @@
     <view class="section">
       <view class="section_title">描述</view>
       <view>
-        <textarea type="text" class="input description" name="description" placeholder="任务描述" />
+        <textarea type="text" class="input description" maxlength="500" name="description" placeholder="任务描述" />
       </view>
     </view>
 
@@ -50,21 +50,21 @@
     <view class="section">
       <view class="section_title">地点</view>
       <view>
-        <input type="text" class="input" name="position" placeholder="地点" />
+        <input type="text" class="input" maxlength="20" name="position" placeholder="地点" />
       </view>
     </view>
 
     <view class="section">
       <view class="section_title">人数</view>
       <view>
-        <input type="number" class="input" name="participantNum" placeholder="人数" />
+        <input type="number" class="input" maxlength="9" name="participantNum" placeholder="人数" />
       </view>
     </view>
 
     <view class="section">
       <view class="section_title">酬劳</view>
       <view>
-        <input type="number" class="input" name="salary" placeholder="酬劳(元)" />
+        <input type="number" class="input" maxlength="12" name="salary" placeholder="酬劳(元)" />
       </view>
     </view>
     
