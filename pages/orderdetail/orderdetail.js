@@ -26,7 +26,8 @@ Page({
    */
   onLoad: function(options) {
     this.data.tid = options.tid;
-    console.log(this.data.tid)
+    console.log(options.oid)
+    
     this.requestTaskInfo();
 
   },
@@ -104,14 +105,40 @@ Page({
 
     if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '../critic/critic',
+        url: '../critic/critic?uid=' + this.data.taskinfo.uid+ '&isPart=1',
       })
 
 
     } else {
-      wx.navigateTo({
-        url: '../critic/critic?uid='+this.data.taskinfo.uid,
+      wx.showModal({
+        title: '退出任务',
+        content: '确定要退出任务？',
+        success: function(res) {
+          if (res.confirm) {
+
+            wx.request({
+              url: "http://www.volley99.com/order/cancel/" + self.data.tid,
+              method: 'GET',
+
+              header: {
+                'Content-Type': 'application/json',
+                'cookie': wx.getStorageSync("sessionId")
+              },
+              success: function (res) {
+
+
+              }
+
+
+            });
+
+
+          }else{
+
+          }
+        }
       })
+
     }
 
   },
@@ -124,17 +151,40 @@ Page({
       }
     })
 
+    wx.request({
+      url: "https://www.volley99.com/order/accomplish",
+      method: 'GET',
+      data:{
+        oid:""
+      },
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+
+
+      }
+
+
+    });
+
 
 
 
   },
   modalConfirm: function() {
+
+
     //弹出框确认操作
     this.setData({
       addtell: {
         addtellHidden: true,
       }
     })
+
+
+
   },
   modalCancel: function() {
     //弹出框取消操作

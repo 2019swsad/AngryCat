@@ -22,21 +22,14 @@ Page({
 
     evaluations: [{
         id: 0,
-        name: "实际收益",
-        image: "../../image/leaf.png",
-        star: 0,
-        note: ""
-      },
-      {
-        id: 1,
-        name: "任务内容准确性",
+        name: "完成效率",
         image: "../../image/tie.png",
         star: 0,
         note: ""
       },
       {
-        id: 2,
-        name: "发布者态度",
+        id: 1,
+        name: "完成效果",
         image: "../../image/smile.png",
         star: 0,
         note: ""
@@ -64,7 +57,7 @@ Page({
     })
   },
   submit: function(e) {
-    var rate = (this.data.evaluations[0].star + this.data.evaluations[1].star + this.data.evaluations[2].star) / 3 * 20
+    var rate = (this.data.evaluations[0].star + this.data.evaluations[1].star) / 2 * 20
     var irate = Math.round(rate)
 
     console.log(rate)
@@ -90,24 +83,48 @@ Page({
           icon: 'success'
         })
 
+        setTimeout(this.goToTask, 1500, {
+          delta: 1
+        })
+
       }
 
     })
 
+  },
+  goToTask:function(){
+    wx.navigateTo({
+      url: '../task/task',
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options.uid)
+    if (options.uid != null) {
+      this.setData({
+        uid: options.uid
+      })
+    }
 
+    var isPart = options.isPart
+    if (isPart == 1) {
+      console.log(options.isPart)
+
+      this.setData({
+        "evaluations[0].name": "任务内容准确性",
+        "evaluations[1].name": "发布者态度",
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+   
   },
 
   /**

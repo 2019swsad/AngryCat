@@ -1,5 +1,5 @@
 <template name="singleTaskForTaskPage">
-  <view class="single_task" bindtap="goToDetail" data-tid="{{tid}}">
+  <view class="single_task" bindtap="goToDetail" data-tid="{{tid}}" hover-class="hover">
     <view class="task_infor">
 
       <view class="task_name">
