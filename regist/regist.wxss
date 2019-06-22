@@ -59,4 +59,9 @@ form.form1 {
   flex-direction: column;
   justify-content: center;
 }
+
+.nameRepeatInfo {
+  color: red;
+  font-size: 15px;
+}
     
