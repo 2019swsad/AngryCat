@@ -14,7 +14,7 @@ Page({
       avatar: "../../image/avatar.jpg",
       name:"ZhangMaLiang",
       credit:53,
-      status:"已完成"
+      status:"进行中"
     }
     ],
     candidateList: [
@@ -31,6 +31,7 @@ Page({
     ],
     finishStatus: "已完成",
     taskIsBegining: false,
+    tid:""
 
   },
 
@@ -39,13 +40,34 @@ Page({
    */
   onLoad: function (options) {
 
-    var show=options.show;
-    console.log(show)
-    if(show==1){
-      this.setData({
-        hidden:true
-      })
-    }
+    console.log(options.tid)
+    this.data.tid = options.tid
+
+    // var show=options.show;
+    // console.log(show)
+    // if(show==1){
+    //   this.setData({
+    //     hidden:true
+    //   })
+    // }
+    wx.request({
+      url: "https://www.volley99.com/task/participator/" + self.data.tid,
+      method: 'GET',
+
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+
+
+      }
+
+    })
+
+
+  
+
    
   },
   goToCritic:function(e){
