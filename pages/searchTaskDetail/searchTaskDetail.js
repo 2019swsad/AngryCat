@@ -150,6 +150,20 @@ Page({
                   icon: 'none'
                 })
               }
+              else if(res.data.status == "failure:already exist order of same user") {
+                wx.showToast({
+                  title: '您已报名',
+                  duration: 2000,
+                  icon: 'none'
+                })
+              }
+              else if (res.data.status == "failure: task status error") {
+                wx.showToast({
+                  title: '任务已停止报名',
+                  duration: 2000,
+                  icon: 'none'
+                })
+              }
               else {
                 wx.showToast({
                   title: '报名失败!',
