@@ -4,7 +4,8 @@
 <view class="main">
   <text class="sign">注册</text>
   <form class="form1">
-    <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="用户名"  bindinput="userNameInput"/>
+    <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="用户名"  bindinput="userNameInput" bindblur='checkNameAvailable'/>
+    <view class="nameRepeatInfo">{{nameRepeatInfo}}</view>
 
     <input class="register_input" placeholder-class="input_style" type="password" align="center" placeholder="密码"  bindinput="passWdInput"/>
 

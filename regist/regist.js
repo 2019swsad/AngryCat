@@ -9,7 +9,8 @@ Page({
     password: '',
     email:'',
     phone:'',
-    nickname:''
+    nickname:'',
+    nameRepeatInfo:'',
   },
   userNameInput: function (e) {
     this.setData({
@@ -82,10 +83,38 @@ Page({
         }
       },
       fail: function () {
-        console.log("index.js wx.request CheckCallUser fail");
+        console.log("wx.request regist in regist.js fail");
       },
       complete: function () {
         // complete
+      }
+    })
+  },
+  /**
+   * 自定义函数--检测用户名是否已存在
+   */
+  checkNameAvailable:function(e) {
+    var that = this
+    wx.request({
+      url: 'https://www.volley99.com/users/checkname/'+that.data.username,
+      method: 'GET',
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function(res) {
+        if(res.data == false) {
+          that.setData({
+            nameRepeatInfo: '用户名已存在'
+          })
+        }
+        else {
+          that.setData({
+            nameRepeatInfo: ''
+          })
+        }
+      },
+      fail: function() {
+        console.log("wx.request checkNameAvailable in regist.js fail");
       }
     })
   },
