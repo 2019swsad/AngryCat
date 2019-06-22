@@ -35,7 +35,7 @@ page {
   width: 100%;
   background-color: #FFF;
 	font-size: 15px;
-	margin-top: 3%;
+	margin-top: 2%;
   border-top: 1rpx solid rgb(216, 217, 218);
   border-bottom: 1rpx solid rgb(216, 217, 218);
 }
@@ -70,7 +70,7 @@ page {
   width: 100%;
   background-color: #FFF;
 	font-size: 15px;
-	margin-top: 3%;
+	margin-top: 2%;
   border-top: 1rpx solid rgb(216, 217, 218);
   border-bottom: 1rpx solid rgb(216, 217, 218);
 }
