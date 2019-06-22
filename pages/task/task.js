@@ -26,11 +26,12 @@ Page({
   },
   goToOrderDetail: function(e) {
 
-    console.log(e.currentTarget.dataset.tid)
+
+    console.log(e.currentTarget.dataset.oid)
 
 
     wx.navigateTo({
-      url: '../orderdetail/orderdetail?tid=' + e.currentTarget.dataset.tid,
+      url: '../orderdetail/orderdetail?tid=' + e.currentTarget.dataset.tid + '&oid='+e.currentTarget.dataset.oid,
     })
   },
 
@@ -106,6 +107,8 @@ Page({
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
 
+          
+
           wx.request({
             url: DOMAIN + '/task/get/'+item.tid,
             header: {
@@ -115,16 +118,24 @@ Page({
             method: 'GET',
             success: function(res) {
               
+              
 
               res.data.beginTime = util.formatTimeWithoutHMS(new Date(res.data.beginTime))
               res.data.expireTime = util.formatTimeWithoutHMS(new Date(res.data.expireTime))
               let task=me.data.taskInfo;
+              
 
               task.push(res.data)
               me.setData({
                 taskInfo: task
               })
+              console.log(item.oid)
+              var taskoid = "taskInfo[" + index + "].oid" //添加键值对
 
+              me.setData({
+                taskoid: item.oid
+              })
+              console.log(me.data.taskInfo[index].oid)
               
              
             }

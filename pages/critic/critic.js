@@ -20,13 +20,7 @@ Page({
       '非常好',
     ],
 
-    evaluations: [{
-        id: 0,
-        name: "实际收益",
-        image: "../../image/leaf.png",
-        star: 0,
-        note: ""
-      },
+    evaluations: [
       {
         id: 1,
         name: "任务内容准确性",
