@@ -1,6 +1,10 @@
 <!--pages/searchTaskDetail/searchTaskDetail.wxml-->
 <!--任务详情页(一般用户)-->
+<wxs module="pageVar">
+  var fileUrl = "https://www.volley99.com/file/";
 
+  module.exports.fileUrl = fileUrl;
+</wxs>
 <view class="whole_page">
   <!--顶部概述栏-->
   <view class="base_info">
@@ -18,7 +22,7 @@
 
   <!--发布者信息栏-->
   <view class="organizer">
-    <image class="portrait" src='{{"https://www.volley99.com/file/"+taskinfo.uid}}'></image>
+    <image class="portrait" src='{{pageVar.fileUrl + taskinfo.uid}}'></image>
     <view class="user_info">
       <text class="nickname">{{taskinfo.userinfo[0].nickname}}</text>
       <text class="credit">信誉值:{{taskinfo.userinfo[0].credit}}</text>
