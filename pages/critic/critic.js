@@ -94,7 +94,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log(options.uid)
+     var isPart=options.isPart
+     if(isPart==1){
+       console.log(options.isPart)
+       
+       this.setData({
+         "evaluations[0].name":"任务内容准确性",
+         "evaluations[1].name": "发布者态度",
 
+       })
+     }
   },
 
   /**
