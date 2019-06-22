@@ -4,8 +4,8 @@
   <!--顶部信息栏-->
   <view class="personalInfoContainer">
     <!--头像-->
-    <view class="avatarContainer">
-      <image class="userinfo-avatar" src="../../image/avatar.jpg"></image>
+    <view class="avatarContainer" bindtap="changeAvatar">
+      <image class="userinfo-avatar" src="{{avatarUrl}}" binderror='avatarError'></image>
     </view>
     <!--昵称-->
     <view class="nicknameContainer">
