@@ -33,6 +33,7 @@ Page({
     taskIsBegining: false,
     tid:""
 
+
   },
 
   /**
@@ -50,8 +51,9 @@ Page({
     //     hidden:true
     //   })
     // }
+    var self=this;
     wx.request({
-      url: "https://www.volley99.com/task/participator/" + self.data.tid,
+      url: "https://www.volley99.com/task/participator/" +"94162182-d0d7-4fe5-b4e7-fa11141fa356",
       method: 'GET',
 
       header: {
@@ -59,6 +61,58 @@ Page({
         'cookie': wx.getStorageSync("sessionId")
       },
       success: function (res) {
+
+        
+
+        var jsonData = JSON.parse(JSON.stringify(res.data))
+        var arrToRender = jsonData.reverse()
+        arrToRender.forEach((item, index, input) =>{
+
+          wx.request({
+            url:  'https://www.volley99.com/users/info/' + item.uid,
+            header: {
+              'Content-Type': 'application/json',
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            method: 'GET',
+            success: function (res) {
+
+              console.log(res.data)
+
+              let list = self.data.personlist;
+
+              var j = {};
+
+              if (item.status == "success") {
+                j.status = "进行中";
+              }
+
+              j.name = res.data[0].nickname;
+              j.credit = res.data[0].credit;
+
+
+              list.push(j);
+
+              self.setData({
+                personlist: list
+              })
+
+
+
+
+            }
+
+
+          })
+
+
+        
+          
+
+
+
+
+        })
 
 
       }
