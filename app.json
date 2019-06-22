@@ -14,6 +14,7 @@
     "pages/account/message/message",
     "pages/searchTaskDetail/searchTaskDetail",
     "pages/account/settings/settings",
+    "pages/account/settings/changeName/changeName",    
     "pages/orderdetail/orderdetail"
   ],
   "window": {

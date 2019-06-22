@@ -23,7 +23,7 @@
 
     <view class="line"></view>
 
-    <navigator class="optionNavitator" url="">
+    <navigator class="optionNavitator" url="changeName/changeName">
       <text class="optionText">修改昵称</text>
       <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
     </navigator>
