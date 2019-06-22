@@ -5,7 +5,7 @@ page {
 }
 
 .userPage {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(236, 237, 238);
   height: 100%;
 }
 
@@ -34,14 +34,14 @@ page {
 .personOptionContainer {
   width: 100%;
   background-color: #FFF;
-	font-size: 14px;
+	font-size: 15px;
 	margin-top: 3%;
   border-top: 1rpx solid rgb(216, 217, 218);
   border-bottom: 1rpx solid rgb(216, 217, 218);
 }
 .optionNavitator {
   background-color: #FFF;
-  height: 45px;
+  height: 55px;
   width: 100%;
 	line-height: 45px;
   align-items: center;
@@ -51,6 +51,7 @@ page {
 .optionText {
   width: 20%;
   padding-left: 2%;
+
 }
 .optionLogo {
   width: 25px;
@@ -68,7 +69,7 @@ page {
 .systemOptionContainer {
   width: 100%;
   background-color: #FFF;
-	font-size: 14px;
+	font-size: 15px;
 	margin-top: 3%;
   border-top: 1rpx solid rgb(216, 217, 218);
   border-bottom: 1rpx solid rgb(216, 217, 218);

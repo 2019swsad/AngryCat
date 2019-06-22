@@ -19,6 +19,7 @@ Page({
       addtellHidden: true, //弹出框显示/隐藏
     },
     questionair: "问卷调查",
+    finishNumber:""
   },
 
   /**
@@ -26,7 +27,9 @@ Page({
    */
   onLoad: function(options) {
     this.data.tid = options.tid;
-    console.log(options.oid)
+    this.data.oid = options.oid;
+    console.log(this.data.oid)
+    console.log(this.data.tid)
     
     this.requestTaskInfo();
 
@@ -101,7 +104,7 @@ Page({
 
   },
   onPress1: function(e) {
-
+    var self=this;
 
     if (this.data.button1 == "评价") {
       wx.navigateTo({
@@ -109,7 +112,7 @@ Page({
       })
 
 
-    } else {
+    } else if(this.data.button1 == "退出任务"){
       wx.showModal({
         title: '退出任务',
         content: '确定要退出任务？',
@@ -117,7 +120,7 @@ Page({
           if (res.confirm) {
 
             wx.request({
-              url: "http://www.volley99.com/order/cancel/" + self.data.tid,
+              url: "https://www.volley99.com/order/cancelself/" + self.data.oid,
               method: 'GET',
 
               header: {
@@ -144,30 +147,18 @@ Page({
   },
   onPress2: function(e) {
 
-    this.setData({
-      addtell: {
-        addtellHidden: false,
+    if (this.data.button2 == "完成任务"){
+      this.setData({
+        addtell: {
+          addtellHidden: false,
 
-      }
-    })
+        }
+      })
 
-    wx.request({
-      url: "https://www.volley99.com/order/accomplish",
-      method: 'GET',
-      data:{
-        oid:""
-      },
-      header: {
-        'Content-Type': 'application/json',
-        'cookie': wx.getStorageSync("sessionId")
-      },
-      success: function (res) {
+     
+    }
 
-
-      }
-
-
-    });
+  
 
 
 
@@ -183,7 +174,26 @@ Page({
       }
     })
 
+    wx.request({
+      url: "https://www.volley99.com/order/accomplish",
+      method: 'POST',
+      data: {
+        oid: "",
+        finishNumber:""
+      },
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
 
+
+      }
+
+
+    });
+
+    console.log("hahea")
 
   },
   modalCancel: function() {
@@ -192,6 +202,12 @@ Page({
       addtell: {
         addtellHidden: true,
       }
+    })
+    console.log("haha")
+  },
+  saveUsertell:function(e){
+    this.setData({
+      finishNumber: e.detail.value
     })
   },
 
