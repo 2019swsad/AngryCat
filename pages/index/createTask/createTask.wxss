@@ -74,7 +74,8 @@ page{
 
 .description {
   vertical-align:text-top;
-  height: 90px;
+  height: 150px;
+  font-size: 14px;
 }
 
 input.input11111[type=text], input.input11111[type=number]{
