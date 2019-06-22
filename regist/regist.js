@@ -11,6 +11,7 @@ Page({
     phone:'',
     nickname:'',
     nameRepeatInfo:'',
+    buttonStatus: false,
   },
   userNameInput: function (e) {
     this.setData({
@@ -71,12 +72,20 @@ Page({
           })
 
         } else if (res.statusCode == 400) {
-          console.log(res.data);
-          wx.showToast({
-            title: res.data.details[0].message,
-            duration: 2000,
-            icon: "none"
-          })
+          if(res.data == false) {
+            wx.showToast({
+              title: "用户名已存在",
+              duration: 2000,
+              icon: "none"
+            })
+          }
+          else {
+            wx.showToast({
+              title: res.data.details[0].message,
+              duration: 2000,
+              icon: "none"
+            })
+          }
         }
         else {
           console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
@@ -104,12 +113,14 @@ Page({
       success: function(res) {
         if(res.data == false) {
           that.setData({
-            nameRepeatInfo: '用户名已存在'
+            nameRepeatInfo: '用户名已存在',
+            buttonStatus: true
           })
         }
         else {
           that.setData({
-            nameRepeatInfo: ''
+            nameRepeatInfo: '',
+            buttonStatus: false
           })
         }
       },

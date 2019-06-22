@@ -15,7 +15,7 @@
 
     <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="昵称"  bindinput="nickNameInput"/>
 
-    <button class="submit_btn" type="primary" form-type="submit" bindtap='regist'>提交</button>
+    <button class="submit_btn" type="primary" form-type="submit" bindtap='regist' disabled='{{buttonStatus}}'>提交</button>
 
   </form>            
 </view>    
