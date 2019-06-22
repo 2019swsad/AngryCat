@@ -26,8 +26,8 @@
       </view>
 
       <view class="organizer">
-        <!-- <image class="portrait" ></image> -->
-        <text class="username">{{organizer}}</text>
+        <image class="portrait" src='{{"https://www.volley99.com/file/"+uid}}'></image>
+        <text class="username">{{userinfo[0].nickname}}</text>
       </view>
 
     </view>

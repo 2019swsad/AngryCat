@@ -4,7 +4,8 @@ App({
   globalData :{
     nickname:"",
     userInfo:"",
-    uid:""
+    uid:"",
+    DOMAIN: "https://www.volley99.com"
   },
   onLaunch: function() {
     // 展示本地存储能力
