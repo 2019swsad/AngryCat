@@ -13,7 +13,8 @@
     "pages/account/wallet/wallet",
     "pages/account/message/message",
     "pages/searchTaskDetail/searchTaskDetail",
-    "pages/orderdetail/orderdetail"
+    "pages/orderdetail/orderdetail",
+    "pages/account/settings/settings"
   ],
   "window": {
     "backgroundTextStyle": "light",

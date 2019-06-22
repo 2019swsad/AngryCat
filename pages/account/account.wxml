@@ -56,7 +56,7 @@
 
     <view class="line"></view>
 
-    <navigator class="optionNavitator" url="">
+    <navigator class="optionNavitator" url="settings/settings">
       <image class="optionLogo" src="../../image/icon-setting.png"></image>
       <text class="optionText">设置</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>

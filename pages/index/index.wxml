@@ -38,33 +38,4 @@
     </block>
   </view>
 
-  <!-- <navigator url="../taskdetail/taskdetail">
-    <view class="single_task">
-      <view class="task_infor">
-      
-          <view class="task_name">
-            <text>系分作业代做</text>
-          </view>
-
-          <view class="task_price">
-            <text>¥1690.00</text>
-          </view>
-
-          <view class="people_number">
-            <text>报名状况：3/4人</text>
-          </view>
-          <view class="task_time">
-            <text>2019-05-23 11:46</text>
-            <text>  ~  </text>
-            <text>2019-06-22 13:46</text>
-          </view>
-
-          <view class="organizer">
-            <image class="portrait" src="../../image/test.jpg"></image>
-            <text class="username">孙笑川</text>
-          </view>
-          
-      </view>
-    </view>
-  </navigator> -->
 </view>
