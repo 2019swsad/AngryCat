@@ -20,8 +20,7 @@ Page({
       '非常好',
     ],
 
-    evaluations: [
-      {
+    evaluations: [{
         id: 0,
         name: "完成效率",
         image: "../../image/tie.png",
@@ -58,7 +57,7 @@ Page({
     })
   },
   submit: function(e) {
-    var rate = (this.data.evaluations[0].star + this.data.evaluations[1].star ) / 2 * 20
+    var rate = (this.data.evaluations[0].star + this.data.evaluations[1].star) / 2 * 20
     var irate = Math.round(rate)
 
     console.log(rate)
@@ -84,10 +83,19 @@ Page({
           icon: 'success'
         })
 
+        setTimeout(this.goToTask, 1500, {
+          delta: 1
+        })
+
       }
 
     })
 
+  },
+  goToTask:function(){
+    wx.navigateTo({
+      url: '../task/task',
+    })
   },
 
   /**
@@ -95,23 +103,28 @@ Page({
    */
   onLoad: function(options) {
     console.log(options.uid)
-     var isPart=options.isPart
-     if(isPart==1){
-       console.log(options.isPart)
-       
-       this.setData({
-         "evaluations[0].name":"任务内容准确性",
-         "evaluations[1].name": "发布者态度",
+    if (options.uid != null) {
+      this.setData({
+        uid: options.uid
+      })
+    }
 
-       })
-     }
+    var isPart = options.isPart
+    if (isPart == 1) {
+      console.log(options.isPart)
+
+      this.setData({
+        "evaluations[0].name": "任务内容准确性",
+        "evaluations[1].name": "发布者态度",
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+   
   },
 
   /**
