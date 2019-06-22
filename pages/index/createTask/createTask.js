@@ -103,13 +103,23 @@ Page({
             delta: 1
           })
 
-        } else {
-          console.log('提交任务失败, 错误代码' + res.statusCode)
-          wx.showToast({
-            title: '失败:' + res.data.message,
-            duration: 2000,
-            icon: 'none'
-          })
+        }
+        else {
+          if(res.data.status == "No enough money") {
+            wx.showToast({
+              title: "钱包余额不足",
+              duration: 2000,
+              icon: 'none'
+            })
+          }
+          else {
+            console.log('提交任务失败, 错误代码' + res.statusCode)
+            wx.showToast({
+              title: '失败:' + res.data.message,
+              duration: 2000,
+              icon: 'none'
+            })
+          }
         }
       },
       fail: function() {

@@ -1,19 +1,20 @@
 {
-  "pages": [    
-    "pages/index/index",  
+  "pages": [
+    "pages/index/index",
     "regist/regist",
-    "login/login",  
-    "pages/index/searchTask/searchTask",    
+    "login/login",
+    "pages/index/searchTask/searchTask",
     "pages/critic/critic",
     "pages/index/createTask/createTask",
     "pages/task/task",
-    "pages/account/account",        
+    "pages/account/account",
     "pages/taskdetail/taskdetail",
     "pages/partipeople/partipeople",
     "pages/account/wallet/wallet",
     "pages/account/message/message",
     "pages/searchTaskDetail/searchTaskDetail",
-    "pages/orderdetail/orderdetail"
+    "pages/orderdetail/orderdetail",
+    "pages/account/settings/settings"
   ],
   "window": {
     "backgroundTextStyle": "light",
