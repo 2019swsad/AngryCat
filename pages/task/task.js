@@ -133,9 +133,8 @@ Page({
               var taskoid = "taskInfo[" + index + "].oid" //添加键值对
 
               me.setData({
-                taskoid: item.oid
+                [taskoid] : item.oid
               })
-              console.log(me.data.taskInfo[index].oid)
               
              
             }
