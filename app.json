@@ -13,8 +13,9 @@
     "pages/account/wallet/wallet",
     "pages/account/message/message",
     "pages/searchTaskDetail/searchTaskDetail",
-    "pages/orderdetail/orderdetail",
-    "pages/account/settings/settings"
+    "pages/account/settings/settings",
+    "pages/account/settings/changeName/changeName",    
+    "pages/orderdetail/orderdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
