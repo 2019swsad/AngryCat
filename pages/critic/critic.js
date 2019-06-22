@@ -22,15 +22,15 @@ Page({
 
     evaluations: [
       {
-        id: 1,
-        name: "任务内容准确性",
+        id: 0,
+        name: "完成效率",
         image: "../../image/tie.png",
         star: 0,
         note: ""
       },
       {
-        id: 2,
-        name: "发布者态度",
+        id: 1,
+        name: "完成效果",
         image: "../../image/smile.png",
         star: 0,
         note: ""
@@ -58,7 +58,7 @@ Page({
     })
   },
   submit: function(e) {
-    var rate = (this.data.evaluations[0].star + this.data.evaluations[1].star + this.data.evaluations[2].star) / 3 * 20
+    var rate = (this.data.evaluations[0].star + this.data.evaluations[1].star ) / 2 * 20
     var irate = Math.round(rate)
 
     console.log(rate)
