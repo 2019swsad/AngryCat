@@ -136,17 +136,17 @@ Page({
 
     if (this.data.button1 == "报名详情") {
       wx.navigateTo({
-        url: '../partipeople/partipeople',
+        url: '../partipeople/partipeople?tid='+this.data.taskinfo.tid,
       })
 
 
     } else if (this.data.button1 == "完成情况") {
       wx.navigateTo({
-        url: '../partipeople/partipeople',
+        url: '../partipeople/partipeople?tid=' + this.data.taskinfo.tid,
       })
     } else if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '../partipeople/partipeople?show=1',
+        url: '../partipeople/partipeople?tid='+this.data.taskinfo.tid,
       })
     }
 

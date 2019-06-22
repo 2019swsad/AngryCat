@@ -12,6 +12,7 @@ Page({
     button1: "",
     button2: "",
     tid: '',
+    oid: '',
     beginTime: '',
     endTime: '',
     isShow: true,
@@ -19,7 +20,7 @@ Page({
       addtellHidden: true, //弹出框显示/隐藏
     },
     questionair: "问卷调查",
-    finishNumber:""
+    finishNumber: ""
   },
 
   /**
@@ -30,7 +31,7 @@ Page({
     this.data.oid = options.oid;
     console.log(this.data.oid)
     console.log(this.data.tid)
-    
+
     this.requestTaskInfo();
 
   },
@@ -104,15 +105,15 @@ Page({
 
   },
   onPress1: function(e) {
-    var self=this;
+    var self = this;
 
     if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '../critic/critic?uid=' + this.data.taskinfo.uid+ '&isPart=1',
+        url: '../critic/critic?uid=' + this.data.taskinfo.uid + '&isPart=1',
       })
 
 
-    } else if(this.data.button1 == "退出任务"){
+    } else if (this.data.button1 == "退出任务") {
       wx.showModal({
         title: '退出任务',
         content: '确定要退出任务？',
@@ -127,7 +128,7 @@ Page({
                 'Content-Type': 'application/json',
                 'cookie': wx.getStorageSync("sessionId")
               },
-              success: function (res) {
+              success: function(res) {
 
 
               }
@@ -136,7 +137,7 @@ Page({
             });
 
 
-          }else{
+          } else {
 
           }
         }
@@ -147,7 +148,7 @@ Page({
   },
   onPress2: function(e) {
 
-    if (this.data.button2 == "完成任务"){
+    if (this.data.button2 == "完成任务") {
       this.setData({
         addtell: {
           addtellHidden: false,
@@ -155,10 +156,10 @@ Page({
         }
       })
 
-     
+
     }
 
-  
+
 
 
 
@@ -178,14 +179,14 @@ Page({
       url: "https://www.volley99.com/order/accomplish",
       method: 'POST',
       data: {
-        oid: "",
-        finishNumber:""
+        oid: this.data.oid,
+        finishNumber: this.data.finishNumber
       },
       header: {
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      success: function (res) {
+      success: function(res) {
 
 
       }
@@ -203,9 +204,9 @@ Page({
         addtellHidden: true,
       }
     })
-    console.log("haha")
+    console.log(this.data.finishNumber)
   },
-  saveUsertell:function(e){
+  saveUsertell: function(e) {
     this.setData({
       finishNumber: e.detail.value
     })

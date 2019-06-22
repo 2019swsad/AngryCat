@@ -27,8 +27,8 @@ Page({
   },
   goToOrderDetail: function(e) {
 
-    console.log(e.currentTarget.dataset.tid)
-    console.log(e.currentTarget.dataset.oid)
+    // console.log(e.currentTarget.dataset.tid)
+    // console.log(e.currentTarget.dataset.oid)
 
 
     wx.navigateTo({
@@ -134,15 +134,15 @@ Page({
                 taskInfo: task
               })
               
-              console.log(index)
-              var taskoid = "taskInfo[" + index + "].oid" //添加键值对
+              // console.log(index)
+              // var taskoid = "taskInfo[" + index + "].oid" //添加键值对
 
               // me.setData({
               //   [taskoid] : item.oid
               // })
 
-              console.log(item.oid+"++")
-              console.log(item.tid)
+              // console.log(item.oid+"++")
+              // console.log(item.tid)
              
             }
           

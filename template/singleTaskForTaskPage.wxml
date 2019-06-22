@@ -1,4 +1,9 @@
 <template name="singleTaskForTaskPage">
+  <wxs module="pageVar">
+    var fileUrl = "https://www.volley99.com/file/";
+
+    module.exports.fileUrl = fileUrl;
+  </wxs>
   <view class="single_task" bindtap="goToDetail" data-tid="{{tid}}" hover-class="hover">
     <view class="task_infor">
 
@@ -25,7 +30,7 @@
       </view>
 
       <view class="organizer">
-        <!-- <image class="portrait" ></image> -->
+        <image class="portrait" src='{{pageVar.fileUrl + uid}}'></image>
         <text class="username">{{organizer}}</text>
       </view>
 
