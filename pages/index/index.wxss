@@ -124,3 +124,7 @@ swiper {
   margin-top: 2px;
   color: #929292;
 }
+
+.hover{
+  background-color: #DCDCDC
+}

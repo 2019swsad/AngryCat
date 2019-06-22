@@ -4,7 +4,7 @@
 page{
   height: 100%;
   width: 100%;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(236, 236, 236);
 }
 
 .messagePage {
@@ -41,13 +41,13 @@ page{
 .messageSubTitleText {
   width: 20%;
   font-size: 15px;
-  color: rgb(136, 136, 136);
+  color: rgb(140, 141, 142);
   padding-left: 10px;
 }
 
 /* 消息时间*/
 .messageDateContainer {
   font-size: 10px;
-  color: rgb(136, 136, 136);
+  color: rgb(140, 141, 142);
   padding-left: 10px;
 }
