@@ -20,13 +20,14 @@ Page({
   goToDetail: function(e) {
 
     console.log(e.currentTarget.dataset.tid)
+    
     wx.navigateTo({
       url: '../taskdetail/taskdetail?tid=' + e.currentTarget.dataset.tid,
     })
   },
   goToOrderDetail: function(e) {
 
-
+    console.log(e.currentTarget.dataset.tid)
     console.log(e.currentTarget.dataset.oid)
 
 
@@ -123,19 +124,25 @@ Page({
               res.data.beginTime = util.formatTimeWithoutHMS(new Date(res.data.beginTime))
               res.data.expireTime = util.formatTimeWithoutHMS(new Date(res.data.expireTime))
               let task=me.data.taskInfo;
-              
 
-              task.push(res.data)
+             var singletask=res.data;
+              singletask.oid = item.oid
+
+              task.push(singletask)
+
               me.setData({
                 taskInfo: task
               })
               
+              console.log(index)
               var taskoid = "taskInfo[" + index + "].oid" //添加键值对
 
-              me.setData({
-                [taskoid] : item.oid
-              })
-              
+              // me.setData({
+              //   [taskoid] : item.oid
+              // })
+
+              console.log(item.oid+"++")
+              console.log(item.tid)
              
             }
           
