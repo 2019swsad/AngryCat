@@ -136,6 +136,21 @@ Page({
               },
               success: function(res) {
 
+                wx.showToast({
+                  title: '退出成功',
+                  icon: 'success',
+                  duration: 1000,
+                  mask: true,
+                  success: function () {
+                    setTimeout(function () {
+                      //要延时执行的代码
+                      wx.switchTab({
+                        url: '../task/task'
+                      });
+                    }, 1000) //延迟时间
+                  },
+                });
+
 
               }
 
@@ -165,6 +180,20 @@ Page({
               },
               success: function (res) {
 
+                wx.showToast({
+                  title: '退出成功',
+                  icon: 'success',
+                  duration: 1000,
+                  mask: true,
+                  success: function () {
+                    setTimeout(function () {
+                      //要延时执行的代码
+                      wx.switchTab({
+                        url: '../task/task'
+                      });
+                    }, 1000) //延迟时间
+                  },
+                });
 
               }
 
