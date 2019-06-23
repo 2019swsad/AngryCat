@@ -90,7 +90,11 @@ Page({
 
               var j = {};
 
+              console.log(item.status)
+
               if (item.status == "success") {
+                j.status = "进行中";
+              } else if (item.status == "finish"){
                 j.status = "已完成";
               }
 

@@ -131,7 +131,7 @@ Page({
                   delta: 1
                 })
               }
-              else if (res.data.status == "pending") {
+              else if (res.data.status == "候补中") {
                 wx.showToast({
                   title: '成为候补',
                   duration: 2000,
