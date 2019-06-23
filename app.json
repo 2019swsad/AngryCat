@@ -14,8 +14,9 @@
     "pages/account/message/message",
     "pages/searchTaskDetail/searchTaskDetail",
     "pages/account/settings/settings",
-    "pages/account/settings/changeName/changeName",    
-    "pages/orderdetail/orderdetail"
+    "pages/account/settings/changeName/changeName",
+    "pages/orderdetail/orderdetail",
+    "pages/account/Info/Info"
   ],
   "window": {
     "backgroundTextStyle": "light",

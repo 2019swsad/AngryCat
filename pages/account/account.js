@@ -16,37 +16,6 @@ Page({
     avatarUrl: "",
   },
 
-  changeAvatar: function(e) {
-    let me = this
-    console.log("changeAvatar", JSON.stringify(e))
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      success(res) {
-        const tempFilePaths = res.tempFilePaths
-        wx.uploadFile({
-          url: `${DOMAIN}/file`,
-          header: {
-            'cookie': wx.getStorageSync("sessionId"),
-          },
-          filePath: tempFilePaths[0],
-          name: 'file',
-          formData: {
-            'uid': app.globalData.uid,
-          },
-          success(res) {
-            console.log("UID", app.globalData.uid)
-            console.log("uploadFileRes", JSON.stringify(res))
-            me.setData({
-              avatarUrl: DOMAIN + '/file/' + app.globalData.uid + '?' + Math.random() / 9999,
-            })
-          }
-        })
-
-      }
-    })
-  },
-
   avatarError(err) {
     console.log(JSON.stringify(err))
     this.setData({
@@ -65,7 +34,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-    console.log(getApp().globalData.nickname)
+    // console.log(getApp().globalData.nickname)
   },
 
   /**

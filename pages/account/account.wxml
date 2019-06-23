@@ -4,9 +4,10 @@
   <!--顶部信息栏-->
   <view class="personalInfoContainer">
     <!--头像-->
-    <view class="avatarContainer" bindtap="changeAvatar">
+    <view class="avatarContainer">
       <image class="userinfo-avatar" src="{{avatarUrl}}" binderror='avatarError'></image>
     </view>
+
     <!--昵称-->
     <view class="nicknameContainer">
       <text>{{nickname}}</text>
@@ -15,6 +16,14 @@
 
   <!--个人信息相关选项-->
   <view class="personOptionContainer">
+    <navigator class="optionNavitator" url="Info/Info">
+      <image class="optionLogo" src="../../image/icon-profile.png"></image>
+      <text class="optionText">个人信息</text>
+      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
+    </navigator>
+
+    <view class="line"></view>
+
     <navigator class="optionNavitator" url="wallet/wallet">
       <image class="optionLogo" src="../../image/icon-wallet.png"></image>
       <text class="optionText">我的钱包</text>
@@ -37,13 +46,6 @@
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
     </navigator>
 
-    <view class="line"></view>
-
-    <navigator class="optionNavitator" url="">
-      <image class="optionLogo" src="../../image/icon-favor.png"></image>
-      <text class="optionText">我的关注</text>
-      <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
-    </navigator>
   </view>
 
   <!--系统相关选项-->
