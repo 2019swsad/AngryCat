@@ -2,6 +2,7 @@
 
 const DOMAIN = 'https://www.volley99.com'
 const util = require('../../../utils/util.js')
+const app = getApp()
 
 Page({
 
@@ -9,7 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    listHeight:"",
+    listHeight: "",
     keyword: "",
     resultTasks: [],
     displayTasks: [],
@@ -49,7 +50,9 @@ Page({
         })
 
         arrToRender = arrToRender.filter((item) => {
-          return item.title.indexOf(me.data.keyword) >= 0 && item.status.indexOf("未开始") >=0
+          return item.title.indexOf(me.data.keyword) >= 0 &&
+            item.status.indexOf("未开始") >= 0 &&
+            item.uid != app.globalData.uid
         })
 
 
@@ -177,7 +180,10 @@ Page({
         })
 
         arrToRender = arrToRender.filter((item) => {
-          return item.status.indexOf("start") >= 0 || item.status.indexOf("未开始") >= 0 || item.status.indexOf("进行中") >= 0
+          return (item.status.indexOf("start") >= 0 ||
+              item.status.indexOf("未开始") >= 0 ||
+              item.status.indexOf("进行中") >= 0) &&
+            item.uid != app.globalData.uid
         })
 
 
