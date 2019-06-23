@@ -9,12 +9,14 @@ Page({
       avatar: "../../image/avatar.jpg",
       name:"xiaohong",
       credit:55,
-      status:"进行中"
+      status:"进行中",
+      uid:""
     },{
       avatar: "../../image/avatar.jpg",
       name:"ZhangMaLiang",
       credit:53,
-      status:"进行中"
+      status:"已完成",
+      uid:""
     }
     ],
     candidateList: [
@@ -84,11 +86,12 @@ Page({
               var j = {};
 
               if (item.status == "success") {
-                j.status = "进行中";
+                j.status = "已完成";
               }
 
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
+              j.uid = res.data[0].uid
 
 
               list.push(j);
@@ -96,8 +99,6 @@ Page({
               self.setData({
                 personlist: list
               })
-
-
 
 
             }
@@ -125,8 +126,9 @@ Page({
    
   },
   goToCritic:function(e){
+    // console.log(e.currentTarget.dataset.tid)
     wx.navigateTo({
-      url: '../critic/critic',
+      url: '../critic/critic?uid=' + e.currentTarget.dataset.uid,
     })
   },
 

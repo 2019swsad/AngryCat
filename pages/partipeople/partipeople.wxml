@@ -13,7 +13,7 @@
     </view>
     <view class="status">{{item.status}}</view>
     <!--评价按钮：仅在参与者状态为"已完成"时显示-->
-    <button class="button" wx:if="{{item.status==finishStatus}}" bindtap='goToCritic'>评价</button>
+    <button class="button" wx:if="{{item.status==finishStatus}}"  data-uid="{{item.uid}}" bindtap='goToCritic'>评价</button>
     <!--取消资格按钮：仅在任务状态为"报名中"且参与者状态为"进行中"时显示-->
     <button class="button" wx:if="{{!taskIsBegining && item.status!=finishStatus}}" bindtap='disqualify'>取消</button>
   </view>

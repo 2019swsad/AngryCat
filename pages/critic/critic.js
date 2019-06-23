@@ -62,6 +62,8 @@ Page({
 
     console.log(rate)
 
+    var self=this
+
     wx.request({
       url: "https://www.volley99.com/users/rating",
       method: 'POST',
@@ -83,7 +85,7 @@ Page({
           icon: 'success'
         })
 
-        setTimeout(this.goToTask, 1500, {
+        setTimeout(self.goToTask, 1500, {
           delta: 1
         })
 
@@ -93,6 +95,7 @@ Page({
 
   },
   goToTask:function(){
+    console.log("dd")
     wx.navigateTo({
       url: '../task/task',
     })

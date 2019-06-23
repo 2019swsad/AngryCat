@@ -4,7 +4,7 @@
 
     module.exports.fileUrl = fileUrl;
   </wxs>
-  <view class="single_task" bindtap="goToOrderDetail" mark:tid="{{tid}}" data-tid="{{tid}}" data-oid="{{oid}}" hover-class="hover">
+  <view class="single_task" bindtap="goToOrderDetail" mark:tid="{{tid}}" data-tid="{{tid}}" data-oid="{{oid}}" data-orderstatus="{{orderstatus}}" hover-class="hover">
 
     <view class="task_infor">
 
@@ -17,7 +17,7 @@
       </view>
 
       <view class="task_status">
-        <text>{{status}}</text>
+        <text>{{orderstatus}}</text>
       </view>
 
       <view class="people_number">
