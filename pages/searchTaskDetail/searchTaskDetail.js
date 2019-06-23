@@ -119,7 +119,7 @@ Page({
             },
             success: function (res) {
               console.log(res.data)
-              if(res.data.status=="success"){
+              if(res.data.status=="进行中"){
                 wx.showToast({
                   title: '成功报名',
                   duration: 2000,
@@ -150,7 +150,7 @@ Page({
                   icon: 'none'
                 })
               }
-              else if(res.data.status == "failure:already exist order of same user") {
+              else if (res.data.status == "fail time check") {
                 wx.showToast({
                   title: '您已报名',
                   duration: 2000,
