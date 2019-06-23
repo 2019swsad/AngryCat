@@ -29,7 +29,7 @@
 
     <view class="section">
       <view class="section_title">开始时间</view>
-      <picker class="picker" mode="date" value="{{beginTime}}" start="2019-06-01" bindchange="bindBeginTimeChange">
+      <picker class="picker" mode="date" value="{{beginTime}}" start="{{todayTime}}" bindchange="bindBeginTimeChange">
         <view class="beginTime">
           {{beginTime}}
           <image class="picker_icon" src="../../../image/picker-icon.png"></image>
@@ -39,7 +39,7 @@
 
     <view class="section">
       <view class="section_title">结束时间</view>
-      <picker class="picker" mode="date" value="{{expireTime}}" start="2019-06-01" bindchange="bindExpireTimeChange">
+      <picker class="picker" mode="date" value="{{expireTime}}" start="{{pickBegin}}" bindchange="bindExpireTimeChange">
         <view class="expireTime">
           {{expireTime}}
           <image class="picker_icon" src="../../../image/picker-icon.png"></image>
@@ -50,7 +50,7 @@
     <view class="section">
       <view class="section_title">地点</view>
       <view>
-        <input type="text" class="input" maxlength="20" name="position" placeholder="地点" />
+        <input type="text" class="input" maxlength="17" name="position" placeholder="地点" />
       </view>
     </view>
 

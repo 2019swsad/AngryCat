@@ -67,6 +67,7 @@ App({
 
           self.globalData.nickname=res.data.nickname;
           self.globalData.phone = res.data.phone;
+          self.globalData.email = res.data.email;
           self.globalData.uid = res.data.uid;
 
 
