@@ -92,11 +92,7 @@ Page({
 
               console.log(item.status)
 
-              if (item.status == "success") {
-                j.status = "进行中";
-              } else if (item.status == "finish"){
-                j.status = "已完成";
-              }
+              j.status = item.status
 
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
@@ -162,11 +158,9 @@ Page({
 
               var j = {};
 
-              if (item.status == "success") {
-                j.status = "进行中";
-              } else if (item.status == "finish"){
-                j.status = "已完成";
-              }
+              
+
+              j.status=item.status
 
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
@@ -229,7 +223,7 @@ Page({
 
      
   },
-  disqualify:function(){
+  disqualify:function(e){
 
     wx.request({
       url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
