@@ -111,7 +111,8 @@ Page({
         })
 
         arrToRender = arrToRender.filter((item) => {
-          return item.status.indexOf("未开始") >= 0
+          return item.status.indexOf("未开始") >= 0 &&
+            item.uid != app.globalData.uid
         })
 
         arrToRender = arrToRender.splice(Math.floor(Math.random() * arrToRender.length), 3)
