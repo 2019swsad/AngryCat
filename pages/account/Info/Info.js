@@ -125,6 +125,7 @@ Page({
           that.setData({
             nickname: that.data.newNickname
           })
+          getApp().globalData.nickname = that.data.newNickname
           wx.showToast({
             title: '修改成功',
             duration: 2000,
@@ -199,6 +200,7 @@ Page({
           that.setData({
             phone: that.data.newPhone
           })
+          getApp().globalData.phone = that.data.newPhone
           wx.showToast({
             title: '修改成功',
             duration: 2000,
@@ -273,6 +275,7 @@ Page({
           that.setData({
             email: that.data.newEmail
           })
+          getApp().globalData.email = that.data.newEmail
           wx.showToast({
             title: '修改成功',
             duration: 2000,
