@@ -163,6 +163,8 @@ Page({
               var j = {};
 
               if (item.status == "success") {
+                j.status = "进行中";
+              } else if (item.status == "finish"){
                 j.status = "已完成";
               }
 
@@ -226,6 +228,23 @@ Page({
 
 
      
+  },
+  disqualify:function(){
+
+    wx.request({
+      url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
+      method: 'GET',
+
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+
+
+      }
+    })
+
   },
 
   /**
