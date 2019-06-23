@@ -92,7 +92,8 @@ Page({
         bindconfirm: "changeName",
         bindcancel: "modalCancel",
         bindblur: "saveName",
-        inputValue: ""
+        inputValue: "",
+        inputType: "text"
       }
     })
   },
@@ -167,7 +168,8 @@ Page({
         bindconfirm: "changePhone",
         bindcancel: "modalCancel",
         bindblur: "savePhone",
-        inputValue: ""
+        inputValue: "",
+        inputType: "text"
       }
     })
   },
@@ -242,7 +244,8 @@ Page({
         bindconfirm: "changeEmail",
         bindcancel: "modalCancel",
         bindblur: "saveEmail",
-        inputValue: ""
+        inputValue: "",
+        inputType: "text"
       }
     })
   },

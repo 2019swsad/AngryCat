@@ -12,7 +12,6 @@ page {
 }
 
 .version{
-  
   width: 100%;
   background-color: white;
   display: flex;
