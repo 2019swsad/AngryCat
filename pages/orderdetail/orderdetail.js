@@ -119,7 +119,7 @@ Page({
       })
 
 
-    } else if (this.data.button1 == "退出任务" || this.data.button1 == "退出候补") {
+    } else if (this.data.button1 == "退出任务") {
       wx.showModal({
         title: '退出任务',
         content: '确定要退出任务？',
@@ -143,13 +143,40 @@ Page({
             });
 
 
+          } 
+        }
+      })
+
+    } else if (this.data.button1 == "退出候补"){
+
+      wx.showModal({
+        title: '退出候补',
+        content: '确定要退出候补？',
+        success: function (res) {
+          if (res.confirm) {
+
+            wx.request({
+              url: "https://www.volley99.com/order/close/" + self.data.oid,
+              method: 'GET',
+
+              header: {
+                'Content-Type': 'application/json',
+                'cookie': wx.getStorageSync("sessionId")
+              },
+              success: function (res) {
+
+
+              }
+
+
+            });
+
+
           } else {
 
           }
         }
       })
-
-    } else if (this.data.button1 == "退出候补"){
 
     }
 

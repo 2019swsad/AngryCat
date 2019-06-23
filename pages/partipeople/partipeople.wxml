@@ -31,7 +31,7 @@
         <view class="credit">信誉值:{{item.credit}}</view>
       </view>
       <view class="status"></view>
-      <button class="button" bindtap='qualify'>转正</button>
+      <button class="button" bindtap='qualify' data-uid="{{item.uid}}">转正</button>
     </view>
   </view>
 
