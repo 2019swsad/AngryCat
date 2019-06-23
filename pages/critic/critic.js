@@ -69,7 +69,8 @@ Page({
       method: 'POST',
       data: {
         uid: this.data.uid,
-        rate: irate
+        comment:"",
+        credit: irate
       },
       header: {
         'Content-Type': 'application/json',
