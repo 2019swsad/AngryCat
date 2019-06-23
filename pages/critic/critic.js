@@ -62,6 +62,8 @@ Page({
 
     console.log(rate)
 
+    var self=this
+
     wx.request({
       url: "https://www.volley99.com/users/rating",
       method: 'POST',
@@ -79,13 +81,19 @@ Page({
 
         wx.showToast({
           title: '评价成功',
-          duration: 2000,
-          icon: 'success'
-        })
-
-        setTimeout(this.goToTask, 1500, {
-          delta: 1
-        })
+          icon: 'success',
+          duration: 1000,
+          mask: true,
+          success: function () {
+            setTimeout(function () {
+              //要延时执行的代码
+              wx.switchTab({
+                url: '../task/task'
+              });
+            }, 1000) //延迟时间
+          },
+        });
+       
 
       }
 
@@ -93,6 +101,7 @@ Page({
 
   },
   goToTask:function(){
+    console.log("dd")
     wx.navigateTo({
       url: '../task/task',
     })

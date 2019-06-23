@@ -11,18 +11,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    beginTime: '2019-06-26',
-    expireTime: '2019-07-01',
+    beginTime: '',
+    expireTime: '',
+    pickBegin: '',
     taskType: "问卷调查",
     optionalType: ["问卷调查","跑腿","技术","其他"],
+  },
+
+  bindExpireTimeChange: function (e) {
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    // wx.showToast({
+    //   title: 'hi',
+    // })
+    this.setData({
+      expireTime: e.detail.value
+    })
   },
 
 
   bindBeginTimeChange: function(e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      beginTime: e.detail.value
+      beginTime: e.detail.value,
+      pickBegin: e.detail.value,
     })
+    if (this.data.beginTime > this.data.expireTime){
+      this.setData({
+        expireTime: this.data.beginTime
+      })
+    }
   },
 
   tempLogin: function() {
@@ -51,16 +68,6 @@ Page({
     console.log(JSON.stringify(e))
     this.setData({
       taskType: this.data.optionalType[parseInt(e.detail.value)]
-    })
-  },
-
-  bindExpireTimeChange: function(e) {
-    // console.log('picker发送选择改变，携带值为', e.detail.value)
-    // wx.showToast({
-    //   title: 'hi',
-    // })
-    this.setData({
-      expireTime: e.detail.value
     })
   },
 
@@ -143,6 +150,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    const date = new Date()
+    var year = date.getFullYear()
+    var month = date.getMonth()+1
+    var day = date.getDate()
+
+    if (month<10) {
+      month="0" + month
+    }
+    this.setData({
+      beginTime: year + "-" + month + "-" + day,
+      expireTime: year + "-" + month + "-" + day,
+      pickBegin: year + "-" + month + "-" + day
+    })
 
   },
 

@@ -9,12 +9,14 @@ Page({
       avatar: "../../image/avatar.jpg",
       name:"xiaohong",
       credit:55,
-      status:"进行中"
+      status:"进行中",
+      uid:""
     },{
       avatar: "../../image/avatar.jpg",
       name:"ZhangMaLiang",
       credit:53,
-      status:"进行中"
+      status:"已完成",
+      uid:""
     }
     ],
     candidateList: [
@@ -22,11 +24,13 @@ Page({
         avatar: "../../image/avatar.jpg",
         name: "Carlsu1",
         credit: 55,
+        uid:"1"
       },
       {
         avatar: "../../image/avatar.jpg",
         name: "Carlsu2",
         credit: 55,
+        uid:"2"
       }
     ],
     finishStatus: "已完成",
@@ -52,8 +56,11 @@ Page({
     //   })
     // }
     var self=this;
+    //参与者列表
+    
+
     wx.request({
-      url: "https://www.volley99.com/task/participator/" +"94162182-d0d7-4fe5-b4e7-fa11141fa356",
+      url: "https://www.volley99.com/task/participator/" + this.data.tid,
       method: 'GET',
 
       header: {
@@ -84,11 +91,12 @@ Page({
               var j = {};
 
               if (item.status == "success") {
-                j.status = "进行中";
+                j.status = "已完成";
               }
 
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
+              j.uid = res.data[0].uid
 
 
               list.push(j);
@@ -98,6 +106,72 @@ Page({
               })
 
 
+            }
+
+
+          })
+
+
+        
+      
+
+
+        })
+
+
+      }
+
+    })
+
+
+//候选者列表
+
+
+    wx.request({
+      url: "https://www.volley99.com/order/waitinglist/" + this.data.tid,
+      method: 'GET',
+
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+
+
+
+        var jsonData = JSON.parse(JSON.stringify(res.data))
+        var arrToRender = jsonData.reverse()
+        arrToRender.forEach((item, index, input) => {
+
+          wx.request({
+            url: 'https://www.volley99.com/users/info/' + item.uid,
+            header: {
+              'Content-Type': 'application/json',
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            method: 'GET',
+            success: function (res) {
+
+              console.log(res.data)
+
+              let list = self.data.candidateList;
+
+              var j = {};
+
+              if (item.status == "success") {
+                j.status = "已完成";
+              }
+
+              j.name = res.data[0].nickname;
+              j.credit = res.data[0].credit;
+              j.uid = res.data[0].uid
+
+
+              list.push(j);
+
+              self.setData({
+                candidateList: list
+              })
 
 
             }
@@ -106,8 +180,6 @@ Page({
           })
 
 
-        
-          
 
 
 
@@ -119,15 +191,37 @@ Page({
 
     })
 
-
   
 
    
   },
   goToCritic:function(e){
+    // console.log(e.currentTarget.dataset.tid)
     wx.navigateTo({
-      url: '../critic/critic',
+      url: '../critic/critic?uid=' + e.currentTarget.dataset.uid,
     })
+  },
+
+  qualify:function(e){
+
+    console.log(e.currentTarget.dataset.uid)
+
+    wx.request({
+      url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
+      method: 'GET',
+
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+        
+
+      }
+    })
+
+
+     
   },
 
   /**
