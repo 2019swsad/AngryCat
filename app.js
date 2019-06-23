@@ -66,6 +66,7 @@ App({
           //设置全局变量
 
           self.globalData.nickname=res.data.nickname;
+          self.globalData.phone = res.data.phone;
           self.globalData.uid = res.data.uid;
 
 

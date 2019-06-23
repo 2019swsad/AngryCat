@@ -52,12 +52,11 @@ Page({
                 'cookie': wx.getStorageSync("sessionId")
               }, // 设置请求的 header
               success: function(res) {
-
                 if (res.statusCode == 200) {
 
                   //设置全局变量
-
                   getApp().globalData.nickname = res.data.nickname;
+                  getApp().globalData.phone = res.data.phone;
                   getApp().globalData.uid = res.data.uid;
 
 
