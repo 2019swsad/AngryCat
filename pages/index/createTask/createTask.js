@@ -159,6 +159,9 @@ Page({
     if (month<10) {
       month="0" + month
     }
+    if (day < 10) {
+      day = "0" + day
+    }
     this.setData({
       todayTime: year + "-" + month + "-" + day,
       beginTime: year + "-" + month + "-" + day,
