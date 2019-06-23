@@ -3,7 +3,7 @@
     <modal title="{{title}}" confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="{{bindconfirm}}" bindcancel="{{bindcancel}}">
       <label>
         <view class="tellsection">
-          <input class="tellinput" bindblur="{{bindblur}}" placeholder="{{placeholder}}" value="{{inputValue}}" />
+          <input class="tellinput" bindblur="{{bindblur}}" placeholder="{{placeholder}}" value="{{inputValue}}" type="{{inputType}}"/>
          
         </view>
       </label>
