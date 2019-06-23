@@ -9,6 +9,7 @@
 
   module.exports.fileUrl = fileUrl;
 </wxs>
+
 <view class="whole_page">
   <!--顶部概述栏-->
   <view class="base_info">

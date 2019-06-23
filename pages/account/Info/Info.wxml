@@ -1,8 +1,11 @@
 <!--pages/account/Info/Info.wxml-->
 <!--个人资料-->
 
+<!--相关模板-->
+<import src="../../../template/addtell.wxml" />
+
 <view class="infoModifyContainer">
-  <view class="avatarContainer"   bindtap="changeAvatar">
+  <view class="avatarContainer"  bindtap="changeAvatar">
     <text class="profileTitle">头像</text>
     <image class="userinfo-avatar" src="{{avatarUrl}}" binderror='avatarError'></image>
     <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
@@ -10,7 +13,7 @@
 
   <view class="line"></view>
   
-  <view class="profileContainer">
+  <view class="profileContainer" bindtap="changeNameMode">
     <text class="profileTitle">昵称</text>
     <text class="profileText">{{nickname}}</text>
     <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
@@ -18,7 +21,7 @@
 
   <view class="line"></view>
 
-  <view class="profileContainer">
+  <view class="profileContainer" bindtap="changePhoneMode">
     <text class="profileTitle">手机</text>
     <text class="profileText">{{phone}}</text>
     <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
@@ -26,8 +29,11 @@
 
   <view class="line"></view>
 
-  <view class="profileContainer">
+  <view class="profileContainer" bindtap="changePasswordMode">
     <text class="profileTitle">修改密码</text>
     <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
   </view>
+
+  <template class is="addtell" data="{{...addtell}}" />
 </view>
+

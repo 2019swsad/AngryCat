@@ -2,7 +2,10 @@
   <wxs module="pageVar">
     var fileUrl = "https://www.volley99.com/file/";
 
+    var backupImg = "../image/avatar.jpg";
+
     module.exports.fileUrl = fileUrl;
+
   </wxs>
   <view class="single_task" bindtap="goToDetail" mark:tid="{{tid}}" data-tid="{{tid}}" hover-class="hover">
     <view class="task_infor">

@@ -7,30 +7,6 @@
   <text class="version_number">Version 1.0.0</text>
 </view>
 
-
-<view class="personOptionContainer">
-    <navigator class="optionNavitator" url="wallet/wallet">
-      <text class="optionText">修改头像</text>
-      <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
-    </navigator>
-
-    <view class="line"></view>
-
-    <navigator class="optionNavitator" url="message/message">
-      <text class="optionText">修改密码</text>
-      <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
-    </navigator>
-
-    <view class="line"></view>
-
-    <navigator class="optionNavitator" url="changeName/changeName">
-      <text class="optionText">修改昵称</text>
-      <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
-    </navigator>
-
-  </view>
-
-
 <navigator class='logOutButton' url='../../../login/login'>
   <text class='logOutButtonText'>退出登录</text>
 </navigator>
