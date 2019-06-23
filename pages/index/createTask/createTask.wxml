@@ -29,7 +29,7 @@
 
     <view class="section">
       <view class="section_title">开始时间</view>
-      <picker class="picker" mode="date" value="{{beginTime}}" start="{{beginTime}}" bindchange="bindBeginTimeChange">
+      <picker class="picker" mode="date" value="{{beginTime}}" start="{{todayTime}}" bindchange="bindBeginTimeChange">
         <view class="beginTime">
           {{beginTime}}
           <image class="picker_icon" src="../../../image/picker-icon.png"></image>
