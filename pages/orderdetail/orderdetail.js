@@ -15,7 +15,8 @@ Page({
     oid: '',
     beginTime: '',
     endTime: '',
-    isShow: true,
+    isShow1: true,
+    isShow2: true,
     addtell: {
       addtellHidden: true, //弹出框显示/隐藏
       title: "请输入完成码",
@@ -26,6 +27,8 @@ Page({
       inputValue: ""
     },
     questionair: "问卷调查",
+    finishNumber: "",
+    status:""
   },
 
   /**
@@ -34,8 +37,12 @@ Page({
   onLoad: function(options) {
     this.data.tid = options.tid;
     this.data.oid = options.oid;
-    console.log(this.data.oid)
-    console.log(this.data.tid)
+    this.data.status = options.status;
+
+    console.log(this.data.status)
+
+    this.changeButton();
+
 
     this.requestTaskInfo();
 
@@ -74,25 +81,25 @@ Page({
 
 
 
-          if (self.data.taskinfo.status == '未开始') {
-            self.setData({
-              button1: "退出任务",
-              button2: "完成任务"
-            })
+          // if (self.data.taskinfo.status == '未开始') {
+          //   self.setData({
+          //     button1: "退出任务",
+          //     button2: "完成任务"
+          //   })
 
-          } else if (self.data.taskinfo.status == '进行中') {
-            self.setData({
-              button1: "退出任务",
-              button2: "完成任务"
-            })
-          } else if (self.data.taskinfo.status == '已结束') {
-            self.setData({
-              button1: "评价",
-              isShow: false
-            })
+          // } else if (self.data.taskinfo.status == '进行中') {
+          //   self.setData({
+          //     button1: "退出任务",
+          //     button2: "完成任务"
+          //   })
+          // } else if (self.data.taskinfo.status == '已结束') {
+          //   self.setData({
+          //     button1: "评价",
+          //     isShow2: false
+          //   })
 
 
-          }
+          // }
 
 
         }
@@ -126,7 +133,7 @@ Page({
           if (res.confirm) {
 
             wx.request({
-              url: "https://www.volley99.com/order/cancelself/" + self.data.oid,
+              url: "https://www.volley99.com/order/close/" + self.data.oid,
               method: 'GET',
 
               header: {
@@ -135,6 +142,64 @@ Page({
               },
               success: function(res) {
 
+                wx.showToast({
+                  title: '退出成功',
+                  icon: 'success',
+                  duration: 1000,
+                  mask: true,
+                  success: function () {
+                    setTimeout(function () {
+                      //要延时执行的代码
+                      wx.switchTab({
+                        url: '../task/task'
+                      });
+                    }, 1000) //延迟时间
+                  },
+                });
+
+
+              }
+
+
+            });
+
+
+          }
+        }
+      })
+
+    } else if (this.data.button1 == "退出候补"){
+
+      wx.showModal({
+        title: '退出候补',
+        content: '确定要退出候补？',
+        success: function (res) {
+          if (res.confirm) {
+
+            wx.request({
+              url: "https://www.volley99.com/order/close/" + self.data.oid,
+              method: 'GET',
+
+              header: {
+                'Content-Type': 'application/json',
+                'cookie': wx.getStorageSync("sessionId")
+              },
+              success: function (res) {
+
+                wx.showToast({
+                  title: '退出成功',
+                  icon: 'success',
+                  duration: 1000,
+                  mask: true,
+                  success: function () {
+                    setTimeout(function () {
+                      //要延时执行的代码
+                      wx.switchTab({
+                        url: '../task/task'
+                      });
+                    }, 1000) //延迟时间
+                  },
+                });
 
               }
 
@@ -161,6 +226,8 @@ Page({
         }
       })
 
+
+    } else {
 
     }
 
@@ -193,13 +260,22 @@ Page({
       },
       success: function(res) {
 
+        if(res.statusCode==400){
+
+          wx.showToast({
+            title: '完成码错误',
+          })
+        } else if (res.statusCode == 200){
+
+        }
+
 
       }
 
 
     });
 
-    console.log("hahea")
+
 
   },
   modalCancel: function() {
@@ -215,6 +291,34 @@ Page({
     this.setData({
       finishNumber: e.detail.value
     })
+  },
+
+  changeButton(){
+     if(this.data.status=="进行中"){
+       this.setData({
+         button1: "退出任务",
+         button2: "完成任务"
+       })
+
+     } else if (this.data.status == "已完成"){
+       this.setData({
+         button1: "评价",
+         isShow2: false
+       })
+
+     } else if (this.data.status == "候补中"){
+       this.setData({
+         button1: "退出候补",
+         isShow2: false
+       })
+
+     }else{
+       this.setData({
+         isShow1: false,
+         isShow2: false
+       })
+     }
+
   },
 
   /**

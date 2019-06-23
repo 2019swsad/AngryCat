@@ -68,8 +68,8 @@
 
   <!--底部功能键-->
   <view class="apply_btn_area">
-    <button class="apply_btn" type="primary" bindtap='onPress1'>{{button1}}</button>
-    <button class="apply_btn" type="primary" bindtap='onPress2' wx-if="{{isShow}}">{{button2}}</button>
+    <button class="apply_btn" type="primary" bindtap='onPress1' wx-if="{{isShow1}}">{{button1}}</button>
+    <button class="apply_btn" type="primary" bindtap='onPress2' wx-if="{{isShow2}}">{{button2}}</button>
 
   </view>
 
