@@ -143,14 +143,14 @@ Page({
                   delta: 1
                 })
               }
-              else if (res.data.status == "same uid in create order") {
+              else if (res.data.status == "creator can not create order") {
                 wx.showToast({
-                  title: '不能报名参与自己发布的任务!',
+                  title: '不能报名参与自己发布的任务',
                   duration: 2000,
                   icon: 'none'
                 })
               }
-              else if (res.data.status == "fail time check") {
+              else if (res.data.status == "failure:already exist order of same user") {
                 wx.showToast({
                   title: '您已报名',
                   duration: 2000,
