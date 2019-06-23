@@ -119,7 +119,7 @@ Page({
             },
             success: function (res) {
               console.log(res.data)
-              if(res.data.status=="success"){
+              if(res.data.status=="进行中"){
                 wx.showToast({
                   title: '成功报名',
                   duration: 2000,
