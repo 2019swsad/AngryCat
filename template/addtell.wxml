@@ -1,9 +1,9 @@
 <template name="addtell">
   <view>
-    <modal title="请输入完成码" confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="modalConfirm" bindcancel="modalCancel">
+    <modal title="{{title}}" confirm-text="确认" cancel-text="取消" hidden="{{addtellHidden}}" bindconfirm="{{bindconfirm}}" bindcancel="{{bindcancel}}">
       <label>
         <view class="tellsection">
-          <input class="tellinput" bindinput="saveUsertell" placeholder="完成码" value="{{addtell.contract_info}}" />
+          <input class="tellinput" bindblur="{{bindblur}}" placeholder="{{placeholder}}" value="{{inputValue}}" type="{{inputType}}"/>
          
         </view>
       </label>

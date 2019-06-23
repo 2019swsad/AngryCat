@@ -19,6 +19,13 @@ Page({
     isShow2: true,
     addtell: {
       addtellHidden: true, //弹出框显示/隐藏
+      title: "请输入完成码",
+      placeholder: "完成码",
+      bindconfirm: "modalConfirm",
+      bindcancel: "modalCancel",
+      bindblur: "saveUsertell",
+      inputValue: "",
+      inputType:"text"
     },
     questionair: "问卷调查",
     finishNumber: "",
@@ -37,7 +44,7 @@ Page({
     console.log(this.data.status)
 
     this.changeButton();
-  
+
 
     this.requestTaskInfo();
 
@@ -159,7 +166,7 @@ Page({
             });
 
 
-          } 
+          }
         }
       })
 
@@ -258,7 +265,7 @@ Page({
       success: function(res) {
 
         if(res.statusCode==400){
-          
+
           wx.showToast({
             title: '完成码错误',
           })
@@ -286,7 +293,7 @@ Page({
 
     });
 
-    
+
 
   },
   modalCancel: function() {

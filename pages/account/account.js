@@ -23,6 +23,12 @@ Page({
     })
   },
 
+  changeAvator: function() {
+    this.setData({
+      avatarUrl: "../../image/emptyAvatar.jpg",
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -41,8 +47,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    console.log(getApp().globalData.nickname)
-    console.log(app.globalData.uid)
     this.setData({
       avatarUrl: DOMAIN + '/file/' + app.globalData.uid,
       nickname: getApp().globalData.nickname
@@ -53,7 +57,6 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
   },
 
   /**

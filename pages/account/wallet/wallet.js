@@ -1,5 +1,5 @@
 // pages/account/wallet/wallet.js
-
+const app = getApp()
 const util = require('../../../utils/util.js')
 const DOMAIN = 'https://www.volley99.com'
 Page({
@@ -9,8 +9,16 @@ Page({
    */
   data: {
     nickName:"",
+    avatarUrl: "",
     balance:0,
     credit:100,
+  },
+
+  avatarError(err) {
+    console.log(JSON.stringify(err))
+    this.setData({
+      avatarUrl: "../../image/avatar.jpg"
+    })
   },
 
   /**
@@ -75,7 +83,10 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    this.setData({
+      avatarUrl: DOMAIN + '/file/' + app.globalData.uid,
+      nickname: getApp().globalData.nickname
+    })
   },
 
   /**

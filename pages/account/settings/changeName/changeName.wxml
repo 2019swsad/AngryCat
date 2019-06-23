@@ -1,4 +1,0 @@
-<!--pages/account/settings/changeName/changeName.wxml-->
-<input class="nickname">昵称</input>
-<button class="confirm" type="primary" bindtap="topUp">完成</button>
-

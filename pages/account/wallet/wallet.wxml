@@ -4,7 +4,7 @@
   <!--顶部信息栏-->
   <view class="personalInfoContainer">
     <view class="avatarContainer">
-      <image class="userinfo-avatar" src="../../../image/avatar.jpg" ></image>
+      <image class="userinfo-avatar" src="{{avatarUrl}}" binderror='avatarError'></image>
     </view>
 
     <view class="nicknameContainer">
