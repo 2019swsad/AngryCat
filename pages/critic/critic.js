@@ -81,13 +81,19 @@ Page({
 
         wx.showToast({
           title: '评价成功',
-          duration: 2000,
-          icon: 'success'
-        })
-
-        setTimeout(self.goToTask, 1500, {
-          delta: 1
-        })
+          icon: 'success',
+          duration: 1000,
+          mask: true,
+          success: function () {
+            setTimeout(function () {
+              //要延时执行的代码
+              wx.switchTab({
+                url: '../task/task'
+              });
+            }, 1000) //延迟时间
+          },
+        });
+       
 
       }
 

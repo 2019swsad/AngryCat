@@ -205,6 +205,22 @@ Page({
   qualify:function(e){
 
     console.log(e.currentTarget.dataset.uid)
+
+    wx.request({
+      url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
+      method: 'GET',
+
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+        
+
+      }
+    })
+
+
      
   },
 
