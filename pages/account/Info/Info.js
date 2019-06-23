@@ -12,6 +12,7 @@ Page({
   data: {
     nickname: "",
     phone: "",
+    email:"",
     avatarUrl: "",
     addtell: {
       addtellHidden: true, //弹出框显示/隐藏
@@ -20,10 +21,12 @@ Page({
       bindconfirm: "",
       bindcancel: "modalCancel",
       bindblur: "",
-      inputValue: ""
+      inputValue: "",
+      inputType: "text"
     },
     newNickname: "",
     newPhone: "",
+    newEmail: "",
     password: "",
   },
 
@@ -118,10 +121,23 @@ Page({
         'cookie': wx.getStorageSync("sessionId")
       },
       success: function (res) {
-        console.log("更换昵称:" + res.data)
-        that.setData({
-          nickname: that.data.newNickname
-        })
+        if(res.statusCode == 200 || res.statusCode == 201) {
+          that.setData({
+            nickname: that.data.newNickname
+          })
+          wx.showToast({
+            title: '修改成功',
+            duration: 2000,
+            icon: 'success'
+          })
+        }
+        else {
+          wx.showToast({
+            title: '輸入格式錯誤',
+            duration: 2000,
+            icon: 'none'
+          })
+        }
       }
     });
   },
@@ -156,7 +172,7 @@ Page({
   },
 
   /**
-   * 修改昵称
+   * 修改手机号
    */
   changePhone: function () {
     var that = this
@@ -179,10 +195,23 @@ Page({
         'cookie': wx.getStorageSync("sessionId")
       },
       success: function (res) {
-        console.log("更换手机号:" + res.data)
-        that.setData({
-          phone: that.data.newPhone
-        })
+        if (res.statusCode == 200 || res.statusCode == 201) {
+          that.setData({
+            phone: that.data.newPhone
+          })
+          wx.showToast({
+            title: '修改成功',
+            duration: 2000,
+            icon: 'success'
+          })
+        }
+        else {
+          wx.showToast({
+            title: '輸入格式錯誤',
+            duration: 2000,
+            icon: 'none'
+          })
+        }
       }
     });
   },
@@ -193,6 +222,80 @@ Page({
   savePhone: function (e) {
     this.setData({
       newPhone: e.detail.value
+    })
+  },
+
+  // =====================修改邮箱=====================
+  /**
+   * 设置模板
+   */
+  changeEmailMode: function () {
+    var that = this
+
+    that.setData({
+      addtell: {
+        addtellHidden: false,
+        title: "请输入新邮箱",
+        placeholder: "邮箱",
+        bindconfirm: "changeEmail",
+        bindcancel: "modalCancel",
+        bindblur: "saveEmail",
+        inputValue: ""
+      }
+    })
+  },
+
+  /**
+   * 修改邮箱
+   */
+  changeEmail: function () {
+    var that = this
+
+    that.setData({
+      addtell: {
+        addtellHidden: true,
+      }
+    })
+
+    wx.request({
+      url: "https://www.volley99.com/users/update",
+      method: 'POST',
+      data: {
+        uid: app.globalData.uid,
+        email: that.data.newEmail
+      },
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function (res) {
+        if (res.statusCode == 200 || res.statusCode == 201) {
+          that.setData({
+            email: that.data.newEmail
+          })
+          wx.showToast({
+            title: '修改成功',
+            duration: 2000,
+            icon: 'success'
+          })
+        }
+        else {
+          wx.showToast({
+            title: '輸入格式錯誤',
+            duration: 2000,
+            icon: 'none'
+          })
+        }
+      }
+    });
+  },
+
+  /**
+   * 保存邮箱输入
+   */
+  saveEmail: function (e) {
+    this.setData({
+      newEmail: e.detail.value
     })
   },
 
@@ -211,7 +314,8 @@ Page({
         bindconfirm: "changePassword",
         bindcancel: "modalCancel",
         bindblur: "savePassword",
-        inputValue: ""
+        inputValue: "",
+        inputType: "password"
       }
     })
   },
@@ -281,12 +385,14 @@ Page({
 
   /**
    * Lifecycle function--Called when page show
+   * 获取账户信息
    */
   onShow: function () {
     this.setData({
       avatarUrl: DOMAIN + '/file/' + app.globalData.uid,
       nickname: getApp().globalData.nickname,
-      phone: getApp().globalData.phone
+      phone: getApp().globalData.phone,
+      email: getApp().globalData.email,
     })
   },
 

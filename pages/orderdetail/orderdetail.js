@@ -24,7 +24,8 @@ Page({
       bindconfirm: "modalConfirm",
       bindcancel: "modalCancel",
       bindblur: "saveUsertell",
-      inputValue: ""
+      inputValue: "",
+      inputType:"text"
     },
     questionair: "问卷调查",
     finishNumber: "",

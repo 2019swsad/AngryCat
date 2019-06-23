@@ -57,6 +57,7 @@ Page({
                   //设置全局变量
                   getApp().globalData.nickname = res.data.nickname;
                   getApp().globalData.phone = res.data.phone;
+                  getApp().globalData.email = res.data.email;
                   getApp().globalData.uid = res.data.uid;
 
 

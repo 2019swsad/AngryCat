@@ -29,6 +29,14 @@
 
   <view class="line"></view>
 
+  <view class="profileContainer" bindtap="changeEmailMode">
+    <text class="profileTitle">邮箱</text>
+    <text class="profileText">{{email}}</text>
+    <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
+  </view>
+
+  <view class="line"></view>
+
   <view class="profileContainer" bindtap="changePasswordMode">
     <text class="profileTitle">修改密码</text>
     <image class="arrowIcon" src="../../../image/icon-arrow.png"></image>
