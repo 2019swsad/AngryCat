@@ -20,7 +20,8 @@ Page({
       addtellHidden: true, //弹出框显示/隐藏
     },
     questionair: "问卷调查",
-    finishNumber: ""
+    finishNumber: "",
+    status:""
   },
 
   /**
@@ -29,8 +30,10 @@ Page({
   onLoad: function(options) {
     this.data.tid = options.tid;
     this.data.oid = options.oid;
-    console.log(this.data.oid)
-    console.log(this.data.tid)
+    this.data.status = options.status;
+
+    console.log(this.data.status)
+  
 
     this.requestTaskInfo();
 
@@ -121,7 +124,7 @@ Page({
           if (res.confirm) {
 
             wx.request({
-              url: "https://www.volley99.com/order/cancelself/" + self.data.oid,
+              url: "https://www.volley99.com/order/close/" + self.data.oid,
               method: 'GET',
 
               header: {
@@ -188,13 +191,22 @@ Page({
       },
       success: function(res) {
 
+        if(res.statusCode==400){
+          
+          wx.showToast({
+            title: '完成码错误',
+          })
+        } else if (res.statusCode == 200){
+
+        }
+
 
       }
 
 
     });
 
-    console.log("hahea")
+    
 
   },
   modalCancel: function() {

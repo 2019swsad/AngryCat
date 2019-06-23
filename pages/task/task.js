@@ -20,19 +20,19 @@ Page({
   goToDetail: function(e) {
 
     console.log(e.currentTarget.dataset.tid)
-    
+
     wx.navigateTo({
       url: '../taskdetail/taskdetail?tid=' + e.currentTarget.dataset.tid,
     })
   },
   goToOrderDetail: function(e) {
+   
 
-    // console.log(e.currentTarget.dataset.tid)
-    // console.log(e.currentTarget.dataset.oid)
+ 
 
 
     wx.navigateTo({
-      url: '../orderdetail/orderdetail?tid=' + e.currentTarget.dataset.tid + '&oid='+e.currentTarget.dataset.oid,
+      url: '../orderdetail/orderdetail?tid=' + e.currentTarget.dataset.tid + '&oid=' + e.currentTarget.dataset.oid + '&status=' + e.currentTarget.dataset.orderstatus,
     })
   },
 
@@ -60,7 +60,7 @@ Page({
   onShow: function() {
 
     let me = this
-
+    //请求任务列表
     wx.request({
       url: DOMAIN + '/task/query',
       header: {
@@ -108,32 +108,35 @@ Page({
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
 
-          
+
 
           wx.request({
-            url: DOMAIN + '/task/get/'+item.tid,
+            url: DOMAIN + '/task/get/' + item.tid,
             header: {
               'Content-Type': 'application/json',
               'cookie': wx.getStorageSync("sessionId")
             },
             method: 'GET',
             success: function(res) {
-              
-              
+
+
 
               res.data.beginTime = util.formatTimeWithoutHMS(new Date(res.data.beginTime))
               res.data.expireTime = util.formatTimeWithoutHMS(new Date(res.data.expireTime))
-              let task=me.data.taskInfo;
+              let task = me.data.taskInfo;
 
-             var singletask=res.data;
+              var singletask = res.data;
               singletask.oid = item.oid
+              console.log(item.status + "ss")
+
+              singletask.orderstatus = item.status
 
               task.push(singletask)
 
               me.setData({
                 taskInfo: task
               })
-              
+
               // console.log(index)
               // var taskoid = "taskInfo[" + index + "].oid" //添加键值对
 
@@ -143,9 +146,9 @@ Page({
 
               // console.log(item.oid+"++")
               // console.log(item.tid)
-             
+
             }
-          
+
           })
 
 
@@ -165,17 +168,17 @@ Page({
 
       }
     })
-/*
-    if (this.data.currentTab == 0) {
-      this.setData({
-        listHeight: this.data.listHeight2
-      })
-    } else {
-      this.setData({
-        listHeight: this.data.listHeight1
-      });
-    }
-*/
+    /*
+        if (this.data.currentTab == 0) {
+          this.setData({
+            listHeight: this.data.listHeight2
+          })
+        } else {
+          this.setData({
+            listHeight: this.data.listHeight1
+          });
+        }
+    */
   },
 
   /**
