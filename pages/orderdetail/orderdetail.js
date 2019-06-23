@@ -36,6 +36,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
     this.data.tid = options.tid;
     this.data.oid = options.oid;
     this.data.status = options.status;
@@ -240,7 +241,9 @@ Page({
   },
   modalConfirm: function() {
 
-
+    console.log(this.data.finishNumber)
+    console.log(this.data.tid)
+    console.log(this.data.oid)
     //弹出框确认操作
     this.setData({
       addtell: {
@@ -267,6 +270,20 @@ Page({
             title: '完成码错误',
           })
         } else if (res.statusCode == 200){
+          wx.showToast({
+            title: '成功完成任务！',
+            icon: 'success',
+            duration: 1000,
+            mask: true,
+            success: function () {
+              setTimeout(function () {
+                //要延时执行的代码
+                wx.switchTab({
+                  url: '../task/task'
+                });
+              }, 1000) //延迟时间
+            },
+          });
 
         }
 
