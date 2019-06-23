@@ -12,6 +12,7 @@ Page({
    */
   data: {
     beginTime: '',
+    todayTime:'',
     expireTime: '',
     pickBegin: '',
     taskType: "问卷调查",
@@ -159,6 +160,7 @@ Page({
       month="0" + month
     }
     this.setData({
+      todayTime: year + "-" + month + "-" + day,
       beginTime: year + "-" + month + "-" + day,
       expireTime: year + "-" + month + "-" + day,
       pickBegin: year + "-" + month + "-" + day
