@@ -31,7 +31,7 @@
 
       <view class="organizer">
         <image class="portrait" src='{{pageVar.fileUrl + uid}}'></image>
-        <text class="username">{{organizer}}</text>
+        <text class="username">{{nickname}}</text>
       </view>
 
     </view>
