@@ -49,7 +49,7 @@ Page({
   onShow: function() {
     this.setData({
       avatarUrl: DOMAIN + '/file/' + app.globalData.uid,
-      nickname: getApp().globalData.nickname
+      nickname: getApp().globalData.nickname || "未登录"
     })
   },
 

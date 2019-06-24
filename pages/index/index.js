@@ -125,10 +125,28 @@ Page({
       })
     }
 
+    this.getRecommendation()
+
+  },
+
+  onHide: function(){
+    let me = this
+    me.setData({
+      recommendTasks:[]
+    })
+  },
+
+  onShow: function(){
+    let me = this
+    me.getRecommendation()
+  },
+
+  getRecommendation: function(){
+    let me = this
     wx.request({
       url: DOMAIN + '/task/all',
       method: 'GET',
-      success: function(res) {
+      success: function (res) {
         var arrToRender = JSON.parse(JSON.stringify(res.data))
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
@@ -147,7 +165,6 @@ Page({
         })
       }
     })
-
   },
 
   goToDetail: function(e) {
