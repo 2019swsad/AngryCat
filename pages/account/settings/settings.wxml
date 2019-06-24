@@ -8,6 +8,6 @@
 </view>
 
 <navigator class='logOutButton' url='../../../login/login'>
-  <text class='logOutButtonText'>退出登录</text>
+  <text class='logOutButtonText' bindtap='logout'>退出登录</text>
 </navigator>
 

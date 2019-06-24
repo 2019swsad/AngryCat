@@ -8,6 +8,15 @@ Page({
 
   },
 
+  logout(){
+    var app = getApp()
+    app.globalData.nickname = ""
+    app.globalData.phone = ""
+    app.globalData.email = ""
+    app.globalData.uid = ""
+    wx.setStorageSync("sessionId", "")
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
