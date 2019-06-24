@@ -1,6 +1,6 @@
 {
-  "pages": [        
-    "pages/index/index",
+  "pages": [
+    "pages/index/index",            
     "regist/regist",
     "login/login",
     "pages/index/searchTask/searchTask",
@@ -14,7 +14,7 @@
     "pages/account/message/message",
     "pages/searchTaskDetail/searchTaskDetail",
     "pages/orderdetail/orderdetail",
-    "pages/account/settings/settings",        
+    "pages/account/settings/settings",
     "pages/account/Info/Info"
   ],
   "window": {

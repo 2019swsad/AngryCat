@@ -19,40 +19,48 @@ Page({
     interval: 5000,
     duration: 1500,
     iconArray: [{
+        "id": '1',
         "iconUrl": '../../image/icon-qiandao.png',
         "iconText": '签到'
       },
       {
+        "id": '2',
         "iconUrl": '../../image/icon-fujin.png',
-        "iconText": '附近'
+        "iconText": '附近',
       },
       {
-        "iconUrl": '../../image/icon-zhanhui.png',
-        "iconText": '游展'
-      },
-      {
-        "iconUrl": '../../image/icon-fuli.png',
-        "iconText": '福利'
-      },
-      {
+        "id": '3',
         "iconUrl": '../../image/icon-muma.png',
         "iconText": '搜索任务',
         "navigateUrl": './searchTask/searchTask'
       },
       {
+        "id": '4',
+        "iconUrl": '../../image/icon-qinzi.png',
+        "iconText": '任务发布',
+        "navigateUrl": './createTask/createTask'
+      },
+      {
+        "id": '5',
+        "iconUrl": '../../image/icon-zhanhui.png',
+        "iconText": '游展'
+      },
+      {
+        "id": '6',
+        "iconUrl": '../../image/icon-fuli.png',
+        "iconText": '福利'
+      },
+      {
+        "id": '7',
         "iconUrl": '../../image/icon-xingxing.png',
         "iconText": '注册',
         "navigateUrl": '../../regist/regist'
       },
       {
+        "id": '8',
         "iconUrl": '../../image/icon-tiyu.png',
         "iconText": '登录',
         "navigateUrl": '../../login/login'
-      },
-      {
-        "iconUrl": '../../image/icon-qinzi.png',
-        "iconText": '任务发布',
-        "navigateUrl": './createTask/createTask'
       }
     ],
     recommendTasks: [],
@@ -67,6 +75,23 @@ Page({
     wx.navigateTo({
       url: '../logs/logs'
     })
+  },
+
+  tapfuntion: function (e) {
+    if (e.currentTarget.id == 2) {
+      wx.getLocation({
+        type: 'gcj02',
+        success: function (res) {
+          var latitude = res.latitude
+          var longitude = res.longitude
+          wx.openLocation({
+            latitude: latitude,
+            longitude: longitude,
+            scale: 28
+          });
+        }
+      })
+    }
   },
 
   onLoad: function() {
