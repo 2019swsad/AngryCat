@@ -35,7 +35,9 @@ Page({
     ],
     finishStatus: "已完成",
     taskIsBegining: false,
-    tid:""
+    tid:"",
+
+    waitingnumber: 0
 
 
   },
@@ -142,6 +144,7 @@ Page({
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
         arrToRender.forEach((item, index, input) => {
+          waitingnumber++;
 
           wx.request({
             url: 'https://www.volley99.com/users/info/' + item.uid,
