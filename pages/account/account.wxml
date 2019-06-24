@@ -16,7 +16,7 @@
 
   <!--个人信息相关选项-->
   <view class="personOptionContainer">
-    <navigator class="optionNavitator" url="Info/Info" bindtap="changeAvator">
+    <navigator class="optionNavitator" url="Info/Info">
       <image class="optionLogo" src="../../image/icon-profile.png"></image>
       <text class="optionText">个人信息</text>
       <image class="arrowIcon" src="../../image/icon-arrow.png"></image>
