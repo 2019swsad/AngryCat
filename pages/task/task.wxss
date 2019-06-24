@@ -113,6 +113,7 @@ swiper {
   font-size: 12px;
   margin-left: 10px;
   margin-top: 2px;
+  width:40px;
   color: #929292;
 }
 
