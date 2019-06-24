@@ -15,11 +15,13 @@
   <view class="category_item" wx:for="{{iconArray}}" wx:key="item.iconUrl">
     <view class="category_item_wrap">
       <navigator url="{{item.navigateUrl||null}}">
-        <view class="icon_wrap">
-          <image src="{{item.iconUrl}}" class="index_icon"></image>
-        </view>
-        <view class="category_item_text">
-          <text>{{item.iconText}}</text>
+        <view id="{{item.id}}" bindtap="tapfuntion">
+          <view class="icon_wrap">
+            <image src="{{item.iconUrl}}" class="index_icon"></image>
+          </view>
+          <view class="category_item_text">
+            <text>{{item.iconText}}</text>
+          </view>
         </view>
       </navigator>
     </view>
