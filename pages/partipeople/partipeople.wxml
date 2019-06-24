@@ -27,7 +27,7 @@
   <!--候补人员信息栏：仅在任务状态为"报名中"时显示-->
   <view class="candidateContainer" wx:if="{{!taskIsBegining}}">
     <view class="subtitleText">候补</view>
-    <view class="numberText">{z}人</view>
+    <view class="numberText">{{waitingnumber}}人</view>
     <!--候补人员信息列表-->
     <view class="single" wx:for="{{candidateList}}">
       <image class="avatar" src="{{pageVar.fileUrl + item.uid}}"></image>
