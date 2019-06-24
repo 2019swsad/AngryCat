@@ -13,8 +13,7 @@ Page({
     tasks: [],
     createdTasks: [],
     joinedTasks: [],
-    taskInfo: [],
-    nickname:""
+    taskInfo: []
 
   },
 
@@ -46,9 +45,6 @@ Page({
     this.setData({
       listHeight: res.windowHeight - 45 + "px"
     })
-
-    this.data.nickname = getApp().globalData.nickname
-   
   },
 
   /**
@@ -82,10 +78,7 @@ Page({
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-          item.nickname=me.data.nickname;
         })
-
-        
 
         me.setData({
           createdTasks: arrToRender,
