@@ -78,20 +78,7 @@ Page({
   },
 
   tapfuntion: function(e) {
-    if (e.currentTarget.id == 2) {
-      wx.getLocation({
-        type: 'gcj02',
-        success: function(res) {
-          var latitude = res.latitude
-          var longitude = res.longitude
-          wx.openLocation({
-            latitude: latitude,
-            longitude: longitude,
-            scale: 28
-          });
-        }
-      })
-    } else if (e.currentTarget.id == 1) {
+    if (e.currentTarget.id == 1) {
 
       wx.request({
         url: DOMAIN + '/users/sign',
@@ -128,7 +115,19 @@ Page({
 
         }
       })
-
+    } else if (e.currentTarget.id == 2) {
+      wx.getLocation({
+        type: 'gcj02',
+        success: function (res) {
+          var latitude = res.latitude
+          var longitude = res.longitude
+          wx.openLocation({
+            latitude: latitude,
+            longitude: longitude,
+            scale: 28
+          });
+        }
+      })
     }
   },
 
