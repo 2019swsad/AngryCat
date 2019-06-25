@@ -88,7 +88,7 @@ Page({
 
         } else if (res.statusCode == 400) {
           wx.showToast({
-            title: '用户密码错误',
+            title: '用户或密码错误',
             duration: 2000,
             icon: 'none'
           })

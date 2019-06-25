@@ -7,7 +7,7 @@
     <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="用户名"  bindinput="userNameInput" bindblur='checkNameAvailable'/>
     <view class="nameRepeatInfo">{{nameRepeatInfo}}</view>
 
-    <input class="register_input" placeholder-class="input_style" type="password" align="center" placeholder="密码"  bindinput="passWdInput"/>
+    <input class="register_input" style="margin-top:{{password_margin_top}}" placeholder-class="input_style" type="password" align="center" placeholder="密码"  bindinput="passWdInput"/>
 
     <input class="register_input" placeholder-class="input_style" type="text" align="center" placeholder="邮箱" bindinput="emailInput"/>
 
