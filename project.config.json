@@ -4,14 +4,14 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
 		"checkInvalidKey": true,
-		"coverView": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
 		"babelSetting": {
@@ -22,8 +22,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
-	"appid": "wx88e45510d9ff3ce2",
-	"projectname": "AngryCat",
+	"appid": "wxf4b35a705138782e",
+	"projectname": "catt",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

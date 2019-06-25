@@ -35,7 +35,8 @@ Page({
         note: ""
       }
     ],
-    uid: "608fa7ba-3197-4a30-b968-6fc9157a86c3"
+    uid: "608fa7ba-3197-4a30-b968-6fc9157a86c3",
+    oid: ""
 
 
 
@@ -62,15 +63,15 @@ Page({
 
     console.log(rate)
 
-    var self=this
+    var self = this
 
     wx.request({
       url: "https://www.volley99.com/users/rating",
       method: 'POST',
       data: {
         uid: this.data.uid,
-        comment:"",
-        credit: irate
+        credit: irate,
+        oid:this.data.oid
       },
       header: {
         'Content-Type': 'application/json',
@@ -85,8 +86,8 @@ Page({
           icon: 'success',
           duration: 1000,
           mask: true,
-          success: function () {
-            setTimeout(function () {
+          success: function() {
+            setTimeout(function() {
               //要延时执行的代码
               wx.switchTab({
                 url: '../task/task'
@@ -94,14 +95,14 @@ Page({
             }, 1000) //延迟时间
           },
         });
-       
+
 
       }
 
     })
 
   },
-  goToTask:function(){
+  goToTask: function() {
     console.log("dd")
     wx.navigateTo({
       url: '../task/task',
@@ -112,10 +113,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options.uid)
+    console.log(options.oid)
     if (options.uid != null) {
       this.setData({
-        uid: options.uid
+        uid: options.uid,
+        oid: options.oid
       })
     }
 
@@ -134,7 +136,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-   
+
   },
 
   /**

@@ -123,7 +123,7 @@ Page({
 
     if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '../critic/critic?uid=' + this.data.taskinfo.uid + '&isPart=1',
+        url: '../critic/critic?uid=' + this.data.taskinfo.uid + '&isPart=1'+'&oid='+this.data.oid,
       })
 
 

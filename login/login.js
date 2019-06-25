@@ -38,9 +38,6 @@ Page({
 
         if (res.statusCode == 200) {
 
-
-
-
           if (res.data.status == 'success') {
             wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
 

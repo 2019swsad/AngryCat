@@ -5,33 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-    personlist:[{
-      avatar: "../../image/avatar.jpg",
-      name:"xiaohong",
-      credit:55,
-      status:"进行中",
-      uid:""
-    },{
-      avatar: "../../image/avatar.jpg",
-      name:"ZhangMaLiang",
-      credit:53,
-      status:"已完成",
-      uid:""
-    }
+    personlist:[
+    //   {
+    //   avatar: "../../image/avatar.jpg",
+    //   name:"xiaohong",
+    //   credit:55,
+    //   status:"进行中",
+    //   uid:""
+    // },{
+    //   avatar: "../../image/avatar.jpg",
+    //   name:"ZhangMaLiang",
+    //   credit:53,
+    //   status:"已完成",
+    //   uid:""
+    // }
     ],
     candidateList: [
-      {
-        avatar: "../../image/avatar.jpg",
-        name: "Carlsu1",
-        credit: 55,
-        uid:"1"
-      },
-      {
-        avatar: "../../image/avatar.jpg",
-        name: "Carlsu2",
-        credit: 55,
-        uid:"2"
-      }
+      // {
+      //   avatar: "../../image/avatar.jpg",
+      //   name: "Carlsu1",
+      //   credit: 55,
+      //   uid:"1"
+      // },
+      // {
+      //   avatar: "../../image/avatar.jpg",
+      //   name: "Carlsu2",
+      //   credit: 55,
+      //   uid:"2"
+      // }
     ],
     finishStatus: "已完成",
     taskIsBegining: false,
@@ -62,14 +63,16 @@ Page({
     
 
     wx.request({
-      url: "https://www.volley99.com/task/participator/" + this.data.oid,
+      url: "https://www.volley99.com/task/participator/" + this.data.tid,
       method: 'GET',
 
       header: {
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
-      },
+      },  
       success: function (res) {
+
+        console.log(res.data)
 
         
 
