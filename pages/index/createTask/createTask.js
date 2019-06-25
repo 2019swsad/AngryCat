@@ -12,14 +12,14 @@ Page({
    */
   data: {
     beginTime: '',
-    todayTime:'',
+    todayTime: '',
     expireTime: '',
     pickBegin: '',
     taskType: "问卷调查",
-    optionalType: ["问卷调查","跑腿","技术","其他"],
+    optionalType: ["问卷调查", "跑腿", "技术", "其他"],
   },
 
-  bindExpireTimeChange: function (e) {
+  bindExpireTimeChange: function(e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
     // wx.showToast({
     //   title: 'hi',
@@ -36,7 +36,7 @@ Page({
       beginTime: e.detail.value,
       pickBegin: e.detail.value,
     })
-    if (this.data.beginTime > this.data.expireTime){
+    if (this.data.beginTime > this.data.expireTime) {
       this.setData({
         expireTime: this.data.beginTime
       })
@@ -65,7 +65,7 @@ Page({
     })
   },
 
-  bindTaskTypeChange:function(e){
+  bindTaskTypeChange: function(e) {
     console.log(JSON.stringify(e))
     this.setData({
       taskType: this.data.optionalType[parseInt(e.detail.value)]
@@ -111,19 +111,43 @@ Page({
             delta: 1
           })
 
-        }
-        else {
-          if(res.data.status == "No enough money") {
+        } else {
+          if (res.data.status == "No enough money") {
             wx.showToast({
               title: "钱包余额不足",
               duration: 2000,
               icon: 'none'
             })
-          }
-          else {
+          } else {
+            var regForErr = /"(.*?)"/
+            var errStr = regForErr.exec(res.data.details[0].message)[0].slice(1, -1)
+            var renhua = ""
+            switch (errStr) {
+              case "title":
+                renhua = "标题不能少于四个字符"
+                break
+              case "position":
+                renhua = "地点不能为空"
+                break
+              case "beginTime":
+                renhua = "开始时间无效!\n需大于当前日期"
+                break
+              case "description":
+                renhua = "描述不能为空"
+                break
+              case "salary":
+                renhua = "薪酬不能小于1"
+                break
+              case "participantNum":
+                renhua = "参与人数不能小于1"
+                break
+              default:
+
+            }
             console.log('提交任务失败, 错误代码' + res.statusCode)
+            console.log('提交任务失败, 错误信息', errStr)
             wx.showToast({
-              title: '失败:' + res.data.message,
+              title: '失败:' + renhua,
               duration: 2000,
               icon: 'none'
             })
@@ -153,11 +177,11 @@ Page({
   onLoad: function(options) {
     const date = new Date()
     var year = date.getFullYear()
-    var month = date.getMonth()+1
+    var month = date.getMonth() + 1
     var day = date.getDate()
 
-    if (month<10) {
-      month="0" + month
+    if (month < 10) {
+      month = "0" + month
     }
     if (day < 10) {
       day = "0" + day
