@@ -62,7 +62,7 @@ Page({
     
 
     wx.request({
-      url: "https://www.volley99.com/task/participator/" + this.data.tid,
+      url: "https://www.volley99.com/task/participator/" + this.data.oid,
       method: 'GET',
 
       header: {
@@ -138,6 +138,7 @@ Page({
         'cookie': wx.getStorageSync("sessionId")
       },
       success: function (res) {
+
 
 
 
@@ -227,9 +228,10 @@ Page({
      
   },
   disqualify:function(e){
+    console.log(e.currentTarget.dataset.oid)
 
     wx.request({
-      url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
+      url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.uid,
       method: 'GET',
 
       header: {
@@ -237,6 +239,10 @@ Page({
         'cookie': wx.getStorageSync("sessionId")
       },
       success: function (res) {
+
+        console.log(res.data)
+
+
 
 
       }

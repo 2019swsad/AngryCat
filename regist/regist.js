@@ -11,6 +11,7 @@ Page({
     phone:'',
     nickname:'',
     nameRepeatInfo:'',
+    password_margin_top:"23px",
     buttonStatus: false,
   },
   userNameInput: function (e) {
@@ -114,12 +115,14 @@ Page({
         if(res.data == false) {
           that.setData({
             nameRepeatInfo: '用户名已存在',
+            password_margin_top: '2px',
             buttonStatus: true
           })
         }
         else {
           that.setData({
             nameRepeatInfo: '',
+            password_margin_top: '23px',
             buttonStatus: false
           })
         }
