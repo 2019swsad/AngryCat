@@ -77,11 +77,11 @@ Page({
     })
   },
 
-  tapfuntion: function (e) {
+  tapfuntion: function(e) {
     if (e.currentTarget.id == 2) {
       wx.getLocation({
         type: 'gcj02',
-        success: function (res) {
+        success: function(res) {
           var latitude = res.latitude
           var longitude = res.longitude
           wx.openLocation({
@@ -91,6 +91,44 @@ Page({
           });
         }
       })
+    } else if (e.currentTarget.id == 1) {
+
+      wx.request({
+        url: DOMAIN + '/users/sign',
+        header: {
+          'Content-Type': 'application/json',
+          'cookie': wx.getStorageSync("sessionId")
+        },
+        method: 'GET',
+        success: function(res) {
+
+          console.log(res.data.signNumber)
+
+          if (res.data.signNumber == -1) {
+            wx.showToast({
+              title: '今天已经签过到了～',
+              icon: 'success',
+              duration: 1000,
+              success: function () {
+              
+              },
+            });
+
+          }
+          else{
+            wx.showToast({
+              title: '累计签到' + res.data.signNumber+"天～",
+              icon: 'success',
+              duration: 1000,
+              success: function () {
+
+              },
+            });
+          }
+
+        }
+      })
+
     }
   },
 
@@ -129,24 +167,24 @@ Page({
 
   },
 
-  onHide: function(){
+  onHide: function() {
     let me = this
     me.setData({
-      recommendTasks:[]
+      recommendTasks: []
     })
   },
 
-  onShow: function(){
+  onShow: function() {
     let me = this
     me.getRecommendation()
   },
 
-  getRecommendation: function(){
+  getRecommendation: function() {
     let me = this
     wx.request({
       url: DOMAIN + '/task/all',
       method: 'GET',
-      success: function (res) {
+      success: function(res) {
         var arrToRender = JSON.parse(JSON.stringify(res.data))
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
