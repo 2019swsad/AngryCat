@@ -13,7 +13,7 @@ page {
 }
 
 .sign {
-  padding-top: 25px;
+  padding-top: 22px;
   color: rgb(53, 139, 219);
   font-family: 'Ubuntu', sans-serif;
   font-weight: bolder;
@@ -32,13 +32,13 @@ page {
   box-sizing: border-box;
   border-bottom: 1px solid rgb(202, 202, 202);
   text-align: left;
-  margin-bottom: 23px;
+  margin-top: 24px;
   font-family: 'Ubuntu', sans-serif;
 }
 
 
 form.form1 {
-  padding-top: 30px;
+  padding-top: 13px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,7 +52,7 @@ form.form1 {
 .submit_btn {
   width: 150px;
   height: 45px;
-  margin-top: 60px;
+  margin-top: 70px;
   font-weight: 700;
   font-size: 17px;
   display: flex;
@@ -61,7 +61,7 @@ form.form1 {
 }
 
 .nameRepeatInfo {
-  color: red;
-  font-size: 15px;
+  color: rgb(216,22,41);
+  font-weight: bold;
+  font-size: 15px; 
 }
-    
