@@ -165,7 +165,10 @@ Page({
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
         arrToRender.forEach((item, index, input) => {
-          waitingnumber++;
+          self.setData({
+            waitingnumber: self.data.waitingnumber+1
+          })
+          // waitingnumber++;
 
           wx.request({
             url: 'https://www.volley99.com/users/info/' + item.uid,
@@ -175,9 +178,9 @@ Page({
             },
             method: 'GET',
             success: function(res) {
+console.log(item.oid)
 
-
-
+   
               let list = self.data.candidateList;
 
               var j = {};
@@ -191,6 +194,7 @@ Page({
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
               j.uid = res.data[0].uid
+              j.oid=item.oid
 
 
               list.push(j);
@@ -232,19 +236,30 @@ Page({
 
     console.log(e.currentTarget.dataset.uid)
 
-    wx.request({
-      url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
-      method: 'GET',
+    wx.showModal({
+      title: '提示',
+      content: '确定将该报名者转正吗？',
+      success: function (res) {
+        if(res.confirm){
+          wx.request({
+            url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
+            method: 'GET',
 
-      header: {
-        'Content-Type': 'application/json',
-        'cookie': wx.getStorageSync("sessionId")
-      },
-      success: function(res) {
+            header: {
+              'Content-Type': 'application/json',
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            success: function (res) {
 
 
+            }
+          })
+        }
+        
       }
     })
+
+  
 
 
 
@@ -256,26 +271,31 @@ Page({
       title: '提示',
       content: '确定取消该报名者资格吗？',
       success: function (res) {
+        if(res.confirm){
+          wx.request({
+            url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.oid,
+            method: 'GET',
+
+            header: {
+              'Content-Type': 'application/json',
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            success: function (res) {
+
+              console.log(res.data)
+
+
+
+
+            }
+          })
+        }
+
+
       }
     })
 
-    wx.request({
-      url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.oid,
-      method: 'GET',
-
-      header: {
-        'Content-Type': 'application/json',
-        'cookie': wx.getStorageSync("sessionId")
-      },
-      success: function(res) {
-
-        console.log(res.data)
-
-
-
-
-      }
-    })
+   
 
   },
 
