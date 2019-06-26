@@ -48,7 +48,7 @@ Page({
    */
   onShow: function() {
     this.setData({
-      avatarUrl: DOMAIN + '/file/' + app.globalData.uid,
+      avatarUrl: DOMAIN + '/file/' + app.globalData.uid + '?' + Math.random() / 9999,
       nickname: getApp().globalData.nickname || "未登录"
     })
   },
@@ -56,8 +56,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
-  },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载

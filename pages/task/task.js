@@ -82,7 +82,9 @@ Page({
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-          item.nickname=me.data.nickname;
+          item.nickname=me.data.nickname
+          item.randNum = Math.random()
+
         })
 
         
@@ -114,7 +116,6 @@ Page({
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-
 
 
           wx.request({

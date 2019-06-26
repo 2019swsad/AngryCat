@@ -1,4 +1,9 @@
 /**index.wxss**/
+page{
+  height:100%;
+  width: 100%;
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -54,7 +59,8 @@ swiper {
   font-size: 13px;
   color: #737373;
 }
-.commen_title {
+
+.recommend_title {
   padding: 10px;
   background-color: #fff;
   font-size: 16px;
@@ -93,14 +99,14 @@ swiper {
   right: 10%;
 }
 .task_time {
-  color: #929292;
+  color: rgb(105, 105, 105);
   font-size: 12px;
   margin-left:4%;
   margin-bottom: 1%;
 }
 
 .people_number {
-  color: #929292;
+  color: rgb(105, 105, 105);
   font-size: 12px;
   margin-left: 4%;
 }
@@ -122,7 +128,7 @@ swiper {
   font-size: 12px;
   margin-left: 10px;
   margin-top: 2px;
-  color: #929292;
+  color: rgb(105, 105, 105);
 }
 
 .hover{

@@ -395,7 +395,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      avatarUrl: DOMAIN + '/file/' + app.globalData.uid,
+      avatarUrl: DOMAIN + '/file/' + app.globalData.uid + "?" + Math.random(),
       nickname: getApp().globalData.nickname,
       phone: getApp().globalData.phone,
       email: getApp().globalData.email,
