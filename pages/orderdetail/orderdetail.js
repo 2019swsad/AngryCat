@@ -25,11 +25,11 @@ Page({
       bindcancel: "modalCancel",
       bindblur: "saveUsertell",
       inputValue: "",
-      inputType:"text"
+      inputType: "text"
     },
     questionair: "问卷调查",
     finishNumber: "",
-    status:""
+    status: ""
   },
 
   /**
@@ -50,6 +50,7 @@ Page({
 
   },
   requestTaskInfo: function() {
+    //获取任务详情
     var self = this;
     wx.request({
       url: "https://www.volley99.com/task/get/" + self.data.tid,
@@ -95,13 +96,34 @@ Page({
       }
     })
 
+
+
+    //获取订单详情
+    wx.request({
+      url: "https://www.volley99.com/order/get/" + self.data.oid,
+      method: 'GET',
+
+      header: {
+        'Content-Type': 'application/json',
+        'cookie': wx.getStorageSync("sessionId")
+      },
+      success: function(res) {
+        console.log(res.data.comment)
+        if (res.data.comment=="已评价"){
+          self.setData({
+            button1: "已评价",
+          })
+        }
+      }
+    })
+
   },
   onPress1: function(e) {
     var self = this;
 
     if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '../critic/critic?uid=' + this.data.taskinfo.uid + '&isPart=1'+'&oid='+this.data.oid,
+        url: '../critic/critic?uid=' + this.data.taskinfo.uid + '&isPart=1' + '&oid=' + this.data.oid,
       })
 
 
@@ -127,8 +149,8 @@ Page({
                   icon: 'success',
                   duration: 1000,
                   mask: true,
-                  success: function () {
-                    setTimeout(function () {
+                  success: function() {
+                    setTimeout(function() {
                       //要延时执行的代码
                       wx.switchTab({
                         url: '../task/task'
@@ -148,12 +170,12 @@ Page({
         }
       })
 
-    } else if (this.data.button1 == "退出候补"){
+    } else if (this.data.button1 == "退出候补") {
 
       wx.showModal({
         title: '退出候补',
         content: '确定要退出候补？',
-        success: function (res) {
+        success: function(res) {
           if (res.confirm) {
 
             wx.request({
@@ -164,15 +186,15 @@ Page({
                 'Content-Type': 'application/json',
                 'cookie': wx.getStorageSync("sessionId")
               },
-              success: function (res) {
+              success: function(res) {
 
                 wx.showToast({
                   title: '退出成功',
                   icon: 'success',
                   duration: 1000,
                   mask: true,
-                  success: function () {
-                    setTimeout(function () {
+                  success: function() {
+                    setTimeout(function() {
                       //要延时执行的代码
                       wx.switchTab({
                         url: '../task/task'
@@ -242,19 +264,19 @@ Page({
       },
       success: function(res) {
 
-        if(res.statusCode==400){
+        if (res.statusCode == 400) {
 
           wx.showToast({
             title: '完成码错误',
           })
-        } else if (res.statusCode == 200){
+        } else if (res.statusCode == 200) {
           wx.showToast({
             title: '成功完成任务！',
             icon: 'success',
             duration: 1000,
             mask: true,
-            success: function () {
-              setTimeout(function () {
+            success: function() {
+              setTimeout(function() {
                 //要延时执行的代码
                 wx.switchTab({
                   url: '../task/task'
@@ -289,31 +311,31 @@ Page({
     })
   },
 
-  changeButton(){
-     if(this.data.status=="进行中"){
-       this.setData({
-         button1: "退出任务",
-         button2: "完成任务"
-       })
+  changeButton() {
+    if (this.data.status == "进行中") {
+      this.setData({
+        button1: "退出任务",
+        button2: "完成任务"
+      })
 
-     } else if (this.data.status == "已完成"){
-       this.setData({
-         button1: "评价",
-         isShow2: false
-       })
+    } else if (this.data.status == "已完成") {
+      this.setData({
+        button1: "评价",
+        isShow2: false
+      })
 
-     } else if (this.data.status == "候补中"){
-       this.setData({
-         button1: "退出候补",
-         isShow2: false
-       })
+    } else if (this.data.status == "候补中") {
+      this.setData({
+        button1: "退出候补",
+        isShow2: false
+      })
 
-     }else{
-       this.setData({
-         isShow1: false,
-         isShow2: false
-       })
-     }
+    } else {
+      this.setData({
+        isShow1: false,
+        isShow2: false
+      })
+    }
 
   },
 
