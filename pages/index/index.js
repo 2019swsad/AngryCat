@@ -188,13 +188,13 @@ Page({
     let me = this
     wx.request({
       url: DOMAIN + '/task/all',
+      header:{
+        cookie: wx.getStorageSync("sessionId")
+      },
       method: 'GET',
       success: function(res) {
         var arrToRender = JSON.parse(JSON.stringify(res.data))
-        arrToRender.forEach((item, index, input) => {
-          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
-          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-        })
+        var arrToRenderInsider = []
 
         arrToRender = arrToRender.filter((item) => {
           return item.status.indexOf("未开始") >= 0 &&
@@ -203,9 +203,29 @@ Page({
 
         arrToRender = arrToRender.splice(Math.floor(Math.random() * arrToRender.length), 3)
 
-        me.setData({
-          recommendTasks: arrToRender,
+        arrToRender.forEach((item, index, input) => {
+          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+          wx.request({
+            url: DOMAIN + '/users/info/' + item.uid,
+            header: {
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            method: 'GET',
+            success: function (res) {
+              // console.log(this.header)
+              item.organizer = res.data[0].nickname
+              arrToRenderInsider.push(item)
+              console.log("now push and render", arrToRenderInsider)
+              me.setData({
+                recommendTasks: arrToRenderInsider,
+              })
+            }
+          })
         })
+
+
+
       }
     })
   },
