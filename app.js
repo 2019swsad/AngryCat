@@ -52,37 +52,37 @@ App({
 
     //获取用户详情
 
-    wx.request({
-      url: 'https://www.volley99.com/users/self',
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: {
-        'content-type': 'application/json',
-        'cookie': wx.getStorageSync("sessionId")
-      }, // 设置请求的 header
-      success: function (res) {
+    // wx.request({
+    //   url: 'https://www.volley99.com/users/self',
+    //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    //   header: {
+    //     'content-type': 'application/json',
+    //     'cookie': wx.getStorageSync("sessionId")
+    //   }, // 设置请求的 header
+    //   success: function (res) {
 
-        if (res.statusCode == 200) {
+    //     if (res.statusCode == 200) {
 
-          //设置全局变量
+    //       //设置全局变量
 
-          self.globalData.nickname=res.data.nickname;
-          self.globalData.phone = res.data.phone;
-          self.globalData.email = res.data.email;
-          self.globalData.uid = res.data.uid;
+    //       self.globalData.nickname=res.data.nickname;
+    //       self.globalData.phone = res.data.phone;
+    //       self.globalData.email = res.data.email;
+    //       self.globalData.uid = res.data.uid;
 
 
-          console.log(res.data);
-        } else {
-          console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
-        }
-      },
-      fail: function () {
-        console.log("index.js wx.request CheckCallUser fail");
-      },
-      complete: function () {
-        // complete
-      }
-    })
+    //       console.log(res.data);
+    //     } else {
+    //       console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
+    //     }
+    //   },
+    //   fail: function () {
+    //     console.log("index.js wx.request CheckCallUser fail");
+    //   },
+    //   complete: function () {
+    //     // complete
+    //   }
+    // })
 
 
 

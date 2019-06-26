@@ -250,10 +250,17 @@ Page({
 
   },
   disqualify: function(e) {
-    console.log(e.currentTarget.dataset.uid)
+    console.log(e.currentTarget.dataset.oid)
+
+    wx.showModal({
+      title: '提示',
+      content: '确定取消该报名者资格吗？',
+      success: function (res) {
+      }
+    })
 
     wx.request({
-      url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.uid,
+      url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.oid,
       method: 'GET',
 
       header: {
