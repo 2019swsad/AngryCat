@@ -61,11 +61,9 @@ Page({
         'cookie': wx.getStorageSync("sessionId")
       },
       success: function(res) {
-
-
-        if (res.statusCode === 200 || res.statusCode === 201) {
-
-          console.log(res.data);
+        if (res.statusCode === 200 || 
+            res.statusCode === 201) {
+          // console.log(res.data);
           self.setData({
             taskinfo: res.data
           })
@@ -78,31 +76,26 @@ Page({
           self.setData({
             endTime: end
           })
-
-
-          console.log(self.data.taskinfo.comment)
-
-
+          // console.log(self.data.taskinfo.comment)
         }
       },
+
       fail: function() {
         wx.showToast({
           title: 'fail',
           icon: 'none'
         })
       },
+
       complete: function() {
         console.log("完成HTTP请求")
       }
     })
 
-
-
     //获取订单详情
     wx.request({
       url: "https://www.volley99.com/order/get/" + self.data.oid,
       method: 'GET',
-
       header: {
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
@@ -116,8 +109,9 @@ Page({
         }
       }
     })
-
   },
+  
+  // 绑定底部功能键点击
   onPress1: function(e) {
     var self = this;
 
@@ -126,24 +120,20 @@ Page({
         url: '../critic/critic?uid=' + this.data.taskinfo.uid + '&isPart=1' + '&oid=' + this.data.oid,
       })
 
-
     } else if (this.data.button1 == "退出任务") {
       wx.showModal({
         title: '退出任务',
         content: '确定要退出任务？',
         success: function(res) {
           if (res.confirm) {
-
             wx.request({
               url: "https://www.volley99.com/order/close/" + self.data.oid,
               method: 'GET',
-
               header: {
                 'Content-Type': 'application/json',
                 'cookie': wx.getStorageSync("sessionId")
               },
               success: function(res) {
-
                 wx.showToast({
                   title: '退出成功',
                   icon: 'success',
@@ -158,36 +148,25 @@ Page({
                     }, 1000) //延迟时间
                   },
                 });
-
-
               }
-
-
             });
-
-
           }
         }
       })
-
     } else if (this.data.button1 == "退出候补") {
-
       wx.showModal({
         title: '退出候补',
         content: '确定要退出候补？',
         success: function(res) {
           if (res.confirm) {
-
             wx.request({
               url: "https://www.volley99.com/order/close/" + self.data.oid,
               method: 'GET',
-
               header: {
                 'Content-Type': 'application/json',
                 'cookie': wx.getStorageSync("sessionId")
               },
               success: function(res) {
-
                 wx.showToast({
                   title: '退出成功',
                   icon: 'success',
@@ -202,15 +181,10 @@ Page({
                     }, 1000) //延迟时间
                   },
                 });
-
               }
-
-
             });
-
-
           } else {
-
+            // console.log("Error")
           }
         }
       })
@@ -219,38 +193,28 @@ Page({
 
   },
   onPress2: function(e) {
-
     if (this.data.button2 == "完成任务") {
       this.setData({
         addtell: {
           addtellHidden: false,
-
         }
       })
-
-
     } else {
 
     }
-
-
-
-
-
-
   },
+  
+  // 任务完成确认
   modalConfirm: function() {
-
-    console.log(this.data.finishNumber)
-    console.log(this.data.tid)
-    console.log(this.data.oid)
+    // console.log(this.data.finishNumber)
+    // console.log(this.data.tid)
+    // console.log(this.data.oid)
     //弹出框确认操作
     this.setData({
       addtell: {
         addtellHidden: true,
       }
     })
-
     wx.request({
       url: "https://www.volley99.com/order/accomplish",
       method: 'POST',
@@ -284,18 +248,12 @@ Page({
               }, 1000) //延迟时间
             },
           });
-
         }
-
-
       }
-
-
     });
-
-
-
   },
+
+  // 取消任务
   modalCancel: function() {
     //弹出框取消操作
     this.setData({
@@ -305,13 +263,15 @@ Page({
     })
     console.log(this.data.finishNumber)
   },
+  
+  
   saveUsertell: function(e) {
     this.setData({
       finishNumber: e.detail.value
     })
   },
 
-  changeButton() {
+  changeButton: function() {
     if (this.data.status == "进行中") {
       this.setData({
         button1: "退出任务",

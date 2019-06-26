@@ -83,6 +83,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
+    // 设置钱包页头像
     this.setData({
       avatarUrl: DOMAIN + '/file/' + app.globalData.uid,
       nickname: getApp().globalData.nickname

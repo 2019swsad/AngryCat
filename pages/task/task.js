@@ -55,9 +55,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
     let me = this
-    //请求任务列表
+
+    // 请求自己发布的任务列表
     wx.request({
       url: DOMAIN + '/task/query',
       header: {
@@ -77,7 +77,6 @@ Page({
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
           item.nickname = me.data.nickname
           item.randNum = Math.random()
-
         })
 
         me.setData({
@@ -89,6 +88,7 @@ Page({
       },
     })
 
+    // 请求自己加入的任务列表
     wx.request({
       url: DOMAIN + '/order/all',
       header: {
@@ -103,6 +103,8 @@ Page({
         // console.log(res.data)
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
+        
+        // 对于每一个接下的任务, 取得任务本身的信息
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
@@ -117,22 +119,20 @@ Page({
             },
             method: 'GET',
             success: function(res) {
-              console.log("begintime before complete",res.data.beginTime)
               res.data.beginTime = util.formatTimeWithoutHMS(new Date(res.data.beginTime))
               res.data.expireTime = util.formatTimeWithoutHMS(new Date(res.data.expireTime))
-              console.log("begintime before complete, after format", res.data.beginTime)
 
               singletask = res.data
               singletask.oid = item.oid
-              console.log(item.status + "ss")
 
               singletask.orderstatus = item.status
               singletask.createrUid = res.data.uid
 
             },
+            
+            // 取任务发布者昵称
             complete: function() {
-              console.log("HTTP请求完成")
-              console.log("singletask on complete", singletask)
+              // console.log("HTTP请求完成")
               wx.request({
                 url: DOMAIN + '/users/info/' + singletask.createrUid,
                 header: {
@@ -140,11 +140,9 @@ Page({
                 },
                 method: 'GET',
                 success: function(res) {
-                  console.log("res on complete", JSON.stringify(res))
-                  console.log("item", JSON.stringify(item))
                   singletask.organizer = res.data[0].nickname || ""
                   task.push(singletask)
-                  console.log("now push and render", JSON.stringify(item))
+                  // console.log("now push and render", JSON.stringify(item))
                   me.setData({
                     taskInfo: task
                   })

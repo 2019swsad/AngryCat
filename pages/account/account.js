@@ -16,16 +16,11 @@ Page({
     avatarUrl: "",
   },
 
+  // 回落到默认头像
   avatarError(err) {
     console.log(JSON.stringify(err))
     this.setData({
       avatarUrl: "../../image/avatar.jpg"
-    })
-  },
-
-  changeAvator: function() {
-    this.setData({
-      avatarUrl: "../../image/emptyAvatar.jpg",
     })
   },
 
