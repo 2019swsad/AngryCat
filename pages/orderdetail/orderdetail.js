@@ -29,8 +29,7 @@ Page({
     },
     questionair: "问卷调查",
     finishNumber: "",
-    status:"",
-    randNum: 0,
+    status:""
   },
 
   /**
@@ -351,9 +350,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.setData({
-      randNum : Math.random() / 9999
-    })
+
   },
 
   /**

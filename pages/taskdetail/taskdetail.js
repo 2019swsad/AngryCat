@@ -30,8 +30,8 @@ Page({
     tid: '',
     beginTime: '',
     endTime: '',
-    isShow: true,
-    randNum: 0,
+    isShow: true
+
 
 
   },
@@ -136,7 +136,7 @@ Page({
 
     if (this.data.button1 == "报名详情") {
       wx.navigateTo({
-        url: '../partipeople/partipeople?tid=' + this.data.taskinfo.tid,
+        url: '../partipeople/partipeople?tid='+this.data.taskinfo.tid,
       })
 
 
@@ -146,7 +146,7 @@ Page({
       })
     } else if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '../partipeople/partipeople?tid=' + this.data.taskinfo.tid,
+        url: '../partipeople/partipeople?tid='+this.data.taskinfo.tid,
       })
     }
 
@@ -218,14 +218,14 @@ Page({
                 'Content-Type': 'application/json',
                 'cookie': wx.getStorageSync("sessionId")
               },
-              success: function(res) {
+              success: function (res) {
 
                 console.log(res.data)
                 self.requestTaskInfo();
 
 
               },
-              fail: function() {
+              fail: function () {
                 wx.showToast({
                   title: 'fail',
                   icon: 'none'
@@ -257,9 +257,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.setData({
-      randNum: Math.random() / 9999
-    })
+
   },
 
   /**

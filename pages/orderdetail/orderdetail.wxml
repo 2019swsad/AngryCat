@@ -27,7 +27,7 @@
 
   <!--发布者信息栏-->
   <view class="organizer">
-    <image class="portrait" src='{{pageVar.fileUrl + taskinfo.uid + "?" + randNum}}'></image>
+    <image class="portrait" src='{{pageVar.fileUrl + taskinfo.uid}}'></image>
     <view class="user_info">
       <text class="nickname">{{taskinfo.userinfo[0].nickname}}</text>
       <text class="credit">信誉值：{{taskinfo.userinfo[0].credit}}</text>

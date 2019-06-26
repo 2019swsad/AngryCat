@@ -29,8 +29,8 @@ Page({
     button2: '完成任务',
     tid: '',
     beginTime: '',
-    endTime: '',
-    randNum: 0,
+    endTime: ''
+
 
 
   },
@@ -98,12 +98,12 @@ Page({
 
   },
 
-  onPress1: function(e) {
-    var self = this;
+  onPress1:function(e) {
+    var self=this;
     wx.showModal({
       title: '提示',
       content: '确定要报名吗？',
-      success: function(res) {
+      success: function (res) {
         console.log(res)
         if (res.confirm) {
 
@@ -112,14 +112,14 @@ Page({
             data: {
               "tid": self.data.tid
             },
-            method: 'POST',
+            method: 'POST', 
             header: {
               'content-type': 'application/json',
               'cookie': wx.getStorageSync("sessionId")
             },
-            success: function(res) {
+            success: function (res) {
               console.log(res.data)
-              if (res.data.status == "进行中") {
+              if(res.data.status=="进行中"){
                 wx.showToast({
                   title: '成功报名',
                   duration: 2000,
@@ -130,7 +130,8 @@ Page({
                 setTimeout(wx.navigateBack, 1500, {
                   delta: 1
                 })
-              } else if (res.data.status == "候补中") {
+              }
+              else if (res.data.status == "候补中") {
                 wx.showToast({
                   title: '成为候补',
                   duration: 2000,
@@ -141,25 +142,29 @@ Page({
                 setTimeout(wx.navigateBack, 1500, {
                   delta: 1
                 })
-              } else if (res.data.status == "creator can not create order") {
+              }
+              else if (res.data.status == "creator can not create order") {
                 wx.showToast({
                   title: '不能报名参与自己发布的任务',
                   duration: 2000,
                   icon: 'none'
                 })
-              } else if (res.data.status == "failure:already exist order of same user") {
+              }
+              else if (res.data.status == "failure:already exist order of same user") {
                 wx.showToast({
                   title: '您已报名',
                   duration: 2000,
                   icon: 'none'
                 })
-              } else if (res.data.status == "failure: task status error") {
+              }
+              else if (res.data.status == "failure: task status error") {
                 wx.showToast({
                   title: '任务已停止报名',
                   duration: 2000,
                   icon: 'none'
                 })
-              } else {
+              }
+              else {
                 wx.showToast({
                   title: '报名失败!',
                   duration: 2000,
@@ -167,7 +172,7 @@ Page({
                 })
               }
             },
-            fail: function() {
+            fail: function () {
               console.log("index.js wx.request CheckCallUser fail");
             },
           })
@@ -190,9 +195,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.setData({
-      randNum: Math.random() / 9999
-    })
+
   },
 
   /**
