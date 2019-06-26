@@ -7,32 +7,13 @@ Page({
    */
   data: {
     taskinfo: {
-      // "_id": "5cfe0688d7f67f119cbd4967",
-      // "title": "Cark",
-      // "type": "Questionaire",
-      // "salary": 20,
-      // "description": "Hello World",
-      // "beginTime": "2019-08-19T16:00:00.000Z",
-      // "expireTime": "2019-08-21T16:00:00.000Z",
-      // "participantNum": 1,
-      // "tags": "Testing",
-      // "uid": "d06146e7-aaff-47a8-831b-99bcf73e1f55",
-      // "tid": "17eeefdb-96db-4da4-9d52-2be8c04131b4",
-      // "status": "start",
-      // "totalCost": 20,
-      // "createTime": "2019-06-10 15:28:08",
-      // "currentParticipator": 0,
-      // "isOrganizer": true,
-      // "finishNumber": ""
+
     },
     button1: '查看',
     button2: '完成任务',
     tid: '',
     beginTime: '',
     endTime: ''
-
-
-
   },
 
   /**
@@ -41,14 +22,11 @@ Page({
   onLoad: function(options) {
     var self = this;
 
-
-
-    console.log(options.tid);
+    // console.log(options.tid);
     //  this.data.tid=option.query;
 
     this.data.tid = options.tid;
     console.log(options.tid)
-
 
     this.requestTaskInfo();
 
@@ -59,38 +37,32 @@ Page({
     wx.request({
       url: "https://www.volley99.com/task/get/" + self.data.tid,
       method: 'GET',
-
       header: {
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
       success: function(res) {
-
-
-        if (res.statusCode === 200 || res.statusCode === 201) {
-
-          console.log(res.data);
+      if (res.statusCode === 200 || res.statusCode === 201) {
+          // console.log(res.data);
           self.setData({
             taskinfo: res.data
           })
           var start = util.formatTimeWithoutHMS(new Date(res.data.beginTime));
           var end = util.formatTimeWithoutHMS(new Date(res.data.expireTime));
           self.setData({
-            beginTime: start
-          })
-
-          self.setData({
+            beginTime: start,
             endTime: end
           })
-
         }
       },
+
       fail: function() {
         wx.showToast({
           title: 'fail',
           icon: 'none'
         })
       },
+
       complete: function() {
         console.log("完成HTTP请求")
       }

@@ -20,6 +20,7 @@ Page({
     sortType: 0,
   },
 
+  // 绑定关键词更新事件
   updateKeyword: function(e) {
     console.log(e.detail)
     this.setData({
@@ -27,6 +28,7 @@ Page({
     })
   },
 
+  // 绑定执行搜索
   execSearch: function() {
     let me = this
     wx.request({
@@ -36,34 +38,46 @@ Page({
       // method: 'POST',
       data: {
         title: me.data.keyword,
-        // type: "Questionaire"
       },
       success: function(res) {
 
-        // console.log(JSON.stringify(res))
-
         var arrToRender = JSON.parse(JSON.stringify(res.data))
+        var arrToRenderInsider = []
+
+        // 过滤任务
+        arrToRender = arrToRender.filter((item) => {
+          return item.title.indexOf(me.data.keyword) >= 0 && item.status.indexOf("未开始") >= 0
+        })
+
+        console.log("after filter", JSON.stringify(arrToRender))
 
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
+          // 取得发布者的用户昵称
+          wx.request({
+            url: DOMAIN + '/users/info/' + item.uid,
+            header: {
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            method: 'GET',
+            success: function(res) {
+              item.organizer = res.data[0].username
+              arrToRenderInsider.push(item)
+              // console.log("now push and render", arrToRenderInsider)
+              me.setData({
+                displayTasks: arrToRenderInsider,
+                resultTasks: arrToRenderInsider
+              })
+            }
+          })
         })
 
-        arrToRender = arrToRender.filter((item) => {
-          return item.title.indexOf(me.data.keyword) >= 0 &&
-            item.status.indexOf("未开始") >= 0 &&
-            item.uid != app.globalData.uid
-        })
-
-
-        me.setData({
-          resultTasks: arrToRender,
-          displayTasks: arrToRender,
-        })
       }
     })
   },
 
+  // 转到详情页
   goToDetail: function(e) {
     console.log(e.currentTarget.dataset.tid)
     wx.navigateTo({
@@ -73,13 +87,14 @@ Page({
 
 
   /**
-   * Function to sort alphabetically an array of objects by some specific key.
+   * 根据Key进行排序的辅助函数
    * 
-   * @param {String} property Key of the object to sort.
+   * @param {String} 指定的Key
    */
   dynamicSort: function(prop) {
     var result = 0
     var sortOrder = 1
+    // 反向排序则在key前加负号
     if (prop[0] === "-") {
       sortOrder = -1
       prop = prop.substr(1)
@@ -103,12 +118,7 @@ Page({
   },
 
 
-  // optionalTaskType: ["所有", "问卷调查", "跑腿", "技术", "其他"],
-  // optionalSortType: ["薪酬从高到低", "薪酬从高到低", "最近发布", "最少人报名", "发布者信誉最高"],
   bindSortTypeChange: function(e) {
-    // console.log("bindSortTypeChange")
-    // console.log("index of sortType", e.detail.value)
-
     this.setData({
       sortType: e.detail.value
     })
@@ -132,12 +142,12 @@ Page({
         sortBy = this.dynamicSort("title")
     }
     var arrToRender = this.data.displayTasks.sort(sortBy)
-    // console.log(JSON.stringify(arrToRender))
     this.setData({
       displayTasks: arrToRender
     })
   },
 
+  // 绑定所选任务类型更新
   bindTaskTypeChange: function(e) {
     this.setData({
       taskType: e.detail.value
@@ -165,36 +175,46 @@ Page({
    */
   onLoad: function(options) {
     let me = this
+
+    // 获得所有有效任务
     wx.request({
       url: DOMAIN + '/task/all',
       method: 'GET',
       success: function(res) {
 
-        // console.log(JSON.stringify(res))
-
         var arrToRender = JSON.parse(JSON.stringify(res.data))
-
-        arrToRender.forEach((item, index, input) => {
-          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
-          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-        })
+        var arrToRenderInsider = []
 
         arrToRender = arrToRender.filter((item) => {
           return (item.status.indexOf("start") >= 0 ||
               item.status.indexOf("未开始") >= 0 ||
               item.status.indexOf("进行中") >= 0) &&
-            item.uid != app.globalData.uid
+            item.uid != getApp().globalData.uid
         })
+        arrToRender.forEach((item, index, input) => {
+          item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
+          item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
 
-
-        me.setData({
-          resultTasks: arrToRender,
-          displayTasks: arrToRender,
+          wx.request({
+            url: DOMAIN + '/users/info/' + item.uid,
+            method: 'GET',
+            header: {
+              cookie: wx.getStorageSync("sessionId")
+            },
+            success: function(res) {
+              item.organizer = res.data[0].nickname
+              arrToRenderInsider.push(item)
+              console.log("now push and render", arrToRenderInsider)
+              me.setData({
+                displayTasks: arrToRenderInsider
+              })
+            }
+          })
         })
-        console.log(me.data.displayTasks[1].tid)
       }
     })
 
+    // 动态修改窗口高度
     const res = wx.getSystemInfoSync()
     this.setData({
       listHeight: res.windowHeight - 102 + "px"

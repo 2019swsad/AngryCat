@@ -16,7 +16,7 @@ Page({
     this.getMessageList();
   },
 
-  /* 获取消息列表*/
+  /* 获取消息列表 */
   getMessageList: function() {
     var that = this;
     wx.request({

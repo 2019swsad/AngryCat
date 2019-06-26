@@ -14,7 +14,7 @@ Page({
     createdTasks: [],
     joinedTasks: [],
     taskInfo: [],
-    nickname:""
+    nickname: ""
 
   },
 
@@ -27,16 +27,11 @@ Page({
     })
   },
   goToOrderDetail: function(e) {
-   
-
- 
-
 
     wx.navigateTo({
       url: '../orderdetail/orderdetail?tid=' + e.currentTarget.dataset.tid + '&oid=' + e.currentTarget.dataset.oid + '&status=' + e.currentTarget.dataset.orderstatus,
     })
   },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -48,23 +43,21 @@ Page({
     })
 
     this.data.nickname = getApp().globalData.nickname
-   
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
     let me = this
-    //请求任务列表
+
+    // 请求自己发布的任务列表
     wx.request({
       url: DOMAIN + '/task/query',
       header: {
@@ -82,12 +75,9 @@ Page({
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-          item.nickname=me.data.nickname
+          item.nickname = me.data.nickname
           item.randNum = Math.random()
-
         })
-
-        
 
         me.setData({
           createdTasks: arrToRender,
@@ -98,7 +88,7 @@ Page({
       },
     })
 
-
+    // 请求自己加入的任务列表
     wx.request({
       url: DOMAIN + '/order/all',
       header: {
@@ -113,11 +103,14 @@ Page({
         // console.log(res.data)
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
+        
+        // 对于每一个接下的任务, 取得任务本身的信息
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
 
-
+          let task = me.data.taskInfo
+          let singletask = {}
           wx.request({
             url: DOMAIN + '/task/get/' + item.tid,
             header: {
@@ -126,103 +119,81 @@ Page({
             },
             method: 'GET',
             success: function(res) {
-
-
-
               res.data.beginTime = util.formatTimeWithoutHMS(new Date(res.data.beginTime))
               res.data.expireTime = util.formatTimeWithoutHMS(new Date(res.data.expireTime))
-              let task = me.data.taskInfo;
 
-              var singletask = res.data;
+              singletask = res.data
               singletask.oid = item.oid
-              console.log(item.status + "ss")
 
               singletask.orderstatus = item.status
+              singletask.createrUid = res.data.uid
 
-              task.push(singletask)
-
-              me.setData({
-                taskInfo: task
+            },
+            
+            // 取任务发布者昵称
+            complete: function() {
+              // console.log("HTTP请求完成")
+              wx.request({
+                url: DOMAIN + '/users/info/' + singletask.createrUid,
+                header: {
+                  'cookie': wx.getStorageSync("sessionId")
+                },
+                method: 'GET',
+                success: function(res) {
+                  singletask.organizer = res.data[0].nickname || ""
+                  task.push(singletask)
+                  // console.log("now push and render", JSON.stringify(item))
+                  me.setData({
+                    taskInfo: task
+                  })
+                }
               })
+            },
 
-              // console.log(index)
-              // var taskoid = "taskInfo[" + index + "].oid" //添加键值对
-
-              // me.setData({
-              //   [taskoid] : item.oid
-              // })
-
-              // console.log(item.oid+"++")
-              // console.log(item.tid)
-
-            }
-
+            fail: function() {
+              console.log("HTTP请求失败")
+            },
           })
-
-
-
+          /*
+          if (this.data.currentTab == 0) {
+          this.setData({
+          listHeight: this.data.listHeight2
+          })
+          } else {
+          this.setData({
+          listHeight: this.data.listHeight1
+          });
+          }
+           */
         })
-
-        me.setData({
-          joinedTasks: arrToRender
-        })
-      },
-      fail: function() {
-        console.log("HTTP请求失败")
-      },
-      complete: function() {
-        console.log("HTTP请求完成")
-
-
       }
     })
-    /*
-        if (this.data.currentTab == 0) {
-          this.setData({
-            listHeight: this.data.listHeight2
-          })
-        } else {
-          this.setData({
-            listHeight: this.data.listHeight1
-          });
-        }
-    */
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
-
-  },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
-
-  },
+  onUnload: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
-
-  },
+  onPullDownRefresh: function() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
-
-  },
+  onReachBottom: function() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
-  },
+  onShareAppMessage: function() {},
 
   //滑动切换
   swiperTab: function(e) {
