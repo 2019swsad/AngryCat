@@ -40,8 +40,8 @@ Page({
     tid: "",
 
     waitingnumber: 0,
-    partinumber: 0
-
+    partinumber: 0,
+    participanNum: 0
 
   },
 
@@ -50,8 +50,11 @@ Page({
    */
   onLoad: function(options) {
 
-    console.log(options.tid)
+    console.log(options.count)
     this.data.tid = options.tid
+    this.setData({
+      participanNum: options.count
+    })
 
     // var show=options.show;
     // console.log(show)

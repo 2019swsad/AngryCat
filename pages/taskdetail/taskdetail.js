@@ -133,20 +133,22 @@ Page({
 
   onPress1: function(e) {
 
+    console.log(this.data.taskinfo)
+
 
     if (this.data.button1 == "报名详情") {
       wx.navigateTo({
-        url: '../partipeople/partipeople?tid='+this.data.taskinfo.tid,
+        url: '../partipeople/partipeople?tid=' + this.data.taskinfo.tid + '&count=' + this.data.taskinfo.participantNum,
       })
 
 
     } else if (this.data.button1 == "完成情况") {
       wx.navigateTo({
-        url: '../partipeople/partipeople?tid=' + this.data.taskinfo.tid,
+        url: '../partipeople/partipeople?tid=' + this.data.taskinfo.tid + '&count=' + this.data.taskinfo.participantNum,
       })
     } else if (this.data.button1 == "评价") {
       wx.navigateTo({
-        url: '../partipeople/partipeople?tid='+this.data.taskinfo.tid,
+        url: '../partipeople/partipeople?tid=' + this.data.taskinfo.tid + '&count=' + this.data.taskinfo.participantNum,
       })
     }
 
