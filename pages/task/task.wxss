@@ -84,14 +84,14 @@ swiper {
 }
 
 .task_time {
-  color: #929292;
+  color: rgb(105, 105, 105);
   font-size: 12px;
   margin-left: 4%;
   margin-bottom: 1%;
 }
 
 .people_number {
-  color: #929292;
+  color: rgb(105, 105, 105);
   font-size: 12px;
   margin-left: 4%;
 }
@@ -113,7 +113,7 @@ swiper {
   font-size: 12px;
   margin-left: 10px;
   margin-top: 2px;
-  color: #929292;
+  color: rgb(105, 105, 105);
 }
 
 .hover{

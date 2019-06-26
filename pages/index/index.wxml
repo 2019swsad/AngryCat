@@ -30,7 +30,7 @@
 
 <!--底部任务推荐栏-->
 <view>
-  <view class="commen_title">
+  <view class="recommend_title">
     <text>任务推荐</text>
   </view>
 
