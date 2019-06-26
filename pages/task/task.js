@@ -14,8 +14,8 @@ Page({
     createdTasks: [],
     joinedTasks: [],
     taskInfo: [],
-    nickname:""
-
+    nickname: "",
+    randNum: 0
   },
 
   goToDetail: function(e) {
@@ -27,9 +27,9 @@ Page({
     })
   },
   goToOrderDetail: function(e) {
-   
 
- 
+
+
 
 
     wx.navigateTo({
@@ -48,7 +48,7 @@ Page({
     })
 
     this.data.nickname = getApp().globalData.nickname
-   
+
   },
 
   /**
@@ -62,7 +62,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.setData({
+      randNum: Math.random() / 9999
+    })
     let me = this
     //请求任务列表
     wx.request({
@@ -82,10 +84,10 @@ Page({
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
           item.expireTime = util.formatTimeWithoutHMS(new Date(item.expireTime))
-          item.nickname=me.data.nickname;
+          item.nickname = me.data.nickname;
         })
 
-        
+
 
         me.setData({
           createdTasks: arrToRender,
