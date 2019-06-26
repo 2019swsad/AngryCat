@@ -49,7 +49,7 @@ Page({
         "email": this.data.email,
         "nickname": this.data.nickname,
       },
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      method: 'POST', 
       header: {
         'content-type': 'application/json'
       }, // 设置请求的 header
@@ -57,8 +57,6 @@ Page({
         wx.navigateTo({
           url: '../pages/index/index'　　// 页面 B
         })
-
-       
 
         if (res.statusCode == 200 || res.statusCode === 201) {
           wx.showToast({
@@ -100,6 +98,7 @@ Page({
       }
     })
   },
+  
   /**
    * 自定义函数--检测用户名是否已存在
    */

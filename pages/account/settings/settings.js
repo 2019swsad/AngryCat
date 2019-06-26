@@ -8,6 +8,7 @@ Page({
 
   },
 
+  // 登出逻辑
   logout(){
     var app = getApp()
     app.globalData.nickname = ""
