@@ -70,7 +70,7 @@ Page({
       method: 'POST',
       data: {
         uid: this.data.uid,
-        credit: irate,
+        rate: irate,
         oid:this.data.oid
       },
       header: {

@@ -38,7 +38,8 @@ Page({
     taskIsBegining: false,
     tid:"",
 
-    waitingnumber: 0
+    waitingnumber: 0,
+    partinumber:0
 
 
   },
@@ -61,7 +62,7 @@ Page({
     var self=this;
     //参与者列表
     
-
+  
     wx.request({
       url: "https://www.volley99.com/task/participator/" + this.data.tid,
       method: 'GET',
@@ -79,6 +80,10 @@ Page({
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
         arrToRender.forEach((item, index, input) =>{
+          self.setData({
+            partinumber: self.data.partinumber+1
+          })
+          
 
           wx.request({
             url:  'https://www.volley99.com/users/info/' + item.uid,
@@ -101,7 +106,8 @@ Page({
 
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
-              j.uid = res.data[0].uid
+              j.uid = res.data[0].uid;
+              j.oid=item.oid;
 
 
               list.push(j);
@@ -203,9 +209,9 @@ Page({
    
   },
   goToCritic:function(e){
-    // console.log(e.currentTarget.dataset.tid)
+    console.log(e.currentTarget.dataset.oid)
     wx.navigateTo({
-      url: '../critic/critic?uid=' + e.currentTarget.dataset.uid,
+      url: '../critic/critic?uid=' + e.currentTarget.dataset.uid+'&oid='+e.currentTarget.dataset.oid,
     })
   },
 
@@ -231,7 +237,7 @@ Page({
      
   },
   disqualify:function(e){
-    console.log(e.currentTarget.dataset.oid)
+    console.log(e.currentTarget.dataset.uid)
 
     wx.request({
       url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.uid,
