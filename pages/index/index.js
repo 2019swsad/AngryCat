@@ -94,18 +94,17 @@ Page({
               title: '今天已经签过到了～',
               icon: 'success',
               duration: 1000,
-              success: function () {
-              
+              success: function() {
+
               },
             });
 
-          }
-          else{
+          } else {
             wx.showToast({
-              title: '累计签到' + res.data.signNumber+"天～",
+              title: '累计签到' + res.data.signNumber + "天～",
               icon: 'success',
               duration: 1000,
-              success: function () {
+              success: function() {
 
               },
             });
@@ -116,7 +115,7 @@ Page({
     } else if (e.currentTarget.id == 2) {
       wx.getLocation({
         type: 'gcj02',
-        success: function (res) {
+        success: function(res) {
           var latitude = res.latitude
           var longitude = res.longitude
           wx.openLocation({
@@ -129,10 +128,9 @@ Page({
     } else {
       wx.showToast({
         title: '此功能暂未开放',
-        icon:"none",
+        icon: "none",
         duration: 1000,
-        success: function () {
-        },
+        success: function() {},
       });
     }
   },
@@ -188,7 +186,7 @@ Page({
     let me = this
     wx.request({
       url: DOMAIN + '/task/all',
-      header:{
+      header: {
         cookie: wx.getStorageSync("sessionId")
       },
       method: 'GET',
@@ -212,7 +210,7 @@ Page({
               'cookie': wx.getStorageSync("sessionId")
             },
             method: 'GET',
-            success: function (res) {
+            success: function(res) {
               // console.log(this.header)
               item.organizer = res.data[0].nickname
               arrToRenderInsider.push(item)
