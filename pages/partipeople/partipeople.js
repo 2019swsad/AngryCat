@@ -27,13 +27,97 @@ Page({
       participanNum: options.count
     })
 
-    // var show=options.show;
-    // console.log(show)
-    // if(show==1){
-    //   this.setData({
-    //     hidden:true
-    //   })
-    // }
+    this.requestInfo()
+   
+
+
+  
+
+
+
+  },
+
+  // 转到评价页
+  goToCritic: function(e) {
+    console.log(e.currentTarget.dataset.oid)
+    wx.navigateTo({
+      url: '../critic/critic?uid=' + e.currentTarget.dataset.uid + '&oid=' + e.currentTarget.dataset.oid,
+    })
+  },
+
+  // 将候选者升级为参与者
+  qualify: function(e) {
+    console.log(e.currentTarget.dataset.uid)
+
+
+    wx.showModal({
+      title: '提示',
+      content: '确定将该报名者转正吗？',
+      success: function(res) {
+        if (res.confirm) {
+          wx.request({
+            url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
+            method: 'GET',
+
+            header: {
+              'Content-Type': 'application/json',
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            success: function(res) {
+
+              console.log(res.data)
+
+
+            }
+          })
+        }
+
+      }
+    })
+
+
+
+
+
+  },
+
+  // 将参与者降级为候选者
+  disqualify: function(e) {
+    console.log(e.currentTarget.dataset.oid)
+
+    wx.showModal({
+      title: '提示',
+      content: '确定取消该报名者资格吗？',
+      success: function(res) {
+        if (res.confirm) {
+          wx.request({
+            url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.oid,
+            method: 'GET',
+
+            header: {
+              'Content-Type': 'application/json',
+              'cookie': wx.getStorageSync("sessionId")
+            },
+            success: function(res) {
+
+              console.log(res.data)
+
+
+
+
+            }
+          })
+        }
+      }
+    })
+
+
+
+
+
+
+  },
+  requestInfo:function(){
     var self = this;
 
     // 获得参与者列表
@@ -44,7 +128,7 @@ Page({
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      success: function(res) {
+      success: function (res) {
         // console.log(res.data)
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
@@ -61,7 +145,7 @@ Page({
               'cookie': wx.getStorageSync("sessionId")
             },
             method: 'GET',
-            success: function(res) {
+            success: function (res) {
               // console.log(res.data)
               let list = self.data.personlist;
               var j = {};
@@ -86,7 +170,6 @@ Page({
       }
     })
 
-
     // 获得候选者列表
     wx.request({
       url: "https://www.volley99.com/order/waitinglist/" + this.data.tid,
@@ -95,12 +178,12 @@ Page({
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      success: function(res) {
+      success: function (res) {
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
         arrToRender.forEach((item, index, input) => {
           self.setData({
-            waitingnumber: self.data.waitingnumber+1
+            waitingnumber: self.data.waitingnumber + 1
           })
           // waitingnumber++;
 
@@ -111,9 +194,9 @@ Page({
               'cookie': wx.getStorageSync("sessionId")
             },
             method: 'GET',
-            success: function(res) {
+            success: function (res) {
 
-console.log(item.oid)
+              console.log(item.oid)
 
 
               let list = self.data.candidateList;
@@ -123,7 +206,7 @@ console.log(item.oid)
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
               j.uid = res.data[0].uid
-              j.oid=item.oid
+              j.oid = item.oid
 
               list.push(j);
 
@@ -135,86 +218,6 @@ console.log(item.oid)
         })
       }
     })
-  },
-  
-  // 转到评价页
-  goToCritic: function(e) {
-    console.log(e.currentTarget.dataset.oid)
-    wx.navigateTo({
-      url: '../critic/critic?uid=' + e.currentTarget.dataset.uid + '&oid=' + e.currentTarget.dataset.oid,
-    })
-  },
-
-  // 将候选者升级为参与者
-  qualify: function(e) {
-    console.log(e.currentTarget.dataset.uid)
-
-
-    wx.showModal({
-      title: '提示',
-      content: '确定将该报名者转正吗？',
-      success: function (res) {
-        if(res.confirm){
-          wx.request({
-            url: "https://www.volley99.com/order/turnbegin/" + e.currentTarget.dataset.uid,
-            method: 'GET',
-
-            header: {
-              'Content-Type': 'application/json',
-              'cookie': wx.getStorageSync("sessionId")
-            },
-            success: function (res) {
-
-              console.log(res.data)
-
-
-            }
-          })
-        }
-        
-      }
-    })
-
-  
-
-
- 
-  },
-  
-  // 将参与者降级为候选者
-  disqualify: function(e) {
-    console.log(e.currentTarget.dataset.oid)
-
-    wx.showModal({
-      title: '提示',
-      content: '确定取消该报名者资格吗？',
-      success: function (res) {
-        if(res.confirm){
-          wx.request({
-            url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.oid,
-            method: 'GET',
-
-            header: {
-              'Content-Type': 'application/json',
-              'cookie': wx.getStorageSync("sessionId")
-            },
-            success: function (res) {
-
-              console.log(res.data)
-
-
-
-
-            }
-          })
-        }
-      }
-    })
-
-
-  
-
-   
 
   },
 
