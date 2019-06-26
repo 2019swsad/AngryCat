@@ -43,7 +43,7 @@ Page({
 
         var arrToRender = JSON.parse(JSON.stringify(res.data))
         var arrToRenderInsider = []
-        
+
         // 过滤任务
         arrToRender = arrToRender.filter((item) => {
           return item.title.indexOf(me.data.keyword) >= 0 && item.status.indexOf("未开始") >= 0
@@ -175,7 +175,7 @@ Page({
    */
   onLoad: function(options) {
     let me = this
-    
+
     // 获得所有有效任务
     wx.request({
       url: DOMAIN + '/task/all',
@@ -186,9 +186,10 @@ Page({
         var arrToRenderInsider = []
 
         arrToRender = arrToRender.filter((item) => {
-          return item.status.indexOf("start") >= 0 ||
-            item.status.indexOf("未开始") >= 0 ||
-            item.status.indexOf("进行中") >= 0
+          return (item.status.indexOf("start") >= 0 ||
+              item.status.indexOf("未开始") >= 0 ||
+              item.status.indexOf("进行中") >= 0) &&
+            item.uid != getApp().globalData.uid
         })
         arrToRender.forEach((item, index, input) => {
           item.beginTime = util.formatTimeWithoutHMS(new Date(item.beginTime))
