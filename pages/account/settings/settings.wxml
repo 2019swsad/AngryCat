@@ -7,7 +7,7 @@
   <text class="version_number">Version 1.0.0</text>
 </view>
 
-<navigator class='logOutButton' url='../../../login/login'>
+<view class='logOutButton' url='../../../login/login'>
   <text class='logOutButtonText' bindtap='logout'>退出登录</text>
-</navigator>
+</view>
 
