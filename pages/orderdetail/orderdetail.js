@@ -41,7 +41,7 @@ Page({
     this.data.oid = options.oid;
     this.data.status = options.status;
 
-    console.log(this.data.status)
+    console.log(this.data.oid)
 
     this.changeButton();
 
@@ -80,28 +80,6 @@ Page({
 
 
           console.log(self.data.taskinfo.comment)
-
-
-
-          // if (self.data.taskinfo.status == '未开始') {
-          //   self.setData({
-          //     button1: "退出任务",
-          //     button2: "完成任务"
-          //   })
-
-          // } else if (self.data.taskinfo.status == '进行中') {
-          //   self.setData({
-          //     button1: "退出任务",
-          //     button2: "完成任务"
-          //   })
-          // } else if (self.data.taskinfo.status == '已结束') {
-          //   self.setData({
-          //     button1: "评价",
-          //     isShow2: false
-          //   })
-
-
-          // }
 
 
         }

@@ -15,6 +15,9 @@ Page({
     app.globalData.email = ""
     app.globalData.uid = ""
     wx.setStorageSync("sessionId", "")
+    wx.reLaunch({
+      url: '../../../login/login',
+    })
   },
 
   /**
