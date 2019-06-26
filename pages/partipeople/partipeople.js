@@ -5,20 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    personlist:[
-    //   {
-    //   avatar: "../../image/avatar.jpg",
-    //   name:"xiaohong",
-    //   credit:55,
-    //   status:"进行中",
-    //   uid:""
-    // },{
-    //   avatar: "../../image/avatar.jpg",
-    //   name:"ZhangMaLiang",
-    //   credit:53,
-    //   status:"已完成",
-    //   uid:""
-    // }
+    personlist: [
+      //   {
+      //   avatar: "../../image/avatar.jpg",
+      //   name:"xiaohong",
+      //   credit:55,
+      //   status:"进行中",
+      //   uid:""
+      // },{
+      //   avatar: "../../image/avatar.jpg",
+      //   name:"ZhangMaLiang",
+      //   credit:53,
+      //   status:"已完成",
+      //   uid:""
+      // }
     ],
     candidateList: [
       // {
@@ -35,21 +35,26 @@ Page({
       // }
     ],
     finishStatus: "已完成",
+    criticStatus: "已评价",
     taskIsBegining: false,
-    tid:"",
+    tid: "",
 
-    waitingnumber: 0
-
+    waitingnumber: 0,
+    partinumber: 0,
+    participanNum: 0
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
-    console.log(options.tid)
+    console.log(options.count)
     this.data.tid = options.tid
+    this.setData({
+      participanNum: options.count
+    })
 
     // var show=options.show;
     // console.log(show)
@@ -58,9 +63,9 @@ Page({
     //     hidden:true
     //   })
     // }
-    var self=this;
+    var self = this;
     //参与者列表
-    
+
 
     wx.request({
       url: "https://www.volley99.com/task/participator/" + this.data.tid,
@@ -69,25 +74,29 @@ Page({
       header: {
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
-      },  
-      success: function (res) {
+      },
+      success: function(res) {
 
         console.log(res.data)
 
-        
+
 
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
-        arrToRender.forEach((item, index, input) =>{
+        arrToRender.forEach((item, index, input) => {
+          self.setData({
+            partinumber: self.data.partinumber + 1
+          })
+
 
           wx.request({
-            url:  'https://www.volley99.com/users/info/' + item.uid,
+            url: 'https://www.volley99.com/users/info/' + item.uid,
             header: {
               'Content-Type': 'application/json',
               'cookie': wx.getStorageSync("sessionId")
             },
             method: 'GET',
-            success: function (res) {
+            success: function(res) {
 
               console.log(res.data)
 
@@ -95,13 +104,21 @@ Page({
 
               var j = {};
 
-              console.log(item.status)
+
+
+              var com = item.comment
 
               j.status = item.status
 
+              if (com == "已评价") {
+
+                j.status = "已评价";
+              }
+
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
-              j.uid = res.data[0].uid
+              j.uid = res.data[0].uid;
+              j.oid = item.oid;
 
 
               list.push(j);
@@ -117,8 +134,8 @@ Page({
           })
 
 
-        
-      
+
+
 
 
         })
@@ -129,7 +146,7 @@ Page({
     })
 
 
-//候选者列表
+    //候选者列表
 
 
     wx.request({
@@ -140,7 +157,7 @@ Page({
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      success: function (res) {
+      success: function(res) {
 
 
 
@@ -157,17 +174,19 @@ Page({
               'cookie': wx.getStorageSync("sessionId")
             },
             method: 'GET',
-            success: function (res) {
+            success: function(res) {
 
-              console.log(res.data)
+
 
               let list = self.data.candidateList;
 
               var j = {};
 
-              
 
-              j.status=item.status
+
+              j.status = item.status
+
+
 
               j.name = res.data[0].nickname;
               j.credit = res.data[0].credit;
@@ -198,18 +217,18 @@ Page({
 
     })
 
-  
 
-   
+
+
   },
-  goToCritic:function(e){
-    // console.log(e.currentTarget.dataset.tid)
+  goToCritic: function(e) {
+    console.log(e.currentTarget.dataset.oid)
     wx.navigateTo({
-      url: '../critic/critic?uid=' + e.currentTarget.dataset.uid,
+      url: '../critic/critic?uid=' + e.currentTarget.dataset.uid + '&oid=' + e.currentTarget.dataset.oid,
     })
   },
 
-  qualify:function(e){
+  qualify: function(e) {
 
     console.log(e.currentTarget.dataset.uid)
 
@@ -221,17 +240,17 @@ Page({
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      success: function (res) {
-        
+      success: function(res) {
+
 
       }
     })
 
 
-     
+
   },
-  disqualify:function(e){
-    console.log(e.currentTarget.dataset.oid)
+  disqualify: function(e) {
+    console.log(e.currentTarget.dataset.uid)
 
     wx.request({
       url: "https://www.volley99.com/order/turnpending/" + e.currentTarget.dataset.uid,
@@ -241,7 +260,7 @@ Page({
         'Content-Type': 'application/json',
         'cookie': wx.getStorageSync("sessionId")
       },
-      success: function (res) {
+      success: function(res) {
 
         console.log(res.data)
 
@@ -256,49 +275,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

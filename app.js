@@ -21,32 +21,32 @@ App({
     })
 
 
-    wx.request({
-      url: 'https://www.volley99.com/users/login',
-      data: { "username": "brother", "password": "123" },
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      header: {
-        'content-type': 'application/json'
-      }, // 设置请求的 header
-      success: function(res) {
+    // wx.request({
+    //   url: 'https://www.volley99.com/users/login',
+    //   data: { "username": "alias", "password": "123" },
+    //   method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    //   header: {
+    //     'content-type': 'application/json'
+    //   }, // 设置请求的 header
+    //   success: function(res) {
 
-        if (res.statusCode == 200) {
-          wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
-          console.log(util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
+    //     if (res.statusCode == 200) {
+    //       wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
+    //       console.log(util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
 
 
-          console.log(res.data);
-        } else {
-          console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
-        }
-      },
-      fail: function() {
-        console.log("index.js wx.request CheckCallUser fail");
-      },
-      complete: function() {
-        // complete
-      }
-    })
+    //       console.log(res.data);
+    //     } else {
+    //       console.log("index.js wx.request CheckCallUser statusCode" + res.statusCode);
+    //     }
+    //   },
+    //   fail: function() {
+    //     console.log("index.js wx.request CheckCallUser fail");
+    //   },
+    //   complete: function() {
+    //     // complete
+    //   }
+    // })
 
     var self=this;
 
