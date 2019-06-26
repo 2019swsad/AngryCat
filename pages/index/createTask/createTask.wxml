@@ -23,7 +23,7 @@
     <view class="section">
       <view class="section_title">描述</view>
       <view>
-        <textarea type="text" class="input description" maxlength="500" name="description" placeholder="任务描述" />
+        <textarea type="text" class="input description" maxlength="500" name="description" placeholder="任务描述(若任务类型为问卷调查，请在此填写问卷地址)" />
       </view>
     </view>
 
