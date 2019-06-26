@@ -53,12 +53,12 @@ Page({
       {
         "id": '7',
         "iconUrl": '../../image/icon-xingxing.png',
-        "iconText": '注册',
+        "iconText": '收藏',
       },
       {
         "id": '8',
         "iconUrl": '../../image/icon-tiyu.png',
-        "iconText": '登录',
+        "iconText": '交友',
       }
     ],
     recommendTasks: [],
@@ -126,6 +126,14 @@ Page({
           });
         }
       })
+    } else {
+      wx.showToast({
+        title: '此功能暂未开放',
+        icon:"none",
+        duration: 1000,
+        success: function () {
+        },
+      });
     }
   },
 
