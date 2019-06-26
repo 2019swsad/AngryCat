@@ -54,13 +54,11 @@ Page({
         "id": '7',
         "iconUrl": '../../image/icon-xingxing.png',
         "iconText": '注册',
-        "navigateUrl": '../../regist/regist'
       },
       {
         "id": '8',
         "iconUrl": '../../image/icon-tiyu.png',
         "iconText": '登录',
-        "navigateUrl": '../../login/login'
       }
     ],
     recommendTasks: [],

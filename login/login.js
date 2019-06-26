@@ -77,7 +77,7 @@ Page({
               icon: 'success'
             })
             // 导航回主页
-            setTimeout(wx.navigateBack, 1500, {
+            setTimeout(wx.switchTab({url: '../pages/index/index'}), 1500, {
               delta: 1
             })
 
