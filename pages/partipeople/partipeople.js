@@ -44,7 +44,7 @@ Page({
   // 将参与者降级为候选者
   disqualify: function(e) {
     console.log(e.currentTarget.dataset.oid)
-
+    var self=this;
     wx.showModal({
       title: '提示',
       content: '确定取消该报名者资格吗？',
@@ -63,6 +63,8 @@ Page({
               console.log(res.data)
 
 
+              self.requestInfo()
+
 
 
             }
@@ -78,6 +80,11 @@ Page({
 
   },
   requestInfo: function() {
+
+    this.setData({
+      personlist: [],
+      candidateList: [],
+    })
 
     // var show=options.show;
     // console.log(show)
@@ -217,6 +224,8 @@ Page({
   qualify: function(e) {
     console.log(e.currentTarget.dataset.oid)
 
+    var self = this
+
 
     wx.showModal({
       title: '提示',
@@ -232,6 +241,8 @@ Page({
               'cookie': wx.getStorageSync("sessionId")
             },
             success: function(res) {
+
+             self.requestInfo()
 
               console.log(res.data)
 
