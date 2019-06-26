@@ -20,10 +20,6 @@ Page({
   },
 
   bindExpireTimeChange: function(e) {
-    // console.log('picker发送选择改变，携带值为', e.detail.value)
-    // wx.showToast({
-    //   title: 'hi',
-    // })
     this.setData({
       expireTime: e.detail.value
     })
@@ -31,7 +27,6 @@ Page({
 
 
   bindBeginTimeChange: function(e) {
-    // console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       beginTime: e.detail.value,
       pickBegin: e.detail.value,
@@ -43,28 +38,6 @@ Page({
     }
   },
 
-  tempLogin: function() {
-    wx.request({
-      url: DOMAIN + '/users/login',
-      method: 'POST',
-      data: {
-        username: 'test',
-        password: '1234'
-      },
-      header: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      success: function(res) {
-        // console.log(JSON.stringify(res))
-
-        // console.log(typeof(res.cookies[0]))
-        // console.log(typeof(res.cookies))
-        // console.log(util.handleCookieFromSetCookie(res.cookies))
-        wx.setStorageSync("sessionId", util.handleCookieFromSetCookie(res.header['Set-Cookie'].split(',')));
-      }
-    })
-  },
-
   bindTaskTypeChange: function(e) {
     console.log(JSON.stringify(e))
     this.setData({
@@ -72,18 +45,12 @@ Page({
     })
   },
 
-  // 提交注册信息
+  // 提交创建任务信息
   formSubmit: function(e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    // console.log(util.convertDateFormatToMDY(this.data.beginTime),
-    //   util.convertDateFormatToMDY(this.data.expireTime))
-
     var submitObj = JSON.parse(JSON.stringify(e.detail.value))
     submitObj.beginTime = util.convertDateFormatToMDY(this.data.beginTime)
     submitObj.expireTime = util.convertDateFormatToMDY(this.data.expireTime)
     submitObj.type = this.data.taskType
-
-    console.log("提交的对象为", JSON.stringify(submitObj))
 
     wx.request({
       url: DOMAIN + '/task/create',
@@ -119,6 +86,7 @@ Page({
               icon: 'none'
             })
           } else {
+            // 处理返回的错误信息
             var regForErr = /"(.*?)"/
             var errStr = regForErr.exec(res.data.details[0].message)[0].slice(1, -1)
             var renhua = ""
