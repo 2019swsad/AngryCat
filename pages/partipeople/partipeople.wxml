@@ -11,14 +11,14 @@
   <view class="numberText">{x}/{y}</view>
   <!--参与者信息列表-->
   <view class="single" wx:for="{{personlist}}">
-    <image class="avatar" src="{{pageVar.fileUrl + item.uid}}"></image>
+    <image class="avatar" src='{{pageVar.fileUrl + item.uid  + "?" + randNum}}'></image>
     <view class="personalInfoContainer">
       <view class="name">{{item.name}}</view>
       <view class="credit">信誉值:{{item.credit}}</view>
     </view>
     <view class="status">{{item.status}}</view>
     <!--评价按钮：仅在参与者状态为"已完成"时显示-->
-    <button class="button" wx:if="{{item.status==finishStatus}}"  data-uid="{{item.uid}}" bindtap='goToCritic'>评价</button>
+    <button class="button" wx:if="{{item.status==finishStatus}}" data-uid="{{item.uid}}" bindtap='goToCritic'>评价</button>
     <!--取消资格按钮：仅在任务状态为"报名中"且参与者状态为"进行中"时显示-->
     <button class="button" wx:if="{{!taskIsBegining && item.status!=finishStatus}}" bindtap='disqualify'>取消</button>
   </view>
@@ -30,7 +30,7 @@
     <view class="numberText">{{waitingnumber}}人</view>
     <!--候补人员信息列表-->
     <view class="single" wx:for="{{candidateList}}">
-      <image class="avatar" src="{{pageVar.fileUrl + item.uid}}"></image>
+      <image class="avatar" src='{{pageVar.fileUrl + item.uid + "?" + randNum}}'></image>
       <view class="personalInfoContainer">
         <view class="name">{{item.name}}</view>
         <view class="credit">信誉值:{{item.credit}}</view>
