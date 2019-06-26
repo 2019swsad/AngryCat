@@ -24,6 +24,7 @@ Page({
     console.log(this.data.username)
     var self = this;
     //console.log(this.data.username);
+    //发出登录请求
     wx.request({
       url: 'https://www.volley99.com/users/login',
       data: {
