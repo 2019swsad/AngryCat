@@ -50,7 +50,7 @@ Page({
           var start = util.formatTimeWithoutHMS(new Date(res.data.beginTime));
           var end = util.formatTimeWithoutHMS(new Date(res.data.expireTime));
           self.setData({
-            beginTime: start
+            beginTime: start,
             endTime: end
           })
         }
