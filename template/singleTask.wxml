@@ -36,7 +36,7 @@
         <image class="portrait" src='{{pageVar.fileUrl + uid}}'></image>
         <!-- <text class="username">{{nickname}}</text> -->
         <!-- <image class="portrait" ></image> -->
-        <text class="username">发布者: {{organizer}}</text>
+        <text class="username">{{organizer}}</text>
       </view>
 
     </view>
