@@ -46,7 +46,10 @@ Page({
 
         // 过滤任务
         arrToRender = arrToRender.filter((item) => {
-          return item.title.indexOf(me.data.keyword) >= 0 && item.status.indexOf("未开始") >= 0
+          return item.title.indexOf(me.data.keyword) >= 0 &&
+            item.status.indexOf("未开始") >= 0 &&
+            item.uid != getApp().globalData.uid
+
         })
 
         console.log("after filter", JSON.stringify(arrToRender))
@@ -186,9 +189,7 @@ Page({
         var arrToRenderInsider = []
 
         arrToRender = arrToRender.filter((item) => {
-          return (item.status.indexOf("start") >= 0 ||
-              item.status.indexOf("未开始") >= 0 ||
-              item.status.indexOf("进行中") >= 0) &&
+          return item.status.indexOf("未开始") >= 0 &&
             item.uid != getApp().globalData.uid
         })
         arrToRender.forEach((item, index, input) => {
@@ -204,7 +205,7 @@ Page({
             success: function(res) {
               item.organizer = res.data[0].nickname
               arrToRenderInsider.push(item)
-              console.log("now push and render", arrToRenderInsider)
+              // console.log("now push and render", arrToRenderInsider)
               me.setData({
                 displayTasks: arrToRenderInsider
               })

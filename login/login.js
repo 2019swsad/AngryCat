@@ -20,6 +20,7 @@ Page({
       password: e.detail.value
     })
   },
+  
   login: function(param) {
     console.log(this.data.username)
     var self = this;
