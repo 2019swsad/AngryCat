@@ -232,6 +232,7 @@ Page({
 
           wx.showToast({
             title: '完成码错误',
+            icon: 'none'
           })
         } else if (res.statusCode == 200) {
           wx.showToast({
