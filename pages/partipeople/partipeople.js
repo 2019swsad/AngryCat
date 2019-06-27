@@ -13,7 +13,8 @@ Page({
     tid: "",
     waitingnumber: 0,
     partinumber: 0,
-    participanNum: 0
+    participanNum: 0,
+    status:true
   },
 
   /**
@@ -21,8 +22,8 @@ Page({
    */
   onLoad: function(options) {
 
-    // console.log(options.count)
-    this.data.tid = options.tid
+    
+    this.data.tid = options.status
     this.setData({
       participanNum: options.count
     })
@@ -84,6 +85,8 @@ Page({
     this.setData({
       personlist: [],
       candidateList: [],
+      waitingnumber:0,
+      partinumber:0
     })
 
     // var show=options.show;
@@ -107,7 +110,7 @@ Page({
 
       success: function(res) {
 
-        // console.log(res.data)
+       console.log(res.data)
         var jsonData = JSON.parse(JSON.stringify(res.data))
         var arrToRender = jsonData.reverse()
 
@@ -241,6 +244,13 @@ Page({
               'cookie': wx.getStorageSync("sessionId")
             },
             success: function(res) {
+
+              if (res.data.status =="Max participator"){
+                wx.showToast({
+                  title: '提示',
+                  content:"参与者已满，无法转正！",
+                })
+              }
 
              self.requestInfo()
 

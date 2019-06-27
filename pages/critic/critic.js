@@ -35,7 +35,7 @@ Page({
         note: ""
       }
     ],
-    uid: "608fa7ba-3197-4a30-b968-6fc9157a86c3",
+    uid: "",
     oid: ""
 
 
@@ -61,7 +61,7 @@ Page({
     var rate = (this.data.evaluations[0].star + this.data.evaluations[1].star) / 2 * 20
     var irate = Math.round(rate)
 
-    console.log(rate)
+    console.log(this.data.uid)
 
     var self = this
 
@@ -78,6 +78,8 @@ Page({
         'cookie': wx.getStorageSync("sessionId")
       },
       success: function(res) {
+
+        console.log(res.data)
 
 
 
@@ -113,7 +115,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options.oid)
+    console.log(options.uid)
     if (options.uid != null) {
       this.setData({
         uid: options.uid,
