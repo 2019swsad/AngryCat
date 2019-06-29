@@ -22,8 +22,12 @@ Page({
    */
   onLoad: function(options) {
 
-    
-    this.data.tid = options.status
+    console.log(options.tid)
+
+   
+
+  
+    this.data.tid = options.tid
     this.setData({
       participanNum: options.count
     })
