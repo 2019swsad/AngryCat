@@ -65,7 +65,7 @@ Page({
             },
             method: 'GET',
             success: function(res) {
-              item.organizer = res.data[0].username
+              item.organizer = res.data[0].nickname
               arrToRenderInsider.push(item)
               // console.log("now push and render", arrToRenderInsider)
               me.setData({
